@@ -1,0 +1,957 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>BCD (Bankcard) Attributes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "att_bcd.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_feadata-analysis.html">Data analysis</a> &gt; <a href="_feaanalyzeattributefactoryreference.html">AttributeFactory Reference</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">BCD (Bankcard) Attributes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feaanalyzeattributefactoryreference.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="att_aut.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="att_bfn.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The Bankcard attribute category provides information related to major credit card activity (Visa, Mastercard, American Express or Discover).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:middle;">
+<th style="vertical-align:middle; width:189px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Name</span></p>
+</th>
+<th style="vertical-align:middle; width:1115px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Description</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Count Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD001</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of bankcard tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD002</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of open bankcard tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD003</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of closed bankcard tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD004</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of bankcard tradelines reported in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD005</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of bankcard tradelines reported in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD006</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of bankcard tradelines reported in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD007</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new bankcard tradelines opened in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD008</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new bankcard tradelines opened in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD009</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new bankcard tradelines opened in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD010</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts currently open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD011</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts currently open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD012</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts currently open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD013</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts currently open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD014</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD015</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines with balance &gt; 250</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD016</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines listed in bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD019</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of charge off or internal collection bankcard tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD024</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts ever open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD025</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts ever open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD026</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts ever open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD027</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts ever open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD030</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts with activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD031</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts with activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD036</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts with no activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD037</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts with no activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD041</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts reported in last 3 months with past due amount &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD096</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of authorized user bankcard accounts</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD097</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of lost or stolen bankcard accounts</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD098</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts currently in dispute</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD099</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard accounts not evaluated due to exclusion criteria</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD101</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines with balance at or above credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD102</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines where balance is 50% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD103</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines where balance is 75% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Time / Age Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD201</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recently opened bankcard tradeline</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD202</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since oldest bankcard tradeline established</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD203</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average months since bankcard tradeline open date</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD204</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average length of time (in months) bankcard accounts are/were open</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD205</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent bankcard delinquency or default</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD206</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 30 day bankcard delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD207</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 60 day bankcard delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD208</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 day bankcard delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD209</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 to 180 day bankcard delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Amount Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD301</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total bankcard tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD302</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average bankcard tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD303</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest bankcard tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD311</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total bankcard tradeline monthly payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD312</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average bankcard tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD313</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest bankcard tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD332</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average bankcard tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD333</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest bankcard tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD341</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total bankcard tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD343</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest bankcard tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD351</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total bankcard tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD352</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of bankcard tradeline credit limit utilized</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD353</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of remaining bankcard tradeline credit capacity</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Ratio Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD401</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of open bankcard tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD402</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of closed bankcard tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD403</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of bankcard tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD404</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of bankcard tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD405</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of bankcard tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD406</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of bankcard tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD407</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of bankcard tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD408</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of total bankcard delinquencies to total bankcard payment history</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD430</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of bankcard balances to credit limits</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Delinquency Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD501</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD502</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines never defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD503</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD504</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD505</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD506</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 30 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD507</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD508</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 60 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD509</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD510</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 60 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD511</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 90 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD512</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 90 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD513</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD514</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 90 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD515</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 120 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD516</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 120 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD517</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 120 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD518</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently 120 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD519</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD520</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently delinquent or defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD521</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD522</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines currently defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD523</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines ever delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD524</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines ever 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD525</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines ever 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD526</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines ever 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD527</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines ever 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD528</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD529</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines ever defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD530</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD531</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD532</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not delinquent or defaulted in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD533</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not worse than 30 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD534</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not worse than 60 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD535</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not delinquent or defaulted in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD536</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not worse than 30 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD537</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not worse than 60 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD538</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not delinquent or defaulted in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD539</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not worse than 30 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD540</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of bankcard tradelines not worse than 60 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD541</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 30 day bankcard delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD542</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 60 day bankcard delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD543</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 90 to 180 day bankcard delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent levels presented from a zero baseline:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">0 = Not late</p>
+<p class="p_Normal">1 = 30 day delinquency</p>
+<p class="p_Normal">2 = 60 day delinquency</p>
+<p class="p_Normal">3 = 90 day delinquency</p>
+<p class="p_Normal">4 = 120 day delinquency</p>
+<p class="p_Normal">5 = 150 day delinquency</p>
+<p class="p_Normal">6 = 180 day delinquency</p>
+<p class="p_Normal">7 = Defaulted (included in bankruptcy)</p>
+<p class="p_Normal">8 = Defaulted (repossession or foreclosure)</p>
+<p class="p_Normal">9 = Defaulted (collection or charge off)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD544</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default bankcard occurrence on file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD545</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default bankcard occurrence in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD546</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default bankcard occurrence in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD547</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default bankcard occurrence in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD548</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default bankcard occurrence in last 36 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BCD549</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default bankcard occurrence in last 48 months</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

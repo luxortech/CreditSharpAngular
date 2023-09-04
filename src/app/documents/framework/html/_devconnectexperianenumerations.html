@@ -1,0 +1,928 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Enumerations</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devconnectexperianenumerations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectexperianmembers.html">Experian Connect Members</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Experian Connect Enumerations</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Connect</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="connectexperianmembers.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_connect_expinquiryoptions.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devconnectexperianmodels.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following tables list all the enumerated values available for use when requesting data from Experian.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 18px;"><table class="TblHdr" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><span style="font-weight: bold;">Enumeration</span></p>
+</td>
+<td style="vertical-align:top; width:72%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expcpuresponse" class="hmanchor"></a>ExpCpuResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if a CPU (automated) response is to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No Cpu response desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Standard</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Experian's default ARF layout will be returned.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expdemographics" class="hmanchor"></a>ExpDemographics</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Indicates which additional Demographic Band data elements should be included in the response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:59px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include extended demographic elements. (</span><span style="font-size: 12px; font-weight: bold;">Default</span><span style="font-size: 12px;">)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">All</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include all available demographic elements (Phone and Geocode)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Phone</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include Phone demographic detail only.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Geocode</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include Geocode demographic detail only.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expextendedview" class="hmanchor"></a>ExpExtendedView</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Indicates which Extended View score and/or attribute elements should be included in the response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:59px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include any Extended View elements. (</span><span style="font-size: 12px; font-weight: bold;">Default</span><span style="font-size: 12px;">)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">ScoreOnly</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include the Extended View score</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">AttributesOnly</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include the Extended View attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">ScoreAndAttributes</span></p>
+</td>
+<td style="vertical-align:top; width:59px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include both the Extended View score and attributes.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expjsonresponse" class="hmanchor"></a>ExpJsonResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if a JSON format response is to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No Json response desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Standard</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Experian's default JSON layout will be returned.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expnfdsearch" class="hmanchor"></a>ExpNfdSearch</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Enumerates the possible settings for the National Fraud Database search option.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No National Fraud Database Search will be performed. (</span><span style="font-size: 12px; font-weight: bold;">Default</span><span style="font-size: 12px;">)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Summary</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include a summary level Nfd Search result in the bureau response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Detail</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include a detailed Nfd Search result in the bureau response.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expproductcode" class="hmanchor"></a>ExpProductCode</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Enumerates possible bureau products which can be requested.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unspecified</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No product code specified.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">CreditReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return the standard CreditReport product.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">StandardCollectionReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return Experian's original standard collection format.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">CollectionCreditReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return Experian's reformatted collection layout (formerly known as Format 1).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">CustomCollectionReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return Experian's custom collection layout (formerly known as Format 3).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">MilitaryBorrowerCheck</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Performs a lookup against the Dept Of Defense database to determine if applicant is a covered military borrower.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">EmploymentInsight</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return Experian's employment insight report</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SocialSearch</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">7</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Performs a search using just a social security number</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Preapproval</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">8</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return one of Experian's preapproval services; typically one of the Instant Prescreen or Prequalification products</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Service</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">9</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return a custom or non-standard service using the BureauServices class to specify the service name and inputs.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expserviceregion" class="hmanchor"></a>ExpServiceRegion</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if a JSON request is to be sent to the test or production system. &nbsp;Currently only applies to APIHUB requests - not reference for/by NetConnect.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Test</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Submit transaction to the test region.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Production</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Submit transaction to the production region.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expttyformat" class="hmanchor"></a>ExpTtyFormat</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if a TTY (printable) response is to be returned</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Format01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return Experian's default format. (</span><span style="font-size: 12px; font-weight: bold;">Default</span><span style="font-size: 12px;">)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Format02</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return Experian's alternate format.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 8px 0px 0px 0px;"><span style="font-size: 12px;">The difference between each Trade Format option is primarily centered around the display of an account's payment history. With the Format01 option (Experian's default selection) a full 25 month payment pattern is shown. With the Format02 option only the first 13 months of the pattern are presented, with the extra space used to show the 30/60/90 delinquency counters. The Format02 option also adds an additional display column to the two most recent delinquency dates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expttypaging" class="hmanchor"></a>ExpTtyPaging</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Indicates which paging scheme should be used in the TTY response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:62px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; width:805px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">PagingOn</span></p>
+</td>
+<td style="vertical-align:top; width:62px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:805px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Use the default paging scheme. (</span><span style="font-size: 12px; font-weight: bold;">Default</span><span style="font-size: 12px;">)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">PagingOff</span></p>
+</td>
+<td style="vertical-align:top; width:62px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:805px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Turn the default paging scheme off.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 8px 0px 0px 0px;"><span style="font-size: 12px;">Experian has two basic options for controlling page layouts. When Paging option is enabled (Experian's default selection) the Trade section header is repeated on each page, as necessary, with page breaks and spacing inserted to conform to an actual printed page. When Paging is disabled the Tradeline header is only displayed one time at the top of the Trade section, even if tradelines are continued on subsequent pages and no page breaks or form spacing are included.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expttyresponse" class="hmanchor"></a>ExpTtyResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if a TTY (printable) response is to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member name</span></p>
+</td>
+<td style="vertical-align:top; width:61px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:806px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:61px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:806px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No TTY response is desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:199px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Enabled</span></p>
+</td>
+<td style="vertical-align:top; width:61px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:806px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include a TTY report in the response.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="expxmlresponse" class="hmanchor"></a>ExpXmlResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if an XML response is to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No XML response is desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Standard</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The default XML response will be returned.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

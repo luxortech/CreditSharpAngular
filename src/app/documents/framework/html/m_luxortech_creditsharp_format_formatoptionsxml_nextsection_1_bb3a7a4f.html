@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>NextSection Method&nbsp;</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "m_luxortech_creditsharp_format_formatoptionsxml_nextsection_1_bb3a7a4f.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_format.html">Format</a> &gt; <a href="t_luxortech_creditsharp_format_formatoptions.html">FormatOptions Classes</a> &gt; <a href="t_luxortech_creditsharp_format_formatoptionsxml.html">FormatOptionsXml Class</a> &gt;</p>
+                                                        </span>
+						
+						<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 16px; font-weight: bold;">FormatOptionsXml.NextSection Method</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Format</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="t_luxortech_creditsharp_format_formatoptionsxml.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="m_luxortech_creditsharp_format_formatoptionsxml_firstsection_1_bb3a7a4f.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="m_luxortech_creditsharp_format_formatoptionsxml_section_1_bb3a7a4f.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The NextSection method is invoked when adding additional display sections to a customized output order. &nbsp;After calling the <a href="m_luxortech_creditsharp_format_formatoptionsxml_firstsection_1_bb3a7a4f.html" class="topiclink">FirstSection</a> method to initialize the display sequence, additional calls are made to the <span style="font-weight: bold;">NextSection</span> method to add one or more displays sections in the desired order.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the goal is only to turn off display of particular items rather than modifying the complete sequence, the <a href="m_luxortech_creditsharp_format_formatoptionsxml_section_1_bb3a7a4f.html" class="topiclink">Section</a> method can be used to selectively disable individual display sections.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The order of sections in the <span style="font-weight: bold;">Common01</span> output is shown below.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Common01 Section order</font></a></p>
+<DIV id="section1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Section Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Header</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the date the credit report was obtained, any reference number value and which bureaus are represented.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">BureauError</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays any error information reported by a credit bureau.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Identification</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the consumer name, age, and social security numbers.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Address</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the consumer's current and former residential address history.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Alert</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays outcome of any fraud search services, active duty notices, etc. </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Alias</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays any alternate names consumer may be known by.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Summary</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays a table with summary level elements.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">ConsumerStatement</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays any consumer statement information included in the bureau data.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Score</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the results of all bureau score model requests.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Employment</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the consumer's employment history when available.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">FraudScan</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the outcome of any services which scan for occurrences of fraud or potential fraud markers.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">PublicRecord</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays any legal actions record against the consumer.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Tradeline</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays details of all credit account and payment history.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Banking</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays details of banking (checking and savings) history. &nbsp;(Only appears in Canadian credit data.)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">RegisteredItem</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays details of secured loans (chattel) that have been listed in the public registry. &nbsp;(Only appears in Canadian credit data.)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Message</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays general items that don't fit within other report categories.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Notification</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays a overview of notices or warnings gathered from detailed reports within the response data.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Inquiry</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays a record of all what other entities or business have checked the consumer's credit. history.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">OfacSearch</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the outcome of an Office of Foreign Assets Control search.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">ConsumerReferral</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the information for a consumer to use when contacting the bureau furnishing the data.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:250px; padding:3px;"><p class="p_Normal">Directory</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Displays the full name, address and phone number (as available) for all entities that reported information included in the output.</p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If so desired, this order can be modified by using the <span style="font-weight: bold;">FirstSection</span> and <span style="font-weight: bold;">NextSection</span> methods. Calling <span style="font-weight: bold;">FirstSection</span> effectively turns off the display of all default sections and then establishes the one indicated as the first display item. &nbsp;Subsequent calls to the <span style="font-weight: bold;">NextSection</span> method would add additional sections to be displayed.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section3, section3_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Syntax</font></a></p>
+<DIV id="section3" style="display:;"><p class="p_Normal"><span style="font-weight: bold;">public</span> <span style="font-weight: bold;">void </span>FirstSection (<span style="font-weight: bold;">string</span> sectionName)</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Parameters:</span></p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_Normal"><span style="font-style: italic;">sectionName</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Type: string</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Identifies the report section that should be displayed next. &nbsp;Must be one of the known sections (refer to either the Common01 above).</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section4, section4_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section4_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example</font></a></p>
+<DIV id="section4" style="display:;"><p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Format;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas; color: #0000ff;">namespace</span><span style="font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">class</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">DemoFormat</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">string</span><span style="font-family: Consolas;"> CreateXml(</span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-family: Consolas;"> common)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;"> options = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-family: Consolas;">.Xml);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Xml.Partitions = </span><span style="font-family: Consolas; color: #2b91af;">Partitioning</span><span style="font-family: Consolas;">.IdMatch;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Xml.ReportStyle = </span><span style="font-family: Consolas; color: #2b91af;">XmlStyle</span><span style="font-family: Consolas;">.Common01;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">this</span><span style="font-family: Consolas;">.SetCustomXml(options);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-family: Consolas;"> format = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-family: Consolas;">(options);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">return</span><span style="font-family: Consolas;"> format.Generate(common);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">void</span><span style="font-family: Consolas;"> SetCustomXml(</span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;"> options)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #008000;">// Only display four sections</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Xml.FirstSection(</span><span style="font-family: Consolas; color: #a31515;">&quot;Header&quot;</span><span style="font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; background-color: #feeada;">options.Xml.NextSection(</span><span style="font-family: Consolas; color: #a31515; background-color: #feeada;">&quot;Score&quot;</span><span style="font-family: Consolas; background-color: #feeada;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Xml.NextSection(</span><span style="font-family: Consolas; color: #a31515;">&quot;Summary&quot;</span><span style="font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Xml.NextSection(</span><span style="font-family: Consolas; color: #a31515;">&quot;Tradelines&quot;</span><span style="font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(sectionExc, sectionExc_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="sectionExc_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Exceptions</font></a></p>
+<DIV id="sectionExc" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Exception class</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Status</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_formatdataexception.html" class="topiclink">FormatDataException</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_formatdatastatus.html" class="topiclink">FormatDataStatus</a>.DuplicateSection</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_formatdatastatus.html" class="topiclink">FormatDataStatus</a>.FirstSectionMissing</p>
+</td>
+</tr>
+</table>
+</div>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

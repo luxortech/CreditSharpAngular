@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Exclude Method&nbsp;</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devcommonevaluation-methodsexclude.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+						<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 16px; font-weight: bold;">Exclude Method</span></p>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_appbureau-score-models.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <span style="font-weight: bold;">Exclude</span> method can be invoked on <a href="t_luxortech_creditsharp_datamart_common_comnotification.html" class="topiclink">Identification</a>, <a href="t_luxortech_creditsharp_datamart_common_cominquiry.html" class="topiclink">Inquiry</a>, <a href="t_luxortech_creditsharp_datamart_common_compublicrecord.html" class="topiclink">PublicRecord</a> and <a href="t_luxortech_creditsharp_datamart_common_comtradeline.html" class="topiclink">Tradeline</a> objects. &nbsp;The method toggles the exclude state on or off, returning a Boolean value reflecting what state has been set. &nbsp;The effect of this method can also been seen in the <span style="font-weight: bold;">IsExcluded</span> property of each object which returns the <a href="t_luxortech_creditsharp_core_excludestate.html" class="topiclink">ExcludeState</a> enumerated value.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Items explicitly excluded using this method will not be included in any <span style="font-weight: bold;">AnalyzeData</span> calculations nor will they be shown in any of the various <span style="font-weight: bold;">Format</span> outputs. &nbsp;For this reason, care should be taken when setting up exclusion logic to ensure that the desired outcome is achieved and that items are not inadvertently hidden from view. &nbsp;The exclude state can be turned of all manually excluded items at once with a call to the <span style="font-weight: bold;">RestoreExcludes</span> method.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Usage</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">One possible scenario might involve a business case where all known medical debts are eliminated from any evaluation of a consumer's creditworthiness. &nbsp;The example shown &nbsp;here demonstrates how this could be accomplished, with each debt being flagged by the <span style="font-weight: bold;">Exclude</span> method if they are medical obligations. &nbsp;This means that any AnalyzeData or FormatData operations performed against that CommonData object would skip past each observation marked as 'excluded'.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Note</span>: This state does not carry on to the MergeData object. &nbsp;If items are excluded in the CommonData object, they would still be picked up during a merge operation. &nbsp;If items within a MergeData object are to be skipped over, they would need to be excluded directly through that merge instance itself.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Syntax</font></a></p>
+<DIV id="section1" style="display:none;"><p class="p_Normal"><span style="font-weight: bold;">public</span> <span style="font-weight: bold;">bool</span> Exclude ()</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Parameters: none</span></p>
+<p class="p_Normal">&nbsp;</p>
+</div><!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example</font></a></p>
+<DIV id="section2" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">HideMedicalDebts</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> HideItems(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas;"> commonData)</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">foreach</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComPublicRecord</span><span style="font-size: 12px; font-family: Consolas;"> segment </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">in</span><span style="font-size: 12px; font-family: Consolas;"> commonData.PublicRecordSegments)</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (segment.IsMedical)</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;segment.Exclude();</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">foreach</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradeline</span><span style="font-size: 12px; font-family: Consolas;"> segment </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">in</span><span style="font-size: 12px; font-family: Consolas;"> commonData.TradelineSegments)</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (segment.IsMedical)</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;segment.Exclude();</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

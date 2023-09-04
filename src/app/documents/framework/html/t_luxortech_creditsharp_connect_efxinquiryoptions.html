@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>EfxInquiryOptions Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_connect_efxinquiryoptions.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectequifaxmembers.html">Equifax Connect Members</a> &gt;</p>
+                                                        </span>
+						
+						<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 16px; font-weight: bold;">EfxInquiryOptions Class</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Connect</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="connectequifaxmembers.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="m_luxortech_creditsharp_connect_equifaxrequest_requestproduct_3_68aac48c.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_connect_efxtotalviewenhancers.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The properties presented within the EfxInquiryOptions class are specific to an Equifax credit bureau request. &nbsp;They are used to request various forms of supplemental information be added to a credit report response.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Constructor</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Name</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">EfxInquiryOptions(string licenseKey)</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Constructor for an instance of the EfxInquiryOptions class.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Syntax</font></a></p>
+<DIV id="section1" style="display:none;"><p class="p_Normal"><span style="font-weight: bold;">public </span>EfxInquiryOptions(<span style="font-weight: bold;">string</span> licenseKey)</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 10px 5px;"><span style="font-weight: bold;">Parameters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_Normal"><span style="font-style: italic;">licenseKey</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Type: string</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">The 36 character key which grants access to all CreditSharp features.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 0px;"><table class="TblHdrBrdBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:125px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AdvisorRequest</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value controlling what type of Equifax Advisor family of products will be included in response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AlertContact</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating is Fraud Alert Contact information should be included in response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="appendpdfimage" class="hmanchor"></a>AppendPdfImage</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag controlling whether or not an Equifax provided PDF image of the credit data should be downloaded automatically.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If true, and the <span style="font-weight: bold;">EquifaxRequest.TtyResponse</span> property is set to <span style="font-weight: bold;">EfxTtyResponse.PdfImage</span>, then the PDF report for each applicant will be retrieved along with the rest of the credit data and embedded within the JSON response string as &quot;pdfImage1&quot; and &quot;pdfImage2&quot; (if submitting a joint request). </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CanadianContent</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxcanadacontent" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxcanadacontent" class="topiclink">EfxCanadaContent</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating whether US or Canadian specifications should be used for response data.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to EfxCanadaContent.<span style="font-weight: bold;">PassThru</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ConsumerReferral</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if Consumer Referral detail should be included in response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditView</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxcreditview" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxcreditview" class="topiclink">EfxCreditView</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating which consumer credit report variant will be returned.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to EfxCreditView.<span style="font-weight: bold;">Standard</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DelinquentMonthCount</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxmonthcount" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxmonthcount" class="topiclink">EfxMonthCount</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating maximum age of delinquencies included in bureau summaries.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to EfxMonthCount.<span style="font-weight: bold;">AllValues</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DirectoryMemberCode</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the subscriber code to be used with the OnlineDirectory lookup service.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">InquiryMonthCount</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxmonthcount" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxmonthcount" class="topiclink">EfxMonthCount</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating maximum age of inquiries included in bureau summaries.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to EfxMonthCount.<span style="font-weight: bold;">AllValues</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MilitaryBorrowerCheck</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if a Military Lending Act search should be appended to the current request.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">OnlineDirectory</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag controlling whether or not subscriber phone and address detail is included in the response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PdfLink</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the URL pointing to a downloadable PDF file on the Equifax server.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Can either be the full URL as returned by Equifax or just the fragment containing the unique resource id.</p>
+<p class="p_Normal">Such as:</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 44px;">/business/consumer-credit/v1/reports/credit-report/2308ab00-193c-af4c-4b11-7b0447f409e1</p>
+<p class="p_Normal">Or:</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 44px;">2308ab00-193c-af4c-4b11-7b0447f409e1</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PdfWaitTime</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value indicating how many attempts will be made to automatically retrieve a PDF credit report image from the new Equifax cloud based API.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In instances where the Equifax server(s) are abnormally busy they may be a appreciable delay when creating a printable PDF image of a consumer credit report to accompany the native JSON raw data response. &nbsp;This PdfWaitTime property is used by the CreditSharp framework to repeatedly attempt to obtain the PDF image, for the number of times indicated here, with a one second interval between each attempt.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the PDF cannot successfully be obtained in the allotted time, the <span style="font-weight: bold;">EquifaxRequest</span>.<a href="t_luxortech_creditsharp_connect_equifaxrequest.html#pdfstatus" class="topiclink">PdfStatus</a> property will be assigned one of several error code values indicating why the attempt(s) failed.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">4</span>] (ie: up to four attempts will be made to retrieve the PDF pausing one second between each try.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SupplementalScoreData</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxscoresupplement" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxscoresupplement" class="topiclink">EfxScoreSupplement</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value specifying what type of consumer score disclosure detail should be in the response.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to EfxScoreSupplement.<span style="font-weight: bold;">AllScores</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="totalviewenhancers" class="hmanchor"></a>TotalViewEnhancers</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_connect_efxtotalviewenhancers.html" class="topiclink">Type</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Static class used to assign properties for requesting extended bureau data elements.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VerboseJsonResponse</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Get or sets the value indicating if cloud-based JSON api responses should include descriptions for all coded elements. &nbsp;For instance, when true, Equifax will returned all tradeline Narrative Codes values with both the two-character code <span style="font-style: italic;">and</span> a text description of the code.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span> in order to reduce response file sizes]</p>
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

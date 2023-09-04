@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>TEXT Sample</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_feaoutputstext-sample.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_outcreditsharpoutput.html">CreditSharp Outputs</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">TEXT Sample</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_outcreditsharpoutput.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_feaoutputsjson_analyze.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_feaoutputsxml-output.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The are two basic TEXT formats, Common01 and Lending01. &nbsp;The Common01 layout organizes the output into two logical reports, one for each applicant. &nbsp;The Lending01 layout has the same appearance but groups all primary and secondary applicant items together.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The sample shown below represents the output for the Common01 layout. &nbsp;The Lending01 layout is more suited to displaying merged data sets.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Ordered: 06/09/2016 &nbsp; &nbsp;Printed: xx/xx/xxxx &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Source:TUC</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">CONSUMER INFORMATION </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Ident &nbsp; &nbsp;(Src/Nbr) &nbsp; &nbsp; &nbsp; &nbsp;Last, First Middle, Suffix &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ssn &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Dob &nbsp; &nbsp; &nbsp; &nbsp; Since</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">PRIMARY &nbsp;(TUC/01) &nbsp; &nbsp; &nbsp; &nbsp; SMITH, BRUCE M &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 666-98-5453 &nbsp;01/01/1991 &nbsp;11-1985</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">ADDRESS INFORMATION</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(Src/Id) &nbsp; &nbsp; &nbsp; &nbsp; Type &nbsp;Rptd &nbsp; Street Address / City, State Zip</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/01) &nbsp; &nbsp; &nbsp; &nbsp; Curr &nbsp;12-85 &nbsp;304 BUCKELS AV / HOUSTON, PA 15342</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">----------------------------------------------------------------------------------------------------- &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">ALERT INFORMATION</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(Src/Id) Message</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/00) &nbsp; &nbsp; &nbsp;File Note: &nbsp; &nbsp; Applicant was not found in OFAC database.</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">SUMMARY INFORMATION &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Now &nbsp; &nbsp;Now &nbsp; &nbsp;COff &nbsp; Clsd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #Times/24 mos</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Account Matrix &nbsp; &nbsp;Counts &nbsp; Balances &nbsp; Payments &nbsp; Curr &nbsp; Late &nbsp; Repo &nbsp; Paid &nbsp; LastDlq &nbsp; N30 &nbsp;N60 &nbsp;N90+</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Collection &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;x &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp;- &nbsp; &nbsp;-</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Revolving &nbsp; &nbsp; &nbsp; &nbsp; 4 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; 4 &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp;- &nbsp; &nbsp;-</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Installment &nbsp; &nbsp; &nbsp; 3 &nbsp; &nbsp; &nbsp; &nbsp;7,744 &nbsp; &nbsp; &nbsp; &nbsp;231 &nbsp; &nbsp; 3 &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp;- &nbsp; &nbsp;-</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Real Estate &nbsp; &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp;- &nbsp; &nbsp;-</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Other &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp;- &nbsp; &nbsp;-</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;Totals &nbsp; &nbsp; &nbsp; 7 &nbsp; &nbsp; &nbsp; &nbsp;7,744 &nbsp; &nbsp; &nbsp; &nbsp;231 &nbsp; &nbsp; 7 &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp;5 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp;- &nbsp; &nbsp;-</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Trade Activity</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; InFile Since &nbsp; &nbsp;11-1985 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Avail Credit &nbsp; 10,000</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Oldest Account &nbsp;04-1999 (Revolving) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Pct Utilized &nbsp; 0</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Newest Account &nbsp;02-2015 (Installment) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #At/Over Limit 0</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Public Records &nbsp; &nbsp;Counts &nbsp;Most Recent &nbsp;Amt Filed &nbsp; Amt Owed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Inquiries &nbsp; &nbsp; &nbsp; Counts</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">----------------------------------------------------------- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ---------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Bankruptcy &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp;n/a &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Past 2 Wks &nbsp; &nbsp; 1</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Civil Cases &nbsp; &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Past 1 Mon &nbsp; &nbsp; 1</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Tax Liens &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Past 2 Mos &nbsp; &nbsp; 1</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Real Estate &nbsp; &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Past 3 Mos &nbsp; &nbsp; 1</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Other &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Past 6 Mos &nbsp; &nbsp; 1</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">----------------------------------------------------------- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ---------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;Totals &nbsp; &nbsp; &nbsp; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">SCORE INFORMATION </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(Src/Id) &nbsp; &nbsp; &nbsp; &nbsp; Score &nbsp;Description</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Factors(1-4)</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/01) &nbsp; &nbsp; &nbsp; &nbsp; 00948 &nbsp;L2C Thin File</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DLQ &nbsp;CREDIT AND/OR DEBIT HISTORY IS DELINQUENT</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;C3 &nbsp;NUMBER OF RECENT INQUIRIES ON CREDIT REPORT</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;J1 &nbsp;MISMANAGEMENT OF OBLIGATIONS</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;++ &nbsp;Score Provider Alert: TO DISPUTE L2C SCORE, PLEASE CALL: 866-268-7156, OR</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WRITE TO : L2C, INC., P.O BOX 10, WOODLYN, PA 19094.</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">EMPLOYMENT INFORMATION </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(Src/Id) &nbsp; &nbsp; &nbsp; &nbsp; Rptd &nbsp; Hired &nbsp;Left &nbsp;Employer/Occupation</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Street Address / City, State Zip</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/01) &nbsp; &nbsp; &nbsp; &nbsp; 07-13 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EMPLOYER X / RETIRED</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Src &nbsp;Creditor Name / Account Number &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Industry/Product &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Ecoa/Idnt</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; Open &nbsp;HighCr Payment Balance &nbsp;Rptd Cmop &nbsp;PastDue 30 60 90 MR HistDate/Pattern &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; Type &nbsp;Limit &nbsp; &nbsp; Term &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;LDlq-Rate &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AcctCond &nbsp; &nbsp;Dflt &nbsp;Lact &nbsp;Paid &nbsp;Clsd &nbsp;MaxDlq Disp</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;BK OF AMER / 1010 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Credit Card &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;INDV 01</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 04-99 &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; N/A &nbsp; &nbsp; -0- 06-12 &nbsp;CURR &nbsp; &nbsp; &nbsp; &nbsp; 00 00 00 48 06-12 1-----------/-----------1</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; REV &nbsp; &nbsp;18600 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CLOSED &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NO</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;CABELAS WFB / 430027576074 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Credit Card &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;INDV 01</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 04-11 &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; N/A &nbsp; &nbsp; -0- 08-13 &nbsp;CURR &nbsp; &nbsp; &nbsp; &nbsp; 00 00 00 28 08-13 111111111111/111111111111</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; REV &nbsp; &nbsp; &nbsp;500 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CLOSED &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;05-13 &nbsp; &nbsp; &nbsp; &nbsp; NO</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;CABELAS WFB / 430027216702 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Credit Card &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; JOINT 01</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 10-08 &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; N/A &nbsp; &nbsp; -0- 02-11 &nbsp;CURR &nbsp; &nbsp; &nbsp; &nbsp; 00 00 00 27 02-11 111111111111/111111111111</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; REV &nbsp; &nbsp; 1500 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CLOSED &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;11-10 &nbsp; &nbsp; &nbsp; &nbsp; NO</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;FRD MOTOR CR / BXAX0X9XGX &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Auto Financing &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;JOINT 01</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 11-02 &nbsp;16536 &nbsp; &nbsp; 344 &nbsp; &nbsp; -0- 12-06 &nbsp;CURR &nbsp; &nbsp; &nbsp; &nbsp; 00 00 00 32 12-06 1-111111-111/-11111111111</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; INS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 048M &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CLOSED &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;12-06 12-06 &nbsp; &nbsp; &nbsp; &nbsp; NO</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;FRNDSHP S BK / 442070709451 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Credit Card &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; JOINT 01</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 09-06 &nbsp; &nbsp; &nbsp;0 &nbsp; &nbsp; N/A &nbsp; &nbsp; -0- 11-06 &nbsp;CURR &nbsp; &nbsp; &nbsp; &nbsp; 00 00 00 02 11-06 11</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; REV &nbsp; &nbsp;10000 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NO</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;HYUNDAI FINC / 2X1X0X0X5X2X0X &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Auto Financing &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;JOINT 01</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 02-15 &nbsp;10456 &nbsp; &nbsp; 231 &nbsp; &nbsp;7744 05-16 &nbsp;CURR &nbsp; &nbsp; &nbsp; &nbsp; 00 00 00 14 05-16 111111111111/11</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; INS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 048M &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 05-16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NO</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;TD AUTO FIN / 1X0X1X6X5X &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Auto Financing &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;JOINT 01</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 11-07 &nbsp;14494 &nbsp; &nbsp; N/A &nbsp; &nbsp; -0- 10-12 &nbsp;CURR &nbsp; &nbsp; &nbsp; &nbsp; 00 00 00 49 10-12 1-1111111111/111111111111</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; INS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 060M &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CLOSED &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10-12 10-12 &nbsp; &nbsp; &nbsp; &nbsp; NO</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">INQUIRY INFORMATION </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(Src/Id) &nbsp; &nbsp; &nbsp; &nbsp; Inqr Date &nbsp;Creditor Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Creditor Number</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/01) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;06/09/16 &nbsp;LUXOR TECH &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;01000404</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/01) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;03/02/15 &nbsp;HMF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 02816123</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/01) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;03/02/15 &nbsp;WASHINGTON H &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;04162219</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">OFAC SEARCH INFORMATION </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(Src/Id) &nbsp;Result &nbsp; &nbsp; &nbsp;Match Name (Last, First Middle) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Match Type / Flags</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Match Address</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Watch Date &nbsp;Match Source &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Match Category</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">(TUC/01) &nbsp;Clear &nbsp; &nbsp; &nbsp; No OFAC matches found for Primary applicant</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">CONSUMER REFERRAL INFORMATION </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Bureau Name</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; Address / City, State Zip</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TRANSUNION CUSTOMER RELATIONS &nbsp; &nbsp; &nbsp; 800-888-4213</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; 2 BALDWIN PLACE PO BOX 1000 &nbsp;CHESTER, PA 19022</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">CREDITOR INFORMATION </span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">Src &nbsp;Creditor Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Creditor Nbr Contact Info</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; Street Address / City, State Zip</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------------------------------------------------------------------------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;BK OF AMER &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;01597029 &nbsp; &nbsp; 800-421-2110</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; PO BOX 982235 / EL PASO, TX 79998</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;CABELAS WFB &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 07452009 &nbsp; &nbsp; 800-552-7963</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 4800 NW 1ST STREET SUITE 300 / LINCOLN, NE 68521</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;FRD MOTOR CR &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;03796761 &nbsp; &nbsp; 800-727-7000</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; POB 542000 / OMAHA, NE 68154</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;FRNDSHP S BK &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;016MZ001</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 1 MAIN ST / FRIENDSHIP, IN 47021</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;HMF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 02816123 &nbsp; &nbsp; 800-523-4030</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; HYUNDAI MOTOR FINA PO BOX 20835 / FOUNTAIN VALLE, CA 92728</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;HYUNDAI FINC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;07678001 &nbsp; &nbsp; 800-523-4030</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 10550 TALBERT AV / FOUNTAIN VALLE, CA 92708</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;TD AUTO FIN &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0624C112 &nbsp; &nbsp; 800-222-1701</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 27777 INKSTER RD / FARMINGTON HIL, MI 48334</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">TUC &nbsp;WASHINGTON H &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;04162219 &nbsp; &nbsp; 724-222-2216</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; 305 WASHINGTON RD / WASHINGTON, PA 15301</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">*** END CONSUMER ***</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 57px;"><span style="font-family: 'Courier New',Courier,monospace;">*** END REPORT ***</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

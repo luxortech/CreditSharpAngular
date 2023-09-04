@@ -1,0 +1,1067 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Enumerations</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devanalyzeenumerations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_analyze.html">Analyze</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Analyze Enumerations</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Analyze</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_analyze.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_analyze_evaluatetradeline.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devanalyzedelegates.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following tables list all the enumerated values available for use when setting various properties found within the Analyze namespace.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 18px;"><table class="TblHdr" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><span style="font-weight: bold;">Enumeration</span></p>
+</td>
+<td style="vertical-align:top; width:72%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysisactive" class="hmanchor"></a>AnalysisActive</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Enumerations available for use when invoking the ComTradeline IsActive method, which indicate if any specific date(s) should be ignored.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">UseAllDates</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Use any date to determine last tradeline activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SkipDateOpen</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include open dates as indicators of activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SkipDateClosed</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include closed dates as indicators of activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SkipOpenAndClosed</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include open or closed dates as indicators of activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SkipDateReported</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include reported dates as indicators of activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SkipOpenAndReported</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include open or reported dates as indicators of activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SkipClosedAndReported</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include closed or reported dates as indicators of activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SkipOpenClosedAndReported</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">7</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not include open, closed or reported dates as indicators of activity</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysiscreditcapacity" class="hmanchor"></a>AnalysisCreditCapacity</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Specifies how available limit calculation is performed.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Total</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates credit available calculation should be total of all open credit limits.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Remaining</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">indicates credit available calculation should tabulate amount of remaining debt that can be incurred.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysisdate" class="hmanchor"></a>AnalysisDate</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Used to specify which date will be the basis for age related calculations.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Report</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Age related calculations will use the date the credit report was originally obtained as the base value.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">System</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The current system date will be used as the base value.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysisdateunit" class="hmanchor"></a>AnalysisDateUnit</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Specifies what unit is being measured when comparing the gap between two dates.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Months</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Execute the difference as number of months between dates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Days</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Execute the difference as number of days between dates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Years</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Execute the difference as number of years between dates.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysisid" class="hmanchor"></a>AnalysisId</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Used to specify which collection of attributes will be / has been generated.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">CustomEvaluation</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates the AnalysisBundle contains custom calculations.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SummaryData01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates the AnalysisBundle contains SummaryData01 calculations.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">AttributeFactory01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates the AnalysisBundle contains AttibuteFactor01 calculations.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysislateseverity" class="hmanchor"></a>AnalysisLateSeverity</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Specifies what level of delinquent occurrence is being evaluated.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Any</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for any delinquency.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late30</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 30 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late60</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 60 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late60Plus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 60, 90, 120, 150 or 180 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late60OrMore</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 60 or greater, to include instances of Mop 7, 8 or 9.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late90</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 90 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late90Plus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 90, 120, 150 or 180 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late90OrMore</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">7</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for any delinquency 90 days or greater, to include instances of Mop 7, 8 or 9.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late120</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">8</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 120 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late120Plus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">9</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 120, 150 or 180 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late120OrMore</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">10</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for any delinquency 120 days or greater, to include instances of Mop 7, 8 or 9.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late150</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">11</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 150 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late150Plus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">12</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 150 or 180 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late150OrMore</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">13</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for any delinquency 150 days or greater, to include instances of Mop 7, 8 or 9.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late180</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">14</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 180 day lates.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Late180OrMore</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">15</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 180 day lates or Mop 7, 8 or 9.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Mop7</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">16</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of Mop 7 (Bankruptcy)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Mop8</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">17</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of Mop 7 (Repossession or Foreclosure)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Mop9</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">18</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of Mop 7 (Charge off or Collection)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Major</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">19</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of Mop 7, 8, or 9.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Minor</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">20</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Looks for occurrences of 30, 60, 90, 120, 150 or 180 day lates.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysislimitproxy" class="hmanchor"></a>AnalysisLimitProxy</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Specifies if an alternate CreditLimit source can be used in relevant calculations.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No proxy value should be used, calculation will not be performed without an explicit CreditLimit value.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Implied</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Allow use of HighCredit value as a proxy if evenly divisible by 5, or, if the high credit is less than the current balance.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Inherited</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Use HighCredit if CreditLimit is not present.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysisoperation" class="hmanchor"></a>AnalysisOperation</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Indicates what type of instruction will be performed in a given evaluation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Count</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Increments total by one if given segment matches search criteria.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Sum</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Accumulates total value of targeted data element.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Average</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Calculates the average value for all occurrences of the target data element.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Highest</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Preserves the highest value found amongst the targeted data element.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Lowest</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Preserves the lowest value found amongst the targeted data element.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Minimum</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Also preserves the lowest value found amongst the targeted data element, but ignores the AssumeZeroValue option setting and always skips over blank values.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Maximum</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Also preserves the highest value found amongst the targeted data element, but ignores the AssumeZeroValue option setting and always skips over blank values.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Newest</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">7</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Preserves the most recent date found amongst the target data element.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Oldest</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">8</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Preserves the oldest date found amongst the target data element.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Compute</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">9</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Solves an equation using references to one more previously calculated values.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Review the <a href="_devanalyzeoperations.html" class="topiclink">Operations</a> topic pages for examples and discussion of each type of operation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysisresulttype" class="hmanchor"></a>AnalysisResultType</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Indicates the fundamental data type of an evaluation result.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">No computed value exists. &nbsp;Typical when no matching data elements where found and the operation is something other than </span><span style="font-size: 12px; font-weight: bold;">Count</span><span style="font-size: 12px;">.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Numeric</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Computed result is a number.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Date</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><span style="font-size: 12px;">Computed result is a date (coincides with the </span><span style="font-size: 12px; font-weight: bold;">Newest</span><span style="font-size: 12px;"> and </span><span style="font-size: 12px; font-weight: bold;">Oldest</span><span style="font-size: 12px;"> operations.)</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="analysistradestate" class="hmanchor"></a>AnalysisTradeState</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;">Specifies how the Open or Closed status of a given Tradeline is decided.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Strict</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Bases the open/closed decision solely upon the value of the ClosedIndicator</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Inferred</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">In addition Strict, will also check for a zero balance on installment, mortgage and collection accounts.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Lenient</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">In addition to Strict and Inferred, will also consider AccountCondition: Frozen, Closed By User, Closed By Creditor, Assumed</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

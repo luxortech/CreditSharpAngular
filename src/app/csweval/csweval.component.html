@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-12">
+        <h3>Email us at <a href="mailto:sales@creditsharp.com">sales@creditsharp.com</a> and let us know how we can help!</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h3>
+            Click <a (click)="clickHere()"><i style="color: #083796;"><u>Here</u></i></a> to download a full functioning Credit<i style="color: #083796;">Sharp</i> evaluation copy!
+        </h3>
+    </div>
+</div>
+<div class="row" *ngIf="showDownload" ng-init="setEvalCode('@ViewBag.evalCode')">
+    <div class="col-12">         
+        <form>
+            <fieldset class="fsInfo">
+                <h4 class="Info">
+                    Enter your contact info and we will email you your download link.
+                    Click on that link to return here and automatically fill in the Evaluation Key<br/><br/>
+                    Or simply paste the Evaluation Key from email into the Evaluation Key box below.
+                </h4>
+                <div class="form-group">
+                    <label for="evalName">Name</label>
+                    <input class="form-control" type="text" id="evalName" [value]="evalName" placeholder="Enter your name"/>
+                </div>
+                <div class="form-group">
+                    <label for="evalName">Company</label>
+                    <input class="form-control" type="text" id="evalCompany" [value]="evalCompany" placeholder="Enter your company name"/>
+                </div>
+                <div class="form-group">
+                    <label for="evalEmail">Email Address:</label>
+                    <input class="form-control" type="text" id="evalEmail" [value]="evalEmail"  (change)="evalRequestSent = false" placeholder="Enter your email address"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" [disabled] ="evalRequestSent || evalEmail.length == 0" (click)="sendEvalRequest()">Send Me My CreditSharp Download Link!</button>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-danger" *ng-if="evalRequestErrorText != ''">
+                        <span [innerText]="evalRequestErrorText"></span> 
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+ 
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-success" *ngIf="evalRequestSent" style="font-weight: bold">
+            Your download link with evaluation key was sent to <span [innerText]="evalEmail"></span>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="showDownload">
+    <div class="col-12">
+        <form>
+            <fieldset class="fsInfo ">
+                <div class="form-group">
+                    <label for="evalEmail">Evaluation Key:</label>
+                    <textarea class="form-control" type="text" rows="2"  [value]="evalCode"  placeholder="Enter the evaluation code from the email sent to you!"></textarea>
+                </div>
+                <div class="form-group" *ngIf="showLicenseInfo">
+                    <div style="text-align: center;"><span [innerText]="licenseInfo"></span></div>
+                </div>
+                <div class="form-group" *ngIf="showLicenseKey">
+                    <div style="text-align: center;">This is your License Key</div>
+                    <div style="text-align: center; font-weight: bold"><span [innerText]="licenseKey"></span></div>
+                    <div style="text-align: center;">Use this value to enable your demonstration usage by supplying it in each CreditSharp Option Constructor</div>
+                </div>
+                <div class="form-group" *ngIf="hideDownloadButton==false">
+                    <button (click)="downloadEval(evalCode)" class="btn btn-default">Download My CreditSharp Evaluation Copy!</button>
+                </div>
+                <div class="alert alert-danger" *ng-if="evalRequestErrorText != ''">
+                    <span [innerText]="evalRequestErrorText"></span> 
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="row" *ngIf="showDownload">
+    <div class="col-12">
+        <div class="alert alert-danger" *ng-if="evalRequestErrorText != ''">
+            <span [innerText]="evalRequestErrorText"></span> 
+        </div>
+    </div>
+</div>
+        
+    

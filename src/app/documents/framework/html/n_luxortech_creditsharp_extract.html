@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Extract</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "n_luxortech_creditsharp_extract.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">LuxorTech.CreditSharp.Extract Namespace</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_devcreditsharpnamespaces.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devdatamartmethodsnbr.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_extract_extractdata.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The Extract Namespace is where users can elect to export credit bureau information which adheres to each bureau's native definitions. &nbsp;The names of data elements correspond, for the most part, to those found within the bureau's own manuals. &nbsp;As well, all the codes and content is presented using the bureau specific conventions.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The output can be generated using either Json or Xml structures. &nbsp;Json and/or Xml schemas for each bureau can be downloaded from the CreditSharp website at <a href="http://www.CreditSharp.com/public/documentation" target="_blank" class="weblink">www.CreditSharp.com/public/documentation</a>.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">By default, all data presented in an extract will have been cleansed so that dates and numeric or dollar amounts are properly and consistently formatted. &nbsp;These values are not normalized (converted to common or shared definitions) but they are also not in the exact image as returned by the credit bureau. &nbsp;If there is a need to review the original raw data in its uncleansed form, setting the FilteredView property of the BureauData class will achieve that goal. &nbsp;Review the FilteredView discussion below for an example of this feature.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section4, section4_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section4_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">An example of a typical programming pattern</font></a></p>
+<DIV id="section4" style="display:none;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> System.Diagnostics;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Equifax;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Experian;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.TransUnion;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Extract;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">DemoExtract</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> GetBureauXml(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> creditDataBuffer, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;"> creditBureau, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> licenseKey)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauData</span><span style="font-size: 12px; font-family: Consolas;"> bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">null</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> output = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">switch</span><span style="font-size: 12px; font-family: Consolas;">(creditBureau)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Equifax:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EquifaxData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Experian:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExperianData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.TransUnion:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TransUnionData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">try</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bureauData.Parse(creditDataBuffer);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractData</span><span style="font-size: 12px; font-family: Consolas;"> extractData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractOptions</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractLayout</span><span style="font-size: 12px; font-family: Consolas;">.Xml));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; output = extractData.Assemble(bureauData);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">catch</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CreditSharpException</span><span style="font-size: 12px; font-family: Consolas;"> ex)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(LuxorTech.CreditSharp.Core.</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Utilities</span><span style="font-size: 12px; font-family: Consolas;">.ErrorStack(ex));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> output;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Start of Namespace table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Extract Classes</font>
+</a>
+</p>
+<DIV id="section1" style="display:;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_extract_extractdata.html" class="topiclink">ExtractData</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Root class used to obtain native data from imported credit bureau.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_extract_extractoptions.html" class="topiclink">ExtractOptions</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Container class for indicating the options and settings that will control the creation of extracted output.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</div><!-- Start of Enumerations -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section3, section3_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Extract Enumerations</font>
+</a>
+</p>
+<DIV id="section3" style="display:;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px;"><p class="p_Normal"><img alt="Public enumeration" title="Public enumeration" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubenumeration.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px;"><p class="p_Normal"><a href="_devextractenumerations.html" class="topiclink">ExtractLayout</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Enumerates the possible layouts for generated formatted credit data.</p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Using the FilteredView property.</font></a></p>
+<DIV id="section2" style="display:none;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;">The short coding sample below illustrates setting the FilteredView property instructing the framework to return unfiltered (or raw) bureau data.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Extract;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">DemoExtract</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> GetBureauJson(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauData</span><span style="font-size: 12px; font-family: Consolas;"> bureauData)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractData</span><span style="font-size: 12px; font-family: Consolas;"> extractData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractOptions</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExtractLayout</span><span style="font-size: 12px; font-family: Consolas;">.Json));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bureauData.FilteredView = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">false</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> extractData.Assemble(bureauData);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;">The short Json snippets below highlight the differences between filtered (the first sample) and unfiltered (the second sample) data for an Equifax tradeline. &nbsp;In the second sample, the date values contain only the Month and Year elements and as such would fail any type of date validations. &nbsp;With the amount values, leading zeroes and/or spaces are still in place which may also be problematic for some arithmetic uses.</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-weight: bold;">Filtered data</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;">{</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span>&quot;BureauDataSet&quot;: {</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;&quot;bureau&quot;: &quot;1&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;&quot;TradelineItems&quot;: [</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;nbr&quot;: 1,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ident&quot;: &quot;1&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;match&quot;: &quot;P&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SegmentCode&quot;: &quot;PT&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberName&quot;: &quot;IMAGINE&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;401ON01877&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateReported&quot;: &quot;03/01/2016&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateOpen&quot;: &quot;05/01/2015&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;HighCredit&quot;: &quot;460&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Balance&quot;: &quot;483&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TypeCode&quot;: &quot;R&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;RateCode&quot;: &quot;1&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AutomatedUpdate&quot;: &quot;*&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MonthsReviewed&quot;: &quot;9&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EcoaCode&quot;: &quot;I&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Narrative1&quot;: &quot;FE&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Narrative2&quot;: &quot;AZ&quot;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;]</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span>}</p>
+<p style="margin: 0px 0px 0px 13px;">}</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-weight: bold;">Unfiltered data</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;">{</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span>&quot;BureauDataSet&quot;: {</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;&quot;bureau&quot;: &quot;1&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;&quot;TradelineItems&quot;: [</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;nbr&quot;: 1,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ident&quot;: &quot;1&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;match&quot;: &quot;P&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SegmentCode&quot;: &quot;PT&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberName&quot;: &quot;IMAGINE&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;401ON01877&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateReported&quot;: &quot;03/2016&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateOpen&quot;: &quot;05/2015&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;HighCredit&quot;: &quot;0000460&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Balance&quot;: &quot;0000483&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TypeCode&quot;: &quot;R&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;RateCode&quot;: &quot;1&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AutomatedUpdate&quot;: &quot;*&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MonthsReviewed&quot;: &quot;09&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EcoaCode&quot;: &quot;I&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Narrative1&quot;: &quot;FE&quot;,</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Narrative2&quot;: &quot;AZ&quot;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;]</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="width:35px;display:inline-block">&nbsp;</span>}</p>
+<p style="margin: 0px 0px 0px 13px;">}</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

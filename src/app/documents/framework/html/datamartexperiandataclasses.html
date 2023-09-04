@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Data Classes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "datamartexperiandataclasses.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_experian.html">Experian</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">Experian Data Classes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.Experian</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_datamart_experian.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="m_luxortech_creditsharp_datamart_experian_experiandata_parse_1_bb3a7a4f.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_datamart_experian_expattribute.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The table below lists all the native Experian data elements that can be reviewed within an instance of a populated <a href="t_luxortech_creditsharp_datamart_experian_experiandata.html" class="topiclink">ExperianData</a> object. &nbsp;Each class corresponds to a segment found within the Experian raw data responses.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:258px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:883px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expattribute.html" class="topiclink">ExpAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of a Experian Attributes segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expbureauattribute.html" class="topiclink">ExpBureauAttribute</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of a CreditSharp BureauAttribute extension segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="color: #000066;"><a href="t_luxortech_creditsharp_datamart_experian_expconnectcheck.html" class="topiclink">ExpConnectCheck</a></span></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Connect Check segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expconsumeraddress.html" class="topiclink">ExpConsumerAddress</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Consumer Address segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expconsumeremployment.html" class="topiclink">ExpConsumerEmployment</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Consumer Employment segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expconsumername.html" class="topiclink">ExpConsumerName</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Consumer Name segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expconsumerreferral.html" class="topiclink">ExpConsumerReferral</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Consumer Referral segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expcustomattributes.html" class="topiclink">ExpCustomAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Custom Attributes segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expdirectcheck.html" class="topiclink">ExpDirectCheck</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Direct Check segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_experrorfooter.html" class="topiclink">ExpErrorFooter</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Error Footer segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_experrorheader.html" class="topiclink">ExpErrorHeader</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Error Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_experrormessage.html" class="topiclink">ExpErrorMessage</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Error Message segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expextendedview.html" class="topiclink">ExpExtendedViewAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Extended View Attributes segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expfilefooter.html" class="topiclink">ExpFileFooter</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian File Footer segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expfileheader.html" class="topiclink">ExpFileHeader</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian File Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expfraudservices.html" class="topiclink">ExpFraudServices</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Fraud Services segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exphitlevel.html" class="topiclink">ExpHitLevel</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Abbreviated Hit Level segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expinquiry.html" class="topiclink">ExpInquiry</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Inquiry segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expmessage.html" class="topiclink">ExpMessage</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Message segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expmodelattribute.html" class="topiclink">ExpModelAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Model Attributes segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expnfddetail.html" class="topiclink">ExpNFDDetail</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian National Fraud Database Detail segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expnfdsummary.html" class="topiclink">ExpNFDSummary</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian National Fraud Database Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expparallelprofile.html" class="topiclink">ExpParallelProfile</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Parallel Profile segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exppinverify.html" class="topiclink">ExpPinVerify</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Pin Verify segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exppremierattribute.html" class="topiclink">ExpPremierAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Premier Attributes segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expprofilesummary.html" class="topiclink">ExpProfileSummary</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Profile Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exppublicrecord.html" class="topiclink">ExpPublicRecord</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Public Record segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expriskmodel.html" class="topiclink">ExpRiskModel</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Risk Model segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expsocialsecurity.html" class="topiclink">ExpSocialSecurity</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Social Security segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expstaggselect.html" class="topiclink">ExpStaggAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Stagg Attributes segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_expstatement.html" class="topiclink">ExpStatement</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Statement segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exptradeline.html" class="topiclink">ExpTradeline</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Tradeline segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exptradelinedimension.html" class="topiclink">ExpTradelineDimension</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Tradeline Dimension class.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exptrended3dattributes.html" class="topiclink">ExpTrended3DAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Trended3D Attribute class.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:101px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:258px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_experian_exptrendview.html" class="topiclink">ExpTrendViewAttributes</a></p>
+</td>
+<td style="vertical-align:top; width:883px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an Experian Trend View Attributes segment.</p>
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

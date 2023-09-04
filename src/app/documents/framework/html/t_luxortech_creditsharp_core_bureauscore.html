@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>BureauScore Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_core_bureauscore.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_core.html">Core</a> &gt; <a href="_corebaseclasses.html">Core Classes</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">BureauScore Class</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_corebaseclasses.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_core_applicantsupplementalid.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_core_bureauscore_adderror.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The BureauScore class is used to define the properties of a bureau scoring model that is not already included in the CreditSharp Framework's model definitions. &nbsp;This typically would be used to include a score model that is unique (custom) to a specific bureau customer.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The class is not publicly creatable but an instance is returned when invoking the <span style="font-weight: bold;">AddModel()</span> method on one of the credit bureau data objects (<a href="t_luxortech_creditsharp_datamart_equifax_equifaxdata.html" class="topiclink">EquifaxData</a>, <a href="t_luxortech_creditsharp_datamart_experian_experiandata.html" class="topiclink">ExperianData</a> or <a href="t_luxortech_creditsharp_datamart_transunion_transuniondata.html" class="topiclink">TransUnionData</a>). &nbsp;Once a class reference has been successfully created, then any error codes and/or adverse factor codes can be added to the new model definition.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When defining values that will be used to look up model names or text, be sure to enter the corresponding codes are in the same form as they will appear in the response data. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">With Equifax, model id values are typically five characters long, right-justified and zero filled. Score factor codes are the same, typically five characters long, right-justified and zero filled. &nbsp;For example, &quot;09987&quot; for a model id and &quot;00010&quot; for score factor 10, &quot;00032&quot; for score factor 32, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">With Experian, model id values are two characters long and score factors are not decorated in any fashion (ie: not zero filled). &nbsp;For example, you would see &quot;C1&quot; for a model id and &quot;01&quot; for score factor 01, &quot;02&quot; for score factor 02, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">With TransUnion, model id values are five characters long, right-justified and zero filled. &nbsp;Score factor codes are typically three digits, with one leading zero as necessary. &nbsp;For example, you might see &quot;00CX2&quot; for a model id and &quot;010&quot; for score factor 10, &quot;104&quot; for score factor 104, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Not all model definitions include Error codes or Adverse factor codes. &nbsp;In those cases, it is perfectly acceptable to simply call the AddModel() method to assign a name to the custom model.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Equifax example -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(sectionEfx, sectionEfx_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="sectionEfx_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Equifax Example</font></a></p>
+<DIV id="sectionEfx" style="display:none;"><p class="p_Normal" style="margin: 0px 0px 5px 18px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Equifax;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Format;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">namespace</span><span style="font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">class</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">DemoCustom</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EquifaxCustom(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;creditDataBuffer)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">EquifaxData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;equifaxData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">EquifaxData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;licenseKey&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">BureauModel</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;customModel = equifaxData.AddModel(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;CM1&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Custom Model One&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;01&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number one&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;02&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number two&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;03&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number three&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;04&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number four&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;equifaxData.Parse(creditDataBuffer);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;commonData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonOptions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">());</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;commonData.Normalize(equifaxData);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;formatData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatOtions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.Html));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;formatData.Generate(commonData);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Experian example -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(sectionExp, sectionExp_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="sectionExp_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Experian Example</font></a></p>
+<DIV id="sectionExp" style="display:none;"><p class="p_Normal" style="margin: 0px 0px 5px 18px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Experian;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Format;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">namespace</span><span style="font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">class</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">DemoCustom</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;ExperianCustom(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;creditDataBuffer)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">ExperianData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;experianData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">ExperianData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;licenseKey&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">BureauModel</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;customModel = experianData.AddModel(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;C1&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Custom Model One&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;01&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number one&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;02&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number two&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;03&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number three&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;04&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number four&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;experianData.Parse(creditDataBuffer);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;commonData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonOptions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">());</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;commonData.Normalize(experianData);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;formatData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatOtions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.Html));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;formatData.Generate(commonData);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- TransUnion example -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(sectionTuc, sectionTuc_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="sectionTuc_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">TransUnion Example</font></a></p>
+<DIV id="sectionTuc" style="display:none;"><p class="p_Normal" style="margin: 0px 0px 5px 18px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.TransUnion;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Format;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">namespace</span><span style="font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">class</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">DemoCustom</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;TransUnionCustom(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;creditDataBuffer)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">TransUnionData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;transUnionData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">TransUnionData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;licenseKey&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">BureauModel</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;customModel = transUnionData.AddModel(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;00CM1&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Custom Model One&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;01&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number one&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;02&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number two&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;03&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number three&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;customModel.AddFactor(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;04&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;Adverse factor code number four&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;transUnionData.Parse(creditDataBuffer);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;commonData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">CommonOptions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">());</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;commonData.Normalize(transUnionData);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;formatData =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af;">FormatOtions</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.Html));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;formatData.Generate(commonData);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section4, section4_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section4_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Exceptions</font></a></p>
+<DIV id="section4" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Exception class</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Status</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterexception.html" class="topiclink">ParameterException</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a>.ElementAlreadyExists</p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Methods</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_bureauscore_adderror.html" class="topiclink">AddError</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Adds an error code and its corresponding text to the current model definition.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_bureauscore_addfactor.html" class="topiclink">AddFactor</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Adds an adverse factor code and it's corresponding text to the current model definition.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:229px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:94px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:229px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Id</p>
+</td>
+<td style="vertical-align:top; width:94px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The model id that was passed when invoking the bureau data's AddModel() method.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:229px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; width:94px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The model name that was passed when invoking the bureau data's AddModel() method.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

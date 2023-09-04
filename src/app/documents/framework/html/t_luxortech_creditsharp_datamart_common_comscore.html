@@ -1,0 +1,626 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>ComScore Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_datamart_common_comscore.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_common.html">Common</a> &gt; <a href="datamartcommondataclasses.html">Data Classes</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">ComScore Class</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.Common</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="datamartcommondataclasses.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_datamart_common_comregistereditem.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_datamart_common_comtradeline.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Defines an instance of a normalized bureau score segment.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 0px;"><table class="TblHdrBrd" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Normalized elements</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AlertText</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (512)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Possible message from score provider indicating a mismatch between the inquiry address and an address in the source data.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ErrorCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">When present, indicates why a score model did not return a value.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">For a list of error codes and their descriptions, review the <a href="com_codes_score_error_codes.html" class="topiclink">Score Error Codes</a> topic.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ErrorText</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (172)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Message associated with error code</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EstimatedAnnualIncome</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (7)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Yearly income amount that may be returned by TransUnion's Income Estimate score models.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EstimatedDebtRatio</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Debt-to-income percentage that may be returned by TransUnion's Income Estimate score models.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EstimatedMonthlyIncome</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (7)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Monthly income amount that may be returned by TransUnion's Income Estimate score models.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">These Factor Codes and Text are unique to each bureau and score model. &nbsp;Please refer to the bureau manuals for more specifics definitions of each item.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorCode1</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (5)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A code noting the reason a score result is not the maximum possible value. The first factor caused the biggest drop in the score.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorCode2</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (5)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A code noting the reason a score result is not the maximum possible value. The second factor caused the second biggest drop in the score.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorCode3</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (5)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A code noting the reason a score result is not the maximum possible value. The third factor caused the third biggest drop in the score.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorCode4</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (5)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A code noting the reason a score result is not the maximum possible value. The fourth factor caused the fourth biggest drop in the score.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorCode5</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (5)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A code noting the reason a score result is not the maximum possible value. The fifth factor caused the fifth biggest drop in the score.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorText1</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (172)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text describing with the first factor code.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorText2</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (172)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text describing with the second factor code.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorText3</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (172)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text describing with the third factor code.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorText4</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (172)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text describing with the fourth factor code.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FactorText5</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (172)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text describing with the fifth factor code.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MaximumScore</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The highest possible score value than can be returned for the current model.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MinimumScore</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The lowest possible score value than can be returned for the current model.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MaxEstimatedAnnualIncome</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (7)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest yearly income amount that may be returned by TransUnion's Income Estimate score models.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MinEstimatedAnnualIncome</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (7)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Lowest income amount that may be returned by TransUnion's Income Estimate score models.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ModelId</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (5)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates which score model has been returned.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The values, unique to each bureau, are documented in the <a href="_appbureau-score-models.html" class="topiclink">Bureau Score Models</a> chapters.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ModelName</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (60)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The name of the score model.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percentile</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Provides rank of how this score values compares to the &nbsp;total population.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Score</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (5)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The computed value for the current scoring model.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Scorecard</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A value unique to TransUnion and dependent upon which score is being displayed.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When the value &quot;IE&quot; is present it indicates the output is from one of the Income Estimator models. &nbsp;In this case the Score property will contain a two or three digit number which represents the consumer's estimated annual income, in thousands.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ScoreNotice</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">When non-zero, provides additional information about the current score result:</p>
+<p class="p_Normal">0 = No alert / additional information</p>
+<p class="p_Normal">1 = Derogatory information may have impacted score</p>
+<p class="p_Normal">2 = Inquiries may have impacted score</p>
+<p class="p_Normal">3 = Both derogatory and inquiry information may have impacted score</p>
+<p class="p_Normal">4 = Inquiries in 24 months may have impacted score (Equifax only)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Sign</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if the computed score is a positive or negative value.</p>
+<p class="p_Normal">'+' = positive score value</p>
+<p class="p_Normal">'-' = negative score value</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">StatementText</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (512)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Possible statement from the consumer which has been passed through by the score provider.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">CreditSharp extensions</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DtSegmentId</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (2)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the value used to uniquely identify a given bureau segment instance.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Refer to the <a href="_devdatamartcommonenumerations.html#comsegmentids" class="topiclink">ComSegmentIds</a> enumeration for possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DtSequence</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (3)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the value indicating the sequence number of the current segment relative to others in the same collection.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">XtAncestry</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Text</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the details showing what bureau segment(s) where used in creating the current instance.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The value returned is comprised of four separate numeric elements, delimited by colons. &nbsp;For example:  <span style="font-weight: bold;">1:2:14:5</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <span style="font-weight: bold;">first</span> position reports the <a href="t_luxortech_creditsharp_core_bureaulocales.html" class="topiclink">BureauLocale</a> from which the segment originated. &nbsp;The <span style="font-weight: bold;">second</span> position indicates which <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">Bureau</a> reported the segment. &nbsp;The <span style="font-weight: bold;">third</span> position identifies which kind of bureau segment was used to create the segment. &nbsp;Finally, the <span style="font-weight: bold;">fourth</span> position indicates which sequential occurrence within the bureau response is responsible for the current item.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In the example above, this would indicate the item in question originated in the United States locale (1), from the Experian credit bureau (2), is an inquiry segment (14), and was the fifth inquiry in the response data.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The values in the third position are taken from the each bureau's segment id enumerations (<a href="_devdatamartequifaxenumerations.html" class="topiclink">Equifax</a> segment ids, <a href="_devdatamartexperianenumerations.html" class="topiclink">Experian</a> segment ids or <a href="_devdatamarttransunionenumerations.html" class="topiclink">TransUnion</a> segment ids) so would be translated dependent upon which bureau was indicated in the second position.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Lastly, when looking at a segment created from multiple sources (a merged record), there will be more than one set of Ancestry fields which will themselves be delimited by a semi-colon, as in:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">1:2:24:4;1:4:87:13</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This would indicate that the current tradeline is a merged result from the fourth Experian record and the thirteenth TransUnion record.</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">XtIdentMatch</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Char (1)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the value indicating to which applicant the current element belongs.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values</span>:</p>
+<p class="p_Normal">P = Primary applicant</p>
+<p class="p_Normal">S = Secondary applicant</p>
+<p class="p_Normal">J = Joint (belongs to both Primary and Secondary applicant)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">XtIdentNumber</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (1)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the index to the nth instance in the ComIdentification segment collection under which a given element was reported.</p>
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

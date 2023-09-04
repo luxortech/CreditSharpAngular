@@ -1,0 +1,1881 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>FormatSectionTradeline Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "format_formatsectiontradeline_class.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_format.html">Format</a> &gt; <a href="t_luxortech_creditsharp_format_formatsection.html">FormatSection Class</a> &gt; <a href="format_formatsection_derivedclasses.html">Derived Classes</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">FormatSectionTradeline Class</span></h1>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Format</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="format_formatsection_derivedclasses.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="format_formatsectionsummary_class.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_format_formatgroup.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The FormatSectionTradeline class is used to manipulate how consumer tradeline information is presented within the various CreditSharp format outputs. &nbsp;Customization options include changing the display sequence of each member as well as organizing them into separate groups. (Custom grouping is only available when generating one of the visual layouts, either Html or Text.) </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The FormatSectionTradeline class inherits four properties from its <a href="t_luxortech_creditsharp_format_formatsection.html" class="topiclink">FormatSection</a> parent class and implements its own sort and group methods as highlighted in the examples at the end of this chapter. &nbsp;Tradeline sections have two predefined sort options available along with a several grouping configurations.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrd" style="border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:top;">
+<th colspan="2" style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Existing sort criteria</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px;">The Name column denotes the argument that should be passed to the <a href="format_formatsection_definesort.html" class="topiclink">DefineSort</a>() method when choosing an existing sort configuration.</span></p>
+<p class="p_Normal">&nbsp;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:163px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name </span></p>
+</td>
+<td style="vertical-align:top; width:1137px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Order by</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:163px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">System</p>
+</td>
+<td style="vertical-align:top; width:1137px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">first by AccountName (ascending), then by DateOpen (ascending), last by BalanceAmount (descending)</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[<span style="font-style: italic;">this is the default option</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:163px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">NameBalance</p>
+</td>
+<td style="vertical-align:top; width:1137px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">first by AccountName (ascending), last by BalanceAmount (descending)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrd" style="border:solid 2px #c0c0c0; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:top;">
+<th colspan="2" style="vertical-align:top; background-color:#95b3d8; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Existing group criteria</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px;">The Name column denotes the argument that should be passed to the <a href="format_formatsection_definegroups.html" class="topiclink">DefineGroups</a>() method when choosing an existing group configuration.</span></p>
+<p class="p_Normal">&nbsp;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; background-color:#dddddd; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:1132px; background-color:#dddddd; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Groups (Selector and headers)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">System</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">Restores the default configuration, which is to disable any grouping criteria.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="accttype" class="hmanchor"></a>AcctType</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><!-- Col -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(accttype1, accttype1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="accttype1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Col - First Group</font></a></p>
+<DIV id="accttype1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Col</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsCollection == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">COLLECTION ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">COLLECTION ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Collection Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Collection Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Mtg -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(accttype2, accttype2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="accttype2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Mtg - Second Group</font></a></p>
+<DIV id="accttype2" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Mtg</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsMortgage == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">MORTGAGE ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">MORTGAGE ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Mortgage Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">------------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Mortgage Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Ins -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(accttype3, accttype3_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="accttype3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Ins - Third Group</font></a></p>
+<DIV id="accttype3" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Ins</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsInstallment == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">INSTALLMENT ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">INSTALLMENT ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Installment Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Installment Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Rev -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(accttype4, accttype4_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="accttype4_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Rev - Fourth Group</font></a></p>
+<DIV id="accttype4" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Rev</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsRevolving == true || IsCreditLine == true || IsOpen30Day == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">REVOLVING ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">REVOLVING ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Revolving Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">------------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Revolving Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Unk -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(accttype5, accttype5_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="accttype5_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Unk - Fifth Group</font></a></p>
+<DIV id="accttype5" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Unk</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">AccountType == 'U'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">UNKNOWN ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Unknown Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div></td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">Derog</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><!-- Derog -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(derog1, derog1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="derog1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Derog - First Group</font></a></p>
+<DIV id="derog1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Derog</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">MaximumDelinquencyMop[0] &gt; '0'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">DEROGATORY ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">DEROGATORY ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Derogatory Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Derogatory Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Good -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(derog2, derog2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="derog2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Good - Second Group</font></a></p>
+<DIV id="derog2" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Good</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">MaximumDelinquencyMop[0] == '0'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">GOOD ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">GOOD ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Good Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Good Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div></td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">IdMatch</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><!-- Joint -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(idmatch1, idmatch1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="idmatch1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Joint - First Group</font></a></p>
+<DIV id="idmatch1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none; border-bottom:none;"><p class="p_Normal"><span style="font-weight: bold;">Joint</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-bottom:none; border-left:none;"><p class="p_Normal">XtIdentMatch == 'J'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">JOINT ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">JOINT ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none; border-bottom:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-bottom:none; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Joint Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Joint Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Subject -->
+<p>
+<a  class="topiclink" href="javascript:void(0)" onclick="doExpand(idmatch2, idmatch2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="idmatch2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Subject - Second Group</font></a></p>
+<DIV id="idmatch2" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Subject</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">XtIdentMatch == 'P'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SUBJECT ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SUBJECT ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Subject Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Subject Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Spouse -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(idmatch3, idmatch3_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="idmatch3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Spouse - Third Group</font></a></p>
+<DIV id="idmatch3" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none; border-bottom:none;"><p class="p_Normal"><span style="font-weight: bold;">Spouse</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-bottom:none; border-left:none;"><p class="p_Normal">XtIdentMatch == 'S'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SPOUSE ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SPOUSE ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Spouse Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Spouse Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">IdMatch2</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><!-- Subject -->
+<p>
+<a  class="topiclink" href="javascript:void(0)" onclick="doExpand(idmatch21, idmatch21_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="idmatch21_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Subject - First Group</font></a></p>
+<DIV id="idmatch21" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Subject</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">XtIdentMatch == 'J' || XtIdentMatch == 'P'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SUBJECT ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SUBJECT ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Subject Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Subject Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Spouse -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(idmatch22, idmatch22_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="idmatch22_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Spouse - Second Group</font></a></p>
+<DIV id="idmatch22" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Spouse</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">XtIdentMatch == 'J' || XtIdentMatch == 'S'</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SPOUSE ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">SPOUSE ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Spouse Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Spouse Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div></td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">Late</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><!-- Late -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(late1, late1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="late1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Late - First Group</font></a></p>
+<DIV id="late1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Delinquent</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsCurrent == false</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">DELINQUENT ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">DELINQUENT ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Delinquent Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Delinquent Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Current -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(late2, late2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="late2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Current - Second Group</font></a></p>
+<DIV id="late2" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Current</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsCurrent == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">CURRENT ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">CURRENT ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Current Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Current Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div></td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">LateOpenClosed</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><!-- Late -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(lateopenclosed1, lateopenclosed1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="lateopenclosed1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Late - First Group</font></a></p>
+<DIV id="lateopenclosed1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Delinquent</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsCurrent == false</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">DELINQUENT ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">DELINQUENT ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Delinquent Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Delinquent Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Open -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(lateopenclosed2, lateopenclosed2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="lateopenclosed2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Open - Second Group</font></a></p>
+<DIV id="lateopenclosed2" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Open</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsOpen == true &amp;&amp; IsCurrent == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">OPEN ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">OPEN ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Open Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Open Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Closed -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(lateopenclosed3, lateopenclosed3_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="lateopenclosed3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Closed - Third Group</font></a></p>
+<DIV id="lateopenclosed3" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Closed</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsClosed == true &amp;&amp; IsCurrent == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">CLOSED ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">CLOSED ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Closed Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Closed Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div></td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:158px; padding:5px; border:solid thin #c0c0c0;"><p class="p_Normal">OpenClosed</p>
+</td>
+<td style="vertical-align:top; width:1132px; padding:5px; border:solid thin #c0c0c0;"><!-- Open -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(openclosed1, openclosed1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="openclosed1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Open - First Group</font></a></p>
+<DIV id="openclosed1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Open</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsOpen == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">OPEN ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">OPEN ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Open Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">-------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Open Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">--------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><!-- Closed -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(openclosed2, openclosed2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="openclosed2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Closed - Second Group</font></a></p>
+<DIV id="openclosed2" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:893px; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Selector</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal"><span style="font-weight: bold;">Closed</span></p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">IsClosed == true</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Html Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">CLOSED ACCOUNTS: <span style="color: #c0504d;">None found</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal">CLOSED ACCOUNTS:</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; background-color:#dddddd; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Text Headers</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Missing</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Closed Accounts: None found</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">---------------------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Initial</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">Closed Accounts:</span></p>
+<p class="p_Normal"><span style="font-family: 'Courier New',Courier,monospace;">----------------</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:174px; padding:3px; border:solid thin #c0c0c0; border-right:none;"><p class="p_Normal">Continue</p>
+</td>
+<td style="vertical-align:top; width:893px; padding:3px; border:solid thin #c0c0c0; border-left:none;"><p class="p_Normal"><span style="font-style: italic;">not used</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<!-- Example 1:  -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(example1, example1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="example1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example 1: Enable a predefined group</font></a></p>
+<DIV id="example1" style="display:none;"><p class="p_Normal">This snippet demonstrates enabling the <span style="font-weight: bold;">OpenClosed</span> group for use in an Html layout.</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> CustomizeTradeGroups(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;"> options)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradeline</span><span style="font-size: 12px; font-family: Consolas;"> section = (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradeline</span><span style="font-size: 12px; font-family: Consolas;">)options.Text.Section(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Tradeline&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Select the group configuration to be used when generating this Html output</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; section.DefineGroups(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;OpenClosed&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Example 2:  -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(example2, example2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="example2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example 2: Modify Headers</font></a></p>
+<DIV id="example2" style="display:none;"><p class="p_Normal">This snippet demonstrates selecting the <span style="font-weight: bold;">AcctType</span> group in order to disable the <span style="font-weight: bold;">Missing</span> headers and shifting the <span style="font-weight: bold;">Initial</span> headers to mixed case.</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> CustomizeTradeGroups(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;"> options)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TextInfo</span><span style="font-size: 12px; font-family: Consolas;"> textInfo = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CultureInfo</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;en-US&quot;</span><span style="font-size: 12px; font-family: Consolas;">,</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">false</span><span style="font-size: 12px; font-family: Consolas;">).TextInfo;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradeline</span><span style="font-size: 12px; font-family: Consolas;"> section = (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradeline</span><span style="font-size: 12px; font-family: Consolas;">)options.Text.Section(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Tradeline&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Select the group to be adjusted</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; section.DefineGroups(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;AcctType&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatGroupTradeline</span><span style="font-size: 12px; font-family: Consolas;"> group = section.Group(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Col&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.InitialHeader = textInfo.ToTitleCase(group.InitialHeader);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group = section.Group(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Mtg&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.InitialHeader = textInfo.ToTitleCase(group.InitialHeader);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group = section.Group(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Ins&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.InitialHeader = textInfo.ToTitleCase(group.InitialHeader);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group = section.Group(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Rev&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.InitialHeader = textInfo.ToTitleCase(group.InitialHeader);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group = section.Group(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Unk&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.InitialHeader = textInfo.ToTitleCase(group.InitialHeader);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Example 3:  -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(example3, example3_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="example3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example 3: Custom Sort and Group</font></a></p>
+<DIV id="example3" style="display:none;"><p class="p_Normal">This snippet splits a Html tradeline section into two groups: Auto loans and Not auto loans.</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> CreateCustomGroup(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;"> options)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradeline</span><span style="font-size: 12px; font-family: Consolas;"> section = (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradeline</span><span style="font-size: 12px; font-family: Consolas;">)options.Html.Section(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Tradeline&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Define custom sort: order by descending balance amount</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; section.DefineSort(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Custom&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; section.AddSort(x =&gt; x.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.BalanceAmount) * -1);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Create two groups: &nbsp;Auto loans and Not-Auto loans</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;section.DefineGroups(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Custom&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatGroupTradeline</span><span style="font-size: 12px; font-family: Consolas;"> group = section.AddGroup(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Auto&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.InitialHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;AUTO LOANS&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;AUTO LOANS: &lt;span style=\&quot;color:red\&quot;&gt;None found&lt;/span&gt;&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.Selector = (x =&gt; x.IsAuto);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group = section.AddGroup(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Other&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.InitialHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;OTHER ACCOUNTS&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;OTHER ACCOUNTS: &lt;span style=\&quot;color:red\&quot;&gt;None found&lt;/span&gt;&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; group.Selector = (x =&gt; !x.IsAuto);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

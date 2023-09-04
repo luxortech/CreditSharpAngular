@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Merge</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "n_luxortech_creditsharp_datamart_merge.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">LuxorTech.CreditSharp.Datamart.Merge Namespace</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_datamart.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devdatamartcommonenumerations.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_datamart_merge_mergedata.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The Merge namespace is where any duplicate references that exist within a normalized common credit object can be eliminated. &nbsp;Not all data elements are subject to de-duping; those that are not are simply copied in their entirety into the newly create merge object. &nbsp;The <a href="datamartmergesectionclass.html" class="topiclink">MergeSection</a> class can be used to selectively control merge behavior on a segment by segment basis.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Each Merge specific data class is derived from its Common counterpart and is then extended to include two additional properties in each segment: a <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">BureauId</a> property to identify if multiple credit bureaus provided information to a given item, and <span style="font-weight: bold;">XtSources</span> which maintains a record of each unmerged data record which was merged into the current item.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <a href="n_luxortech_creditsharp_datamart_merge_defaults.html" class="topiclink">Default Merge Operations</a> topic provides a quick overview of what the CreditSharp framework uses for its default settings.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Namespace table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Root Classes</font>
+</a>
+</p>
+<DIV id="section1" style="display:;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mergedata.html" class="topiclink">MergeData</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Root class used to obtain a deduped image from one or more normalized bureau inputs.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mergeoptions.html" class="topiclink">MergeOptions</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Contains settings for influencing configurable MergeData operations.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="datamartmergesectionclass.html" class="topiclink">MergeSection</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Contains settings for controlling merge operations on selected data segments.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</div><!-- Start of Namespace table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Data Classes</font>
+</a>
+</p>
+<DIV id="section2" style="display:;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgaddress.html" class="topiclink">MrgAddress</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized consumer address segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgalert.html" class="topiclink">MrgAlert</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized common alert segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgalias.html" class="topiclink">MrgAlias</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized consumer alias segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgbanking.html" class="topiclink">MrgBanking</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized banking segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgbureauattribute.html" class="topiclink">MrgBureauAttribute</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized bureau error segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgbureauerror.html" class="topiclink">MrgBureauError</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized bureau attribute segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgconsumerreferral.html" class="topiclink">MrgConsumerReferral</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized consumer referral segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgconsumerstatement.html" class="topiclink">MrgConsumerStatement</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized consumer statement segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgdirectory.html" class="topiclink">MrgDirectory</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized subscriber directory segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgemployment.html" class="topiclink">MrgEmployment</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized consumer employment segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgfraudscan.html" class="topiclink">MrgFraudScan</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized fraud scan segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgheader.html" class="topiclink">MrgHeader</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized header segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgidentification.html" class="topiclink">MrgIdentification</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized consumer identification segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrginquiry.html" class="topiclink">MrgInquiry</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized bureau inquiry segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgmessage.html" class="topiclink">MrgMessage</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized message segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgnotification.html" class="topiclink">MrgNotification</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized notification segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgofacsearch.html" class="topiclink">MrgOfacSearch</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized Ofac search segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgpublicrecord.html" class="topiclink">MrgPublicRecord</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized public record segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgregistereditem.html" class="topiclink">MrgRegisteredItem</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized registered item segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgscore.html" class="topiclink">MrgScore</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized score segment which has cycled through the merge process.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_merge_mrgtradeline.html" class="topiclink">MrgTradeline</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Defines an instance of a normalized tradeline segment which has cycled through the merge process.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</div><!-- Start of Namespace table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section3, section3_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Enumerations</font>
+</a>
+</p>
+<DIV id="section3" style="display:;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:300px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public enumeration" title="Public enumeration" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubenumeration.gif"/></p>
+</td>
+<td style="vertical-align:top; width:300px; padding:3px;"><p class="p_Normal"><a href="_devdatamartmergeenumerations.html#combinemethod" class="topiclink">CombineMethod</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Controls how duplicates items are resolved once identified.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public enumeration" title="Public enumeration" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubenumeration.gif"/></p>
+</td>
+<td style="vertical-align:top; width:300px; padding:3px;"><p class="p_Normal"><a href="_devdatamartmergeenumerations.html#comparemethod" class="topiclink">CompareMethod</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Controls how duplicates between bureaus are identified.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public enumeration" title="Public enumeration" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubenumeration.gif"/></p>
+</td>
+<td style="vertical-align:top; width:300px; padding:3px;"><p class="p_Normal"><a href="_devdatamartmergeenumerations.html#mergeoperation" class="topiclink">MergeOperation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Controls how various data segments are processed during the merge cycle.</p>
+</td>
+</tr>
+</table>
+</div>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

@@ -1,0 +1,1433 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>MrgTradeline Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_datamart_merge_mrgtradeline.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_merge.html">Merge</a> &gt; <a href="datamartmergedataclasses.html">Data Classes</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">MrgTradeline Class</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.Merge</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="datamartmergedataclasses.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_datamart_merge_mrgscore.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_datamart_merge_mergeoptions.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Defines an instance of a merged tradeline segment.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Methods</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 0px;"><table class="TblHdrBrdBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">These methods are made available for use in defining evaluations in a custom <a href="t_luxortech_creditsharp_analyze_analysisbundle.html" class="topiclink">AnalysisBundle</a>.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="_devdatamartmethodsage.html" class="topiclink">AGE</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Method returns the number of months between two dates.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="_devdatamartmethodsage2.html" class="topiclink">AGE2</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Method returns the number of days between two dates.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="_devdatamartmethodsamt.html" class="topiclink">AMT</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Method converts the value of the indicated element into an amount equivalent.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="_devdatamartmethodsdate.html" class="topiclink">DATE</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Method converts the date value of the indicated element into a numeric representation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="_devdatamartmethodsdate2.html" class="topiclink">DATE2</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Method converts the date value of the indicated element into an alternate numeric representation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="_devdatamartmethodsinv.html" class="topiclink">INV</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Method inverts a character string so it can be sorted in reverse alphabetic order.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="_devdatamartmethodsnbr.html" class="topiclink">NBR</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Method converts the value of the indicated element into a numeric equivalent.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 0px;"><table class="TblHdrBrd" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Normalized elements</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountCategoryCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the type of collateral used to secure the account, or, the intended use of account funds. (This is closely related to the IndustryCode and ProductCode elements).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">0 = Not Specified</p>
+<p class="p_Normal">1 = Real Estate</p>
+<p class="p_Normal">2 = Automotive</p>
+<p class="p_Normal">3 = Credit Card</p>
+<p class="p_Normal">4 = Department Store</p>
+<p class="p_Normal">5 = Education (Student Loans)</p>
+<p class="p_Normal">6 = Furniture</p>
+<p class="p_Normal">7 = Utility (Include telephone vendors)</p>
+<p class="p_Normal">8 = Boat/Yacht</p>
+<p class="p_Normal">9 = Recreational Vehicle (Camper, Motor Home)</p>
+<p class="p_Normal">10 = Miscellaneous Retail</p>
+<p class="p_Normal">11 = Medical</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountConditionCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the current state of the account</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">0 = No special condition noted</p>
+<p class="p_Normal">1 = Paid</p>
+<p class="p_Normal">2 = Payment Deferred</p>
+<p class="p_Normal">3 = Frozen</p>
+<p class="p_Normal">4 = Credit Line Closed (By Consumer)</p>
+<p class="p_Normal">5 = Credit Line Closed (By Creditor)</p>
+<p class="p_Normal">6 = Inactive</p>
+<p class="p_Normal">7 = Chapter 7 Bankruptcy</p>
+<p class="p_Normal">8 = Chapter 13 Bankruptcy</p>
+<p class="p_Normal">9 = Generic Bankruptcy</p>
+<p class="p_Normal">10 = Chapter 12 Bankruptcy</p>
+<p class="p_Normal">11 = Chapter 11 Bankruptcy</p>
+<p class="p_Normal">12 = Credit Counseling</p>
+<p class="p_Normal">13 = Account Assumed by Another Party</p>
+<p class="p_Normal">14 = Canceled</p>
+<p class="p_Normal">15 = Fraudulent Activity Reported</p>
+<p class="p_Normal">16 = Never Used</p>
+<p class="p_Normal">17 = Credit Line Suspended</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountName</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (24)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The name of the entity reporting the current item.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountNumber</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (40)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The unique value identifying the account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountType</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Char (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates what type of payment structure is in force and.or the general purpose of the account funds.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">I = Installment</p>
+<p class="p_Normal">R = Revolving</p>
+<p class="p_Normal">C = Credit Line</p>
+<p class="p_Normal">O = Open / 30 day</p>
+<p class="p_Normal">M = Mortgage</p>
+<p class="p_Normal">Y = Collection</p>
+<p class="p_Normal">U = Unknown</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ActualPaymentAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The amount most recently paid by the consumer.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BalanceAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The amount of debt currently outstanding on the account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BalloonAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the amount, if any, of a final balloon payment for the account.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ChargeOffAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the amount the creditor has charged to loss.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ClosedIndicator</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if the account is open or closed, and if closed, in what fashion.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">0 = Not Closed</p>
+<p class="p_Normal">1 = Closed (Unspecified / Normal)</p>
+<p class="p_Normal">2 = Closed (Due to Refinance)</p>
+<p class="p_Normal">3 = Closed (Due to Transfer)</p>
+<p class="p_Normal">4 = Closed (Lost or Stolen)</p>
+<p class="p_Normal">5 = Closed (Due to transfer/refinance)</p>
+<p class="p_Normal">6 = Closed (Due to inactivity)</p>
+<p class="p_Normal">7 = Closed (By Creditor for Default)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collateral</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (30)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The collateral used to secure the account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ConsumerStatement</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (1000)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A statement added to account by the consumer, typically to explain why derogatory items are present.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditLimitAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The highest amount consumer is able to charge on the account.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CurrentMop</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the current manner of payment.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values can be found in the <a href="com_codes_mop.html" class="topiclink">Mop Codes</a> appendix topic.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">The format for all date elements will be dictated by the setting provided in the <a href="t_luxortech_creditsharp_datamart_common_commonoptions.html#datemask" class="topiclink">DateMask</a> option.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateBalloonDue</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates when the final balloon payment is due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateClosed</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates when the account was closed.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateDefaulted</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates when the account first entered into default (was submitted to collection, charged to loss, experienced repossession for foreclosure, or was included in a bankruptcy proceeding).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateDeferred</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the date when payment deferral ends.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateFirstDelinquency</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the first date of delinquency.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateInitialMaximum</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the first date of the most severe delinquency.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateLastActive</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the last date of activity (a new purchase was made, a payment was applied, etc).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateLastDelinquency</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the date of the most recent delinquency.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateOpen</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates when the account was opened.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DatePaid</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the last date a payment was made.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DatePaymentHistory</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the first date presented in the payment pattern.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateReported</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the last time the account was reported to the credit bureau.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DeceasedIndicator</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if the consumer has been reported deceased.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The content will either be Y or N (meaning yes or no) or a numeric enumeration showing which bureau(s) have reported the consumer as deceased. &nbsp;When numeric, the values are taken from <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">BureauIds</a>, where a value of zero is the negative indication. The CommonOption.<a href="t_luxortech_creditsharp_datamart_common_commonoptions.html#numericdispute" class="topiclink">NumericIndicators</a> property influences this display.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a id="delinquencies" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Delinquencies</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_common_comdelinquency.html" class="topiclink">List</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returns a list of <a href="t_luxortech_creditsharp_datamart_common_comdelinquency.html" class="topiclink">ComDelinquency</a> types, with each instance being a successively older derogatory occurrence.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a id="derogatoryindcator" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DerogatoryIndicator</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates which bureau(s) have reported the account as having negative account history.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The content will either be Y or N (meaning yes or no) or a numeric enumeration showing which bureau(s) have reported a derogatory status. &nbsp;When numeric, the values are taken from <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">BureauIds</a>, where a value of zero is the negative indication. &nbsp;The CommonOption.<a href="t_luxortech_creditsharp_datamart_common_commonoptions.html#numericdispute" class="topiclink">NumericIndicators</a> property influences this display.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a id="dimensions" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dimensions</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_common_comdimension.html" class="topiclink">List</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returns a list of <a href="t_luxortech_creditsharp_datamart_common_comdimension.html" class="topiclink">ComDimension</a> types, with each instance providing a glimpse of one month's status in an account's past.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The list is only populated when a bureau's enhanced data delivery is enabled.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Directory</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_datamart_common_comdirectory.html" class="topiclink">Type</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returns an instance of the <a href="t_luxortech_creditsharp_datamart_common_comdirectory.html" class="topiclink">ComDirectory</a> class, when available, with details for contacting the entity reporting the account information.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DisputeIndicator</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates whether or not the account is currently being disputed by the consumer.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The content will either be Y or N (meaning yes or no) or a numeric enumeration showing which bureau(s) have reported the dispute. &nbsp;When numeric, the values are taken from <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">BureauIds</a>, where a value of zero is the negative indication. &nbsp;The CommonOption.<a href="t_luxortech_creditsharp_datamart_common_commonoptions.html#numericdispute" class="topiclink">NumericIndicators</a> property influences this display.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EcoaCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Char (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the Equal Credit Opportunity Act value, reporting what level of contractual obligation the consumer has on the account.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values can be found in the <a href="com_codes_ecoa.html" class="topiclink">Ecoa Codes</a> appendix topic.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Exclude</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 6px;">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Gets or sets the value indicating if the current item should be ignored during analysis operations and suppressed from all format outputs.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Footnotes</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Can display a series of codes which report supplemental details about the current status of the account.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values are one to three digit numbers, delimited by semi-colons when multiples exist. &nbsp;Refer to the <a href="com_codes_remark.html" class="topiclink">Remark / Footnote Codes</a> appendix topic for a list of possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HighCreditAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Num (10)</span></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The highest balance ever carried on the account.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IndustryCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Num (2)</span></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Provides an overall industry category for the company reporting the account details.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Refer to the <a href="com_codes_industry.html" class="topiclink">Industry Codes</a> list in the Appendix for possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsAuthorizedUser</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account has an Authorized User ECOA code.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsAuto</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is an automobile loan.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsBank</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account belongs to the banking industry.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsBankCard</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account bankcard (Mastercard, Visa, American Ex, Discover)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsBankrupt</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is included in bankruptcy.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsChargeOff</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account has been charged to loss.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsCollection</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is in collections.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsCreditLine</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is a credit line account type.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsCurrent</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account current (not late).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsDeceased</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account consumer has been reported deceased.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsDefaulted</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is in default (bankruptcy, charge off, collection, repossession or foreclosure).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsDepartmentStore</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is from a department store.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsDerog</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account contains derogatory history.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsDisputed</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account being disputed by the consumer.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsFinance</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account belongs to a non-bank finance company.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsFixedPayment</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account has a non-varying payment amount (mortgage or installment).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsForeclosure</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account has been entered foreclosure.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsHomeEquity</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account a home equity loan.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsInstallment</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account an installment account type.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsLineOfCredit</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account a line of credit account type.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsLostStolen</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account was reported lost or stolen.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsMastercard</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is a Mastercard credit card.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsMedical</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is due to medical debts.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsMortgage</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account mortgage account type.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsOpen30Day</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account open.30 day account type.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsRealEstate</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is secured by real estate.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsReposession</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account has collateral that was repossessed. </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsRetail</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account part in the retail industry.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsRevolving</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account a revolving account type.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsStudentLoan</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account is a student loan.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsVariablePayment</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account has a payment which varies according to the account balance (revolving, credit lines, open/30 day).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsVisa</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">true/false indicator for when an account a Visa credit card.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MaximumDeliquencyAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest amount that was ever past due on the account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MaximumDeliquencyDate</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date of the most severe derogatory event.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MaximumDeliquencyMop</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Severity of the highest ever delinquency.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Refer to the numeric values present in the <a href="com_codes_mop.html" class="topiclink">Mop Codes</a> appendix topic.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MemberNumber</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The credit bureau's unique code identifying the entity reporting the account information.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MonthsReviewed</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The total number of months of payment history that are being reported.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">NumberOfPayments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The total number of payments that the loan was originally scheduled to have.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">OriginalCreditor</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (30)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The creditor which originally owned the debt being reported.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PastDueAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The dollar amount currently past due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PaymentAmount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The amount of the payment currently due to be made. &nbsp;This value is normalized to a monthly amount.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PaymentFrequency</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Char (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates how often consumer is scheduled to make a payment. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This does not mean that the value shown in the PaymentAmount is made on this schedule, as that element is normalized to a monthly representation. &nbsp;For example, if the frequency is Yearly, the consumer will only be expected to make a single payment, however the amount shown in the payment element would be the annual total divided by 12.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">B - Bi-weekly (every two weeks)</p>
+<p class="p_Normal">D - Deferred payments</p>
+<p class="p_Normal">E - Semi-monthly (twice a month)</p>
+<p class="p_Normal">L - Bi-monthly (every two months)</p>
+<p class="p_Normal">M - Monthly</p>
+<p class="p_Normal">N - Note loan (single lump sum payment)</p>
+<p class="p_Normal">Q - Quarterly (every three months)</p>
+<p class="p_Normal">S - Semi-annually (every six months)</p>
+<p class="p_Normal">T - Triennially (every four months)</p>
+<p class="p_Normal">V - Variable</p>
+<p class="p_Normal">W - Weekly</p>
+<p class="p_Normal">X - Unspecified</p>
+<p class="p_Normal">Y - Yearly payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PaymentHistory</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (84)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">A month by month record of the consumer's payment history.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The left most character represents the status for the most recent month and corresponds to the date shown in the DatePaymentHistory property. &nbsp;Each subsequent character, moving to the right, shows the status of one successive month earlier.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values consist of those found in the <a href="com_codes_mop.html" class="topiclink">Mop Codes</a> list.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PaymentsRemaining</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of payments left in the contract.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ProductCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates what type of product, service or collateral is involved with the account. &nbsp;This might be items such as a Credit Card, Boat Loan, Furniture, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">A full list of possible values can be seen in the <a href="com_codes_product.html" class="topiclink">Product Code</a> appendix topic.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PurchasedFrom</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (30)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">For accounts that have been transferred between creditors, indicates the entity who originally owned the account.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SoldToCreditor</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (30)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">For accounts that have been transferred between creditors, indicates the entity who purchased the account.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TimesLate120</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of times a payment was 120 past due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TimesLate150</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of times a payment was 150 past due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TimesLate180</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of times a payment was 180 past due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TimesLate30</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of times a payment was 30 past due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TimesLate60</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of times a payment was 60 past due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TimesLate90</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of times a payment was 90 past due.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TimesPastDue</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total times the account had a past due payment.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 0px;"><table class="TblHdrBrd" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">CreditSharp extensions</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">BureauId</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">One of the <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">BureauId</a> enumerations.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;">Indicates which credit bureaus contributed data to the current segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">DtSegmentId</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (2)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the value used to uniquely identify a given bureau segment instance.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;">Refer to the <a href="_devdatamartcommonenumerations.html#comsegmentids" class="topiclink">ComSegmentIds</a> enumeration for possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">DtSequence</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (3)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the value indicating the sequence number of the current segment relative to others in the same collection.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtAncestry</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Text</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The value returned is comprised of four separate numeric elements, delimited by colons. &nbsp;For example:  <span style="font-weight: bold;">1:2:14:5</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The <span style="font-weight: bold;">first</span> position reports the <a href="t_luxortech_creditsharp_core_bureaulocales.html" class="topiclink">BureauLocale</a> from which the segment originated. &nbsp;The <span style="font-weight: bold;">second</span> position indicates which <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">Bureau</a> reported the segment. &nbsp;The <span style="font-weight: bold;">third</span> position identifies which kind of bureau segment was used to create the segment. &nbsp;Finally, the <span style="font-weight: bold;">fourth</span> position indicates which sequential occurrence within the bureau response is responsible for the current item.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">In the example above, this would indicate the item in question originated in the United States locale (1), from the Experian credit bureau (2), is an inquiry segment (14), and was the fifth inquiry in the response data.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The values in the third position are taken from the each bureau's segment id enumerations (<a href="_devdatamartequifaxenumerations.html" class="topiclink">Equifax</a> segment ids, <a href="_devdatamartexperianenumerations.html" class="topiclink">Experian</a> segment ids or <a href="_devdatamarttransunionenumerations.html" class="topiclink">TransUnion</a> segment ids) so would be translated dependent upon which bureau was indicated in the second position.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">Lastly, when looking at a segment created from multiple sources (a merged record), there will be more than one set of Ancestry fields which will themselves be delimited by a semi-colon, as in:</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">1:2:24:4;1:4:87:13</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">This would indicate that the current tradeline is a merged result from the fourth Experian record and the thirteenth TransUnion record.</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtIdentMatch</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Char (1)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the value indicating to which applicant the current element belongs.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Values:</span></p>
+<p style="margin: 0px 0px 5px 0px;">P = Primary applicant</p>
+<p style="margin: 0px 0px 5px 0px;">S = Secondary applicant</p>
+<p style="margin: 0px 0px 5px 0px;">J = Joint (belongs to both Primary and Secondary applicant)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtIdentNumber</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (1)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the index to the nth instance in the ComIdentification segment collection under which a given element was reported.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a id="xtsources" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtSources</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">List</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets a list of all the original segments which were merged into the current instance.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;">The list will be of the type from which the current segment is derived. &nbsp;For example, the <span style="font-weight: bold;">XtSources</span> property within the <span style="font-weight: bold;">MrgAddress</span> class will have the <span style="font-weight: bold;">ComAddress</span> references listed which were used to create the current merged reference.</p>
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

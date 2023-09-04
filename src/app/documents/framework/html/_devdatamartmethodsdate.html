@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>DATE Method&nbsp;</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devdatamartmethodsdate.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="_devdatamartderivative-methods.html">Derivative Methods</a> &gt;</p>
+                                                        </span>
+						
+						<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 16px; font-weight: bold;">DATE Method</span></p>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_devdatamartderivative-methods.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devdatamartmethodsamt.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devdatamartmethodsdate2.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The DATE method is used to obtain an integer equivalent of an element which contains a date.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The return value is expressed as the number of months since January 1900. &nbsp;This value can be used to easily perform date arithmetic or to sort data members in date order. &nbsp;Some computed values might be:</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:194px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Given date</span></p>
+</td>
+<td style="vertical-align:top; width:1106px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Integer equivalent </span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; width:1106px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-style: italic;">Computed using the following formula</span>: (Date.Year - 1900) * 12 + Date.Month</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:194px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">June 14th, 1993</p>
+</td>
+<td style="vertical-align:top; width:1106px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">1122</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:194px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">June 14th, 2003</p>
+</td>
+<td style="vertical-align:top; width:1106px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">1242</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:194px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">June 14th, 2013</p>
+</td>
+<td style="vertical-align:top; width:1106px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">1362</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the boolean <span style="font-style: italic;">assumeZero</span> parameter is not provided, then the method will use the value of the <span style="font-weight: bold;">AssumeZero</span> property found in the <a href="t_luxortech_creditsharp_datamart_common_commondata.html#assumezero" class="topiclink">CommonData</a> or <a href="t_luxortech_creditsharp_datamart_merge_mergedata.html#assumezero" class="topiclink">MergeData</a> instance being referenced to determine how blank or invalid elements should be treated.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When the underlying data element is blank or otherwise invalid and the AssumeZero property, or the local <span style="font-style: italic;">assumeZero</span> parameter, is set to true (the default setting), then the method will return a value of zero (0). &nbsp;Otherwise an exception would be thrown reporting why a integer value could not be returned. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When the DATE method is being used within a custom attribute definition, any exception is caught internally and the current evaluation is suspended.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Syntax -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(syntax, syntax_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="syntax_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Syntax</font></a></p>
+<DIV id="syntax" style="display:none;"><p class="p_Normal"><span style="font-weight: bold;">public</span> <span style="font-weight: bold;">int</span> DATE (enum <span style="font-weight: bold;">T</span> elementId)</p>
+<p class="p_Normal"><span style="font-weight: bold;">public</span> <span style="font-weight: bold;">int</span> DATE (enum <span style="font-weight: bold;">T</span> elementId, <span style="font-weight: bold;">bool</span> assumeZero)</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Parameters:</span></p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_Normal"><span style="font-style: italic;">elementId</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Type: enum </span><span style="font-weight: bold;">T</span> (where T is one of the enumerated values specific to the Datamart data class being evaluated)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Indicates the data element to be returned. &nbsp;(For example: <a href="_devdatamartcommonenumerations.html" class="topiclink">ComTradelineIds</a>.</span><span class="f_NormalIdent" style="font-weight: bold;">DateOpen</span><span class="f_NormalIdent">)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_Normal"><span style="font-style: italic;">assumeZero</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Type: </span><span style="font-weight: bold;">bool</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">When true, indicates that any blank or invalid amount values should be treated as if they were zero (0). &nbsp;This will override the global setting found in the container class's </span><span class="f_NormalIdent" style="font-weight: bold;">AssumeZero</span><span class="f_NormalIdent"> property.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Exceptions -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(exception, exception_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="exception_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Exceptions</font></a></p>
+<DIV id="exception" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Exception class</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Status</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterexception.html" class="topiclink">ParameterException</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a>.ElementContentInvalid</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-style: italic;">Thrown when the indicated element does not contain date values.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a>.ElementIsEmtpy</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-style: italic;">Thrown when the indicated element is blank.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Each data class within a <span style="font-weight: bold;">CommonData</span> (or <span style="font-weight: bold;">MergeData)</span> instance implements its own specific version of the DATE method where the input parameter is an enumerated type specific to the type of data. &nbsp;For instance, the <a href="_devdatamartcommonenumerations.html#comtradelineids" class="topiclink">ComTradelineIds</a> enumeration must be used to evaluate ages within a <a href="t_luxortech_creditsharp_datamart_common_comtradeline.html" class="topiclink">ComTradeline</a> reference and <a href="_devdatamartcommonenumerations.html#cominquiryids" class="topiclink">ComInquiryIds</a> would be used with a <a href="t_luxortech_creditsharp_datamart_common_cominquiry.html" class="topiclink">ComInquiry</a> instance.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Example 1 -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(example1, example1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="example1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example 1. Specifying sort criteria</font></a></p>
+<DIV id="example1" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Setup a custom definition to sort tradelines by open date, in descending order (newest to oldest).</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Merge;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Format;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">DemoFormat</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> CreateText(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas;"> input)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;"> options = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-size: 12px; font-family: Consolas;">.Text);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Text.Partitions = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Partitioning</span><span style="font-size: 12px; font-family: Consolas;">.Report;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Text.ReportStyle = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TextStyle</span><span style="font-size: 12px; font-family: Consolas;">.Lending01;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Obtain a reference for the configuration of an tradeline section in the text layout</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradline</span><span style="font-size: 12px; font-family: Consolas;"> section = (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatSectionTradline</span><span style="font-size: 12px; font-family: Consolas;">) options.Text.Section(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Tradeline&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Prepare the section for accepting a customized setting</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; section.DefineSort(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Custom&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Invert result (multiply by negative one) so that sort is done in descending order</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; section</span><span style="font-size: 12px; font-family: Consolas; background-color: #feeada;">.AddSort(x =&gt; x.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af; background-color: #feeada;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas; background-color: #feeada;">.DateOpen) * -1);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;"> format = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;">(options);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> format.Generate(input);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Example 2 -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(example2, example2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="example2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example 2. Count trades that were open less than two years</font></a></p>
+<DIV id="example2" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Merge;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">DemoDerivative</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">int</span><span style="font-size: 12px; font-family: Consolas;"> ShortTermAccounts(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">MergeData</span><span style="font-size: 12px; font-family: Consolas;"> input)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">int</span><span style="font-size: 12px; font-family: Consolas;"> count = 0;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Instruct operation to throw error if a date is missing</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;input.AssumeZero = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">false</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">foreach</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">MrgTradeline</span><span style="font-size: 12px; font-family: Consolas;"> trade </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">in</span><span style="font-size: 12px; font-family: Consolas;"> input.TradelineSegments)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">int</span><span style="font-size: 12px; font-family: Consolas;"> open = 0;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">int</span><span style="font-size: 12px; font-family: Consolas;"> closed = 0;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">try</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;open = trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;closed = trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateClosed);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Be sure not to compute when a date is missing</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">catch</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ParameterException</span><span style="font-size: 12px; font-family: Consolas;"> ex)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">continue</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (closed - open &lt; 25)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;count++;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> count;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Example 3 -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(example3, example3_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="example3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example 3. Alternate count trades that were open less than two years</font></a></p>
+<DIV id="example3" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This version of the example above does not rely on catching an exception to avoid blank dates.</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Merge;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">DemoDerivative</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">int</span><span style="font-size: 12px; font-family: Consolas;"> ShortTermAccounts(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">MergeData</span><span style="font-size: 12px; font-family: Consolas;"> input)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">int</span><span style="font-size: 12px; font-family: Consolas;"> count = 0;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">foreach</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">MrgTradeline</span><span style="font-size: 12px; font-family: Consolas;"> trade </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">in</span><span style="font-size: 12px; font-family: Consolas;"> input.TradelineSegments)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (trade.DateOpen.Length == 0)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">continue</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (trade.DateClosed.Length == 0)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">continue</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateClosed) -</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen) &lt; 25)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;count++;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> count;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

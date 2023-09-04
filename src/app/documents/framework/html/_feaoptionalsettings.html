@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Options and Settings</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_feaoptionalsettings.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Options and Settings</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feacreditsharpfeatures.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_feaa-quick-tour.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_feaoptionalsettings_appconfing.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">There are a number of options which can be used to influence how different aspects of the CreditSharp Framework operate. &nbsp;Each root class within the CreditSharp framework (CommonData is one example) requires that an options class be passed to its constructor. &nbsp;The table below shows each option class and the component that expects it as an input parameter.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In addition to accessing and assigning the various options through these class instances, settings can also be applied by deploying a configuration file to the same folder as the CreditSharp assembly. &nbsp;Details about using this configuration file can be found in the <a href="_feaoptionalsettings_appconfing.html" class="topiclink">CreditSharp.dll.config</a> topic. &nbsp;The configuration file can also be used to define the name and adverse factor text for custom scoring models.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBot" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Option class</span></p>
+</td>
+<td style="vertical-align:top; width:911px; background-color:#c0c0c0; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><span style="font-weight: bold;">Option consumer</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:152px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_connect_efxinquiryoptions.html" class="topiclink">EfxInquiryOptions</a></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_connect_expinquiryoptions.html" class="topiclink">ExpInquiryOptions</a></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_connect_tucinquiryoptions.html" class="topiclink">TucInquiryOptions</a></p>
+</td>
+<td style="vertical-align:top; width:911px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_connect_equifaxrequest.html" class="topiclink">EquifaxRequest</a></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_connect_experianrequest.html" class="topiclink">ExperianRequest</a></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_connect_transunionrequest.html" class="topiclink">TransUnionRequest</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:152px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_datamart_bureauoptions.html" class="topiclink">BureauOptions</a></p>
+</td>
+<td style="vertical-align:top; width:911px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_datamart_equifax_equifaxdata.html" class="topiclink">EquifaxData</a></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_datamart_experian_experiandata.html" class="topiclink">ExperianData</a></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_datamart_transunion_transuniondata.html" class="topiclink">TransUnionData</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:152px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_extract_extractoptions.html" class="topiclink">ExtractOptions</a></p>
+</td>
+<td style="vertical-align:top; width:911px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_extract_extractdata.html" class="topiclink">ExtractData</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:152px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_datamart_common_commonoptions.html" class="topiclink">CommonOptions</a></p>
+</td>
+<td style="vertical-align:top; width:911px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_datamart_common_commondata.html" class="topiclink">CommonData</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:152px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_datamart_merge_mergeoptions.html" class="topiclink">MergeOptions</a></p>
+</td>
+<td style="vertical-align:top; width:911px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_datamart_merge_mergeoptions.html" class="topiclink">MergeData</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:152px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_analyze_analyzeoptions.html" class="topiclink">AnalyzeOptions</a></p>
+</td>
+<td style="vertical-align:top; width:911px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_analyze_analysisbundle.html" class="topiclink">AnalysisBundle</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:152px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><a href="t_luxortech_creditsharp_format_formatoptions.html" class="topiclink">FormatOptions</a></p>
+</td>
+<td style="vertical-align:top; width:911px; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 52px;"><a href="t_luxortech_creditsharp_format_formatdata.html" class="topiclink">FormatData</a></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Beginning with BureauOptions in the table above and moving downwards, there are two settings which are seen in each component: &nbsp;DateMask and MaskSsn.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In practice, these would only ever really need to be employed when using the FormatData component to generate an output of some sort, as this is typically the only instance where data is physically extracted from the CreditSharp framework.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">However, if your system requirements will see you interacting directly with the data classes exposed within one of the <span style="font-weight: bold;">Datamart</span> namespaces (EquifaxData, ExperianData, TransUnionData, CommonData or MergeData), these option settings can be explicitly stated during object creation to ensure that field level access to the relevant elements will reflect the desired masking.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">A description of these two options follows.</p>
+<p class="p_Normal"><a id="datemask" class="hmanchor"></a></p>
+<div style="text-align: left; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 10px;"><table class="TblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:144px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Option name</span></p>
+</td>
+<td style="vertical-align:top; width:137px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; width:811px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:144px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateMask</p>
+</td>
+<td style="vertical-align:top; width:137px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (10)</p>
+</td>
+<td style="vertical-align:top; width:811px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Controls how date fields are displayed and what should value be assumed when the day portion of a date is missing.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The input will consist of a string with placeholders for where each date portion should appear in output fields, along with the desired delimiter (if any) desired between elements.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">Given the input bureau date of March 13th, 2023, the example below show what each possible input mask would yield:</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:solid thin #c0c0c0; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Input mask</span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px; font-weight: bold;">Displayed output</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&quot;MM/01/YYYY&quot; </span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px;">= 03/13/2023</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&quot;YYYY/MM/01&quot;</span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px;">= 2023/03/13</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&quot;YYYYMM01&quot;</span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px;">= 20230313</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&quot;MM-01-YYYY&quot;</span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px;">= 03-13-2023</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&quot;MM-01-YY&quot; </span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px;">= 03-13-23</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&nbsp;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">As can be seen above, the Day portion of the input mask has been specified using a numeric two character value. &nbsp;This not only serves to position the day portion of the date in the output string(s), but also provide a default value to be used when a Day element is not returned with a bureau date.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">For example, given a bureau date of simply July, 2023, the following outputs can be generated: </p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table style="width:100%; border:solid thin #c0c0c0; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&quot;MM/15/YYYY&quot;</span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px;">= 07/15/2023 &nbsp; (A default day of 15 has been applied)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px; border:none"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">&quot;YYYY/MM/01&quot;</span></p>
+</td>
+<td style="vertical-align:top; padding:0px; border:none"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-size: 12px;">= 2023/07/01 &nbsp; (The more typical default day of '01' has been applied)</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The DateMask property is initialized as: &quot;MM/01/YYYY&quot;.</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:144px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MaskSsn</p>
+</td>
+<td style="vertical-align:top; width:137px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Char (1)</p>
+</td>
+<td style="vertical-align:top; width:811px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Will mask (overwrite) the first five digits of all social security numbers with the provided character. &nbsp;This can be a number, a letter, or any other printable character.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">Given a social security number of 666751234:</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-family: 'Courier New',Courier,monospace;">MaskSsn = &quot;9&quot; would yield: &quot;999991234&quot;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-family: 'Courier New',Courier,monospace;">MaskSsn = &quot;*&quot; would yield: &quot;*****1234&quot;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-family: 'Courier New',Courier,monospace;">MaskSsn = &quot;x&quot; would yield: &quot;xxxxx1234&quot;</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="text-indent: -18px; margin: 0px 0px 5px 23px;">&nbsp;</p>
+<p class="p_Normal" style="text-indent: -18px; margin: 0px 0px 5px 23px;">&nbsp;</p>
+<p class="p_Normal" style="text-indent: -18px; margin: 0px 0px 5px 23px;">&nbsp;</p>
+<p class="p_Normal" style="text-indent: -18px; margin: 0px 0px 5px 23px;">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

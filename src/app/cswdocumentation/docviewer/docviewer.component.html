@@ -1,0 +1,13 @@
+<!--  <mat-list class="" style="border: 1px solid #cccccc; width:fit-content;">
+    <mat-list-item role="listitem" *ngFor = "let entry of docList">
+        <span>{{entry.title}}</span>
+    </mat-list-item> 
+</mat-list> -->
+
+<ul class="list-group" style="width:fit-content;position:absolute;">
+    <a (click) = "doDoc(entry)" class="list-group-item list-group-item-action" *ngFor = "let entry of docList">{{entry.title}}
+ 
+    </a> 
+    
+</ul>
+  

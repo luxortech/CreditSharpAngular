@@ -1,0 +1,833 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Normalized credit output</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_feaoutputsjson_normalized.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_outcreditsharpoutput.html">CreditSharp Outputs</a> &gt; <a href="_feaoutputsjson.html">JSON Output</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Normalized credit output</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feaoutputsjson.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_feaoutputsjson.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_feaoutputsjson_mergehistory.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The sample shown below was created with both the <a href="t_luxortech_creditsharp_format_formatoptionsjson.html#shownullvalues" class="topiclink">ShowNullValues</a> and <a href="t_luxortech_creditsharp_format_formatoptionsjson.html#verbose" class="topiclink">Verbose</a> options set to <span style="font-weight: bold;">true.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;">{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&quot;NormalizedDataSet&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;&quot;bureau&quot;: 1,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;&quot;Header&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ConsumerReferralCode&quot;: &quot;356&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ReferenceNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ReportDate&quot;: &quot;06/01/2016&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ReportTime&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;&quot;SubjectReturnCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Hit&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;&quot;SpouseReturnCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;N&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Not requested&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;&quot;NormalizedItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;scope&quot;: 1,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IdentificationItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Age&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BirthDay&quot;: 19,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BirthMonth&quot;: 1,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BirthYear&quot;: 1990,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FirstReported&quot;: &quot;04/26/1996&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FirstName&quot;: &quot;ZACHARY&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LastName&quot;: &quot;QGRKPGK&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MiddleName&quot;: &quot;D&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Prefix&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IdNumber&quot;: &quot;666433428&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Suffix&quot;: &quot;SR&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneNumbers&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ContactCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LocationCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;8&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;PreviousHome&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Number&quot;: &quot;5015551212&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OriginCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;AddressSegment&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SourceCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;4&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;ThirdParty&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TypeCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;]</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 1,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Normal&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;City&quot;: &quot;CONWAY&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CurrentAddress&quot;: true,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FirstReported&quot;: &quot;01/01/2016&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Freeform&quot;: &quot;1601 HOGAN LN APT 1507&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LastReported&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OwnershipType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;U&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Normal&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PostalCode&quot;: &quot;72034&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;State&quot;: &quot;AR&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 1,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Normal&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;City&quot;: &quot;BIGELOW&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CurrentAddress&quot;: false,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FirstReported&quot;: &quot;05/01/2012&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Freeform&quot;: &quot;151 E SOUTHRIDGE RD&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LastReported&quot;: &quot;04/01/2012&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OwnershipType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;U&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Normal&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PostalCode&quot;: &quot;72016&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;State&quot;: &quot;AR&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AlertItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BureauCode&quot;: &quot;J&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MessageText&quot;: &quot;Inquiry address is listed as a hotel/motel.&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MessageType&quot;: &quot;Alert&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ServiceId&quot;: &quot;IdentityScan&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;NotificationItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ActiveDutyFlag&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Not active duty&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressVarianceFlag&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;No variance&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DeceasedFlag&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Not deceased&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FraudVictimFlag&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Not fraud victim&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MilitaryBorrowerFlag&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;U&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Not requested&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OfacSearchStatus&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Not found&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SsnVarianceFlag&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;No variance&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AliasItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Classification&quot;: &quot;A&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FirstName&quot;: &quot;ZACK&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LastName&quot;: &quot;QGRKPGK&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MiddleName&quot;: &quot;ATTACK&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Prefix&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IdNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Suffix&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ConsumerStatementItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CategoryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;01&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;General Statement&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateExpires&quot;: &quot;07/01/2022&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateReported&quot;: &quot;10/01/2015&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;StatementText&quot;: &quot;MY BANKRUPTCY RESULTED SOLELY FROM EXTREME MEDICAL EXPENSES AND I WOULD ASK THAT MY CREDIT BE EVALUATED WITH THAN IN MIND.&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TypeCode&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ScoreItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AlertText&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor1&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00022&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;ACCOUNT NOT PAID AS AGREED, PUBLIC RECORD, OR COLLECTION AGENCY FILING&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor2&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00013&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;TIME SINCE DELINQUENCY IS TOO RECENT OR UNKNOWN&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor3&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00020&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;LENGTH OF TIME SINCE DEROGATORY PUBLIC RECORD OR COLLECTION IS TOO SHORT&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor4&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00018&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;NUMBER OF ACCOUNTS WITH DELINQUENCY&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumScore&quot;: &quot;818&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MinimumScore&quot;: &quot;334&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ModelId&quot;: &quot;CPZ&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Percentile&quot;: 25,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Score&quot;: &quot;00637&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Scorecard&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ScoreNotice&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Sign&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;StatementText&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EmploymentItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine1&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine2&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;City&quot;: &quot;LITTLE ROCK&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateHired&quot;: &quot;02/01/2013&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateLeft&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EmployerName&quot;: &quot;SELF EMPLOYED&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FirstReported&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Income&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LastReported&quot;: &quot;02/01/2017&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Occupation&quot;: &quot;ENCYLOPEDIA SALES&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneExtension&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PostalCode&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;State&quot;: &quot;AR&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PublicRecordItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AssetAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Attorney&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BalanceAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BankruptcyType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Not specified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BookPage&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ConsumerStatement&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtLocation&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtName&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtPhoneExtension&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtPhoneNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtState&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateFiled&quot;: &quot;02/01/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateInitiated&quot;: &quot;02/01/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateJudgment&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateLastActivity&quot;: &quot;02/01/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DatePaid&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateReported&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateSatisfied&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Defendant&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DerogatoryFlag&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DisputeIndicator&quot;: &quot;N&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DocketNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EcoaCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;I&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Individual&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ExemptAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FilingAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;22&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Government&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LiabilityAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;639VF00012&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Plaintiff&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;StatusCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;17&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Discharged&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TrusteeName&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TrusteeCompany&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TypeCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;10&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Chapter 7 Bankruptcy&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AssetAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Attorney&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BalanceAmount&quot;: 148,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BookPage&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ConsumerStatement&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtLocation&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtName&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtPhoneExtension&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtPhoneNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CourtState&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateFiled&quot;: &quot;02/01/2015&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateInitiated&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateJudgment&quot;: &quot;02/01/2015&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateLastActivity&quot;: &quot;02/01/2015&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DatePaid&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateReported&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateSatisfied&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Defendant&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DerogatoryFlag&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DisputeIndicator&quot;: &quot;N&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DocketNumber&quot;: &quot;CIV06098&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EcoaCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;U&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Undesignated&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ExemptAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FilingAmount&quot;: 148,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;22&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Government&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LiabilityAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;648VC00578&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Plaintiff&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;StatusCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;7&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Judgment entered&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TrusteeName&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TrusteeCompany&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TypeCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;101&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Judgment</span><span style="font-size: 11px; font-family: 'Microsoft Sans Serif';">&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TradelineItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountCategoryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 3,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Credit Card&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountConditionCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountName&quot;: &quot;IMAGINE&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;R&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Revolving&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ActualPaymentAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BalanceAmount&quot;: 483,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BalloonAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ChargeOffAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ClosedIndicator&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Open&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Collateral&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ConsumerStatement&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CreditLimitAmount&quot;: 460,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CurrentMop&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Current&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateBalloonDue&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateClosed&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateDefaulted&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateDeferred&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateFirstDelinquency&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateInitialMaximum&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateLastActive&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateLastDelinquency&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateOpen&quot;: &quot;05/01/2015&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DatePaid&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DatePaymentHistory&quot;: &quot;03/01/2016&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateReported&quot;: &quot;03/01/2016&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DeceasedIndicator&quot;: &quot;N&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DerogatoryIndcator&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DisputeIndicator&quot;: &quot;N&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EcoaCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;I&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Individual&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;HighCreditAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 14,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Natl Credit Cards&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumDeliquencyAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumDeliquencyDate&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumDeliquencyMop&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Current&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;401ON01877&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MonthsReviewed&quot;: 9,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;NumberOfPayments&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OriginalCreditor&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PastDueAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PaymentAmount&quot;: 30,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PaymentFrequency&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;M&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Monthly&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PaymentHistory&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PaymentsRemaining&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ProductCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 32,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Credit Card&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PurchasedFrom&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SoldToCreditor&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate30&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate60&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate90&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate120&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate150&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate180&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesPastDue&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountCategoryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountConditionCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountName&quot;: &quot;SUPERIOR ASSET MANAG&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;Y&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Collection&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ActualPaymentAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BalanceAmount&quot;: 1535,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;BalloonAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ChargeOffAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ClosedIndicator&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Open&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Collateral&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ConsumerStatement&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CreditLimitAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;CurrentMop&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;9&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Charge off/collection&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateBalloonDue&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateClosed&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateDefaulted&quot;: &quot;08/01/2011&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateDeferred&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateFirstDelinquency&quot;: &quot;08/01/2013&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateInitialMaximum&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateLastActive&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateLastDelinquency&quot;: &quot;05/01/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateOpen&quot;: &quot;08/01/2013&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DatePaid&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DatePaymentHistory&quot;: &quot;05/01/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DateReported&quot;: &quot;05/01/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DeceasedIndicator&quot;: &quot;N&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DerogatoryIndcator&quot;: &quot;1&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DisputeIndicator&quot;: &quot;N&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;EcoaCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;I&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Individual&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;HighCreditAmount&quot;: 1535,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 25,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Collection Services&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumDeliquencyAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumDeliquencyDate&quot;: &quot;05/01/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumDeliquencyMop&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;9&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Charge off/collection&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;285YC01204&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MonthsReviewed&quot;: 1,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;NumberOfPayments&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OriginalCreditor&quot;: &quot;T MOBILE&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PastDueAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PaymentAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PaymentHistory&quot;: &quot;9&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PaymentsRemaining&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ProductCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 54,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Collection Services&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PurchasedFrom&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SoldToCreditor&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate30&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate60&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate90&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate120&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate150&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesLate180&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;TimesPastDue&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;InquiryItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 6,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Finance&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;InquiryDate&quot;: &quot;03/23/2016&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LoanAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberName&quot;: &quot;CAPONEAUTO&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;484FA00732&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ProductCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 13,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Auto Financing&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AccountNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 6,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Finance&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;InquiryDate&quot;: &quot;12/06/2014&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;LoanAmount&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberName&quot;: &quot;CAP ONE AF&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;484FA00658&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ProductCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 13,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Auto Financing&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OfacSearchItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchAddress&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchFirstName&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchFlags&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchCity&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchCountry&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchLastName&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchMiddleName&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchPostalCode&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchState&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchSource&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MatchType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;0&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Message&quot;: &quot;NO MATCH FOUND IN CDC'S OFAC DATABASE.&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SearchResult&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;C&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Clear&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SourceDate&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SourceId&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;SourceType&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;U&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Supplemental&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;FraudScanItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ScanCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 1002,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Input address is a hotel/motel or temporary residence&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ServiceId&quot;: 1</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ConsumerReferralItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine1&quot;: &quot;P O BOX 740241&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine2&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;City&quot;: &quot;ATLANTA&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Office&quot;: &quot;EQUIFAX INFORMATION SERVICES LLC&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;OfficeId&quot;: &quot;356&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneNumber&quot;: &quot;8006851111&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PostalCode&quot;: &quot;303740241&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;State&quot;: &quot;GA&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;WebsiteAddress&quot;: &quot;www.equifax.com&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;DirectoryItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine1&quot;: &quot;1000 ABERNATHY RD BLDG 400&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine2&quot;: &quot;STE 195&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;City&quot;: &quot;ATLANTA&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ContactMethod&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;2&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;No restrictions&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unknown&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;285YC01204&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberName&quot;: &quot;SUPERIOR ASSET MANAG&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneExtension&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneNumber&quot;: &quot;6782295024&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PostalCode&quot;: &quot;30328&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine1&quot;: &quot;PO BOX 723896&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AddressLine2&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;City&quot;: &quot;ATLANTA&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ContactMethod&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;3&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unspecified&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;IndustryCode&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: 0,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;Unknown&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberNumber&quot;: &quot;401ON01877&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MemberName&quot;: &quot;IMAGINE&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneExtension&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PhoneNumber&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;PostalCode&quot;: &quot;31139&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;]</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp;]</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;">}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000; background-color: #95b3d8;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

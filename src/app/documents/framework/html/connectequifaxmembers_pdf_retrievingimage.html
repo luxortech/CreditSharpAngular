@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Retrieving a PDF image from Equifax</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "connectequifaxmembers_pdf_retrievingimage.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectequifaxmembers.html">Equifax Connect Members</a> &gt; <a href="connectequifaxmembers_pdf.html">PDF Reports</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Retrieving a PDF image from Equifax</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="connectequifaxmembers_pdf.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="connectequifaxmembers_pdf_requestimage.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="connectequifaxmembers_pdf_extractembedded.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Once a credit inquiry has been submitted to the bureau with the PDF report option enabled, Equifax will generate a PDF image for the consumer(s) and store that file on their server for up to two hours following the initial request. &nbsp;Then, as part of the JSON credit bureau response, a link to the PDF report(s) is provided so that the file can be downloaded using a follow up request.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If you have elected to not have CreditSharp automatically embed the PDF report within the JSON credit data envelope, then the download operation can be performed separately. &nbsp;This follow up request is in itself a complete credit bureau transaction in which Equifax credentials are needed to authenticate the request before the PDF report can be returned. &nbsp;This separate transaction can be performed outside of the CreditSharp domain, but it will most likely be most convenient to leverage the CreditSharp framework to retrieve the report(s).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The programming sample below demonstrates how to use CreditSharp to perform the separate download transaction. &nbsp;It includes a small function showing a quick and easy method for getting the PDF link(s) from the original JSON credit data response:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">namespace</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EquifaxPDFRetrieve</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">using</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;System.Text.Json;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">using</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">using</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;LuxorTech.CreditSharp.Connect;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">class</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af; background-color: #ffffff;">RetrieveEquifaxPdf</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;MyAuthorizationId;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;MyAuthorizationSecret;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">byte</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">[] DownLoadData(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;licenseKey,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;equifaxLink)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BureauConnection connection =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;BureauConnection(BureauIds.Equifax);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.ServiceURL =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #800000; background-color: #ffffff;">@&quot;https://api.uat.equifax.com/v2/oauth/token&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.ServiceName =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;api&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.AuthorizationId =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">this</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.MyAuthorizationId;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.AuthorizationSecret =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">this</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.MyAuthorizationSecret;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Create the options reference and provide the PDF URL in the PdfLink property</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EfxInquiryOptions options =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EfxInquiryOptions(licenseKey)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;PdfLink = equifaxLink</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EquifaxRequest request =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EquifaxRequest(options);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Set up the bare-minimum request parameters</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.ResponseVersion = EfxVersionNumber.Version10;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.ProductCode = EfxProductCode.CreditReport;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.TtyResponse = EfxTtyResponse.PdfImage;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Send off the request to the Equifax server.</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Note that normal Applicant parameter is passed here as a null value.</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;base64Data = request.RequestProduct(connection,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">null</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// If you will be directly displaying or saving the data to a physical PDF file, then return the binary</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// form of the PDF report by reversing the base64 encoding.</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// If you will be saving in a database you may still want the binary form, since it will be smaller, and</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// store that content in a BLOB database column. &nbsp;Or, you can elect to store the data in its ASCII form</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// by simply returning the base64Data and saving the reversal of the encoding for a later time.</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;System.Convert.FromBase64String(base64Data);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Get the Equifax link for the PDF reports belonging to each borrower&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">void</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;GetURLs(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;equifaxJsonData,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">out</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;borrowerLink,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">out</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;coborrowerLink)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;borrowerLink =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;coborrowerLink =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">bool</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;first =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">true</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">using</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;(JsonDocument jsonData = JsonDocument.Parse(equifaxJsonData))</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;JsonElement element;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">if</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;(jsonData.RootElement.TryGetProperty(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;links&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">,&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">out</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;element) ==&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">true</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;JsonElement.ArrayEnumerator links = element.EnumerateArray();</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">while</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;(links.MoveNext())</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;JsonElement item = links.Current;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">if</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;(first ==&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">true</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;borrowerLink = item.GetProperty(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;href&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">).GetString();</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;first =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">false</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">else</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;coborrowerLink = item.GetProperty(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;href&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">).GetString();</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

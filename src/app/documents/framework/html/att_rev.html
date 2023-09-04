@@ -1,0 +1,957 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>REV (Revolving) Attributes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "att_rev.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_feadata-analysis.html">Data analysis</a> &gt; <a href="_feaanalyzeattributefactoryreference.html">AttributeFactory Reference</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">REV (Revolving) Attributes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feaanalyzeattributefactoryreference.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="att_ret.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="att_rpt.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The Revolving attribute category includes values calculated with references to variable payment tradeline account types, typically restricted to credit cards. &nbsp;As such, Credit Line and Open/30 Day account information is not reflected in this category. (See the <a href="att_crl.html" class="topiclink">CRL</a> or <a href="att_opn.html" class="topiclink">OPN</a> category). &nbsp;If information for all three types needs to be considered together, then use <a href="att_var.html" class="topiclink">VAR</a> category.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:middle;">
+<th style="vertical-align:middle; width:187px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Name</span></p>
+</th>
+<th style="vertical-align:middle; width:1117px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Description</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Count Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV001</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of revolving tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV002</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of open revolving tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV003</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of closed revolving tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV004</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of revolving tradelines reported in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV005</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of revolving tradelines reported in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV006</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of revolving tradelines reported in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV007</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new revolving tradelines opened in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV008</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new revolving tradelines opened in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV009</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new revolving tradelines opened in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV010</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts currently open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV011</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts currently open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV012</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts currently open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV013</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts currently open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV014</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV015</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines with balance &gt; 250</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV016</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines listed in bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV019</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of charge off or internal collection revolving tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV024</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts ever open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV025</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts ever open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV026</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts ever open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV027</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts ever open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV030</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts with activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV031</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts with activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV036</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts with no activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV037</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts with no activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV041</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines reported in last 3 months with past due amount &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV096</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of authorized user revolving accounts</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV097</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of lost or stolen revolving accounts</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV098</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts currently in dispute</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV099</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving accounts not evaluated due to exclusion criteria</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV101</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines with balance at or above credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV102</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines where balance is 50% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV103</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines where balance is 75% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Time / Age Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV201</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recently opened revolving tradeline</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV202</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since oldest revolving tradeline established</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV203</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average months since revolving tradeline open date</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV204</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average length of time (in months) revolving accounts are/were open</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV205</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent revolving delinquency or default</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV206</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 30 day revolving delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV207</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 60 day revolving delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV208</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 day revolving delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV209</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 to 180 day revolving delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Amount Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV301</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total revolving tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV302</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average revolving tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV303</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest revolving tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV311</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total revolving tradeline monthly payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV312</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average revolving tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV313</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest revolving tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV332</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average revolving tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV333</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest revolving tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV341</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total revolving tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV343</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest revolving tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV351</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total revolving tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV352</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of revolving tradeline credit limit utilized</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV353</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of remaining revolving tradeline credit capacity</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Ratio Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV401</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of open revolving tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV402</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of closed revolving tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV403</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of revolving tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV404</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of revolving tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV405</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of revolving tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV406</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of revolving tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV407</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of revolving tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV408</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of total revolving delinquencies to total revolving payment history</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV430</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of revolving balances to credit limits</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Delinquency Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV501</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV502</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines never defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV503</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV504</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV505</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV506</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 30 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV507</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV508</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 60 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV509</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV510</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 60 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV511</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 90 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV512</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 90 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV513</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV514</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 90 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV515</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 120 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV516</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 120 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV517</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 120 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV518</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently 120 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV519</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV520</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently delinquent or defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV521</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV522</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines currently defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV523</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines ever delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV524</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines ever 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV525</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines ever 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV526</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines ever 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV527</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines ever 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV528</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV529</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines ever defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV530</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV531</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV532</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not delinquent or defaulted in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV533</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not worse than 30 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV534</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not worse than 60 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV535</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not delinquent or defaulted in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV536</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not worse than 30 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV537</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not worse than 60 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV538</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not delinquent or defaulted in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV539</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not worse than 30 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV540</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of revolving tradelines not worse than 60 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV541</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 30 day revolving delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV542</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 60 day revolving delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV543</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 90 to 180 day revolving delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent levels presented from a zero baseline:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">0 = Not late</p>
+<p class="p_Normal">1 = 30 day delinquency</p>
+<p class="p_Normal">2 = 60 day delinquency</p>
+<p class="p_Normal">3 = 90 day delinquency</p>
+<p class="p_Normal">4 = 120 day delinquency</p>
+<p class="p_Normal">5 = 150 day delinquency</p>
+<p class="p_Normal">6 = 180 day delinquency</p>
+<p class="p_Normal">7 = Defaulted (included in bankruptcy)</p>
+<p class="p_Normal">8 = Defaulted (repossession or foreclosure)</p>
+<p class="p_Normal">9 = Defaulted (collection or charge off)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV544</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default revolving occurrence on file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV545</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default revolving occurrence in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV546</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default revolving occurrence in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV547</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default revolving occurrence in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV548</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default revolving occurrence in last 36 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">REV549</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default revolving occurrence in last 48 months</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

@@ -1,0 +1,1481 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>EquifaxRequest Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_connect_equifaxrequest.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectequifaxmembers.html">Equifax Connect Members</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">EquifaxRequest Class</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Connect</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="connectequifaxmembers.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="connectequifaxmembers.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="m_luxortech_creditsharp_connect_equifaxrequest_addmodel_1_bb3a7a4f.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The EquifaxRequest class is used to prepare and execute an Equifax request for credit data. &nbsp;This class is used to transmit requests to the Equifax system and capture the responses for later reference. &nbsp;In addition to transmitting the request, the class also allows for the retrieval the actual inquiry string to aid in record keeping or troubleshooting.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <a href="m_luxortech_creditsharp_connect_equifaxrequest_addmodel_1_bb3a7a4f.html" class="topiclink">AddModel</a> method is where requests for any bureau scoring models would be created and configured.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 10px 5px;"><span style="font-weight: bold;">Constructor</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:400px; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:400px; padding:3px;"><p class="p_Normal">EquifaxRequest(<a href="t_luxortech_creditsharp_connect_efxinquiryoptions.html" class="topiclink">EfxInquiryOptions</a> options)</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Constructor for an instance of the EquifaxRequest class.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Syntax</font></a></p>
+<DIV id="section2" style="display:none;"><p class="p_Normal" style="margin: 5px 0px 5px 5px;"><span style="font-weight: bold;">public</span> EquifaxRequest (<span style="font-weight: bold;">EfxInquiryOptions</span> options)</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 10px 5px;"><span style="font-weight: bold;">Parameters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_Normal"><span style="font-style: italic;">options</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Type: Instance of the </span><a href="t_luxortech_creditsharp_connect_efxinquiryoptions.html" class="topiclink">EfxInquiryOptions</a><span class="f_NormalIdent"> class</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Container for applying various Equifax product or service options.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section3, section3_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example</font></a></p>
+<DIV id="section3" style="display:none;"><p style="margin: 0px 0px 0px 39px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 39px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 39px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Connect;</span></p>
+<p style="margin: 0px 0px 0px 39px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">class</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">EquifaxConnect</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">string</span><span style="font-family: Consolas;"> OrderJoint(</span><span style="font-family: Consolas; color: #2b91af;">Applicant</span><span style="font-family: Consolas;"> primary, </span><span style="font-family: Consolas; color: #2b91af;">Applicant</span><span style="font-family: Consolas;"> secondary)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-family: Consolas;"> connection = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-family: Consolas;">.Equifax);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.ServiceName = </span><span style="font-family: Consolas; color: #a31515;">&quot;acrotest&quot;</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.ServiceURL = </span><span style="font-family: Consolas; color: #a31515;">&quot;https://transport5.ec.equifax.com/servlet/stspost&quot;</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.WebUserId = </span><span style="font-family: Consolas; color: #a31515;">&quot;myCompanyId&quot;</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.WebPassword = </span><span style="font-family: Consolas; color: #a31515;">&quot;letMeIn&quot;</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: Consolas; color: #2b91af;">EfxInquiryOptions</span><span style="font-family: Consolas;"> options = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">EfxInquiryOptions</span><span style="font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas;">licenseKey</span><span style="font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;options.ConsumerReferral = </span><span style="font-family: Consolas; color: #0000ff;">true</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;options.MilitaryBorrowerCheck = </span><span style="font-family: Consolas; color: #0000ff;">true</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: Consolas; color: #2b91af; background-color: #feeada;">EquifaxRequest</span><span style="font-family: Consolas; background-color: #feeada;">&nbsp;request =&nbsp;</span><span style="font-family: Consolas; color: #0000ff; background-color: #feeada;">new</span><span style="font-family: Consolas; background-color: #feeada;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af; background-color: #feeada;">EquifaxRequest</span><span style="font-family: Consolas; background-color: #feeada;">(options);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.PermissiblePurposeCode = </span><span style="font-family: Consolas; color: #a31515;">&quot;01&quot;</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.ProductCode = </span><span style="font-family: Consolas; color: #2b91af;">EfxProductCode</span><span style="font-family: Consolas;">.CreditReport;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.ResponseVersion = </span><span style="font-family: Consolas; color: #2b91af;">EfxVersionNumber</span><span style="font-family: Consolas;">.Version50;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.SubscriberCode = </span><span style="font-family: Consolas; color: #a31515;">&quot;222XX11111&quot;</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.SubscriberPassword = </span><span style="font-family: Consolas; color: #a31515;">&quot;ABC&quot;</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.CpuResponse = </span><span style="font-family: Consolas; color: #2b91af;">EfxCpuResponse</span><span style="font-family: Consolas;">.FullFileFixed;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: Consolas; color: #0000ff;">string</span><span style="font-family: Consolas;"> creditData = request.RequestProduct(connection, primary, secondary);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family: Consolas; color: #0000ff;">return</span><span style="font-family: Consolas;"> creditData;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section6, section6_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section6_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Exceptions</font></a></p>
+<DIV id="section6" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Exception class</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Status</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterexception.html" class="topiclink">ParameterException</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a>.RequiredElementMissing</p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Start of Namespace table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section4, section4_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section4_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Methods</font>
+</a>
+</p>
+<DIV id="section4" style="display:;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="m_luxortech_creditsharp_connect_equifaxrequest_addmodel_1_bb3a7a4f.html" class="topiclink">AddModel</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Adds an instance of a bureau score model to be included with the current request.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="m_luxortech_creditsharp_connect_equifaxrequest_getdialsegment.html" class="topiclink">GetDialSegment</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Method returns the Equifax DIAL segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="m_luxortech_creditsharp_connect_equifaxrequest_getinquiry_3_68aac48c.html" class="topiclink">GetInquiry</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Method returns an enveloped inquiry string which represents the entire buffer being transmitted to the bureau.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="m_luxortech_creditsharp_connect_equifaxrequest_gettextinquiry_2_02259f9d.html" class="topiclink">GetTextInquiry</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Method returns a text based inquiry string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="m_luxortech_creditsharp_connect_equifaxrequest_getxmlinquiry_2_02259f9d.html" class="topiclink">GetXmlInquiry</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Method returns an Xml based inquiry string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="m_luxortech_creditsharp_connect_equifaxrequest_requestdirectory_1_bb3a7a4f.html" class="topiclink">RequestDirectory</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Used to retrieve the address, phone, and verification detail for a given Equifax subscriber code.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="m_luxortech_creditsharp_connect_equifaxrequest_requestproduct_3_68aac48c.html" class="topiclink">RequestProduct</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Submits inquiry details to credit bureau and waits for response.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</div><!-- Start of Namespace table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section5, section5_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="section5_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Properties</font>
+</a>
+</p>
+<DIV id="section5" style="display:;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:125px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountTerms</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Not currently part of the Equifax inquiry layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountType</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Not currently part of the Equifax inquiry layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ContractAmount</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Not currently part of the Equifax inquiry layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CpuResponse</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxcupresponse" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxcupresponse" class="topiclink">EfxCpuResponse</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating what type, if any, of CPU response is to be generated.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Can be combined with some CpuResponse and/or XmlResponse choices. <a href="_devconnectequifaxvalidcombos.html" class="topiclink">See Valid Response Combinations</a>.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CustomerCode</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets a supplemental value supplied by Equifax for defining the requesting customer.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DecorateInquiry</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets a value to be used for beautifying an Xml or Json inquiry string.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When populated, the inquiry string is beautified by inserting newline characters before each successive nested element and then embedding the provided input before each line. &nbsp;For instance, to cause the insertion one (or more) tab character(s) before each line, input the string &quot;\t&quot;. &nbsp;Likewise, to insert two space characters instead, input the string &quot; &nbsp;&quot;.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FrozenFileSpousePIN</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the unique code that can unlock the secondary applicant's frozen file.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FrozenFileSubjectPIN</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the unique code that can unlock the primary applicant's frozen file.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="isjointrequest" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsJointRequest</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating whether the current request is individual or joint (involves two applicant's)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">JsonResponse</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxjsonresponse" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxjsonresponse" class="topiclink">EfxJsonResponse</a> enumerations.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This value is to be used when connecting to the new cloud-based API.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Locale</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_bureaulocales.html" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="t_luxortech_creditsharp_core_bureaulocales.html" class="topiclink">BureauLocales</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating if the request is being submitted for a Canadian or US resident.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Equifax will inspect the state/province code in a given address and automatically return bureau data from the corresponding national repository. &nbsp;For instances where an application contains an address in each country, Equifax will dutifully include a response from each locale. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">CreditSharp cannot currently accept responses that include both national repositories in a single request, so this enumeration is used to filter out whichever address does not match the indicated locale.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="pdfstatus" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PdfStatus</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the numeric value indicating whether or not an attempt to automatically download a PDF image of a consumer credit report from the new cloud based API was successful.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">* When the value is -1, it indicates no attempt was made to obtain a PDF report.</p>
+<p class="p_Normal">* When the value is 0, it indicates the PDF was successfully obtained as has been embedded within the JSON response.</p>
+<p class="p_Normal">* When the value is greater than zero, it indicates the attempt to obtain the PDF report failed.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the PdfStatus indicates a failed attempt, the value will contain an error code from one of two possible .NET enumerations. Please refer to the <a href="t_luxortech_creditsharp_connect_equifaxrequest.html#pdferrortables" class="topiclink">error tables below</a> for the range of values.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In the advent of a failed attempt, the PDF file(s) will need to downloaded directly at a later time. &nbsp;They are preserved in the Equifax system for up to two hours following the initiating inquiry. &nbsp;Please refer to the <a href="connectequifaxmembers_pdf.html" class="topiclink">PDF Reports</a> topic in this section for details on downloading PDF content with a subsequent request.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PermissiblePurposeCode</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value indicating the reason for the inquiry.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values are defined by Equifax and can be found in Attachment 18 of their System To System manual.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PermissiblePurposeUser</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (20)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value the end user of the credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ProductCode</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxproductcode" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxproductcode" class="topiclink">EfxProductCode</a> enumerations.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Gets or sets the value indicating what bureau product is being requested.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ReferenceNumber</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (20)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets a value that can be used to match a bureau response to an application.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ResponseVersion</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_efxversionnumber.html" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="t_luxortech_creditsharp_core_efxversionnumber.html" class="topiclink">EfxVersionNumber</a> enumerations.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Gets or sets the value indicating which version of a bureau's credit data response is desired.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubscriberCode</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the bureau assigned customer number which identifies who is issuing the request.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubscriberPassword</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (3)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the bureau assigned password associated with a given customer number.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TrimOversizedInputs</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value indicating if input values that exceed a particular bureau's maximum size(s) should be automatically truncated to fit within the allotted space.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Defaults to <span style="font-weight: bold;">false</span>.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If an input value is found that will not fit within its corresponding inquiry element and the property value is false, an exception will be thrown.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="ttyresponse" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TtyResponse</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxttyresponse" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxttyresponse" class="topiclink">EfxTtyResponse</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating what type, if any, of TTY (printable) response is to be generated.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Can be combined with some CpuResponse, JsonResponse or XmlResponse choices. See <a href="_devconnectequifaxvalidcombos.html" class="topiclink">Valid Response Combinations</a>.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If requesting the PdfImage, by default the response data will only include a URL to subsequently retrieve the PDF content directly from Equifax (outside of CreditSharp). &nbsp;If instead, you'd like CreditSharp to include that actual PDF data alongside the raw credit data, the EquifaxInquiryOptions.<a href="t_luxortech_creditsharp_connect_efxinquiryoptions.html#appendpdfimage" class="topiclink">AppendPdfImage</a> should be enabled as well.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Please refer to the <a href="connectequifaxmembers_pdf.html" class="topiclink">PDF Reports</a> topic in this section for full details on how to request and display PDF responses.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VendorName</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Not currently part of the Equifax inquiry layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VendorNumber</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets a bureau assigned value indicating which vendor is facilitating the transaction.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This defaults to a Luxor defined value and should only be modified after consultation with Luxor support.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VendorProduct</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Not currently part of the Equifax inquiry layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VendorVersion</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Not currently part of the Equifax inquiry layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">XmlResponse</p>
+</td>
+<td style="vertical-align:top; width:125px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devconnectequifaxenumerations.html#efxxmlresponse" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devconnectequifaxenumerations.html#efxxmlresponse" class="topiclink">EfxXmlResponse</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating what type, if any, of XML response is to be generated.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Can be combined with some CpuResponse and/or TtyResponse choices. See <a href="_devconnectequifaxvalidcombos.html" class="topiclink">Valid Response Combinations</a>.</p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><a id="pdferrortables" class="hmanchor"></a></p>
+<!-- Start of WebErr tables -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(sectionWebErr, sectionWebErr_icon)"
+title="Click to expand or collapse">
+<img src="minus.gif" id="sectionWebErr_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Possible PdfStatus values</font>
+</a>
+</p>
+<DIV id="sectionWebErr" style="display:;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the <span style="font-weight: bold;">PdfStatus</span> value is less than 100, then the error belongs to one of the System.Net <span style="font-weight: bold;">WebExceptionStatus</span> enumerations below.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdr" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif; font-weight: bold;">Error number</span></p>
+</td>
+<td style="vertical-align:top; width:213px; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif; font-weight: bold;">Enumerated Value</span></p>
+</td>
+<td colspan="2" style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif; font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">0</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Success </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">No error was encountered.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">1</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NameResolutionFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The name resolver service could not resolve the host name.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">2</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ConnectFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The remote service point could not be contacted at the transport level.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">3</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ReceiveFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">A complete response was not received from the remote server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">4</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">SendFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">A complete request could not be sent to the remote server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">5</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PipelineFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The request was a pipelined request and the connection was closed before the response was received.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">6</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestCanceled </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The request was canceled, the Abort() method was called, or an unclassifiable error occurred. This is the default value for Status.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">7</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ProtocolError </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The response received from the server was complete but indicated a protocol-level error. For example, an HTTP protocol error such as 401 Access Denied would use this status.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">8</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ConnectionClosed </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The connection was prematurely closed.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">9</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">TrustFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">A server certificate could not be validated.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">10</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">SecureChannelFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">An error occurred while establishing a connection using SSL.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">11</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ServerProtocolViolation </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The server response was not a valid HTTP response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">12</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">KeepAliveFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The connection for a request that specifies the Keep-alive header was closed unexpectedly.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">13</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Pending </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">An internal asynchronous request is pending.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">14</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Timeout </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">No response was received during the time-out period for a request.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">15</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ProxyNameResolutionFailure </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The name resolver service could not resolve the proxy host name.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">16</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UnknownError </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">An exception of unknown type has occurred.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">17</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MessageLengthLimitExceeded </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">A message was received that exceeded the specified limit when sending a request or receiving a response from the server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">18</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">CacheEntryNotFound </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The specified cache entry was not found.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">19</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestProhibitedByCachePolicy </span></p>
+</td>
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">The request was not permitted by the cache policy. In general, this occurs when a request is not cacheable and the effective policy prohibits sending the request to the server. You might receive this status if a request method implies the presence of a request body, a request method requires direct interaction with the server, or a request contains a conditional header.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:113px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">20</span></p>
+</td>
+<td style="vertical-align:top; width:213px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestProhibitedByProxy </span></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">This request was not permitted by the proxy.</span></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><br />
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p class="p_Normal">If the <span style="font-weight: bold;">PdfStatus</span> value is greater than 99, then the error belongs to one of the System.Net <span style="font-weight: bold;">HttpStatusCode</span> enumerations below.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 44px;"> Note: Equifax will generally return either status codes 400 or 409 to indicate that the PDF report is not yet ready to be downloaded.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdr" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif; font-weight: bold;">Error number</span></p>
+</td>
+<td style="vertical-align:top; width:214px; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif; font-weight: bold;">Enumerated Value</span></p>
+</td>
+<td style="vertical-align:top; width:953px; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif; font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">100</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Continue</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Continue indicates that the client can continue with its request.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">101</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">SwitchingProtocols</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">SwitchingProtocols indicates that the protocol version or protocol is being changed.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">102</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Processing</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Processing indicates that the server has accepted the complete request but hasn't completed it yet.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">103</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">EarlyHints</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">EarlyHints indicates to the client that the server is likely to send a final response with the header fields included in the informational response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">200</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">OK</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">OK indicates that the request succeeded and that the requested information is in the response. This is the most common status code to receive.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">201</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Created</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Created indicates that the request resulted in a new resource created before the response was sent.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">202</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Accepted</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Accepted indicates that the request has been accepted for further processing.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">203</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NonAuthoritativeInformation</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NonAuthoritativeInformation indicates that the returned metainformation is from a cached copy instead of the origin server and therefore may be incorrect.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">204</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NoContent</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NoContent indicates that the request has been successfully processed and that the response is intentionally blank.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">205</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ResetContent</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ResetContent indicates that the client should reset (not reload) the current resource.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">206</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PartialContent</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PartialContent indicates that the response is a partial response as requested by a GET request that includes a byte range.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">207</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MultiStatus</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MultiStatus indicates multiple status codes for a single response during a Web Distributed Authoring and Versioning (WebDAV) operation. The response body contains XML that describes the status codes.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">208</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">AlreadyReported</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">AlreadyReported indicates that the members of a WebDAV binding have already been enumerated in a preceding part of the multistatus response, and are not being included again.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">226</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">IMUsed</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">IMUsed indicates that the server has fulfilled a request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">300</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Ambiguous</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Ambiguous indicates that the requested information has multiple representations. The default action is to treat this status as a redirect and follow the contents of the Location header associated with this response. Ambiguous is a synonym for MultipleChoices.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">300</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MultipleChoices</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MultipleChoices indicates that the requested information has multiple representations. The default action is to treat this status as a redirect and follow the contents of the Location header associated with this response. MultipleChoices is a synonym for Ambiguous.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">301</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Moved</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Moved indicates that the requested information has been moved to the URI specified in the Location header. The default action when this status is received is to follow the Location header associated with the response. When the original request method was POST, the redirected request will use the GET method. Moved is a synonym for MovedPermanently.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">301</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MovedPermanently</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MovedPermanently indicates that the requested information has been moved to the URI specified in the Location header. The default action when this status is received is to follow the Location header associated with the response. MovedPermanently is a synonym for Moved.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">302</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Found</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Found indicates that the requested information is located at the URI specified in the Location header. The default action when this status is received is to follow the Location header associated with the response. When the original request method was POST, the redirected request will use the GET method. Found is a synonym for Redirect.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">302</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Redirect</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Redirect indicates that the requested information is located at the URI specified in the Location header. The default action when this status is received is to follow the Location header associated with the response. When the original request method was POST, the redirected request will use the GET method. Redirect is a synonym for Found.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">303</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RedirectMethod</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RedirectMethod automatically redirects the client to the URI specified in the Location header as the result of a POST. The request to the resource specified by the Location header will be made with a GET. RedirectMethod is a synonym for SeeOther.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">303</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">SeeOther</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">SeeOther automatically redirects the client to the URI specified in the Location header as the result of a POST. The request to the resource specified by the Location header will be made with a GET. SeeOther is a synonym for RedirectMethod.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">304</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotModified</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotModified indicates that the client's cached copy is up to date. The contents of the resource are not transferred.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">305</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UseProxy</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UseProxy indicates that the request should use the proxy server at the URI specified in the Location header.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">306</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Unused</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Unused is a proposed extension to the HTTP/1.1 specification that is not fully specified.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">307</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RedirectKeepVerb</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RedirectKeepVerb indicates that the request information is located at the URI specified in the Location header. The default action when this status is received is to follow the Location header associated with the response. When the original request method was POST, the redirected request will also use the POST method. RedirectKeepVerb is a synonym for TemporaryRedirect.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">307</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">TemporaryRedirect</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">TemporaryRedirect indicates that the request information is located at the URI specified in the Location header. The default action when this status is received is to follow the Location header associated with the response. When the original request method was POST, the redirected request will also use the POST method. TemporaryRedirect is a synonym for RedirectKeepVerb.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">308</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PermanentRedirect</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PermanentRedirect indicates that the request information is located at the URI specified in the Location header. The default action when this status is received is to follow the Location header associated with the response. When the original request method was POST, the redirected request will also use the POST method.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">400</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">BadRequest</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">BadRequest indicates that the request could not be understood by the server. BadRequest is sent when no other error is applicable, or if the exact error is unknown or does not have its own error code.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">401</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Unauthorized</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Unauthorized indicates that the requested resource requires authentication. The WWW-Authenticate header contains the details of how to perform the authentication.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">402</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PaymentRequired</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PaymentRequired is reserved for future use.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">403</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Forbidden</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Forbidden indicates that the server refuses to fulfill the request.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">404</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotFound</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotFound indicates that the requested resource does not exist on the server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">405</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MethodNotAllowed</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MethodNotAllowed indicates that the request method (POST or GET) is not allowed on the requested resource.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">406</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotAcceptable</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotAcceptable indicates that the client has indicated with Accept headers that it will not accept any of the available representations of the resource.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">407</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ProxyAuthenticationRequired</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ProxyAuthenticationRequired indicates that the requested proxy requires authentication. The Proxy-authenticate header contains the details of how to perform the authentication.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">408</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestTimeout</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestTimeout indicates that the client did not send a request within the time the server was expecting the request.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">409</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Conflict</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Conflict indicates that the request could not be carried out because of a conflict on the server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">410</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Gone</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Gone indicates that the requested resource is no longer available.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">411</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">LengthRequired</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">LengthRequired indicates that the required Content-length header is missing.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">412</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PreconditionFailed</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PreconditionFailed indicates that a condition set for this request failed, and the request cannot be carried out. Conditions are set with conditional request headers like If-Match, If-None-Match, or If-Unmodified-Since.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">413</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestEntityTooLarge</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestEntityTooLarge indicates that the request is too large for the server to process.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">414</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestUriTooLong</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestUriTooLong indicates that the URI is too long.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">415</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UnsupportedMediaType</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UnsupportedMediaType indicates that the request is an unsupported type.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">416</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestedRangeNotSatisfiable</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestedRangeNotSatisfiable indicates that the range of data requested from the resource cannot be returned, either because the beginning of the range is before the beginning of the resource, or the end of the range is after the end of the resource.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">417</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ExpectationFailed</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ExpectationFailed indicates that an expectation given in an Expect header could not be met by the server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">421</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MisdirectedRequest</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">MisdirectedRequest indicates that the request was directed at a server that is not able to produce a response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">422</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UnprocessableEntity</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UnprocessableEntity indicates that the request was well-formed but was unable to be followed due to semantic errors.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">423</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Locked</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">Locked indicates that the source or destination resource is locked.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">424</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">FailedDependency</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">FailedDependency indicates that the method couldn't be performed on the resource because the requested action depended on another action and that action failed.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">426</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UpgradeRequired</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UpgradeRequired indicates that the client should switch to a different protocol such as TLS/1.0.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">428</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PreconditionRequired</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">PreconditionRequired indicates that the server requires the request to be conditional.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">429</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">TooManyRequests</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">TooManyRequests indicates that the user has sent too many requests in a given amount of time.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">431</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestHeaderFieldsTooLarge</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">RequestHeaderFieldsTooLarge indicates that the server is unwilling to process the request because its header fields (either an individual header field or all the header fields collectively) are too large.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">451</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UnavailableForLegalReasons</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">UnavailableForLegalReasons indicates that the server is denying access to the resource as a consequence of a legal demand.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">500</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">InternalServerError</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">InternalServerError indicates that a generic error has occurred on the server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">501</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotImplemented</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotImplemented indicates that the server does not support the requested function.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">502</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">BadGateway</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">BadGateway indicates that an intermediate proxy server received a bad response from another proxy or the origin server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">503</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ServiceUnavailable</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">ServiceUnavailable indicates that the server is temporarily unavailable, usually due to high load or maintenance.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">504</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">GatewayTimeout</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">GatewayTimeout indicates that an intermediate proxy server timed out while waiting for a response from another proxy or the origin server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">505</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">HttpVersionNotSupported</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">HttpVersionNotSupported indicates that the requested HTTP version is not supported by the server.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">506</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">VariantAlsoNegotiates</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">VariantAlsoNegotiates indicates that the chosen variant resource is configured to engage in transparent content negotiation itself and, therefore, isn't a proper endpoint in the negotiation process.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">507</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">InsufficientStorage</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">InsufficientStorage indicates that the server is unable to store the representation needed to complete the request.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">508</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">LoopDetected</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">LoopDetected indicates that the server terminated an operation because it encountered an infinite loop while processing a WebDAV request with &quot;Depth: infinity&quot;. This status code is meant for backward compatibility with clients not aware of the 208 status code AlreadyReported appearing in multistatus response bodies.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">510</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotExtended</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NotExtended indicates that further extensions to the request are required for the server to fulfill it.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:112px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">511</span></p>
+</td>
+<td style="vertical-align:top; width:214px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NetworkAuthenticationRequired</span></p>
+</td>
+<td style="vertical-align:top; width:953px; padding:3px; border:solid thin #000000;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 15px; font-family: Calibri,Vectora,'Droid Sans','Open Sans',Frutiger,sans-serif;">NetworkAuthenticationRequired indicates that the client needs to authenticate to gain network access; it's intended for use by intercepting proxies used to control access to the network.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

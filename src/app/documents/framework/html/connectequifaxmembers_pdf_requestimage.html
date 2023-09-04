@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Requesting a PDF image from Equifax</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "connectequifaxmembers_pdf_requestimage.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectequifaxmembers.html">Equifax Connect Members</a> &gt; <a href="connectequifaxmembers_pdf.html">PDF Reports</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Requesting a PDF image from Equifax</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="connectequifaxmembers_pdf.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="connectequifaxmembers_pdf.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="connectequifaxmembers_pdf_retrievingimage.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Equifax's new PDF reports are requested by enabling a new <a href="_devconnectequifaxenumerations.html#efxttyresponse" class="topiclink">EfxTtyResponse</a> enumeration when submitting a credit bureau inquiry. &nbsp;The JSON response will then include a URL (or two URLs if submitting a Joint bureau request) which can then be used to subsequently obtain the actual PDF content.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If desired, the CreditSharp <a href="t_luxortech_creditsharp_connect_equifaxrequest.html" class="topiclink">EquifaxRequest</a> object can be instructed to automatically download the PDF content, using the URL details provided in the response, and have this data embedded within the native JSON credit bureau envelope. &nbsp;Doing so will lead to CreditSharp inserting a <span style="font-style: italic; font-weight: bold;">pdfImage1</span> (and <span style="font-style: italic; font-weight: bold;">pdfImage2</span>, if Joint) element into the JSON response which contains the pdf content encoded as base64 data.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In the coding example the follows, the <span style="font-style: italic; font-weight: bold;">RequestWithPDF</span> method demonstrates submitting an inquiry that will include the PDF links in the response data. &nbsp;The <span style="font-style: italic; font-weight: bold;">RequestWithEmbeddedPDF</span> method demonstrates enabling the option to have CreditSharp download the PDF content and add it to the response data.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Request example -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)" title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Setting up and submitting the request.</font></a></p>
+<DIV id="section2" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">namespace</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EquifaxPDFExtract</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">using</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">using</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;LuxorTech.CreditSharp.Connect;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">class</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af; background-color: #ffffff;">RequestEquifaxData</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Equifax credentials</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;MyAuthorizationId;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;MyAuthorizationSecret;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;MySubscriberCode;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;MySubscriberPswd;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;MyCustomerCode;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;RequestWithPDF(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;licenseKey, Applicant subject, Applicant spouse)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BureauConnection connection = CreateConnection();</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EfxInquiryOptions options =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EfxInquiryOptions(licenseKey);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;CreateRequest(options).RequestProduct(connection, subject, spouse);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">public</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;RequestWithEmbeddedPDF(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">string</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;licenseKey, Applicant subject, Applicant spouse)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BureauConnection connection = CreateConnection();</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Create options with AppendPdfImage enabled so CreditSharp retrieves the PDF contents and stuffs it into the response</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EfxInquiryOptions options =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EfxInquiryOptions(licenseKey)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AppendPdfImage =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">true</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;CreateRequest(options).RequestProduct(connection, subject, spouse);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">private</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;BureauConnection CreateConnection()</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;BureauConnection connection =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;BureauConnection(BureauIds.Equifax);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.ServiceURL =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #800000; background-color: #ffffff;">@&quot;https://api.uat.equifax.com/v2/oauth/token&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.ServiceName =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #a31515; background-color: #ffffff;">&quot;api&quot;</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.AuthorizationId =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">this</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.MyAuthorizationId;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;connection.HttpSettings.AuthorizationSecret =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">this</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.MyAuthorizationSecret;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;connection;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">private</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EquifaxRequest CreateRequest(EfxInquiryOptions options)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EquifaxRequest request =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">new</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;EquifaxRequest(options);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.SubscriberCode =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">this</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.MySubscriberCode;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.SubscriberPassword =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">this</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.MySubscriberPswd;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.CustomerCode =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">this</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">.MyCustomerCode;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.ProductCode = EfxProductCode.CreditReport;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.ResponseVersion = EfxVersionNumber.Version10;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.JsonResponse = EfxJsonResponse.Standard;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">// Include the trigger telling Equifax to generate PDF images and return the URLs</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #008000; background-color: #ffffff;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;request.TtyResponse = EfxTtyResponse.PdfImage;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #ffffff;">return</span><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;request;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">&nbsp;&nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; background-color: #ffffff;">}</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Links example -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section4, section4_icon)" title="Click to expand or collapse">
+<img src="plus.gif" id="section4_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">An example of a JSON response with PDF links.</font></a></p>
+<DIV id="section4" style="display:none;"><p class="p_CodeExample" style="page-break-inside: avoid;"><span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">&quot;status&quot;:&nbsp;&quot;completed&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">&quot;consumers&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;equifaxUSConsumerCreditReport&quot;:&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Primary&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;customerNumber&quot;:&nbsp;&quot;999ZZ48026&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;consumerReferralCode&quot;:&nbsp;&quot;097&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;multipleReportIndicator&quot;:&nbsp;&quot;F&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;ECOAInquiryType&quot;:&nbsp;&quot;P&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;hitCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;1&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fileSinceDate&quot;:&nbsp;&quot;03011993&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastActivityDate&quot;:&nbsp;&quot;02122021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;reportDate&quot;:&nbsp;&quot;04192021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectName&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;firstName&quot;:&nbsp;&quot;YAKOB&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastName&quot;:&nbsp;&quot;YYETANOTHERFILE&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;middleName&quot;:&nbsp;&quot;Y&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;suffix&quot;:&nbsp;&quot;JR&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectSocialNum&quot;:&nbsp;&quot;666452231&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;doNotCombineIndicator&quot;:&nbsp;&quot;C&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;addressDiscrepancyIndicator&quot;:&nbsp;&quot;N&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fraudSocialNumAlertCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;N&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Co-Applicant&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;customerNumber&quot;:&nbsp;&quot;999ZZ48026&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;consumerReferralCode&quot;:&nbsp;&quot;097&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;multipleReportIndicator&quot;:&nbsp;&quot;F&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;ECOAInquiryType&quot;:&nbsp;&quot;J&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;hitCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;1&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fileSinceDate&quot;:&nbsp;&quot;03012018&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastActivityDate&quot;:&nbsp;&quot;02142021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;reportDate&quot;:&nbsp;&quot;04192021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectName&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;firstName&quot;:&nbsp;&quot;YULIA&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastName&quot;:&nbsp;&quot;YYETANOTHERFILE&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectSocialNum&quot;:&nbsp;&quot;666321297&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;birthDate&quot;:&nbsp;&quot;11011962&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;doNotCombineIndicator&quot;:&nbsp;&quot;C&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;addressDiscrepancyIndicator&quot;:&nbsp;&quot;N&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fraudSocialNumAlertCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;N&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fraudIDScanAlertCodes&quot;:&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;S&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">],</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">]</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">&quot;links&quot;:&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Primary&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;type&quot;:&nbsp;&quot;GET&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;href&quot;:&nbsp;&quot;/business/consumer-credit/v1/reports/credit-report/1883a4f1-2f7f-60b3-2e10-790f43750d3e&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Co-Applicant&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;type&quot;:&nbsp;&quot;GET&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;href&quot;:&nbsp;&quot;/business/consumer-credit/v1/reports/credit-report/c2c51cb8-c6e6-c213-a389-bab8816f734c&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">]</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Note: the content of the JSON response depicted here is highly abbreviated for illustrative purposes only. &nbsp;The &quot;links&quot; array element is only present when the credit bureau request specified the inclusion of a PDF report. </p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span class="f_CodeExample">&nbsp;</span></p>
+</div><!-- pdfImage example -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)" title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">An example with the PDF file(s) embedded in the JSON response.</font></a></p>
+<DIV id="section1" style="display:none;"><p class="p_CodeExample" style="page-break-inside: avoid;"><span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">&quot;status&quot;:&nbsp;&quot;completed&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">&quot;consumers&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;equifaxUSConsumerCreditReport&quot;:&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Primary&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;customerNumber&quot;:&nbsp;&quot;999ZZ48026&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;consumerReferralCode&quot;:&nbsp;&quot;097&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;multipleReportIndicator&quot;:&nbsp;&quot;F&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;ECOAInquiryType&quot;:&nbsp;&quot;P&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;hitCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;1&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fileSinceDate&quot;:&nbsp;&quot;03011993&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastActivityDate&quot;:&nbsp;&quot;02122021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;reportDate&quot;:&nbsp;&quot;04192021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectName&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;firstName&quot;:&nbsp;&quot;YAKOB&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastName&quot;:&nbsp;&quot;YYETANOTHERFILE&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;middleName&quot;:&nbsp;&quot;Y&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;suffix&quot;:&nbsp;&quot;JR&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectSocialNum&quot;:&nbsp;&quot;666452231&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;doNotCombineIndicator&quot;:&nbsp;&quot;C&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;addressDiscrepancyIndicator&quot;:&nbsp;&quot;N&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fraudSocialNumAlertCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;N&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Co-Applicant&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;customerNumber&quot;:&nbsp;&quot;999ZZ48026&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;consumerReferralCode&quot;:&nbsp;&quot;097&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;multipleReportIndicator&quot;:&nbsp;&quot;F&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;ECOAInquiryType&quot;:&nbsp;&quot;J&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;hitCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;1&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fileSinceDate&quot;:&nbsp;&quot;03012018&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastActivityDate&quot;:&nbsp;&quot;02142021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;reportDate&quot;:&nbsp;&quot;04192021&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectName&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;firstName&quot;:&nbsp;&quot;YULIA&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;lastName&quot;:&nbsp;&quot;YYETANOTHERFILE&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;subjectSocialNum&quot;:&nbsp;&quot;666321297&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;birthDate&quot;:&nbsp;&quot;11011962&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;doNotCombineIndicator&quot;:&nbsp;&quot;C&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;addressDiscrepancyIndicator&quot;:&nbsp;&quot;N&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fraudSocialNumAlertCode&quot;:&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;N&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;fraudIDScanAlertCodes&quot;:&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;code&quot;:&nbsp;&quot;S&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">],</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">]</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">&quot;links&quot;:&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Primary&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;type&quot;:&nbsp;&quot;GET&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;href&quot;:&nbsp;&quot;/business/consumer-credit/v1/reports/credit-report/1883a4f1-2f7f-60b3-2e10-790f43750d3e&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;identifier&quot;:&nbsp;&quot;Co-Applicant&nbsp;Report&nbsp;1&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;type&quot;:&nbsp;&quot;GET&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">&quot;href&quot;:&nbsp;&quot;/business/consumer-credit/v1/reports/credit-report/c2c51cb8-c6e6-c213-a389-bab8816f734c&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span style="width:48px;display:inline-block">&nbsp;</span><span class="f_CodeExample" style="font-size: 12px;">],</span></p>
+<p class="p_Normal"><span style="width:43px;display:inline-block">&nbsp;</span><span style="font-size: 12px; font-family: 'Courier New',Courier,monospace;">&quot;pdfImage1&quot;: &quot;JVBERi0xLjQKJdPr6eEK+CmVuZG9+CmVuZG9iagoxNiAwIG9iago8PC9GaWx0ZXIgL0ZsYXRlRGVjb2RlCi9MZW5ndGggM&quot;,</span></p>
+<p class="p_Normal"><span style="width:43px;display:inline-block">&nbsp;</span><span style="font-size: 12px; font-family: 'Courier New',Courier,monospace;">&quot;pdfImage2&quot;: &quot;JVBERi0xLjQKJdPr6eEKMSAwIG9iago8PC9DcmVhX2VGb250IC9PcGVuU2Fucy1A5NzY2IDAgMCAyNTkuNzY1NjNdIDkgWzc1MCAwIDAgMCA1NDQuOTIxO&quot;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid;"><span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Note: the content of the pdfImage1 and pdfImage2 elements shown are depicted in a very abbreviated form. &nbsp;These elements will typically contain a minimum of 100K-150K bytes.</p>
+</div><p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

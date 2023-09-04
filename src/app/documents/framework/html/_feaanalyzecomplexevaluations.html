@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Constructing complex evaluations</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_feaanalyzecomplexevaluations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_feadata-analysis.html">Data analysis</a> &gt; <a href="_feaanalyzecustom-attributes.html">Custom Attributes</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Constructing complex evaluations</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feaanalyzecustom-attributes.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_feaanalyzemissingdata.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_outcreditsharpoutput.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following examples illustrate two somewhat complex computations. &nbsp;One example can be used to compute the percentage of available credit a consumer has currently accessed on their revolving accounts. &nbsp;The second example computes the average number of months all non-collection accounts are/were open.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The first example uses inline lambda expressions to define the custom evaluation while the second references functions that will be invoked when the analysis is executed.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Utilization -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Utilization</font></a></p>
+<DIV id="section1" style="display:none;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #808080;">///</span><span style="font-size: 12px; font-family: Consolas; color: #008000;"> </span><span style="font-size: 12px; font-family: Consolas; color: #808080;">&lt;summary&gt;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #808080;">///</span><span style="font-size: 12px; font-family: Consolas; color: #008000;"> Instructions for defining and adding custom Reference (Compute) attributes using inline lambda references</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #808080;">///</span><span style="font-size: 12px; font-family: Consolas; color: #008000;"> </span><span style="font-size: 12px; font-family: Consolas; color: #808080;">&lt;/summary&gt;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #808080;">///</span><span style="font-size: 12px; font-family: Consolas; color: #008000;"> </span><span style="font-size: 12px; font-family: Consolas; color: #808080;">&lt;param name=&quot;bundle&quot;&gt;</span><span style="font-size: 12px; font-family: Consolas; color: #008000;">A reference to an existing AnalysisBundle object</span><span style="font-size: 12px; font-family: Consolas; color: #808080;">&lt;/param&gt;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> InlinedReference(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">AnalysisBundle</span><span style="font-size: 12px; font-family: Consolas;"> bundle)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// This example illustrates how to use internal attribute references to compute a value based upon other aggregates. </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Here, a revolving utilization percentage is computed.</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// First define global references to be used for computing Revolving Utilization. Make sure we only include tradelines that are:</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// &nbsp; &nbsp; &nbsp;A) Revolving, and</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// &nbsp; &nbsp; &nbsp;B) have a valid CreditLimit or HighCredit</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// The special '@' character indicates the attribute value is to be used for internal calculations only and will not be </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// included in any outputs. Reference attributes can include any aggregated value, not just these internal only values.</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// The AMT functions are passed a local assumeZero parameter so we can be sure of our computation </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// regardless of what the global AssumeZero property contains</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TradelinePredicate</span><span style="font-size: 12px; font-family: Consolas;"> isRevWithAmts = (trade, options) =&gt; trade.IsRevolving &amp;&amp; </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;trade.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.CreditLimitAmount, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;">) &gt; 0 ||</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;trade.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.HighCreditAmount, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;">) &gt; 0</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; );</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Return whichever value is non-zero, favoring CreditLimit over HighCredit</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TradelineSolution</span><span style="font-size: 12px; font-family: Consolas;"> utlizationAmt = (trade, options) =&gt; trade.EMPTY(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.CreditLimitAmount) ? </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; trade.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.HighCreditAmount) : </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; trade.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.CreditLimitAmount);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bundle.AddEvaluation(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EvaluateTradeline</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;@TRL_RevBalances&quot;</span><span style="font-size: 12px; font-family: Consolas;">, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">AnalysisOperation</span><span style="font-size: 12px; font-family: Consolas;">.Sum, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.BalanceAmount, isRevWithAmts));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bundle.AddEvaluation(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EvaluateTradeline</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;@TRL_RevLimits&quot;</span><span style="font-size: 12px; font-family: Consolas;">, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">AnalysisOperation</span><span style="font-size: 12px; font-family: Consolas;">.Sum, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.IdCount, isRevWithAmts, utlizationAmt));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Now, construct the utilization computation using attribute references. &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// If the Balance is zero, utilization must be zero, otherwise compute the percentage</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bundle.AddEvaluation(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EvaluateReference</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;TRL_Utilization&quot;</span><span style="font-size: 12px; font-family: Consolas;">, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">AnalysisOperation</span><span style="font-size: 12px; font-family: Consolas;">.Compute,</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (results) =&gt; results.Item(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;@TRL_RevBalances&quot;</span><span style="font-size: 12px; font-family: Consolas;">).Quantity == 0 ? 0 :</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100 * (results.Item(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;@TRL_RevBalances&quot;</span><span style="font-size: 12px; font-family: Consolas;">).Quantity / results.Item(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;@TRL_RevLimits&quot;</span><span style="font-size: 12px; font-family: Consolas;">).Quantity)));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Months Open -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Months Open</font></a></p>
+<DIV id="section2" style="display:none;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> MonthsOpen(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">AnalysisBundle</span><span style="font-size: 12px; font-family: Consolas;"> bundle)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// Add the new evaluation, which includes references the functions defined below that will be invoked during analysis execution</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bundle.AddEvaluation(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EvaluateTradeline</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;TRL_AvgMonthsOpen&quot;</span><span style="font-size: 12px; font-family: Consolas;">, </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas; color: #2b91af;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AnalysisOperation</span><span style="font-size: 12px; font-family: Consolas;">.Average, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.IdCount, </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TradelinePredicate</span><span style="font-size: 12px; font-family: Consolas;">)TRL_HasOpenNotColl, (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TradelineSolution</span><span style="font-size: 12px; font-family: Consolas;">)TRL_MonthsOpen));</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">static</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">bool</span><span style="font-size: 12px; font-family: Consolas;"> TRL_HasOpenNotColl(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradeline</span><span style="font-size: 12px; font-family: Consolas;"> trade, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">AnalyzeOptions</span><span style="font-size: 12px; font-family: Consolas;"> options)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (trade.EMPTY(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen) == </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;"> || trade.IsCollection)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">false</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">static</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">double</span><span style="font-size: 12px; font-family: Consolas;"> TRL_MonthsOpen(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradeline</span><span style="font-size: 12px; font-family: Consolas;"> trade, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">AnalyzeOptions</span><span style="font-size: 12px; font-family: Consolas;"> options)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (!trade.EMPTY(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateClosed))</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateClosed) - trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (trade.IsFixedPayment == </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;">)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// For mortgages and installements, if there is a zero balance we can assume the account is closed</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// and attempt to use a proxy for an explicit closed date</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (trade.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.BalanceAmount) == 0)</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (!trade.EMPTY(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DatePaid))</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DatePaid) - trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (!trade.EMPTY(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateLastActive))</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateLastActive) - trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateReported) - trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateReported) - trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">// We have an open reolving account of sort and can only compute an age using the most recent report date </span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #008000;">//</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateReported) - trade.DATE(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.DateOpen);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

@@ -1,0 +1,957 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>VAR (Variable payment) Attributes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "att_var.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_feadata-analysis.html">Data analysis</a> &gt; <a href="_feaanalyzeattributefactoryreference.html">AttributeFactory Reference</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">VAR (Variable payment) Attributes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feaanalyzeattributefactoryreference.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="att_rpt.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_feaanalyzesummarydata-reference.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The Variable attribute category includes values calculated with references to all tradeline account types with payments determined by the outstanding balance, which can change on a monthly basis. &nbsp;As such, these values include information from the Revolving, Credit Line and/or Open/30 Day account types.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:middle;">
+<th style="vertical-align:middle; width:189px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Name</span></p>
+</th>
+<th style="vertical-align:middle; width:1115px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Description</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Count Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR001</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of variable tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR002</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of open variable tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR003</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of closed variable tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR004</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of variable tradelines reported in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR005</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of variable tradelines reported in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR006</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of variable tradelines reported in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR007</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new variable tradelines opened in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR008</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new variable tradelines opened in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR009</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new variable tradelines opened in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR010</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts currently open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR011</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts currently open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR012</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts currently open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR013</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts currently open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR014</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR015</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines with balance &gt; 250</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR016</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines listed in bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR019</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of charge off or internal collection variable tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR024</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts ever open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR025</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts ever open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR026</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts ever open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR027</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts ever open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR030</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts with activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR031</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts with activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR036</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts with no activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR037</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts with no activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR041</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines reported in last 3 months with past due amount &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR096</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of authorized user variable accounts</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR097</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of lost or stolen variable accounts</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR098</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts currently in dispute</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR099</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable accounts not evaluated due to exclusion criteria</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR101</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines with balance at or above credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR102</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines where balance is 50% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR103</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines where balance is 75% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Time / Age Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR201</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recently opened variable tradeline</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR202</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since oldest variable tradeline established</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR203</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average months since variable tradeline open date</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR204</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average length of time (in months) variable accounts are/were open</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR205</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent variable delinquency or default</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR206</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 30 day variable delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR207</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 60 day variable delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR208</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 day variable delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR209</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 to 180 day variable delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Amount Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR301</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total variable tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR302</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average variable tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR303</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest variable tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR311</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total variable tradeline monthly payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR312</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average variable tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR313</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest variable tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR332</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average variable tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR333</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest variable tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR341</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total variable tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR343</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest variable tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR351</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total variable tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR352</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of variable tradeline credit limit utilized</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR353</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of remaining variable tradeline credit capacity</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Ratio Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR401</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of open variable tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR402</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of closed variable tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR403</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of variable tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR404</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of variable tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR405</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of variable tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR406</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of variable tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR407</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of variable tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR408</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of total variable delinquencies to total variable payment history</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR430</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of variable balances to credit limits</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Delinquency Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR501</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR502</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines never defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR503</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR504</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR505</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR506</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 30 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR507</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR508</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 60 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR509</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR510</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 60 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR511</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 90 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR512</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 90 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR513</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR514</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 90 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR515</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 120 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR516</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 120 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR517</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 120 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR518</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently 120 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR519</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR520</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently delinquent or defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR521</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR522</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines currently defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR523</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines ever delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR524</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines ever 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR525</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines ever 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR526</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines ever 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR527</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines ever 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR528</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR529</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines ever defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR530</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR531</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR532</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not delinquent or defaulted in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR533</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not worse than 30 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR534</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not worse than 60 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR535</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not delinquent or defaulted in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR536</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not worse than 30 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR537</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not worse than 60 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR538</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not delinquent or defaulted in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR539</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not worse than 30 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR540</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of variable tradelines not worse than 60 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR541</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 30 day variable delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR542</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 60 day variable delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR543</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 90 to 180 day variable delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent levels presented from a zero baseline:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">0 = Not late</p>
+<p class="p_Normal">1 = 30 day delinquency</p>
+<p class="p_Normal">2 = 60 day delinquency</p>
+<p class="p_Normal">3 = 90 day delinquency</p>
+<p class="p_Normal">4 = 120 day delinquency</p>
+<p class="p_Normal">5 = 150 day delinquency</p>
+<p class="p_Normal">6 = 180 day delinquency</p>
+<p class="p_Normal">7 = Defaulted (included in bankruptcy)</p>
+<p class="p_Normal">8 = Defaulted (repossession or foreclosure)</p>
+<p class="p_Normal">9 = Defaulted (collection or charge off)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR544</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default variable occurrence on file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR545</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default variable occurrence in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR546</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default variable occurrence in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR547</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default variable occurrence in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR548</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default variable occurrence in last 36 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:189px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VAR549</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default variable occurrence in last 48 months</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

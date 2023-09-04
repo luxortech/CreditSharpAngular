@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Streamlining Code</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_examstreamlining-code.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcoding-examples.html">Coding Examples</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Streamlining Code</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_devcoding-examples.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devcoding-examples.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_examexception-handling.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In many places throughout the CreditSharp framework, there are bureau specific objects which each share a common base class. &nbsp;This allows for some measure of code reduction by developing functions which operate on the base class rather than the specific bureau objects.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">For example, the <span style="font-weight: bold;">BureauRequest</span> type can be used to consolidate operations within the Connect namespace. &nbsp;In the following sample, the bureau specific work is relegated to subroutines while the primary execution logic is carried out in the top level function:</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">A Connect namespace example</font></a></p>
+<DIV id="section2" style="display:none;"><p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> System;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> System.Diagnostics;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Connect;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">OrderBureau</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> SubmitRequest(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;"> bureauId, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Applicant</span><span style="font-size: 12px; font-family: Consolas;"> primary, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Applicant</span><span style="font-size: 12px; font-family: Consolas;"> secondary)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-size: 12px; font-family: Consolas;"> connection = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">null</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauRequest</span><span style="font-size: 12px; font-family: Consolas;"> request = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">null</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> output = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">try</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">switch</span><span style="font-size: 12px; font-family: Consolas;"> (bureauId)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Equifax:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ConfigureEquifax(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> connection, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> request);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Experian:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ConfigureExperian(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> connection, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> request);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.TransUnion:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ConfigureTransUnion(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> connection, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> request);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (secondary != </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">null</span><span style="font-size: 12px; font-family: Consolas;">)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; background-color: #feeada;">request.IsJointRequest =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff; background-color: #feeada;">true</span><span style="font-size: 12px; font-family: Consolas; background-color: #feeada;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">catch</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CreditSharpException</span><span style="font-size: 12px; font-family: Consolas;"> ex)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;An error occurred constructing inquiry for {0}&quot;</span><span style="font-size: 12px; font-family: Consolas;">, </span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; primary.Identity.FirstName + </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot; &quot;</span><span style="font-size: 12px; font-family: Consolas;"> + primary.Identity.LastName);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(ex.Message);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; output = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Request failed.&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">try</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; background-color: #feeada;">output = request.RequestProduct(connection, primary, secondary);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">catch</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CreditSharpException</span><span style="font-size: 12px; font-family: Consolas;"> ex)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CreditSharpStatus</span><span style="font-size: 12px; font-family: Consolas;"> status = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CreditSharpStatus</span><span style="font-size: 12px; font-family: Consolas;">(ex.EncodedStatus);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (status.Domain == </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExceptionDomain</span><span style="font-size: 12px; font-family: Consolas;">.CreditBureau)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;A credit bureau error occurred during communications.&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;An error occurred when attempting bureau communications.&quot;</span><span style="font-size: 12px; font-family: Consolas;">); </span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(ex.Message);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; output = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Request failed.&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> output;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">internal</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> ConfigureEquifax(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-size: 12px; font-family: Consolas;"> connect, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauRequest</span><span style="font-size: 12px; font-family: Consolas;"> request)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Equifax);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.ServiceName = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;ACROTEST&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.ServiceURL = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;https://transport5.ec.equifax.com/servlet/stspost&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.WebUserId = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;myCompanyId&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.WebPassword = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;letMeIn&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EfxInquiryOptions</span><span style="font-size: 12px; font-family: Consolas;"> options = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EfxInquiryOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.ConsumerReferral = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.MilitaryBorrowerCheck = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EquifaxRequest</span><span style="font-size: 12px; font-family: Consolas;"> equifax = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EquifaxRequest</span><span style="font-size: 12px; font-family: Consolas;">(options);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; equifax.PermissiblePurposeCode = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;01&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; equifax.ProductCode = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EfxProductCode</span><span style="font-size: 12px; font-family: Consolas;">.CreditReport;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; equifax.ResponseVersion = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EfxVersionNumber</span><span style="font-size: 12px; font-family: Consolas;">.Version50;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; equifax.SubscriberCode = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;222XX11111&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; equifax.SubscriberPassword = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;ABC&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request = equifax;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">internal</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> ConfigureExperian(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-size: 12px; font-family: Consolas;"> connect, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauRequest</span><span style="font-size: 12px; font-family: Consolas;"> request)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Experian);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.ServiceName = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;STAR&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.ServiceURL = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;http://www.experian.com/lookupServlet1?lookupServiceName=AccessPoint&amp;lookupServiceVersion=1.0&amp;serviceName=NetConnectDemo&amp;serviceVersion=2.0&amp;responseType=text/plain&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.WebUserId = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;myCompanyId&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.WebPassword = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;notPassword&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExperianRequest</span><span style="font-size: 12px; font-family: Consolas;"> experian = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExperianRequest</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExpInquiryOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; experian.PermissiblePurposeCode = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;01&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; experian.ProductCode = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExpProductCode</span><span style="font-size: 12px; font-family: Consolas;">.CreditReport;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; experian.ResponseVersion = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExpVersionNumber</span><span style="font-size: 12px; font-family: Consolas;">.Version70;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; experian.SubscriberPreamble = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;TEST&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; experian.SubscriberCode = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;1234567&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; experian.SubscriberPassword = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;ABC&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; experian.XmlResponse = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExpXmlResponse</span><span style="font-size: 12px; font-family: Consolas;">.Standard;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request = experian;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">internal</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">void</span><span style="font-size: 12px; font-family: Consolas;"> ConfigureTransUnion(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-size: 12px; font-family: Consolas;"> connect, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">out</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauRequest</span><span style="font-size: 12px; font-family: Consolas;"> request)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauConnection</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.TransUnion);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.ServiceURL = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;https://netaccess-test.transunion.com&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.WebUserId = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;myCompanyId&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.WebPassword = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;notPassword&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.CertificateStore = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Trusted Root&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.CertificateLocation = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;CurrentUser&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; connect.HttpSettings.CertificateName = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;TUNA Cert&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TucInquiryOptions</span><span style="font-size: 12px; font-family: Consolas;"> options = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TucInquiryOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.RequestRegion = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TucRequestRegion</span><span style="font-size: 12px; font-family: Consolas;">.ProductionSystem;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TransUnionRequest</span><span style="font-size: 12px; font-family: Consolas;"> transunion = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TransUnionRequest</span><span style="font-size: 12px; font-family: Consolas;">(options);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.PermissiblePurposeCode = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;AU&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.ProductCode = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TucProductCode</span><span style="font-size: 12px; font-family: Consolas;">.CreditReport;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.ResponseVersion = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TucVersionNumber</span><span style="font-size: 12px; font-family: Consolas;">.Version40;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.SubscriberCode = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;1234567&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.SubscriberPassword = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;A999&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.SubscriberMarket = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;06&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.SubscriberSubMarket = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;22&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transunion.TtyResponse = </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TucTtyResponse</span><span style="font-size: 12px; font-family: Consolas;">.ContinuousSheet;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; request = transunion;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+</div><p style="margin: 0px 0px 0px 0px;">&nbsp;</p>
+<p class="p_Normal">In similar fashion, the <span style="font-weight: bold;">BureauData</span> type can be used to consolidate operations within the Datamart namespace. &nbsp;Any bureau specific is performed using the appropriate Datamart object, which is then immediately cast as a BureauData type for further processing.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">A Datamart namespace example</font></a></p>
+<DIV id="section1" style="display:none;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> System;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> System.Diagnostics;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Equifax;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Experian;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.TransUnion;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">using</span><span style="font-size: 12px; font-family: Consolas;"> LuxorTech.CreditSharp.Format;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">namespace</span><span style="font-size: 12px; font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">class</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">DemoParseStreamlined</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">public</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> GetHtmlReport(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;"> bureauId, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Applicant</span><span style="font-size: 12px; font-family: Consolas;"> primary, </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Applicant</span><span style="font-size: 12px; font-family: Consolas;"> secondary)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> output = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;">.Empty;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">OrderBureau</span><span style="font-size: 12px; font-family: Consolas;"> orderBureau = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">OrderBureau</span><span style="font-size: 12px; font-family: Consolas;">();</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">string</span><span style="font-size: 12px; font-family: Consolas;"> creditData = orderBureau.SubmitRequest(bureauId, primary, secondary);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (creditData == </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Request failed.&quot;</span><span style="font-size: 12px; font-family: Consolas;">)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Request failed.&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauData</span><span style="font-size: 12px; font-family: Consolas;"> bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">null</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">try</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">switch</span><span style="font-size: 12px; font-family: Consolas;"> (bureauId)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Equifax:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">EquifaxData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.Experian:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ExperianData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">case</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-size: 12px; font-family: Consolas;">.TransUnion:</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">TransUnionData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-size: 12px; font-family: Consolas;">(licenseKey));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">break</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; background-color: #feeada;">bureauData.Parse(creditData);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas;"> commonData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CommonOptions</span><span style="font-size: 12px; font-family: Consolas;">());</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; commonData.Normalize(bureauData);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;"> formatData = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-size: 12px; font-family: Consolas;">.Html));</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; output = formatData.Generate(commonData);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">catch</span><span style="font-size: 12px; font-family: Consolas;"> (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">CreditSharpException</span><span style="font-size: 12px; font-family: Consolas;"> ex)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (ex </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">is</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">BureauDataException</span><span style="font-size: 12px; font-family: Consolas;">)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;An error occurred importing bureau data on {0}&quot;</span><span style="font-size: 12px; font-family: Consolas;">,</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; primary.Identity.FirstName + </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot; &quot;</span><span style="font-size: 12px; font-family: Consolas;"> + primary.Identity.LastName);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (ex </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">is</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">NormalizeDataException</span><span style="font-size: 12px; font-family: Consolas;">)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;An error occurred normalizing bureau data on {0}&quot;</span><span style="font-size: 12px; font-family: Consolas;">,</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; primary.Identity.FirstName + </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot; &quot;</span><span style="font-size: 12px; font-family: Consolas;"> + primary.Identity.LastName);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (ex </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">is</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatDataException</span><span style="font-size: 12px; font-family: Consolas;">)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;An error occurred generating report on {0}&quot;</span><span style="font-size: 12px; font-family: Consolas;">,</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; primary.Identity.FirstName + </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot; &quot;</span><span style="font-size: 12px; font-family: Consolas;"> + primary.Identity.LastName);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (ex </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">is</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ParameterException</span><span style="font-size: 12px; font-family: Consolas;">)</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;An input paremter is incorrect.&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;An error while processing the request for {0}&quot;</span><span style="font-size: 12px; font-family: Consolas;">,</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; primary.Identity.FirstName + </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot; &quot;</span><span style="font-size: 12px; font-family: Consolas;"> + primary.Identity.LastName);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Debug</span><span style="font-size: 12px; font-family: Consolas;">.WriteLine(ex.Message);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; output = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Request failed.&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> output;</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-size: 12px; font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

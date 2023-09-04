@@ -1,0 +1,406 @@
+﻿html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+[class^="icon-"], [class*=" icon-"] {
+    font-size: 32px;
+}
+ 
+
+.well {
+  background-color: #f5f5f5;
+  border-color:#e3e3e3;
+  border-radius: 10px;
+  padding: 25px;
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -30px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 30px;
+}
+h4.Info {
+    color: #083796;
+    font-size:20px;
+    text-align: center;
+}
+h5.Info {
+    color: #083796;
+    font-size: 14px;
+    text-align: center;
+}
+.fsLarge {
+    min-height: 560px;
+}
+.fsSmall {
+    min-height: 200px;
+}
+.fsInfo { 
+    color: black;
+    border-radius: 14px; 
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: justify;
+}
+span.code {
+    font-size: 14px;
+    color: #083796;
+    font-family: Consolas,Courier New;
+}
+
+img.docPlatformProjects {
+    height: 18px; 
+    padding: 3px; 
+    border: 1px solid #999999;
+    background-color: #efefef;
+}
+
+img.docPlatform {
+    height: 18px; 
+    padding: 3px; 
+    border: 1px solid #999999;
+    background-color: #efefef;
+}
+
+img.docPlatform.selected {
+    background-color: #cccccc;
+    border: 2px solid #444444;
+}
+
+img.csResponsive {
+    display:block; height: auto; max-width: 100%; 
+}
+ 
+
+span.docTitle {
+    font-size: 14px; 
+    font-weight: bold;
+}
+a.menu-text {
+    color: #666666;
+    font-weight: 400;
+    text-align: center;
+    font-size: 18px;
+     
+    /*link:{ color: #083796; text-decoration: none; }*/
+}
+a.menu-text:link { color: #364768; text-decoration: none;}
+a.menu-text:visited { color: #364768; text-decoration: none;}
+a.menu-text:hover { color: #364768; text-decoration: none;}
+a.menu-text:focus { color: #364768; text-decoration: none;}
+a.menu-text:active { color: #364768; text-decoration: none;}
+
+.nav > li > a.nav-selected {
+    color: #364768;
+}
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+div.downloadHeader {
+    border-bottom: 2px solid #364768 !important;
+    border-top: 2px solid #364768 !important;
+    margin-bottom: 4px;
+    
+    /*background-color: #364768 !important;*/
+    /*color: white !important;*/
+    color: #364768  !important;
+}
+
+.regularText {
+  font-family: Roboto;
+  font-size: 18px;
+  color: black;
+  padding-top: 20px;
+}
+
+ .iconSharpBlue {
+    color: #083796;
+ }
+
+ .iconSharpRed {
+     color: #960820;
+ }
+
+.btn-sharp ,
+.btn-sharp:hover,
+.btn-sharp:active,
+.btn-sharp.active
+{
+    background-color: #364768;
+    color: #fff;
+}
+
+.form-sharp {
+    border-color: #364768;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+    font-weight: bold;
+  cursor: default;
+  background-color: #ccc;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+.fieldSetInner {
+    border:1px solid; margin-bottom:3px; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.fieldSet {
+    border:1px solid; margin-bottom:3px;
+    border-color: #999999;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+.fieldSetOuter {
+    padding: 10px;
+    border:3px solid; 
+    margin-bottom:3px;  
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.sharpRow {
+    border: 1px solid #364768;
+    border-radius: 5px;
+    padding: 10px;
+}
+.sharpRowA {
+    background-color: #f9f9f9;
+}
+.sharpRowB {
+    background-color: #ffffff;
+}
+.sharpScrollBox {
+    border: 1px solid #364768;
+    min-height: 400px;
+    /*height: 400px; overflow-y: scroll;*/ 
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.sharpTbody {
+    border: 1px solid #364768;
+    min-height: 400px;
+    /*height: 400px; overflow-y: scroll;*/ 
+    border-radius: 5px;
+    padding: 10px;
+}
+.navbar {
+    background-color: #ffffff;
+}
+.sharpModalHeader {
+    background-color: #364768;
+    color: white;
+}
+#uploadButton { 
+     background-color: #364768;
+    color: #fff;
+ }
+.btn-primary {
+    background-color: #364768;
+}
+.btn-danger {
+    background-color: #960820;
+}
+.creditSharpGreen {
+    background-color: #089667;
+    color: white;
+}
+.creditSharpGreenBox {
+    background-color: #089667;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+span.creditSharpLogo:before {
+    font-family: Roboto;
+    content: "Credit";
+}
+span.creditSharpLogo:after {
+    font-family: Roboto;
+    font-weight: bold; 
+    color: #364768;
+    content: "Sharp";    
+}
+
+span.creditSharpLogoSimple:before {
+    font-family: Roboto;
+    content: "Credit";
+}
+span.creditSharpLogoSimple:after {
+    font-family: Roboto;
+    font-weight: bold;
+    content: "Sharp";
+}
+
+/* FILTER CLASSES*/
+
+.cs-filters .filter-label {
+  color: #0076c8;
+}
+
+.cs-filters .btn-remove {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.cs-filters > .btn-group {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.cs-filters > .btn-group:last-child {
+  margin-right: 0;
+}
+
+.cs-filters .dropdown-menu {
+  min-width: 250px;
+  padding: 8px 8px 0 8px;
+}
+.cs-filters .dropdown-menu ul {
+  overflow: auto;
+}
+.cs-filters .dropdown-menu ul li.dropdown-header {
+  color: #333;
+  font-weight: 700;
+  padding: 3px;
+  text-transform: uppercase;
+}
+.cs-filters .dropdown-menu ul li > a {
+  display: block;
+  padding: 3px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #003768;
+  white-space: nowrap;
+}
+.cs-filters .dropdown-menu ul li > a:hover,
+.cs-filters .dropdown-menu ul li > a:focus,
+.cs-filters .dropdown-menu ul li > a.active {
+  background: #ebeff5;
+  text-decoration: none;
+}
+.cs-filters .dropdown-menu ul li.tag-item {
+  padding-right: 16px;
+  position: relative;
+}
+.cs-filters .dropdown-menu ul li.tag-item > a {
+  display: block;
+  position: absolute;
+  right: 4px;
+  top: 4.4px;
+}
+.cs-filters .dropdown-menu ul li.tag-item > a:hover {
+  background: transparent;
+}
+.cs-filters .dropdown-menu.panel.panel-default {
+  padding: 0;
+}
+
+.cs-pull-right {
+  text-align:right;
+}
+
+.cs-pull-center {
+  text-align:center;
+}
+
+.cs-pull-left {
+  text-align:left;
+}
+
+.btn-filter:hover,
+.btn-filter:focus,
+.btn-filter:active,
+.btn-filter.active,
+.open > .dropdown-toggle.btn-filter {
+  color: #454545;
+  background-color: #dcdcdc;
+  border-color: #a9bac8;
+}
+.btn-filter:active,
+.btn-filter.active,
+.open > .dropdown-toggle.btn-filter {
+  background-image: none;
+}
+.btn-filter.disabled,
+.btn-filter[disabled],
+fieldset[disabled] .btn-filter,
+.btn-filter.disabled:hover,
+.btn-filter[disabled]:hover,
+fieldset[disabled] .btn-filter:hover,
+.btn-filter.disabled:focus,
+.btn-filter[disabled]:focus,
+fieldset[disabled] .btn-filter:focus,
+.btn-filter.disabled:active,
+.btn-filter[disabled]:active,
+fieldset[disabled] .btn-filter:active,
+.btn-filter.disabled.active,
+.btn-filter[disabled].active,
+fieldset[disabled] .btn-filter.active {
+  background-color: #f5f5f5;
+  border-color: #ced8e0;
+}
+.btn-filter .badge {
+  color: #f5f5f5;
+  background-color: #454545;
+}
+.btn-filter:hover,
+.btn-filter:focus,
+.btn-filter:active,
+.btn-filter.active,
+.open > .dropdown-toggle.btn-filter {
+  background-color: #e6ebf2;
+  border-color: #abbac5;
+}
+.btn-filter:active,
+.btn-filter.active,
+.open > .dropdown-toggle.btn-filter {
+  background-image: none;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Orbitron-Light'), local('Orbitron-Regular'), url(//fonts.gstatic.com/s/orbitron/v6/94ug0rEgQO_WuI_xKJMFc_esZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Orbitron'; 
+  font-style: normal;
+  font-weight: 500;
+  src: local('Orbitron-Medium'), url(//fonts.gstatic.com/s/orbitron/v6/VK2oK8L4CJesxwY5dF3zxYbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Orbitron-Bold'), url(//fonts.gstatic.com/s/orbitron/v6/Y82YH_MJJWnsH2yUA5AuYYbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}

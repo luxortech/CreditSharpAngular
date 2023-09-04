@@ -1,0 +1,3105 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Remark / Footnote Codes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content="Remark Codes"/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "com_codes_remark.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_datdatareference.html">Appendices</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Remark/Footnote Codes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_datdatareference.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="com_codes_public_record_types.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="com_codes_score_error_codes.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following codes are used for both US and Canadian bureaus.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 18px;"><table class="TblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Remark Code</span></p>
+</td>
+<td style="vertical-align:top; width:1115px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">0</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Unknown</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">1</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer dispute, Merchandise not delivered</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">2</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">None</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">3</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Dispute, Merchandise unsatisfactory</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">4</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says accounts was/is paid by insurance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">5</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account is an obligation of a former spouse</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">6</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Business Debt</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">7</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer disputes account which involved lease agreement</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">8</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account slow due to billing dispute with creditor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">9</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account slow due to strike/layoff/unemployment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">10</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account slow due to medical expenses/illness</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">11</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account slow due to job transfer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">12</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says warranty dispute</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">13</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Voluntary repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">14</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Involuntary repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">15</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Auto loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">16</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Commercial loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">17</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Furniture appliance loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">18</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Home loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">19</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Home improvement loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">20</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Checking account loan plan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">21</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Personal loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">22</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Charge</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">23</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chattel</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">24</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid by dealer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">25</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Merchandise redeemed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">26</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount in H/C column is credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">27</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">No activity since date reported</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">28</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer disputes this account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">29</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account transferred or sold</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">30</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid, credit line closed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">31</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Credit line closed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">32</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Defaulted student loan, claim filed against guarantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">33</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dispute, resolution pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">34</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Redeemed repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">35</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account slow due to domestic problem</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">36</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says paid on notification, no prior knowledge of balance due</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">37</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer states co-signed account, not aware of delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">38</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer states no statement received due to address change</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">39</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer states this account spouse's responsibility</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">40</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid charge off</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">41</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Foreclosure process started</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">42</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Loan in default, paid or being paid by government guarantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">43</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Lease</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">44</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">45</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dispute following resolution</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">46</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account Included In Bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">47</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer credit counseling</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">48</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collection agency account, status unknown</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">49</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Settlement accepted on this account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">50</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Charge off, making payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">51</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Charge off, check presented was not collectable</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">52</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Customer has now located consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">53</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account closed due to refinance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">54</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Closed account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">55</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account closed, reason unknown</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">56</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account paid after foreclosure started</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">57</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Insurance claim pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">58</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Customer unable to locate consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">59</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Debit card</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">60</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid or being paid by co-signer or guarantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">61</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account assumed by another party</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">62</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paying under a partial payment agreement</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">63</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer states account slow due to death in family</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">64</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer states personal bankruptcy filed due to business failure</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">65</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Judgment paid but not satisfied</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">66</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account slow due to reduction in pay or work hours</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">67</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Secured credit line</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">68</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Voluntary</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">69</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Involuntary</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">70</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Line of credit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">71</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account closed by credit grantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">72</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Payroll Deduction</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">73</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account charged to profit and loss</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">74</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collection account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">75</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">76</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Charged off account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">77</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account not paid promptly, insurance claim delayed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">78</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balance is deficiency amount</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">79</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer disputes, states account paid in full</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">80</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Update freeze requested by credit grantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">81</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Title 1 loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">82</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balance not paid by insurance company</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">83</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid by insurance company</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">84</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Foreclosure</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">85</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid by garnishment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">86</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer recalled to active duty</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">87</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Forfeit of deed in lieu of foreclosure</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">88</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Broken lease agreement</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">89</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account included in Chapter 13 WEP </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">90</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Conversion Loss Paid by Insurance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">91</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student Loan, Payment deferred</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">92</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Single Payment Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">93</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amortized Mortgage</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">94</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Sheriff Sale</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">95</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount in High Credit Includes Finance Charge</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">96</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Return Mail</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">97</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balance Owing, Amount not reported</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">98</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Auto Title Transferred, New Owner Loan/Assumption Not Approved</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">99</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Included in Bankruptcy in Spouse Name Only, Community Property State</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">100</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid or Making Payments, Not According to Terms of Agreement</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">101</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Early termination by default</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">102</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Home Equity Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">103</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Making Payments, Foreclosure was Initiated</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">104</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Secured</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">105</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Real Estate Mortgage</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">106</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Guaranteed Student Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">107</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">National Direct Student Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">108</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Account, Litigation Filed by Creditor Pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">109</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Account, Litigation Filed by Consumer Pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">110</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Child/Family Support Obligations</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">111</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Defendant verified item paid/satisfaction not recorded with court</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">112</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Voluntary return or purchase</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">113</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account included in WEP filed by another person</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">114</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account included in bankruptcy of another person</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">115</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Fixed Rate</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">116</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Variable Rate</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">117</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid Collection</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">118</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Charged Back to Dealer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">119</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid Repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">120</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">See Consumer Statement</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">121</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account Included in Chapter 11 Adj</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">122</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Unsecured</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">123</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Business Account, Personal Guarantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">124</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Cosigned Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">125</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account Paid</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">126</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Included In Orderly Payment of Debt</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">127</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Credit Line Suspended</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">128</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Defaulted Student Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">129</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Credit Card</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">130</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Account, Says Not His/Hers</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">131</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Account, Says Never Late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">132</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Judgment, Says Not His/Hers</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">133</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Judgment, Says Filed In Error</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">134</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Judgment, Says Satisfied</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">135</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Lien, Says Not His/Hers</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">136</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Lien, Says Filed In Error</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">137</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Item, Says Satisfied or Released</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">138</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Bankruptcy, Says Not His/Hers</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">139</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Bankruptcy, Says Discharged</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">140</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Bankruptcy, Says Dismissed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">141</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes Account, Says Current Status Incorrect</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">142</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Making Payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">143</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Annual Payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">144</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Not Included In Bankruptcy </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">145</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Charged Off Checking Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">146</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Lien Paid But not Released</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">147</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Disputes, Reinvestigation In Process</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">148</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account Listed As Public Record</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">149</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Merchandise Returned, Never Credited</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">150</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Debt Consolidation</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">151</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Closed due to transfer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">152</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Merchandise Returned, No Replacement Received</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">153</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Merchandise Returned, No Credit Financed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">154</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Merchandise Returned, No Credit For Shipment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">155</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account Acquired By RTC/FDIC</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">156</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Merchandise Returned, Only Partial Credit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">157</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balance Disputed Financed Charges</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">158</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Payments Made But Never Credited</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">159</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Adjustment pending, Reported by subscriber</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">160</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Adjustment Pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">161</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">All Merchandise Not Received</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">162</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Merchandise Repossessed, Balance Deficiency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">163</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer says account belongs to person with similar name</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">164</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Affected by natural or declared disaster</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">165</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Attorney Or Outside Agency Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">166</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">No Knowledge of Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">167</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Judgment Obtained</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">168</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Loan Assumption</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">169</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Claim or Balance Disputed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">170</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bad Debt, Collection Suit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">171</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bad Debt, Paid By Maker</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">172</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">173</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balance Transferred To Another Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">174</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Claim/Payment Against Guarantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">175</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 7 Bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">176</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collection Account Canceled By Creditor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">177</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Contact Credit Grantor For Status</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">178</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned Check</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">179</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Placed For Collection</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">180</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Contingent liability</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">181</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Closed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">182</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Contract Not As Represented</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">183</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collection Paid By Merchant/Dealer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">184</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collection Account, Payment Plan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">185</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Civil Suit Filed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">186</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account closed due to transfer or refinance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">187</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Contact Subscriber</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">188</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Contact Subscriber</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">189</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Current Account Was Collection</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">190</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Deceased</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">191</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account in dispute</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">192</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account in dispute, Reported by subscriber</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">193</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dispute Following Resolution</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">194</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Deed In Lieu</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">195</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy dismissed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">196</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Subscriber reports dispute resolved, consumer disagrees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">197</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account previously in dispute, Now resolved, Reported by subscriber</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">198</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dispute Resolution Pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">199</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dispute Resolved</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">200</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Subscriber reports dispute resolved, consumer disagrees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">201</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Education Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">202</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Election of remedy, Reported by subscriber</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">203</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Affected by hostile acts against the United States</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">204</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Early Termination</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">205</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Early Termination With a Deficiency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">206</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 12, Family Farm Bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">207</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FHA Claim Filed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">208</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FHA Home Improvement Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">209</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Foreclosure Discontinued</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">210</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Foreclosure Initiated</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">211</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Foreclosure Redeemed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">212</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Employee Advance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">213</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Fee For Services</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">214</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Grant</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">215</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Miscellaneous Debt</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">216</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Fines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">217</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Overpayment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">218</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Confiscation</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">219</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Home Equity Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">220</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Inactive Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">221</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Interest Bearing</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">222</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Insurance Claim</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">223</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Debt Being Paid Through Insurance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">224</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Loan/Account Pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">225</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Lease Broken, Merchandise Returned</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">226</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Managed By Credit Counseling Service</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">227</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">No Forwarding Address</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">228</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">No Dispute</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">229</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Non-Interest Bearing</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">230</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student Loan, Not in Repayment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">231</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student Loan, Not In Repayment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">232</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Now paying</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">233</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Purchased by another lender</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">234</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Primary maker filed bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">235</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid But Delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">236</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account paid by collateral</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">237</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">First payment never received</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">238</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid By Comaker</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">239</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Restitution Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">240</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Deficiency Balance Paid By Consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">241</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Reaffirmation of debt</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">242</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Refinanced</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">243</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Repossession, Paid By Dealer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">244</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Repossession, Proceeds Applied To Debt</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">245</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Legal Repossession, Foreclosure</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">246</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">247</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dispute Resolved</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">248</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Voluntary Surrender, Customer Claim</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">249</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned Voluntarily, Paid By Dealer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">250</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Voluntary Surrender, Economic Problems</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">251</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned Voluntarily, Proceeds Applied to Debt</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">252</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Voluntarily surrendered, then redeemed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">253</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Secondary maker filed bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">254</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Secured Direct Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">255</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account legally paid in full for less than the full balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">256</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Secured Guaranteed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">257</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Simple interest loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">258</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Skip Out Of Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">259</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">260</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student loan permanently assigned to government</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">261</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student Loan Returned By Government</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">262</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Lost Or Stolen Credit Card</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">263</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Education Claim Filed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">264</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Transferred To Another Lender</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">265</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Transferred to Recovery</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">266</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Unsecured Direct Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">267</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Unsecured Guarantee</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">268</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VA Real Estate Mortgage Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">269</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Vehicle Reported Lost, Conv Claim</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">270</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Verification Pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">271</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer disputed item, Merchandise returned</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">272</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer disputed item, Unauthorized purchases</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">273</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Credit line closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">274</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Special handling, Contact subscriber if more info is required</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">275</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student Loan, Payment deferred</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">276</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Assignor, Loan assumed by another party</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">277</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Government Claim</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">278</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">279</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Voluntary Repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">280</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid (or paying on) Repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">281</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Redeemed Repossession</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">282</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid (or paying on) Coll/Charge Off</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">283</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Contact member for status</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">284</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Escrow account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">285</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Statement, Contact bureau if stmt not part of report</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">286</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer Dispute, litigation pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">287</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account reinstated with lender</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">288</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account being paid through WEP</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">289</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account being paid through financial counseling plan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">290</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account paid through financial counseling plan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">291</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer disputed item</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">292</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Plaintiff/Counsel verified judgment paid</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">293</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Utility</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">294</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Mobile home</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">295</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Recreational merchandise</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">296</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Secured credit card</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">297</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Medical</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">298</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">100% Payment to creditors filing claims</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">299</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account included In bankruptcy of primary borrower</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">300</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account included In bankruptcy of secondary borrower</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">301</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FHA mortgage</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">302</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Second mortgage</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">303</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Agricultural</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">304</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Commercial mortgage, individually liable, company guarantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">305</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Deposit related</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">306</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy withdrawn</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">307</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Lease termination, all scheduled payments made</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">308</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Status pending, leased vehicle returned</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">309</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Fannie Mae account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">310</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Freddie Mac account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">311</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Pre-paid lease</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">312</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balance paid in full each month</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">313</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Principal deferred, interest payments only</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">314</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Payment deferred</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">315</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Reaffirmation of debt rescinded</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">316</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Purchased from another lender</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">317</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Guaranteed or insured</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">318</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Construction loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">319</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Personal receivership, payment managed by court trustee</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">320</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Auto lease</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">321</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy, dispute of acct information, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">322</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">323</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy, dispute of acct information</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">324</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy dispute resolved, consumer disagrees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">325</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy dispute resolved, consumer disagrees, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">326</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account in dispute, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">327</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Dispute resolved, consumer disagrees, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">328</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 7 Bankruptcy, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">329</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 7 Bankruptcy, dispute of acct information, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">330</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 7 Bankruptcy, dispute of acct information</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">331</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 11 Bankruptcy, dispute of acct information</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">332</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 12 Bankruptcy, dispute of acct information</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">333</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 12 Bankruptcy, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">334</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 11 Bankruptcy, dispute of acct information, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">335</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 7 Bankruptcy dispute resolved, consumer disagrees, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">336</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 7 Bankruptcy dispute resolved, consumer disagrees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">337</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 11 Bankruptcy dispute resolved, consumer disagrees, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">338</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 12 Bankruptcy dispute resolved, consumer disagrees, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">339</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 11 Bankruptcy dispute resolved, consumer disagrees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">340</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 12 Bankruptcy, dispute of acct information, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">341</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 12 Bankruptcy dispute resolved, consumer disagrees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">342</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Early termination, balance owing</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">343</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Early termination, insurance loss</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">344</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Early termination, obligation satisfied</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">345</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Early termination, status pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">346</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Full termination, balance owing</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">347</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Full termination, insurance loss</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">348</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Full termination, obligation satisfied</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">349</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Involuntary repossession, obligation satisfied</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">350</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Judgment granted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">351</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Replacement account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">352</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 13 Bankruptcy, dispute of acct information, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">353</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 13 Bankruptcy, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">354</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 13 Bankruptcy, dispute of acct information</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">355</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 13 Bankruptcy dispute resolved, consumer disagrees, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">356</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 13 Bankruptcy dispute resolved, consumer disagrees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">357</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Full termination, status pending</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">358</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount in high credit is original charge off amount</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">359</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer dispute account information</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">360</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balloon payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">361</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Chapter 11 Bankruptcy, closed by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">362</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount exceeds one billion dollars</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">363</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Note loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">364</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Partially secured</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">365</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental agreement</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">366</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Auto lease</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">367</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Telecom/Cellular</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">368</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Unsecured government loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">369</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Secured government loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">370</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Attorney fees</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">371</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Combined credit plan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">372</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Debt purchaser account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">373</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Time share loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">374</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Lease assumption</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">375</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy completed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">376</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankruptcy discharged</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">377</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Registered lien</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">378</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Payment arrangements made</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">379</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Arrangements paid</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">380</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Delinquent letter(s) sent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">381</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Interim financing</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">382</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Non sufficient funds</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">383</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Interest relief, paid by government</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">384</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Involuntary surrender, redeemed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">385</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Loan in default, paid by guarantor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">386</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Renewed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">387</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid out by third party</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">388</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Power of sale, mortgage default</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">389</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rent arrears</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">390</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">RRSP Loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">391</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Making partial monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">392</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Satisfied</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">393</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">US Funds</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">394</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Wage assignment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">395</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer filed bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">396</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Cosigner made payment(s)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">397</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid by third party</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">398</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Trustee discharged</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">399</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Included in proposal</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">400</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Registration in appeal</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">401</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Abuse, automated banking machine</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">402</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Regular payments being made</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">403</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Canceled account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">404</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Construction lien</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">405</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Balance not available</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">406</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount(s) not available</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">407</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Included in voluntary deposit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">408</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Subject is an endorser</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">409</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collection paid directly to creditor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">410</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">RRSP Mortgage loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">411</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Section 178 blanket loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">412</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Demand loan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">413</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Judgment granted, paid in full</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">414</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Legal action taken</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">415</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Prepaid</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">416</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rent arrears</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">417</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer states he/she is co-signer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">418</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Quit claim</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">419</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Employee account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">420</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Current status unknown</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">421</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Security discharge</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">422</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Security disposition unknown</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">423</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paying as agreed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">424</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Request discharge of trustee</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">425</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months reviewed is greater than 24</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">426</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer states no longer associated with account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">427</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Promissory note</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">428</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer did not present himself at meeting</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">429</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Plus additional costs</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">430</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">No activity since date reported</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">431</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">No loan experience</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">432</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Subject has an endorser</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">433</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Statement of claim</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">434</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Student line of credit </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">435</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer disputed item, faulty merchandise returned</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">436</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account declined</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">437</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, poor payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">438</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, NSF checks</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">439</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, bailiff action</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">440</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, skip account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">441</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, charge off</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">442</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, eviction</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">443</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, property damage paid</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">444</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, property damage not paid</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">445</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, application refused</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">446</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Rental account, writ issued</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">447</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer failed to deposit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">448</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Proposal failed</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">449</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Proposal rejected</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">450</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Proposal refused</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">451</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Past due account, sold to another lender</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">452</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer renting property following foreclosure</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">453</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account used fraudulently by consumer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">454</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account used fraudulently by another party</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">455</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Consumer has legally suspended payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">456</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account restructured</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">457</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account in dispute, initiated by creditor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">458</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account dispute resolved in consumer's favor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">459</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account dispute resolved in creditor's favor</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">460</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account severely past due (12 months or more)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">461</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Credit line closed, in repayment process</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">462</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Credit line reduced due to depreciation</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">463</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Credit line suspended due to depreciation</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">464</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Collateral released, balance owing</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">465</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Loan modified under government plan</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">466</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Loan modified (not under government plan)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">467</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account in forbearance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">468</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account in dispute, conflicting payment histories</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">469</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Paid in full after voluntary surrender</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">470</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Creditors paid directly without deposit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">471</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Writ and declaration in guarantee</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">472</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Trustee discharge</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">473</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Creditor acceptance refused</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">474</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Court approval refused</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">475</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Failure to file cash flow statement</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:176px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 0px 24px;">476</p>
+</td>
+<td style="vertical-align:top; width:1115px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Debt forgiven</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

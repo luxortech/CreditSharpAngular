@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Customizing outputs</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_feaoutputcustomization.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_outcreditsharpoutput.html">CreditSharp Outputs</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Customizing outputs</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_outcreditsharpoutput.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_feaoutputsxml-sampleanalyze.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devdeveloperresource.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The content of each CreditSharp output layout can be manipulated to serve many different needs or meet customer preferences.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Each output layout has a number of predefined option settings (accessible through the <a href="t_luxortech_creditsharp_format_formatoptions.html" class="topiclink">FormatOptions</a> class) which can alter the appearance of elements with the various report sections. &nbsp;Descriptive text can be added to Json and Xml outputs, the visual composition of tradeline items can be customized in Html and Text outputs and entire sections can be suppressed or emitted in a different sequence.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In addition to the predefined settings, completely custom definitions can be used to alter the sort criteria of elements within given report sections as well as creating groups within sections when generating Html or Text layouts.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">For complete discussions about these various options and customization opportunities, please refer to the detailed topic pages:</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Feature</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Link(s)</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Graphic Html Score display</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_outhtmlscorerankdisplay.html" class="topiclink">Score percentile displays</a></p>
+<p class="p_Normal"><a href="t_luxortech_creditsharp_format_formatoptionshtml.html" class="topiclink">FormatOptionsHtml</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Decorate items with color to highlight the relative strength of particular score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Grouped Tradeline display</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_format_formatsection.html" class="topiclink">FormatSection classes</a></p>
+<p class="p_Normal"><a href="t_luxortech_creditsharp_format_formatgroup.html" class="topiclink">FormatGroup classes</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Separate sections into sub-groups with their own headers.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Verbose outputs</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_format_formatoptionsjson.html" class="topiclink">FormatOptionsJson</a>, <a href="t_luxortech_creditsharp_format_formatoptionsxml.html" class="topiclink">FormatOptionsXml</a></p>
+<p class="p_Normal"><a href="t_luxortech_creditsharp_format_formatsection.html" class="topiclink">FormatSection classes</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Add descriptive text to Json and Xml layouts for any coded or enumerated elements.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Minimize / Resequence outputs</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_format_formatsection.html" class="topiclink">FormatSection classes</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Hide selected sections and/or display them in a customized sequence.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Score Display -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(score, score_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="score_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Graphical Score Display (Html)</font></a></p>
+<DIV id="score" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Gradient option:</span></p>
+<p class="p_Normal"><img alt="gradientScore" width="836" height="177" style="margin:0;width:836px;height:177px;border:none" src="gradientscore.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Shaded option (below average):</span></p>
+<p class="p_Normal"><img alt="poorScore" width="837" height="238" style="margin:0;width:837px;height:238px;border:none" src="poorscore.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Shaded option (average):</span></p>
+<p class="p_Normal"><img alt="averageScore" width="839" height="239" style="margin:0;width:839px;height:239px;border:none" src="averagescore.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Shaded option (above average):</span></p>
+<p class="p_Normal"><img alt="shadedScore" width="839" height="177" style="margin:0;width:839px;height:177px;border:none" src="shadedscore.png"/></p>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Group Display -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(group, group_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="group_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Grouped Tradeline Display</font></a></p>
+<DIV id="group" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Group configurations can be completely customized or selected from one of the predefined criteria. &nbsp;The <span style="font-weight: bold;">AcctType</span> configuration is shown below.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><img alt="tradelineGrouped" width="831" height="614" style="margin:0;width:831px;height:614px;border:none" src="tradelinegrouped.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Verbose Display -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(verbose, verbose_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="verbose_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Verbose Json Display</font></a></p>
+<DIV id="verbose" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The snippet below shows a Verbose Score section from a Json output. &nbsp;The 'desc' element is added to provide the text equivalent for each score factor code.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This Verbose setting can be applied to all sections, or enabled on a case by case basis. &nbsp;One typical use case would be to only enable the Verbose option of Score sections in order to always have the factor text on hand but not waste space in describing more common codes in other locations (such as including the text &quot;Installment&quot; with each Tradeline &quot;AccountType&quot;: I element.</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ScoreItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AlertText&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor1&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00022&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;ACCOUNT NOT PAID AS AGREED, PUBLIC RECORD, OR COLLECTION AGENCY FILING&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor2&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00013&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;TIME SINCE DELINQUENCY IS TOO RECENT OR UNKNOWN&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor3&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00020&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;LENGTH OF TIME SINCE DEROGATORY PUBLIC RECORD OR COLLECTION IS TOO SHORT&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor4&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00018&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;desc&quot;: &quot;NUMBER OF ACCOUNTS WITH DELINQUENCY&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumScore&quot;: &quot;818&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MinimumScore&quot;: &quot;334&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ModelId&quot;: &quot;CPZ&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Percentile&quot;: 25,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Score&quot;: &quot;00637&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Scorecard&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ScoreNotice&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Sign&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;StatementText&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The output with Verbose disabled:</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ScoreItems&quot;: [</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;AlertText&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor1&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00022&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor2&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00013&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor3&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00020&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Factor4&quot;: {</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;value&quot;: &quot;00018&quot;</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MaximumScore&quot;: &quot;818&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;MinimumScore&quot;: &quot;334&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ModelId&quot;: &quot;CPZ&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Percentile&quot;: 25,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Score&quot;: &quot;00637&quot;,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Scorecard&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;ScoreNotice&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Sign&quot;: null,</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;StatementText&quot;: null</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p style="background: #95b3d8; margin: 0px 0px 0px 39px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;],</span></p>
+<p class="p_Normal">&nbsp;</p>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Minimize Display -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(minimize, minimize_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="minimize_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Minimize/Resequence Outputs</font></a></p>
+<DIV id="minimize" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If so desired, an output could be modified to display only the tradelines that exist in the credit data response. &nbsp;Or just the Tradelines and Inquiries. &nbsp;Or any other combination. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">One of the more common choices it to suppress the Directory section of any output as that detail is not often used in today's credit approval environments and largely is wasted space (both visually and in terms of file size), with the following line of code:</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;"> options = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-size: 12px; font-family: Consolas;">.Text);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;options.Text.Section(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Directory&quot;</span><span style="font-size: 12px; font-family: Consolas;">).Visible = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">false</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;"> format = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;">(options);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p class="p_Normal">The following effectively turns off display of all sections except Tradeline and Inquiry:</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;"> options = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-size: 12px; font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-size: 12px; font-family: Consolas;">.Text);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;options.Text.FirstSection(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Tradeline&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;options.Text.NextSection(</span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Inquiry&quot;</span><span style="font-size: 12px; font-family: Consolas;">);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;"> format = </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">new</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-size: 12px; font-family: Consolas;">(options);</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">It should be noted that the </span><span style="font-family: Arial,Helvetica,sans-serif; font-weight: bold;">Header</span><span style="font-family: Arial,Helvetica,sans-serif;"> section is always displayed no matter what and will always be the first section. &nbsp;The software does allow you to set it's visible property to false, but that setting will be ignored.</span></p>
+<p class="p_Normal">&nbsp;</p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

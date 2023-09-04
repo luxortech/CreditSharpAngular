@@ -1,0 +1,620 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>FormatOptionsXml Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_format_formatoptionsxml.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_format.html">Format</a> &gt; <a href="t_luxortech_creditsharp_format_formatoptions.html">FormatOptions Classes</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">FormatOptionsXml Class</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Format</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="t_luxortech_creditsharp_format_formatoptions.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="m_luxortech_creditsharp_format_formatoptionstext_section_1_bb3a7a4f.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="m_luxortech_creditsharp_format_formatoptionsxml_firstsection_1_bb3a7a4f.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The members found within the FormatOptionsXml class provide access to settings for controlling the creation of Xml based outputs.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Methods</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_format_formatoptionsxml_firstsection_1_bb3a7a4f.html" class="topiclink">FirstSection</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Method optionally establishes the first section to be displayed in the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_format_formatoptionsxml_nextsection_1_bb3a7a4f.html" class="topiclink">NextSection</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Method adds another section to the growing collection of items to be displayed in the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_format_formatoptionsxml_section_1_bb3a7a4f.html" class="topiclink">Section</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Provides access to configure how and what sections are displayed in the output.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Decorate</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value to be used for creating a 'pretty' Xml output.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the value is set to an empty string, then no whitespace characters will be inserted into the Xml stream. &nbsp;Otherwise, new line characters will be used to terminate each Xml node and the supplied value will be used to indent each nested line. &nbsp;The input can be either the tab character or spaces.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">'\t'</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ForceUniqueTags</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">When true, guarantees that if a child XML element has the same name as it's parent element it will be uniquely names by prepending an underscore character to the name.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This setting only applies when generating an XML output which uses the older Credit++ Toolkit's XML schema.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HideAuthorizedUser</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if Tradelines with an ECOA code designating them as &quot;Authorized User&quot; accounts should be excluded from display.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HideDisputed</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if Tradelines or PublicRecords currently being disputed by the consumer should be excluded from display.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HideLostStolen</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if credit card accounts that are being reported as Lost or Stolen should be excluded from display.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">InlineDirectory</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if Inquiry and Tradeline elements should include directory detail (address, phone, etc).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IsolateJoint</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if Joint accounts should be output separately and not duplicated within the Primary and Secondary sections.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">LegacyVersion</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating whether the output should use the format Credit Toolkit's Xml structure and element names.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MergeHistory</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#xmlmergehistory" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#xmlmergehistory" class="topiclink">XmlMergeHistory</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating if the output should include merge history.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Partitions</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_partitioning.html" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="t_luxortech_creditsharp_core_partitioning.html" class="topiclink">Partitioning</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value specifying what Partitioning scheme to use when generating the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ReportStyle</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#xmlstyle" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#xmlstyle" class="topiclink">XmlStyle</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the enumeration indicating which style is desired.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowAncestry</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if the native bureau origin of each normalized element should be displayed.</p>
+<p class="p_Normal">When enabled, an &lt;Ancestry&gt; tag is included which contains the content of the corresponding XtAncestry property for the current item.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowBooleanProperties</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if boolean properties should be displayed.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Certain segments include extended boolean properties reporting whether or not specific data conditions exist in each observation. The segments which have these properties are: ComIdentification, ComInquiry, ComPublicRecord and ComTradeline. One such example is the <span style="font-style: italic;">IsMedical</span> property which indicates if the underlying debt is due to medical expenses.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowCustomAttributes</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if all Custom attribute results should be rendered into XML.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowEmptyTags</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if tags should be included even when they have no actual value.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowFactoryAttributes</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if all AttributeFactory results should be rendered into XML.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowItemNumber</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if a unique sequence number should be included for each item.</p>
+<p class="p_Normal">When enabled, an attribute is added to the parent node of each item indicating the relative sequence number of each occurrence.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowParsedAddress</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if certain elements of a consumer street address should be displayed separately.</p>
+<p class="p_Normal">When enabled, in addition to appearing within the Freeform element, the following tokens will be shown as individual elements: HouseNumber, Pre/PostDirection, StreetName, StreetType and UnitNumber.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowSources</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if item sources should be included in the output.</p>
+<p class="p_Normal">When enabled, the tag &lt;Source bureau=&quot;n&quot; ident=&quot;n&quot; match=&quot;x&quot; /&gt; is appended to each segment in the output to display from which bureau the item originated and to which specific consumer the item belongs.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <span style="font-style: italic;">ident</span> value corresponds to the XtIdentNumber property of a given segment and the <span style="font-style: italic;">match</span> value corresponds to the XtIdentMatch property.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowSummaryAttributes</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if all SummaryData results should be rendered into XML.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowTradeLates</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if each tradeline delinquency show be shown in separate elements.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <span style="font-style: italic;">Delinquencies</span> property if the ComTradeline segment records the specific date and severity of ever known delinquency. This information is represented in condensed for within the payment history pattern but can also be explicitly documented with a separate node for each delinquent occurrence using this optionally property setting.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="verbose" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Verbose</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the flag indicating if coded elements should be displayed with their corresponding descriptive text.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The setting works in conjunction with the <span style="font-weight: bold;">Verbose</span> property found in each <a href="t_luxortech_creditsharp_format_formatsection.html" class="topiclink">FormatSection</a>. When this property is true, then the section level property will be checked to see if its coded members should include descriptive text. &nbsp;In this way, it is possible to include descriptive elements on a section by section basis.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This most common use of this feature is to include descriptive text in just the Score elements so that factor code text is shown, while not consuming unneeded space by having potentially redundant verbose elements everywhere else within the Xml stream.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ZeroBasedMop</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Get or sets the value which determines if a Tradeline Manner of Payment and Payment History codes will be numbered from zero or one.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When true, an instance of a current month would be represented as &quot;0&quot; while a 30 day late would be seen as &quot;1&quot;, a 60 day late as &quot;2&quot;, etc. &nbsp;When false, the current month would be styled as &quot;1&quot; with 30 day lates being seen as &quot;2&quot; and 60 day lates being &quot;3&quot;, etc. &nbsp;Having the codes zero based allows for the explicit representation of a 180 day delinquent occurrence, as &quot;6&quot;. &nbsp;When the codes are based from one, then the value of &quot;6&quot; must stand in for either 150 or 180 days late.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Please refer to the <a href="com_codes_mop.html" class="topiclink">Mop Codes</a> appendix topic for a full presentation of this optional feature.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

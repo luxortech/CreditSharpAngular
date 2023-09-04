@@ -1,0 +1,951 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>HEQ (Home Equity) Attributes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "att_heq.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_feadata-analysis.html">Data analysis</a> &gt; <a href="_feaanalyzeattributefactoryreference.html">AttributeFactory Reference</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">HEQ (Home Equity) Attributes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feaanalyzeattributefactoryreference.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="att_fix.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="att_inq.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The Home Equity attribute category is reserved for accounts labeled as such by the reporting lender.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:middle;">
+<th style="vertical-align:middle; width:187px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Name</span></p>
+</th>
+<th style="vertical-align:middle; width:1117px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Attribute Description</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Count Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ001</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of home equity tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ002</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of open home equity tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ003</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of closed home equity tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ004</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of home equity tradelines reported in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ005</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of home equity tradelines reported in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ006</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of home equity tradelines reported in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ007</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new home equity tradelines opened in past 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ008</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new home equity tradelines opened in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ009</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of new home equity tradelines opened in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ010</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts currently open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ011</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts currently open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ012</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts currently open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ013</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts currently open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ014</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ015</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines with balance &gt; 250</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ016</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines listed in bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ017</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever reported in foreclosure</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ019</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of charge off or internal collection home equity tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ024</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts ever open for 6 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ025</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts ever open for 12 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ026</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts ever open for 24 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ027</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts ever open for 48 months or longer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ030</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts with activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ031</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts with activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ036</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts with no activity in past 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ037</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts with no activity in past 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ041</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines reported in last 3 months with past due amount &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ098</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts currently in dispute</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ099</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity accounts not evaluated due to exclusion criteria</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ101</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines with balance at or above credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ102</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines where balance is 50% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ103</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines where balance is 75% or more of credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Time / Age Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ201</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recently opened home equity tradeline</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ202</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since oldest home equity tradeline established</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ203</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average months since home equity tradeline open date</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ204</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average length of time (in months) home equity accounts are/were open</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ205</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent home equity delinquency or default</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ206</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 30 day home equity delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ207</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 60 day home equity delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ208</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 day home equity delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ209</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Months since most recent 90 to 180 day home equity delinquency</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Amount Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ301</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total home equity tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ302</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average home equity tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ303</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest home equity tradeline balance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ311</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total home equity tradeline monthly payments</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ312</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average home equity tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ313</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest home equity tradeline monthly payment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ332</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Average home equity tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ333</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest home equity tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ341</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total home equity tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ343</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Highest home equity tradeline past due amount (reported in last 3 months)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ351</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total st home equity tradeline credit limit</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ352</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of st home equity tradeline credit limit utilized</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ353</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount of remaining st home equity tradeline credit capacity</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Ratio Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ401</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of open home equity tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ402</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of closed home equity tradelines</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ403</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of home equity tradelines with balance &gt; 0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ404</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of home equity tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ405</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of home equity tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ406</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of home equity tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ407</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Percent of home equity tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ408</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of total home equity delinquencies to total home equity payment history</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ430</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Ratio of home equity balances to credit limits</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Delinquency Attributes</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ501</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines never delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ502</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines never defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ503</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ504</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ505</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ506</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 30 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ507</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ508</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 60 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ509</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ510</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 60 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ511</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 90 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ512</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 90 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ513</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ514</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 90 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ515</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 120 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ516</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 120 days delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ517</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 120 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ518</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently 120 days or more delinquent and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ519</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ520</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently delinquent or defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ521</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ522</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines currently defaulted and reported within last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ523</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ524</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever 30 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ525</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever 60 days delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ526</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever 60 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ527</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever 90 days or more delinquent</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ528</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever delinquent or defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ529</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines ever defaulted</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ530</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines never worse than 30 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ531</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines never worse than 60 days late</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ532</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not delinquent or defaulted in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ533</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not worse than 30 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ534</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not worse than 60 days late in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ535</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not delinquent or defaulted in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ536</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not worse than 30 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ537</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not worse than 60 days late in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ538</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not delinquent or defaulted in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ539</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not worse than 30 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ540</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number of home equity tradelines not worse than 60 days late in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ541</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 30 day home equity delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ542</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 60 day home equity delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ543</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Total number of 90 to 180 day home equity delinquencies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="2" style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent levels presented from a zero baseline:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">0 = Not late</p>
+<p class="p_Normal">1 = 30 day delinquency</p>
+<p class="p_Normal">2 = 60 day delinquency</p>
+<p class="p_Normal">3 = 90 day delinquency</p>
+<p class="p_Normal">4 = 120 day delinquency</p>
+<p class="p_Normal">5 = 150 day delinquency</p>
+<p class="p_Normal">6 = 180 day delinquency</p>
+<p class="p_Normal">7 = Defaulted (included in bankruptcy)</p>
+<p class="p_Normal">8 = Defaulted (repossession or foreclosure)</p>
+<p class="p_Normal">9 = Defaulted (collection or charge off)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ544</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default home equity occurrence on file</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ545</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default home equity occurrence in last 6 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ546</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default home equity occurrence in last 12 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ547</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default home equity occurrence in last 24 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ548</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default home equity occurrence in last 36 months</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:187px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HEQ549</p>
+</td>
+<td style="vertical-align:top; width:1117px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Worst delinquent or default home equity occurrence in last 48 months</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>FormatGroup Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_format_formatgroup.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_format.html">Format</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">FormatGroup Class</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Format</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_format.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="format_formatsectiontradeline_class.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devformatenumerations.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The references used to define groups for certain sections within Html or Text layouts are all derived from the <span style="font-weight: bold;">FormatGroup </span>class. &nbsp;The base class exposes the name and any headers for the group &nbsp;while the derived class is used to define the type specific selection criteria for choosing members to include in the group. &nbsp;Coding examples specific to each section can be found within the <span style="font-weight: bold;">FormatSecton</span> <a href="format_formatsection_derivedclasses.html" class="topiclink">derived class</a> which corresponds to the type of data being manipulated.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following topics discuss the settings required to implement <span style="font-style: italic; font-weight: bold;">customized</span> group criteria. &nbsp;There are also a number of <span style="font-style: italic; font-weight: bold;">predefined</span> criteria for grouping certain report sections. These existing criteria can be reviewed in the section specific topic pages found within the <a href="format_formatsection_derivedclasses.html" class="topiclink">Derived Classes</a> chapter - e.g. - to view possible existing groups that can be used with Tradelines, review the <a href="format_formatsectiontradeline_class.html" class="topiclink">FormatSectionTradeline</a> topic.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Base Class Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ContinueHeader</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The label to insert when the first item in the current group is added to a subsequent page.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">InitialHeader</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The label to insert when the first item in the current group is added to the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MissingHeader</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The label to insert when no items for the current group exist.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The logical name assigned to the current group.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<!-- Headers -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(headers, headers_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="headers_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Constructing headers</font></a></p>
+<DIV id="headers" style="display:none;"><p class="p_Normal">The appropriate content for a group header is dictated, somewhat, by the layout in which it will be used. &nbsp;Group headers in Text layouts can consist of multiple lines but are shown in the same fixed-font used for all other data being displayed. &nbsp;On the other hand, headers used in Html layouts can only be a single line but can include any valid html tag(s), meaning the color and font can be customized as well as verbiage.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Headers for existing predefined groups can be modified, but the Selector cannot. &nbsp;To disable a header, the value can be assigned as <span style="font-family: Consolas;">string.emtpy</span> (in order to, for example, prevent a Missing header from being displayed).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">An example of the more common form of group header used within CreditSharp <span style="font-weight: bold;">Text</span> layouts might be:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">-------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">Open Accounts</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">-------------</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">&nbsp;</p>
+<p class="p_Normal">Which would be assigned as:</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;">group.InitialHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;-------------&quot;</span><span style="font-size: 12px; font-family: Consolas;"> + </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Environment</span><span style="font-size: 12px; font-family: Consolas;">.NewLine +</span></p>
+<p style="margin: 0px 0px 0px 169px;"><span style="font-size: 12px; font-family: Consolas; color: #a31515;"> &quot;Open Accounts:&quot;</span><span style="font-size: 12px; font-family: Consolas;"> + </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Environment</span><span style="font-size: 12px; font-family: Consolas;">.NewLine +</span></p>
+<p style="margin: 0px 0px 0px 169px;"><span style="font-size: 12px; font-family: Consolas; color: #a31515;"> &quot;--------------&quot;</span><span style="font-size: 12px; font-family: Consolas;"> + </span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Environment</span><span style="font-size: 12px; font-family: Consolas;">.NewLine;</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">For <span style="font-weight: bold;">Html</span> layouts, headers will automatically be decorated with a line above and below, such as:</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> group.InitialHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;Open Accounts&quot;</span></p>
+<p style="margin: 0px 0px 0px 169px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">displays:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="border-color: #000000; border-style: solid; border-width: thin; border-right: none; border-left: none; margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">Open Accounts</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Optionally, font size or color can be altered:</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;&lt;span style=\&quot;font-size: 12px; background: #c3d69b;\&quot;&gt;MORTGAGE ACCOUNTS&lt;/span&gt;&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">displays:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="border-color: #000000; border-style: solid; border-width: thin; border-right: none; border-left: none; margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace; background-color: #c3d69b;">Mortgage Accounts</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Or, color can be applied selectively:</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> group.MissingHeader = </span><span style="font-size: 12px; font-family: Consolas; color: #a31515;">&quot;MORTGAGE ACCOUNTS: &lt;span style=\&quot;color:red\&quot;&gt;None found&lt;/span&gt;&quot;</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">displays:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="border-color: #000000; border-style: solid; border-width: thin; border-right: none; border-left: none; margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">Mortgage Accounts: </span><span style="font-family: 'Courier New',Courier,monospace; font-weight: bold; color: #c0504d;">None found</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">&nbsp;</p>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Extended Property</span></p>
+<p class="p_Normal">Each derived FormatGroup class exposes its own <span style="font-weight: bold;">Selector</span> property, which accepts a delegate that provides the criteria for choosing the members of the group.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Selector</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Func</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Defines criteria for choosing what members will be included in a given group.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The property values is expressed as <span style="font-weight: bold;">Func &lt;T, bool&gt;</span> where T is a reference to one of the common CreditSharp data instances.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Assigning the value of a group's Selector can be done using either lambda expressions or a function (or method) reference which matches the delegate signature. &nbsp;Note that selectors cannot be modified in any predefined groups - a Custom group definition be created instead.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Generally, using references to functions or methods will lead to faster execution times as they are compiled during development rather than at run time. &nbsp;Lambda expressions on the other hand must be compiled and resolved at run time. &nbsp;However, the performance gain is likely to be very small since there will typically only be a few instances of these types of instructions.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In the following examples, we are establishing a group which isolates unpaid collection accounts.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- LINQ -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(linqExample, linqExample_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="linqExample_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Selector using LINQ</font></a></p>
+<DIV id="linqExample" style="display:none;"><p class="p_Normal"><span style="font-weight: bold; text-decoration: underline;">Lambda syntax 1</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 26px;"><span style="font-size: 12px; font-family: Consolas;">tradeGroup.Selector = (x =&gt; x.IsCollection &amp;&amp; x.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.BalanceAmount) &gt; 0);</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold; text-decoration: underline;">Lambda syntax 2</span></p>
+<p class="p_Normal">This style is more verbose, but does make it very clear which CreditSharp object is being evaluated.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 13px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 26px;"><span style="font-size: 12px; font-family: Consolas;">tradeGroup.Selector = (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradeline </span><span style="font-size: 12px; font-family: Consolas;">x) =&gt; { return x.IsCollection &amp;&amp; x.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.BalanceAmount) &gt; 0); };</span></p>
+<p class="p_Normal">&nbsp;</p>
+</div><!-- Delegate -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(funcExample, funcExample_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="funcExample_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Selector using Delegate</font></a></p>
+<DIV id="funcExample" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The first step in using a delegate for group selection, is to create the function which tests for the desired criteria. &nbsp;Then, this function can be assigned to the Selector property.</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas; color: #0000ff;"> private</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">bool</span><span style="font-size: 12px; font-family: Consolas;"> IsOpenCollection (</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradeline</span><span style="font-size: 12px; font-family: Consolas;"> trade)</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> {</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">if</span><span style="font-size: 12px; font-family: Consolas;"> (trade.IsCollection &amp;&amp; trade.AMT(</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradelineIds</span><span style="font-size: 12px; font-family: Consolas;">.BalanceAmount) &gt; 0)</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">true</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">else</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">return</span><span style="font-size: 12px; font-family: Consolas;"> </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">false</span><span style="font-size: 12px; font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas;"> }</span></p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p class="p_Normal"><span style="font-weight: bold; text-decoration: underline;">Delegate syntax 1</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 13px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 26px;"><span style="font-size: 12px; font-family: Consolas;">tradeGroup.Selector = IsOpenCollection;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold; text-decoration: underline;">Delegate syntax 2</span></p>
+<p class="p_Normal">This style is more verbose, but helps to more explicitly state what is being executed.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 13px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 26px;"><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">Func</span><span style="font-size: 12px; font-family: Consolas;">&lt;</span><span style="font-size: 12px; font-family: Consolas; color: #2b91af;">ComTradeline</span><span style="font-size: 12px; font-family: Consolas;">, </span><span style="font-size: 12px; font-family: Consolas; color: #0000ff;">bool</span><span style="font-size: 12px; font-family: Consolas;">&gt; mySelector = IsOpenCollection;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 26px;"><span style="font-size: 12px; font-family: Consolas;">tradeGroup.Selector = mySelector;</span></p>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Not all format sections support customized grouping. &nbsp;The following table lists the Html and Text format sections that can be grouped. &nbsp;Examples for implementing group queries specific to each section can be found within the chapters outlining the various <span style="font-weight: bold;">FormatSecton</span> <a href="format_formatsection_derivedclasses.html" class="topiclink">classes</a>.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Groups -->
+<p>
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(groups, groups_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="groups_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">FormatGroup Derived Classes</font></a></p>
+<DIV id="groups" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:250px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Class Name</span></p>
+</td>
+<td style="vertical-align:top; width:1032px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupAddress</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionaddress_class.html" class="topiclink">FormatSectionAddress</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupBanking</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionbanking_class.html" class="topiclink">FormatSectionBanking</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupBureauAttribute</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionbureauattribute_class.html" class="topiclink">FormatSectionBureauAttribute</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupBureauError</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionbureauerror_class.html" class="topiclink">FormatSectionBureauError</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupConsumerReferral</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionconsumerreferral_class.html" class="topiclink">FormatSectionConsumerReferral</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupConsumerStatement</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionconsumerstatement_class.html" class="topiclink">FormatSectionConsumerStatement</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupDirectory</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectiondirectory_class.html" class="topiclink">FormatSectionDirectory</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupEmployment</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionemployment_class.html" class="topiclink">FormatSectionEmployment</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupInquiry</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectioninquiry_class.html" class="topiclink">FormatSectionInquiry</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupMessage</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionmessage_class.html" class="topiclink">FormatSectionMessage</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormataGroupOfacSearch</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionofacsearch_class.html" class="topiclink">FormatSectionOfacSearch</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupPublicRecord</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionpublicrecord_class.html" class="topiclink">FormatSectionPublicRecord</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupRegisteredItem</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionregistereditem_class.html" class="topiclink">FormatSectionRegisteredItem</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupScore</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectionscore_class.html" class="topiclink">FormatSectionScore</a> reference.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:250px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FormatGroupTradeline</p>
+</td>
+<td style="vertical-align:top; width:1032px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Returned from the AddGroup or Group method of a <a href="format_formatsectiontradeline_class.html" class="topiclink">FormatSectionTradeline</a> reference.</p>
+</td>
+</tr>
+</table>
+</div>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<div *ngIf="async.inProgress === true || async.success === false" 
+        style="display: inline-block;
+            text-align: center; 
+            vertical-align: middle; 
+            font-family: roboto, arial;
+            font-size:18px; 
+            width:100%;          
+            "            
+            >
+    <ng-container  *ngIf="async.inProgress === false && async.success === false">
+        <span [innerHTML]="async.message" style="color: red;"></span>
+        <span><i class="fa fa-x"></i></span>
+    </ng-container>
+
+    <ng-container  *ngIf="async.inProgress === true">
+        <span [innerHTML]="async.message"></span>
+        <i class="fa fa-spinner fa-spin"></i>
+    </ng-container>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col display-6  mt-3">
+            Releases
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="input-group mb-2">
+                <select class="form-select" [(ngModel)]="productId">
+                    <option *ngFor="let p of csWebService.productList"
+                     [ngValue]="p.id">{{p.title}}</option>
+                  </select>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="input-group mb-2">                
+                <app-csfilter class="form-control" 
+                    [(selectedFilterList)]    = "selectedFilterList" 
+                    [masterFilterList]      = "masterFilterList">
+                </app-csfilter>
+                <button (click) = "applySearch()" type="button" class="btn btn-outline-secondary" id="input-group-button-right">
+                    Search
+                    <i class="fa fa-spinner fa-spin" *ngIf="async.inProgress"></i>
+                </button> 
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="row">
+        <div class="col-12 table.responsive" style="max-height:70vh; overflow: auto;">
+            <table class="table w-100% p-3">
+                <thead>
+                    <th>Title</th>
+                    <th>Version</th>
+                    <th>Release Date</th>
+                </thead>
+                <tbody>
+                    <ng-container  *ngFor="let r of csWebService.downloadsLists; let idx = index;"> 
+                        <tr>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = r.title></span></td>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "r.version"></span></td>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "r.date | date: 'medium'"></span></td>
+                            <td style="text-align: right;"><button class="btn btn-secondary" (click) = "r.show = !r.show"><span [innerText] = "(r.show) ? 'Hide Details' : 'Show Details'"></span></button></td>
+                        </tr>
+                        <tr *ngIf="r.show === true">
+                            <td colspan="3">
+                                <div style="border: 1px solid #cccccc; border-radius: 10px; margin:15px; padding:10px;">
+                                    <span  [innerText] = r.description></span>
+                                </div>                                
+                            </td> 
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </ng-container>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

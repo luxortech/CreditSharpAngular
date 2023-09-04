@@ -1,0 +1,69 @@
+<form method="post" action="http://www.creditsharp.com/UserApi/PostAssetDownload" id="frmGetAssetDownload">
+    <input type="hidden" name="fileName" value="" />
+    <input type="hidden" name="contentType" value="" />
+    <input type="hidden" name="contentDisposition" value="" />
+</form>
+
+<!-- LARGE -->
+ <div class="card" fxHide.lt-md="true" fxShow.gt-sm="true">
+    <div class="card-header cs-pull-center" style="font-size:40px;">  
+        <span class="creditSharpLogo"></span>&nbsp;Documentation
+    </div>
+    <div class="row">
+        <div class="col-12"  style="padding:15px;">  
+            <h3  (click)="webService.docShowHide(docView,'FRAMEWORK')" >Framework<mat-icon>book</mat-icon></h3>   
+            <p><i>Comprehensive CreditSharp Framework Documentation.</i></p> 
+            <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show"  [docList]="webService.docFilter('DOCUMENTATION', 'FRAMEWORK')"  *ngIf="docView.show && docView.doccategory=='FRAMEWORK'"></app-docviewer>
+        </div>               
+    </div>
+
+    <div class="row">
+        <div class="col-12" style="padding:15px;">
+            <h3 (click)="webService.docShowHide(docView,'EXTENSIONS')" >CreditSharp Extensions <mat-icon>book</mat-icon></h3>
+            <p><i>CreditSharp Extensions Documentation.</i></p>
+            <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show" [docList]="webService.docFilter('DOCUMENTATION', 'EXTENSIONS')"  *ngIf="docView.show && docView.doccategory=='EXTENSIONS'"></app-docviewer>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12" style="padding:15px;">
+            <h3 (click)="webService.docShowHide(docView,'REST')" >CreditSharp REST Service <mat-icon>book</mat-icon></h3>
+            <p><i>CreditSharp WebAPI REST Service Installation and Usage.</i></p>
+           
+            <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show" [docList]="webService.docFilter('DOCUMENTATION', 'REST')" *ngIf="docView.show && docView.doccategory=='REST'"></app-docviewer>
+        </div>
+    </div>            
+</div>
+
+<!-- SMALL -->
+<!-- <div class="card" fxHide.lt-md="false" fxShow.gt-sm="false">
+    <div class="card-header cs-pull-center" style="font-size:20px;">  
+        <span class="creditSharpLogo"></span>&nbsp;Schemas
+        <p><i>JSON and XML Schemas defining bureau data and analyze data outputs</i></p>
+    </div>
+    <div class="row">
+        <div class="col-12" style="padding:15px;">
+            <h5 style="padding-top:5px;">Framework <mat-icon>book</mat-icon></h5>
+            <p><i>Comprehensive CreditSharp Framework Documentation.</i></p>
+        </div>               
+    </div>
+
+    <div class="row">
+        <div class="col-12" style="padding:15px;">
+            <h5 style="padding-top:5px;">CreditSharp Extensions <mat-icon>book</mat-icon></h5>
+            <p><i>CreditSharp Extensions Documentation.</i></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12" style="padding:15px;">
+            <h5 style="padding-top:5px;">CreditSharp REST Service <mat-icon>book</mat-icon></h5>
+            <p><i>CreditSharp WebAPI REST Service Installation and Usage.</i></p>
+        </div>
+    </div>            
+</div>  
+ -->
+
+ <iframe  *ngIf="isValidDocUrl()" #documentIframe style="width: 100%; height: 50vh; min-height: 500px; border: 0;" 
+    [src]="getDocUrl()">
+</iframe>

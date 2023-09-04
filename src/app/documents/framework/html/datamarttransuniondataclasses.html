@@ -1,0 +1,1114 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Data Classes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "datamarttransuniondataclasses.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_transunion.html">TransUnion</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">TransUnion Data Classes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.TransUnion</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_datamart_transunion.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="m_luxortech_creditsharp_datamart_transunion_transuniondata_parse_1_bb3a7a4f.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_datamart_transunion_tucaccountdelinquencydetail.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The table below lists all the native Experian data elements that can be reviewed within an instance of a populated <a href="t_luxortech_creditsharp_datamart_transunion_transuniondata.html" class="topiclink">TransUnionData</a> object. &nbsp;Each class corresponds to a segment found within the TransUnion raw data responses.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:307px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:830px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaccountdelinquencydetail.html" class="topiclink">TucAccountDelinquencyDetail</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Account Delinquency Detail segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaccounthistory.html" class="topiclink">TucAccountHistory</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Account History segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaccountsummarydescription.html" class="topiclink">TucAccountSummaryDescription</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Account Summary Description segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaccountsummarydetail.html" class="topiclink">TucAccountSummaryDetail</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Account Summary Detail segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucadditionalpaymentdata.html" class="topiclink">TucAdditionalPaymentData</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Additional Payment Data segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; height:15px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; height:15px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctucadditionaltradedetail.html" class="topiclink">TucAdditionalTradeDetail</a></p>
+</td>
+<td style="vertical-align:top; width:830px; height:15px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Additional Trade Detail segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; height:15px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; height:15px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaddonstatus.html" class="topiclink">TucAddOnStatus</a></p>
+</td>
+<td style="vertical-align:top; width:830px; height:15px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Add On Status segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaddress.html" class="topiclink">TucAddress</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Address segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaddressanalysis.html" class="topiclink">TucAddressAnalysis</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Address Analysis segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucaddressextended.html" class="topiclink">TucAddressExtended</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Extended Address segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucautoloansummary.html" class="topiclink">TucAutoLoanSummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Auto Loan Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucbanking.html" class="topiclink">TucBanking</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Banking segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucbankruptcy.html" class="topiclink">TucBankruptcy</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Bankruptcy segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccharacteristic.html" class="topiclink">TucCharacteristic</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Characteristic segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccollection.html" class="topiclink">TucCollection</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Collection segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccollectionindicators.html" class="topiclink">TucCollectionIndicators</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Collection Indicators segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccollectioninquiry.html" class="topiclink">TucCollectionInquiry</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Collection Inquiry segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccollectionreport.html" class="topiclink">TucCollectionReport</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Collection Report segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccompliance.html" class="topiclink">TucCompliance</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Compliance segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucconsumeridentifier.html" class="topiclink">TucConsumerIdentifier</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Consumer Identifier segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucconsumername.html" class="topiclink">TucConsumerName</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Consumer Name segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucconsumerstatement.html" class="topiclink">TucConsumerStatement</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Consumer Statement segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccontactresult.html" class="topiclink">TucContactResult</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Contact Result segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccontactresult2.html" class="topiclink">TucContactResult2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Contact Result 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccoreerror.html" class="topiclink">TucCoreError</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Core Error segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccountyinformation.html" class="topiclink">TucCountyInformation</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion County Information segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccreditavailabilitysummary.html" class="topiclink">TucCreditAvailabilitySummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Credit Availability Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccreditcard.html" class="topiclink">TucCreditCard</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Credit Card segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccreditorcontact.html" class="topiclink">TucCreditorContact</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Creditor Contact segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccreditsummary.html" class="topiclink">TucCreditSummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Credit Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccreditsummarydescription.html" class="topiclink">TucCreditSummaryDescription</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Credit Summary Description segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccreditsummaryenhanced.html" class="topiclink">TucCreditSummaryEnhanced</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Credit Summary Enhanced segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccreditvisionsummary.html" class="topiclink">TucCreditVisionSummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Credit Vision Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuccustomerdata.html" class="topiclink">TucCustomerData</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Customer Data segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdataanalysis.html" class="topiclink">TucDataAnalysis</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Data Analysis segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdeceasedinformation.html" class="topiclink">TucDeceasedInformation</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Deceased Information segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdecsyscustomerbranch.html" class="topiclink">TucDecSysCustomerBranch</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Decision System Customer Branch segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdecsyscustominformation.html" class="topiclink">TucDecSysCustomInformation</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Decision System Custom Information segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdecsysresponse.html" class="topiclink">TucDecSysResponse</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Decision System Response segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdelinquencysummary.html" class="topiclink">TucDelinquencySummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Delinquency Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdirectoryservice.html" class="topiclink">TucDirectoryService</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Directory Service segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucdirectoryservice2.html" class="topiclink">TucDirectoryService2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Directory Service 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucedit.html" class="topiclink">TucEdit</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Edit segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucemployment.html" class="topiclink">TucEmployment</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Employment segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucerrorcode.html" class="topiclink">TucErrorCode</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Error Code segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucerrorheader.html" class="topiclink">TucErrorHeader</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Error Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucerrortext.html" class="topiclink">TucErrorText</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Error Text segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucextendedfields.html" class="topiclink">TucExtendedFields</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Extended Fields segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucextendedpaymentpattern.html" class="topiclink">TucExtendedPaymentPattern</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Extended Payment Pattern segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucgeocode.html" class="topiclink">TucGeoCode</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion GeoCode segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuchistorysummary.html" class="topiclink">TucHistorySummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion History Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucidentification.html" class="topiclink">TucIdentification</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Identification segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucidmismatchalert.html" class="topiclink">TucIdMismatchAlert</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Id Mismatch Alert segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucidmismatchalert2.html" class="topiclink">TucIdMismatchAlert2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Id Mismatch Alert 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucincomeestimatorscore.html" class="topiclink">TucIncomeEstimatorScore</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Income Estimator Score segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucinquiry.html" class="topiclink">TucInquiry</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Inquiry segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucinquiryhistory.html" class="topiclink">TucInquiryHistory</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Inquiry History segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuclegalitem.html" class="topiclink">TucLegalItem</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Legal Item segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucmessagecode.html" class="topiclink">TucMessageCode</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Message Code segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucmessagetext.html" class="topiclink">TucMessageText</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Message Text segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucmileage.html" class="topiclink">TucMileage</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Mileage segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucmileage2.html" class="topiclink">TucMileage2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Mileage 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucmiscellaneousidentification.html" class="topiclink">TucMiscellaneousIdentification</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Miscellaneous Identification segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucmiscellaneousstatement.html" class="topiclink">TucMiscellaneousStatement</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Miscellaneous Statement segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucmonitorsatisfaction.html" class="topiclink">TucMonitorSatisfaction</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Monitor Satisfaction segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucnumberof.html" class="topiclink">TucNumberOf</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion NumberOf segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucowningbureau.html" class="topiclink">TucOwningBureau</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Owning Bureau segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucowningbureau2.html" class="topiclink">TucOwningBureau2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Owning Bureau 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucpersonalinformation.html" class="topiclink">TucPersonalInformation</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Personal Information segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucphonenumber.html" class="topiclink">TucPhoneNumber</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Phone Number segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucphonenumber2.html" class="topiclink">TucPhoneNumber2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Phone Number 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucpointssummary.html" class="topiclink">TucPointsSummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Points Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucpointssummary2.html" class="topiclink">TucPointsSummary2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Points Summary 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader.html" class="topiclink">TucProductHeader</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Service Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader2.html" class="topiclink">TucProductHeader2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Service Header 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader3.html" class="topiclink">TucProductHeader3</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Service Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader4.html" class="topiclink">TucProductHeader4</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Service Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucpropertydata.html" class="topiclink">TucPropertyData</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Property Data segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucpublicrecord.html" class="topiclink">TucPublicRecord</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Public Record segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucrecordreportedhistory.html" class="topiclink">TucRecordReportedHistory</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Record Reported History segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucregionanalysis.html" class="topiclink">TucRegionAnalysis</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Region Analysis segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucregistereditem.html" class="topiclink">TucRegisteredItem</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Registered Item segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucresidencyinformation.html" class="topiclink">TucResidencyInformation</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Residency Information segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucscoremodel.html" class="topiclink">TucScoreModel</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Score Model segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader.html" class="topiclink">TucSubjectHeader</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader2.html" class="topiclink">TucSubjectHeader2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Header 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader3.html" class="topiclink">TucSubjectHeader3</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Header 3 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader4.html" class="topiclink">TucSubjectHeader4</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Header 4 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader5.html" class="topiclink">TucSubjectHeader5</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Header 5 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader6.html" class="topiclink">TucSubjectHeader6</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Header 6 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectverification.html" class="topiclink">TucSubjectVerification</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Verification segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectverification2.html" class="topiclink">TucSubjectVerification2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Verification 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectverification3.html" class="topiclink">TucSubjectVerification3</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subject Verification 3 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucsubscriberaddress.html" class="topiclink">TucSubscriberAddress</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Subscriber Address segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctextstatement.html" class="topiclink">TucTextStatement</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Text Statement segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctotalpaymentratio.html" class="topiclink">TucTotalPaymentRatio</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Total Payment Ratio segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctradeline.html" class="topiclink">TucTradeline</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Tradeline segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctradelinemonitor.html" class="topiclink">TucTradelineMonitor</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Tradeline Monitor segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctradelinereview.html" class="topiclink">TucTradelineReview</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Tradeline Review segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctrademoptotals.html" class="topiclink">TucTradeMopTotals</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Trade Mop Totals segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctransactionend.html" class="topiclink">TucTransactionEnd</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Transaction End segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctransactionheader.html" class="topiclink">TucTransactionHeader</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Transaction Header segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuctransactiontracking.html" class="topiclink">TucTransactionTracking</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Transaction Tracking segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucvehicleinformation.html" class="topiclink">TucVehicleInformation</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Vehicle Information segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucverificationserivce.html" class="topiclink">TucVerificationService</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Verification Service segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucverificationservice2.html" class="topiclink">TucVerificationService2</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Verification Service 2 segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucverificationsummary.html" class="topiclink">TucVerificationSummary</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Verification Summary segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tucyearofissuance.html" class="topiclink">TucYearofIssuance</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion Year Of Issuance segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:105px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public class" title="Public class" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubclass.gif"/></p>
+</td>
+<td style="vertical-align:top; width:307px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_datamart_transunion_tuczipcode.html" class="topiclink">TucPostalCode</a></p>
+</td>
+<td style="vertical-align:top; width:830px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Defines an instance of an TransUnion PostalCode segment.</p>
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

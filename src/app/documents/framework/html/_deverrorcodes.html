@@ -1,0 +1,1473 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Exception Codes</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_deverrorcodes.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpexceptions.html">CreditSharp Errors and Exceptions</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Exception Codes</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_devcreditsharpexceptions.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devcreditsharpexceptions.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devexceptionclasses.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Exception codes are reported in the <span style="font-weight: bold;">EncodedStatus</span> property of each <a href="t_luxortech_creditsharp_core_creditsharpexception.html" class="topiclink">CreditSharpException</a> or one of its inheritors (<a href="t_luxortech_creditsharp_core_bureaudataexception.html" class="topiclink">BureauDataException</a>, for example). &nbsp;They are unique numeric values that have several pieces of information encoded within them using bit mapping and can be treated as traditional error codes.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">There are four distinct elements of information encoded into each error number:</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Bit field</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Width</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">Domain</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Indicates where the error originated. &nbsp;Distinguishes between an error specific to CreditSharp processing or something thrown by the operating system. </p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px;"><p class="p_Normal">2 bits</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">Region</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Indicates the operational area in which the error occurred, such as Normalization or Formatting.</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px;"><p class="p_Normal">4 bits</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">Context</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Further refinement of error location.</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px;"><p class="p_Normal">5 bits</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p class="p_Normal">Error code</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Reports the specific error condition.</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px;"><p class="p_Normal">20 bits</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="background: #c0c0c0;"><span style="font-weight: bold;">List of possible numeric exception codes:</span></p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">EncodedStatus</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Error (code)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a> &nbsp;Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">General</a> &nbsp;Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">Licensing</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_licensestatus.html" class="topiclink">LicenseStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 26px;"><span style="font-weight: bold;">1048576</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">EvaluationLicenseExpired (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 26px;"><span style="font-weight: bold;">1048577</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ProductionLicenseExpired (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 26px;"><span style="font-weight: bold;">1048578</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">LicenseCouldNotBeValidated (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">General</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ArgumentValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Surce: <a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">2097153</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">2097155</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">2097156</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">2097157</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">2097158</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">2097159</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InvalidBureauId (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">2097160</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (7)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">2097161</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementAlreadyExists (8)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">Connect</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">WebProcessing</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_webprocessingstatus.html" class="topiclink">WebProcessingStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">37748737</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">MalformedInquiry (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">37748738</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">UnrecognizedBureauError (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">37748739</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">LoginFailure (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">37748740</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ExpiredPassword (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">37748741</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">BureauHostUnavailable (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">37748742</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">UnrecognizableBureaureponse (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">37748743</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">CertificateNotFound (7)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">37748744</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">HostProcessingError (8)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">Connect</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ConfigurationValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_configurationstatus.html" class="topiclink">ConfigurationStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">38797312</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Undefined (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">38797313</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">38797314</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">38797315</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">38797316</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">38797317</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">38797318</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">BureauCreation</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">General</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_bureaudatastatus.html" class="topiclink">BureauDataStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">67108864</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">SystemException (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108865</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InputBufferEmpty (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108866</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InfiniteLoop (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108867</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">CreditDataUnidentified (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108868</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">CreditDataInvalid (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108869</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">CreditDataTruncated (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108870</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">UnsupportedBureauVersion (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108871</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">CreditDataUnterminated (7)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108872</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">MissingXMLAttribute (8)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108873</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">MissingXMLEndTag (9)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108874</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">UndefinedXMLEnumeration (10)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108875</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InvalidDecisionSchema (11)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108876</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">FeatureNotSupported (12)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">67108877</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">PdfImageDoesNotExist (13)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">BureauCreation</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ArgumentValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">69206017</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">69206019</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">BureauCreation</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ConfigurationValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_configurationstatus.html" class="topiclink">ConfigurationStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">72351744</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Undefined (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">72351745</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">72351746</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">72351747</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">72351748</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">72351749</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">72351750</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">DataNormalization</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">General</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_normalizedatastatus.html" class="topiclink">NormalizeDataStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">100663296</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">SystemException (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">100663297</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">CreditDataMissingOrInvalid (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">DataNormalization</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ArgumentValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">102760449</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">102760450</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">102760451</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">102760452</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">DataNormalization</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ConfigurationValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_configurationstatus.html" class="topiclink">ConfigurationStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">105906176</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Undefined (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">105906177</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">105906178</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">105906179</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">105906180</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">105906181</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">105906182</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">MergeExecution</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">General</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_mergedatastatus.html" class="topiclink">MergeDataStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">134217728</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">SystemException (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">MergeExecution</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ConfigurationValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_configurationstatus.html" class="topiclink">ConfigurationStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">139460608</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Undefined (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">139460609</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">139460610</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">139460611</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">139460612</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">139460613</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">139460614</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">DataAnalysis</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">General</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_mergedatastatus.html" class="topiclink">AnalyzeDataStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">167772160</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">SystemException (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">167772161</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InvalidOperation (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">167772162</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InvalidDataType (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">167772163</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">EvaluationAlreadyExists (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">167772164</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">MissingDelegate (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">167772165</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InvalidRuleType (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">DataAnalysis</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ArgumentValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">169869313</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">169869316</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">DataAnalysis</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ConfigurationValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_configurationstatus.html" class="topiclink">ConfigurationStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">173015040</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Undefined (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">173015041</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">173015042</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">173015043</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">173015044</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">173015045</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">173015046</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">FormatCreation</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">General</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_formatdatastatus.html" class="topiclink">FormatDataStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">201326592</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">SystemException (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">201326593</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">FirstSectionMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">201326594</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">DuplicateSection (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">201326595</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">SummaryDataNotFound (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">FormatCreation</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ArgumentValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">203423745</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">203423748</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">203423749</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">FormatCreation</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ConfigurationValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source:  <a href="t_luxortech_creditsharp_core_configurationstatus.html" class="topiclink">ConfigurationStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">206569472</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Undefined (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">206569473</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">206569474</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">206569475</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">206569476</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">206569477</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">206569478</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">ExtractBureau</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">General</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_extractdatastatus.html" class="topiclink">ExtractDataStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">234881024</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">SystemException (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">234881025</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">InvalidOperation (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">ExtractBureau</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ArgumentValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">236978177</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">236978179</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">236978180</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditSharp</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">ExtractBureau</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">ConfigurationValidation</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <a href="t_luxortech_creditsharp_core_configurationstatus.html" class="topiclink">ConfigurationStatus</a></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">240123904</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Undefined (0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">240123905</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequiredElementMissing (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">240123906</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementLengthExceeded (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">240123907</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementContentInvalid (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">240123908</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfRange (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">240123909</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementIsEmpty (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">240123910</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ElementOutOfContext (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">CreditBureau</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">Connect</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">WebProcessing</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: Native credit bureau errors</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">TransUnion errors:</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619688</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid certificate (40)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619698</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid system id (50)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619699</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Unknown system id (51)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619700</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid system password (52)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619701</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Mismatched system id, password and certificate (53)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619701</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid password limit exceeded (54)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619708</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Transaction failed, resubmit (60)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619709</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Transaction failed, resubmit (61)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574619718</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Malformed Xml envelope (70)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">Experian errors:</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574620648</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid request format (1000)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574620649</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid length (1001)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574620650</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid length (1002)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574620651</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">No XML request (1003)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574620652</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Invalid request parameter (1004)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574621648</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Authorization failure (2000)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">574623648</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">System error. Contact Experian support (4000)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><br />
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Domain: <a href="t_luxortech_creditsharp_core_exceptiondomain.html" class="topiclink">OperatingSystem</a>, Region: <a href="t_luxortech_creditsharp_core_exceptionregion.html" class="topiclink">Connect</a>, Context: <a href="t_luxortech_creditsharp_core_exceptioncontext.html" class="topiclink">WebCommunication</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Source: <span style="font-style: italic; font-weight: bold;">System.Net.WebExceptionStatus</span> enumeration.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 31px;"><span style="font-weight: bold;">1110441985</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 10px 0px 5px 5px;">NameResolutionFailure (1)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441986</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ConnectFailure (2)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441987</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ReceiveFailure (3)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441988</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">SendFailure (4)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441989</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">PipelineFailure (5)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441990</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequestCanceled (6)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441991</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ProtocolError (7)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441992</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ConnectionClosed (8)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441993</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">TrustFailure (9)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441994</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">SecureChannelFailure (10)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441995</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ServerProtocolViolation (11)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441996</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">KeepAliveFailure (12)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441997</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Pending (13)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441998</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Timeout (14)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110441999</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">ProxyNameResolutionFailure (15)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110442000</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">UnknownError (16)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110442001</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">MessageLengthLimitExceeded (17)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110442002</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">CacheEntryNotFound (18)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110442003</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequestProhibitedByCachePolicy (19)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-weight: bold;">1110442004</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">RequestProhibitedByProxy (20)</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

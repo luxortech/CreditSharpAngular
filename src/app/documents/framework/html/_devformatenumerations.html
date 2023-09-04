@@ -1,0 +1,1015 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Enumerations</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devformatenumerations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_format.html">Format</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">Format Enumerations</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Format</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_format.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_format_formatgroup.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="n_luxortech_creditsharp_core.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following tables list all the enumerated values available for use when generating output with a FormatData object.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Enumeration</p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="formatlayout" class="hmanchor"></a>FormatLayout</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Indicates which output format is desired.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Xml</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that the output be constructed as XML.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Text</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that the output be a text based image, suitable for printing or GUI displays.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Html</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that the output be an HTML image.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Json</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">3</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that the output be in JavaScript Object Notation form.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Dataset</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">4</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that the output be a .NET DataSet (System.Data.DataSet).</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="htmlscorerankdisplay" class="hmanchor"></a>HtmlScoreRankDisplay</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Indicates if a separate status element should be displayed in the tradeline section of an Html layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Standard</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Do not return any consumer referral contact information. (Default)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Shaded</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">The percentile field will be given a uniform color background to highlight into what range the value falls. &nbsp;When red, the percentile falls into the lowest (poorest) range, green for the highest (best) range, and yellow for everything between.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Gradient</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">The percentile field will be shown with a color background which progresses from red on the left to green on the right, and the data value positioned proportionally within the gradient (left side indicating lower rankings and right side being higher).</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="htmlstyle" class="hmanchor"></a>HtmlStyle</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Indicates which report layout will be used when generating the Html output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Common01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies the default CreditSharp layout, which displays Primary and Secondary data separately, effectively generating two reports.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Lending01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Mimics to the basic Common01 layout but with Primary and Secondary details listed together in each data section.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="htmltradedimensions" class="hmanchor"></a>HtmlTradeDimensions</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Indicates if and how the Historical Activity display should be included in the tradeline detail of an Html layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">No dimension display is included, even if underlying data is present. (Default)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Expanded</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Includes the dimension display in expanded form, when underlying data is present.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Collapsed</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Includes the dimension display in collapsed form, requiring a user click to reveal content, when underlying data is present.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="htmltradelinepivot" class="hmanchor"></a>HtmlTradeStatusSource</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Indicates how a tradeline status display is chosen in Html layouts.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">CurrentStatus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Submit the request to the test system (Default).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">WorstStatus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Submit the request to the production system.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">When the <a href="_devformatenumerations.html#htmltradelinestatus" class="topiclink">HtmlTradeStatusDisplay</a> is enabled, the code can be determine the status display by inspecting just the current status or both the current and former (maximum) status.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="htmltradelinestatus" class="hmanchor"></a>HtmlTradeStatusDisplay</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Indicates if a separate status element should be displayed in the tradeline section of an Html layout.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Do not return any consumer referral contact information. (Default)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Graphic</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Return the referring bureau's phone and address detail.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Text</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Return the referring bureau's website along with the phone and address.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="htmltradelinestyle" class="hmanchor"></a>HtmlTradelineStyle</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Specifies which tradeline layout will be employed in Html outputs.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Tradeline01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Selects the tradeline layout that shows a single line of detail in the collapsed / summary view.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Tradeline02</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Selects the tradeline layout showing two lines of detail in the collapsed view, with Creditor Name on the first line.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Tradeline03</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Selects the tradeline layout that shows two lines of detail in the collapsed view, with Creditor Name and Account Number on the first line.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Tradeline04</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">3</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Selects the tradeline layout fashioned after Tradeline02, with Balance added to the second line.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Tradeline05</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">4</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Selects the tradeline layout fashioned after Tradeline03, with Balance added to the second line.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Tradeline06</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">5</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Selects the tradeline layout fashioned after Tradeline05, with Payment amount and Payment history included in the summary lines.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="jsonmergehistory" class="hmanchor"></a>JsonMergeHistory</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Specifies if any merge history should be included in the JSON output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">No merge history will be generated. (Default)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Stack</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that the single deduped entities from each bureau be displayed.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Origin</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that all unmerged antecedents be included in the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">StackAndOrigin</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">3</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that both the Stack and Origin entities be included in the output.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">When merge history is displayed, one or more child nodes are included beneath a given output segment showing which individual segments were combined or merged to create the current parent.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="jsonstyle" class="hmanchor"></a>JsonStyle</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Used to indicate what JSON layout is being requested.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Common01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">The default CreditSharp style is employed.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="textstyle" class="hmanchor"></a>TextStyle</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Indicates which report layout will be used when generating the Text output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Common01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies the default CreditSharp layout using a 100 column presentation</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Lending01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies a layout patterned after Common01, with the addition of a separate Identification section.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="xmlmergehistory" class="hmanchor"></a>XmlMergeHistory</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Specifies if any merge history should be included in the XML output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">No merge history will be generated. (Default)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Stack</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that the single deduped entities from each bureau be displayed.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Origin</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that all unmerged antecedents be included in the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">StackAndOrigin</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">3</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Specifies that both the Stack and Origin entities be included in the output.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">When merge history is displayed, one or more child nodes are included beneath a given output segment showing which individual segments were combined or merged to create the current parent.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="xmlstyle" class="hmanchor"></a>XmlStyle</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">Used to indicate what XML layout is being requested.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Member</p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Value</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Common01</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">The default CreditSharp style is employed.</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

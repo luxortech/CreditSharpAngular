@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Using BureauService class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devconnectexpcustomsolutions_viaclasses.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectexperianmembers.html">Experian Connect Members</a> &gt; <a href="_devconnectexpcustomsolutions.html">Ordering Custom Solutions</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Using BureauService entries to request custom solutions</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_devconnectexpcustomsolutions.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devconnectexpcustomsolutions_viaproperties.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="connecttransunionmembers.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following table illustrates the various Experian features that can be requested via the APIHUB Experian host. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Of the CreditSharp settings indicated below, the ServiceName parameter is the value defined by the CreditSharp framework used to identify the feature being requested. &nbsp;The ServiceLabel and ServiceId parameters are defined and used by Experian to identify the product or service that is being requested. </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In Experian nomenclature, the ServiceLabel parameter is known as either the <span style="font-weight: bold;">CustomRRKeyword</span> (in NetConnect usage) or the <span style="font-weight: bold;">solutionId</span> (in APIHUB usage). &nbsp;The ServiceId parameter is the unqiue value assigned to each Experian customer for that product or service and is known as either the <span style="font-weight: bold;">SolutionId </span>(in NetConnect usage) or the <span style="font-weight: bold;">daasReferenceId</span> (in APIHUB usage).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the specification of an Experian scoring model is also required when ordering one of these custom features, use the <a href="m_luxortech_creditsharp_connect_experianrequest_addmodel_1_bb3a7a4f.html" class="topiclink">AddModel</a> method to include that detail.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Experian Feature</span></p>
+</td>
+<td colspan="4" style="vertical-align:top; width:873px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">CreditSharp Settings</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td style="vertical-align:top; width:180px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="text-decoration: underline;">ServiceName</span></p>
+</td>
+<td style="vertical-align:top; width:149px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="text-decoration: underline;">ServiceLabel</span></p>
+</td>
+<td style="vertical-align:top; width:135px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="text-decoration: underline;">ServiceId</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="text-decoration: underline;">Additional Inputs</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Extended View</span></p>
+</td>
+<td style="vertical-align:top; width:180px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ExtendedView</p>
+</td>
+<td style="vertical-align:top; width:149px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EXTVU</p>
+</td>
+<td style="vertical-align:top; width:135px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Yes</span></p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBot" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p class="p_Normal"><span style="font-weight: bold;">Input Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p class="p_Normal"><span style="font-weight: bold;">Input Value(s)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">thinFileThreshold</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">0, 1, 2, 3, or 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">responseType</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">&quot;attributesOnly&quot;</p>
+<p class="p_Normal">&quot;scoreOnly&quot;</p>
+<p class="p_Normal">&quot;attributesAndScore&quot;</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#999999; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td colspan="4" style="vertical-align:top; background-color:#999999; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Instant Prescreen, Score Only</span></p>
+</td>
+<td style="vertical-align:top; width:180px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Prescreen</p>
+</td>
+<td style="vertical-align:top; width:149px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PSOA</p>
+</td>
+<td style="vertical-align:top; width:135px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">n/a</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Optional</span></p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBot" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p class="p_Normal"><span style="font-weight: bold;">Input Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p class="p_Normal"><span style="font-weight: bold;">Input Value(s)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">lowerCutoff</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">a numeric value</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">upperCutoff</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">a numeric value</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">criteriaLevel</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">A, B, C, D, E or F</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Instant Prescreen, Predefined</span></p>
+</td>
+<td style="vertical-align:top; width:180px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Prescreen</p>
+</td>
+<td style="vertical-align:top; width:149px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PEZA</p>
+</td>
+<td style="vertical-align:top; width:135px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Varies</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Optional</span></p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="FTblHdrBot" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p class="p_Normal"><span style="font-weight: bold;">Input Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #000000;"><p class="p_Normal"><span style="font-weight: bold;">Input Value(s)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">lowerCutoff</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">a numeric value</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">upperCutoff</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">a numeric value</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">criteriaLevel</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #000000;"><p class="p_Normal">A, B, C, D, E or F</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Instant Prescreen, Advanced</span></p>
+</td>
+<td style="vertical-align:top; width:180px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Prescreen</p>
+</td>
+<td style="vertical-align:top; width:149px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DXP1</p>
+</td>
+<td style="vertical-align:top; width:135px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Varies</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">None</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Instant Prescreen, Custom</span></p>
+</td>
+<td style="vertical-align:top; width:180px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Prescreen</p>
+</td>
+<td style="vertical-align:top; width:149px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Varies</p>
+</td>
+<td style="vertical-align:top; width:135px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Varies</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Varies</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#999999; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td colspan="4" style="vertical-align:top; background-color:#999999; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Premier Attributes</span></p>
+</td>
+<td style="vertical-align:top; width:180px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PremierAttributes</p>
+</td>
+<td style="vertical-align:top; width:149px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DXP1</p>
+</td>
+<td style="vertical-align:top; width:135px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Varies</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">None</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; background-color:#999999; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td colspan="4" style="vertical-align:top; background-color:#999999; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:225px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Trended3D Express</span></p>
+</td>
+<td style="vertical-align:top; width:180px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Trended3D</p>
+</td>
+<td style="vertical-align:top; width:149px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PLOPE</p>
+</td>
+<td style="vertical-align:top; width:135px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Varies</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">None</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 5px 0px 5px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

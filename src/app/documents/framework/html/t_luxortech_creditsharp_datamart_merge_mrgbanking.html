@@ -1,0 +1,1054 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>MrgBanking Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_datamart_merge_mrgbanking.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_merge.html">Merge</a> &gt; <a href="datamartmergedataclasses.html">Data Classes</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">MrgBanking Class</span></h1>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.Merge</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="datamartmergedataclasses.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_datamart_merge_mrgalias.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="t_luxortech_creditsharp_datamart_merge_mrgbureauattribute.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Defines an instance of a merged credit banking segment.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In practice, these items are not actually merged, simply copied directly from the input.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Methods</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 0px;"><table class="TblHdrBrdBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">These methods are made available for use in defining evaluations in a custom <a href="t_luxortech_creditsharp_analyze_analysisbundle.html" class="topiclink">AnalysisBundle</a>.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="color: #000066;"><a href="_devdatamartmethodsage.html" class="topiclink">AGE</a></span></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Method returns the number of months between two dates.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a href="_devdatamartmethodsage2.html" class="topiclink">AGE2</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">Method returns the number of days between two dates.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="color: #000066;"><a href="_devdatamartmethodsdate.html" class="topiclink">DATE</a></span></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Method converts the date value of the indicated element into a numeric representation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="color: #000066;"><a href="_devdatamartmethodsdate2.html" class="topiclink">DATE2</a></span></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Method converts the date value of the indicated element into an alternate numeric representation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a href="_devdatamartmethodsinv.html" class="topiclink">INV</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Method inverts a character string so it can be sorted in reverse alphabetic order.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 0px;"><table class="TblHdrBrd" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Normalized elements</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountNumber</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (18)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Number which uniquely identifies the account.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AdditionalDetails</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (40)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Miscellaneous descriptive text regarding account. &nbsp;May contain such detail as NSF (insufficient funds) activity.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Amount</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (15)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">The amount being reported. &nbsp;This may be a record of the balance on the account, or depending upon the Status Code, the amount of an NSF check.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Amounts may be expressed as approximations, so the value presented here may not always be strictly numeric. &nbsp;Approximated values are identified with the keyword LOW, MED or HI. &nbsp;These are then followed by a numeric value indicating how many digits exist in the amount.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The LOW, MED and HI keywords are used to indicate what range the initial digit occupies, where LOW means 1, 2 or 3, MED means 4, 5, or 6 and HI means 7, 8 or 9.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">For example, a value of 'MED 5' would indicate the amount was a five digit number whose first digit was a 4, 5 or 6. &nbsp;This would equate to a possible range from $40,000 to $69,999.</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CategoryCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates how the account is used.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">0 = Unknown</p>
+<p class="p_Normal">1 = Checking</p>
+<p class="p_Normal">2 = Savings</p>
+<p class="p_Normal">3 = Checking &amp; Savings</p>
+<p class="p_Normal">4 = Other</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateClosed</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date the banking account was closed.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Format dictated by <a href="t_luxortech_creditsharp_datamart_common_commonoptions.html#datemask" class="topiclink">DateMask</a> options setting.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateOpened</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date the banking account was opened.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Format dictated by <a href="t_luxortech_creditsharp_datamart_common_commonoptions.html#datemask" class="topiclink">DateMask</a> options setting.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DateReported</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Date the banking account was most recently reported.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Format dictated by <a href="t_luxortech_creditsharp_datamart_common_commonoptions.html#datemask" class="topiclink">DateMask</a> options setting.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DepositType</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the what type of account is being reported.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Refer to the <a href="t_luxortech_creditsharp_datamart_merge_mrgbanking.html#deposittype" class="topiclink">DepositType</a> list below for a list of possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EcoaCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Char (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if the account is held individually or jointly.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values can be found in the <a href="com_codes_ecoa.html" class="topiclink">Ecoa Codes</a> appendix topic.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IndustryCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Provides an overall industry category for the company reporting the account details.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Refer to the <a href="com_codes_industry.html" class="topiclink">Industry Codes</a> list in the Appendix for possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MemberName</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (24)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Name of reporting institution.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MemberNumber</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bureau subscriber number of the reporting entity.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MemberPhone</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (10)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Phone number of the reporting entity.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MemberPhoneExtension</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Phone extension of the reporting entity.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Remarks</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Can display a series of codes which report supplemental details about the current status of the account.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values are one to three digit numbers, delimited by semi-colons when multiples exist. &nbsp;Refer to the <a href="t_luxortech_creditsharp_datamart_merge_mrgbanking.html#remarkcode" class="topiclink">RemarkCode</a> list below for a list of possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">StatusCode</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Num (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the current status for the account being reported.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Refer to the <a href="t_luxortech_creditsharp_datamart_merge_mrgbanking.html#statuscode" class="topiclink">StatusCode</a> list below for a list of possible values.</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 5px 0px 5px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p class="p_Normal"><a id="deposittype" class="hmanchor"></a><!-- DepositType -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(depositType, depositType_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="depositType_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">DepositType values</font></a></p>
+<DIV id="depositType" style="display:none;"></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table class="TblHdrBot" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9" style="margin: 0px 0px 5px 0px;"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal9" style="margin: 0px 0px 5px 0px;"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unknown</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Commercial account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Plan 24 account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Key account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Blue chip account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Premium savings</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Trust account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">7</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Term deposit</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">8</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">RCS account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">9</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">RRSP</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">10</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">RHOSP</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">11</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Western account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">12</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Loan plan</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">13</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Line of credit</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">14</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">RRSP loan</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">15</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Overdraft</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal"><a id="remarkcode" class="hmanchor"></a><!-- RemarkCodes -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(remarkCodes, remarkCodes_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="remarkCodes_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">RemarkCode values</font></a></p>
+<DIV id="remarkCodes" style="display:none;"></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table class="TblHdrBot" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9" style="margin: 0px 0px 5px 0px;"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal9" style="margin: 0px 0px 5px 0px;"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unknown</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Satisfactory</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unsatisfactory</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Closed</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Write off</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Collection</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Overdrawn</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">7</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">NSF's reported</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">8</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">No NSF's reported</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">9</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Kiting</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">10</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Included in Voluntary Deposit</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">11</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Included in Orderly Payment of Debt</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">12</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Good fluctuation</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">13</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Empty envelop deposit</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">14</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">ABM abuse</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">15</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Inactive</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">16</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Fully utilized</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">17</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Never utilized</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">18</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Lien in default</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">19</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Paid</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">20</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Canceled</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">100</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">US funds</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">101</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Automated banking machine</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">102</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">No balance</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">104</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Uncollected overdraft / charges</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">105</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unacceptable ABM activity</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">106</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unacceptable deposit account</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">107</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">False info supplied at opening</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">108</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">NSF checks</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">109</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Subject declined account</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</div><p class="p_Normal"><a id="statuscode" class="hmanchor"></a><!-- StatusCodes -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(statusCodes, statusCodes_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="statusCodes_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">StatusCode values</font></a></p>
+<DIV id="statusCodes" style="display:none;"></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 13px;"><table class="TblHdrBot" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9" style="margin: 0px 0px 5px 0px;"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal9" style="margin: 0px 0px 5px 0px;"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unknown</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Satisfactory</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unsatisfactory</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Closed</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Write off</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Collection</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Overdrawn</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">7</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">NSF's reported</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">8</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">No NSF's reported</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">9</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Kiting</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">10</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Included in Voluntary Deposit</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">11</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Included in Orderly Payment of Debt</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">12</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Good fluctuation</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">13</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Empty envelop deposit</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">14</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">ABM abuse</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">15</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Inactive</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">16</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Fully utilized</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">17</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Never utilized</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">18</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Lien in default</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">19</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Paid</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:80px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">20</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Canceled</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 0px;"><table class="TblHdrBrd" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="4" style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">CreditSharp extensions</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">BureauId</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">One of the <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">BureauId</a> enumerations.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;">Indicates which credit bureaus contributed data to the current segment.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">DtSegmentId</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (2)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the value used to uniquely identify a given bureau segment instance.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;">Refer to the <a href="_devdatamartcommonenumerations.html#comsegmentids" class="topiclink">ComSegmentIds</a> enumeration for possible values.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">DtSequence</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (3)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the value indicating the sequence number of the current segment relative to others in the same collection.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtAncestry</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Text</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The value returned is comprised of four separate numeric elements, delimited by colons. &nbsp;For example:  <span style="font-weight: bold;">1:2:14:5</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The <span style="font-weight: bold;">first</span> position reports the <a href="t_luxortech_creditsharp_core_bureaulocales.html" class="topiclink">BureauLocale</a> from which the segment originated. &nbsp;The <span style="font-weight: bold;">second</span> position indicates which <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">Bureau</a> reported the segment. &nbsp;The <span style="font-weight: bold;">third</span> position identifies which kind of bureau segment was used to create the segment. &nbsp;Finally, the <span style="font-weight: bold;">fourth</span> position indicates which sequential occurrence within the bureau response is responsible for the current item.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">In the example above, this would indicate the item in question originated in the United States locale (1), from the Experian credit bureau (2), is an inquiry segment (14), and was the fifth inquiry in the response data.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">The values in the third position are taken from the each bureau's segment id enumerations (<a href="_devdatamartequifaxenumerations.html" class="topiclink">Equifax</a> segment ids, <a href="_devdatamartexperianenumerations.html" class="topiclink">Experian</a> segment ids or <a href="_devdatamarttransunionenumerations.html" class="topiclink">TransUnion</a> segment ids) so would be translated dependent upon which bureau was indicated in the second position.</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">Lastly, when looking at a segment created from multiple sources (a merged record), there will be more than one set of Ancestry fields which will themselves be delimited by a semi-colon, as in:</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;"><span style="font-weight: bold;">1:2:24:4;1:4:87:13</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 0px;">This would indicate that the current tradeline is a merged result from the fourth Experian record and the thirteenth TransUnion record.</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtIdentMatch</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Char (1)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the value indicating to which applicant the current element belongs.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Values:</span></p>
+<p style="margin: 0px 0px 5px 0px;">P = Primary applicant</p>
+<p style="margin: 0px 0px 5px 0px;">S = Secondary applicant</p>
+<p style="margin: 0px 0px 5px 0px;">J = Joint (belongs to both Primary and Secondary applicant)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtIdentNumber</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Int (1)</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets the index to the nth instance in the ComIdentification segment collection under which a given element was reported.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:88px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;"><a id="xtsources" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:205px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">XtSources</p>
+</td>
+<td style="vertical-align:top; width:147px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">List</p>
+</td>
+<td style="vertical-align:top; width:851px; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 0px;">Gets a list of all the original segments which were merged into the current instance.</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;">The list will be of the type from which the current segment is derived. &nbsp;For example, the <span style="font-weight: bold;">XtSources</span> property within the <span style="font-weight: bold;">MrgAddress</span> class will have the <span style="font-weight: bold;">ComAddress</span> references listed which were used to create the current merged reference.</p>
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

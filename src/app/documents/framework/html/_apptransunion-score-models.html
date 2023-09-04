@@ -1,0 +1,1115 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>TransUnion Score Models</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_apptransunion-score-models.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_datdatareference.html">Appendices</a> &gt; <a href="_appbureau-score-models.html">Bureau Score Models</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">TransUnion Score Models</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_appbureau-score-models.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_appexperian-score-models.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_apprisk-based-pricing-updates.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The table below lists all TransUnion models currently recognized by the CreditSharp framework.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If a score model needs to be ordered that does not appear in this list, it can be preceded with an exclamation point to suppress the internal validation which prevents unknown models from being requested. &nbsp;For example, TransUnionRequest.AddModel(&quot;!08872&quot;) would successfully append the hypothetical new model 08872 to the inquiry.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- US Risk Models -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(sectionUsa, sectionUsa_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="sectionUsa_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">US Risk Models</font></a></p>
+<DIV id="sectionUsa" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrd" style="width:60%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:middle;">
+<th style="vertical-align:middle; width:30%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;"><span style="font-weight: bold;">TransUnion Model Code</span></p>
+</th>
+<th style="vertical-align:middle; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">TransUnion Risk Model Name </span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00002</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Score 95</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00004</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Personal Finance Score 95</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00008</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Auto Score 95</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00016</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Installment Score 95</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00032</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Delphi (New)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00064</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Income Estimator</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00133</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Revenue Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00138</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Facets</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00154</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">UniQuote</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">001NN</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VantageScore 4.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00219</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion New Account 1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00227</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO NG Score 1</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00241</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Energy Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00256</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankcard Score 95</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00315</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Wireless Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00336</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Telco Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00337</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">L2C Thin File</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00338</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">L2C Thin File 2</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00339</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">L2C Thin File 3</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00340</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">L2C Thin File 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00356</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Fraud Model II &nbsp; *</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00401</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Fraud Model I &nbsp; *</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00462</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Empirica 22</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00501</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Delphi (1997)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00601</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankruptcy Score 1</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00640</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Adjusted Wireless Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00662</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ID Fraud Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00701</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion Auto Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00730</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion Account Management Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00770</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Non-Prime Risk Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00800</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Patrol</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00820</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk NS/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00842</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk SM1</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00850</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk NS/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00853</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk SM/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00863</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk SG/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00864</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk SG1</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00870</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk SG88/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00871</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk PM/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00872</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk PR/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00875</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H1/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00876</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H2/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00877</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H3/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00878</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H4/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00879</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H6/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00882</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk PM1</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00889</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk DF/2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00896</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion Bankruptcy Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00900</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk PG1</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00906</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H1/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00913</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H2/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00919</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H3/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00924</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H4/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00930</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk H6/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00935</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk DF/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00950</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Risk Score, Classic 98</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00977</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk SM/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00978</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk SG/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00979</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk PM/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00980</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Insurance Risk PG/1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00990</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Auto Score 98</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00991</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Installment Score 98</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00992</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Personal Finance Score 98</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00993</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankcard Score 98</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00A3Z</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision New Account 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00A7E</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Personal Loan Propensity 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00A8B</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Auto 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00A9P</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Score 10</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00A9Q</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Score 10 T</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00AAL</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Auto Refinance Propensity 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00AAO</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Consolidation Propensity 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00AAR</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Mortgage Propensity 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00AF5</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Resilience Index</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00AH4</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Resilience Index 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00AH5</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Auto Score 10</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00AH6</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankcard Score 10</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00N03</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Income Estimator 3.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00N20</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Auto Score 8</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00N21</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankcard Score 8</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00N92</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Mortgage Score 8</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00N94</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VantageScore 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P02</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Score 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P11</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankcard Score 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P12</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Auto Score 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P13</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Installment Score 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P14</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Personal Finance Score 4</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P16</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Recovery Model 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P17</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bankcard Recovery Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P18</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Auto Recovery Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P23</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Medical Recovery Model</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00P94</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VantageScore 1.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Q87</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion New Account 3.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Q88</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Score 8</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00R13</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Wireless Model 02</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00R59</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion New Account 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00R75</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransRisk Insurance</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00R82</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO NG Score 2</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00U29</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Debt-To-Income Estimator</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00V60</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VantageScore 3.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00V64</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Account Management</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00V80</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Auto</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00V82</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Bankruptcy</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W05</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision New Account</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W16</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Income Estimator</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W18</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Score 9</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W82</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Auto Score 9</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W83</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankcard Score 9</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W94</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Recovery</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W96</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Recovery Medical</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00W98</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Recovery Bankcard</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00WA1</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Recovery Telco</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00WH4</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Auto Score 9 XT</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00WQ9</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision HELOC Propensity 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z10</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (A)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z11</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (B)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z12</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Alternate (A)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z13</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Alternate (B)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z34</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (C)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z37</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (A) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z38</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (B) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z39</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Alternate (A) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z40</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Alternate (B) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z42</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (FA) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z43</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (FB) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z44</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Alternate (FA) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z45</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Alternate (FB) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z46</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (C) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00Z47</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Link (CB) 2.0</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00X01</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EDGE 1 &nbsp; ‡</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00X02</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EDGE 2 &nbsp; ‡</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00X46</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankruptcy Score 2</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00X99</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Debt-to-Income Estimator 3.0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">* &nbsp;Fraud Model I and II must have Fraud Detect (TransUnion Product Code 06600) enabled.</p>
+<p class="p_Normal">‡ &nbsp;EDGE 1 must be ordered together with Model 00993</p>
+<p class="p_Normal">‡ &nbsp;EDGE 2 must be ordered together with Model 00256</p>
+</div><p class="p_Normal" style="margin: 0px 0px 5px 18px;">&nbsp;</p>
+<!-- Canadian Risk Models -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(sectionCan, sectionCan_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="sectionCan_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Canadian Risk Models</font></a></p>
+<DIV id="sectionCan" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrd" style="width:60%; background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:middle;">
+<th style="vertical-align:middle; width:30%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;"><span style="font-weight: bold;">TransUnion Model Code</span></p>
+</th>
+<th style="vertical-align:middle; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">TransUnion Risk Model Name </span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00002</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Risk Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00015</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Revenue Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00016</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FICO Bankruptcy Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00024</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Account Management Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00050</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion Bankruptcy Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00051</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransUnion Risk Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00093</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Risk Score</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:bottom; width:30%; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="text-align: center;">00094</p>
+</td>
+<td style="vertical-align:bottom; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVision Bankruptcy Score</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

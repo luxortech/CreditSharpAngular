@@ -1,0 +1,847 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Enumerations</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devconnectequifaxenumerations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectequifaxmembers.html">Equifax Connect Members</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">Equifax Connect Enumerations</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Connect</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="connectequifaxmembers.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_connect_efxtotalviewenhancers.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devconnectequifaxmodels.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The following tables list all the enumerated values available for use when requesting data from Equifax.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 18px;"><table class="TblHdr" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><span style="font-weight: bold;">Enumeration</span></p>
+</td>
+<td style="vertical-align:top; width:72%; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxcanadacontent" class="hmanchor"></a>EfxCanadaContent</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if data unique to Canada should be filtered out or returned and if shared elements are defined using US or Canadian specifications.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">PassThru</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return US equivalent elements as well as unique Canadian elements.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Native</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">All elements conform to Canadian specifications. &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">(Note: option is not currently supported)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Filtered</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Only US equivalent elements are returned.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxcupresponse" class="hmanchor"></a>EfxCpuResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if a CPU (automated) response is to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No Cpu response desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">FullFileFixed</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Equifax's Full File Fixed layout will be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">AcrofilePlus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Equifax's ACROFile Plus layout will be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">HumanMachineReadable</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Equifax's Full File Fixed - Human Machine Readable layout will be returned.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxcreditview" class="hmanchor"></a>EfxCreditView</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate which credit report variant is desired. &nbsp;Applies only to API requests and is not used for Legacy transactions.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Standard</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return the standard API credit report.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Limited</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return an abbreviated version of the standard API credit report. &nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">(Note: option is not currently supported)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">OneView</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Return the OneView credit report (which includes the Standard report along with optional additional data sources/outputs).</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxjsonresponse" class="hmanchor"></a>EfxJsonResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if what version of JSON response is to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No JSON response desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Standard</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Version 1.0 of the cloud-based API layout.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxmonthcount" class="hmanchor"></a>EfxMonthCount</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Enumerates maximum age of inquiry observations to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; width:65%; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">AllValues</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates that Equifax default should be used (currently 24 months).</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">ThreeMonths</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates inquiries are only to be counted from the past three months.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">SixMonths</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates inquiries are only to be counted from the past six months.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">NineMonths</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates inquiries are only to be counted from the past nine months.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">TwelveMonths</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; width:65%; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates inquiries are only to be counted from the past twelve months.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxproductcode" class="hmanchor"></a>EfxProductCode</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Enumerates possible bureau products which can be requested.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBot" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Unspecified</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No product code specified.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">CreditReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The primary response option suitable for making lending decisions.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">DtecReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The DTEC product is geared toward collection efforts, returning consumer identification detail.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">FindersReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The Finders report is a collection agency product, returning an abbreviated image of a consumer credit profile.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">MilitaryBorrowerCheck</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Performs a lookup against the Dept Of Defense database to determine if applicant is a covered military borrower.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">RecoveryReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The Recovery report is used for collections purposes &nbsp;both skip tracing and assessing ability to pay.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">PersonaReport</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">6</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The Persona report is a tool for employers to screen job applicants. </span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxscoresupplement" class="hmanchor"></a>EfxScoreSupplement</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Indicates if supplemental consumer score disclosure elements are to be included in the bureau response.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table class="TblHdrBotBlue" style="width:100%; background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Do not return any Risk Based Pricing information.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">BeaconScores</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include Risk Based Pricing detail on any Beacon (Fico) score model.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">AllScores</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Include Risk Based Pricing detail on all applicable models.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxttyresponse" class="hmanchor"></a>EfxTtyResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if a TTY (printable) response is to be returned</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal9"><span class="f_Normal9">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No Tty response is desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">StandardPrintImage</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates a request for the Standard Print Image (Equifax Output Format Code: 06)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">AdvancedPrintImage</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">2</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates a request for the Advanced Print Image (Equifax Output Format Code: 16)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">PlusPrintImage</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">3</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates a request for the Acrofile Plus Print Image (Equifax Output Format Code: 01)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">AcrofilePlus</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">4</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">When paired with EfxCpuResponse.FullFileFixed, indicates an Acrofile Plus Image should be returned as well (Equifax Output Format Code: 32)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">PdfImage</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">5</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Indicates a request for a PDF image from the new cloud-based API. </span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:15%; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 18px;"><a id="efxxmlresponse" class="hmanchor"></a>EfxXmlResponse</p>
+</td>
+<td style="vertical-align:top; width:918px; padding:3px; border:solid thin #c0c0c0;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 18px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p style="margin: 5px 0px 0px 0px;"><span style="font-size: 12px;">Used to indicate if an XML response is to be returned.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Member</span></p>
+</td>
+<td style="vertical-align:top; width:60px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Value</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">None</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">0</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">No XML response is desired.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:200px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px; font-weight: bold;">Standard</span></p>
+</td>
+<td style="vertical-align:top; width:60px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">1</span></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-size: 12px;">The default XML response will be returned.</span></p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><br />
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 5px 0px 5px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

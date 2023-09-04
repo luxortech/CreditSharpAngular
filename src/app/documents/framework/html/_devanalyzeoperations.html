@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Operations</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devanalyzeoperations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_analyze.html">Analyze</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Analyze Operations</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_analyze.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_analyze_tradelinedelegates.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devanalyzeoperationsaverage.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">There are several basic operations that can be performed in any custom attribute evaluation, as listed below. &nbsp;Detailed examples of each can be found in the linked chapters.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Operation</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationsaverage.html" class="topiclink">Average</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Returns the average (mean) of all values in the indicated numeric element.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationscompute.html" class="topiclink">Compute</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Returns the result of an equation.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationscount.html" class="topiclink">Count</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Returns number of items that match a given data condition.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationshighest_lowest.html" class="topiclink">Highest or Lowest</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Returns the highest (or lowest) numeric value found within the indicated element.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationsmaximum_minimum.html" class="topiclink">Maximum or Minimum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">The same as highest/lowest but ignores the <span style="font-weight: bold;">AssumeZero</span> and always skips over blank/missing elements. &nbsp;(See Working with Blank or Missing data below.)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationsnewest_oldest.html" class="topiclink">Newest or Oldest</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Returns the most recent (or most ancient) date value found within the indicated element.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationssum.html" class="topiclink">Sum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Returns the total of all values for the indicated numeric element.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><a href="_devanalyzeoperationsworst.html" class="topiclink">Worst</a></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Returns the most severe manner of payment.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Missing Data -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Working with Blank or Missing credit data values</font></a></p>
+<DIV id="section1" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">AssumeZero option</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Frequently, dollar amounts (and some numeric amounts) are left blank in the credit bureau responses. &nbsp;Both the <a href="t_luxortech_creditsharp_datamart_common_commondata.html#assumezero" class="topiclink">CommonData</a> and <a href="t_luxortech_creditsharp_datamart_merge_mergedata.html#assumezero" class="topiclink">MergeData</a> classes include an <span style="font-weight: bold;">AssumeZero</span> property which indicates how the CreditSharp framework resolves this data condition. &nbsp;By default, the AssumeZero property is set to <span style="font-style: italic;">true</span> meaning all blank/missing values will be treated as zero.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Consider the following example for how this distinction can influence data analysis. &nbsp;We have four tradelines being reported, three of which have an explicit value and one that is missing:</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 26px;"><table class="TblBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px; font-weight: bold;">Analysis</span></p>
+</th>
+<th style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px; font-weight: bold;">Actual value</span></p>
+</th>
+<th style="vertical-align:top; width:155px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px; font-weight: bold;">Inferred value</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">5000</span></p>
+</td>
+<td style="vertical-align:top; width:155px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">5000</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">blank</span></p>
+</td>
+<td style="vertical-align:top; width:155px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">0</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><br />
+</td>
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">4000</span></p>
+</td>
+<td style="vertical-align:top; width:155px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">4000</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px; font-weight: bold;">Attribute</span></p>
+</td>
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">3000</span></p>
+</td>
+<td style="vertical-align:top; width:155px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">3000</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">Number with balance:</span></p>
+</td>
+<td style="vertical-align:top; width:154px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">3</span></p>
+</td>
+<td style="vertical-align:top; width:155px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">4</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:154px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">Average balance:</span></p>
+</td>
+<td style="vertical-align:top; width:154px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">4000</span></p>
+</td>
+<td style="vertical-align:top; width:155px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 11px;">3000</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">DefaultEmptyCalcs option</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Another point to consider is how attributes that could not logically be calculated should be exhibited. &nbsp;Consider an attribute that attempts to add up the total available credit could be accessed using a consumer's Home Equity Credit Lines. &nbsp;The consider the consumer who does not have any HEQ credit lines. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">If the reported attribute value defaults to zero it may mistakenly communicate that the consumer has already reached their limit on HEQ credit lines, even though they don't actually have any HEQ credit lines. &nbsp;Leaving the attribute value blank can help alleviate this possible confusion. </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <span style="font-weight: bold;">DefaultEmptyCalcs</span> property found in the <a href="t_luxortech_creditsharp_analyze_analyzeoptions.html#defaultemptycalcs" class="topiclink">AnalyzeOptions</a> class controls this presentation, with the default setting being <span style="font-style: italic;">true</span>.</p>
+</div><!-- Numeric Data -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Working with numbers, dates and amounts</font></a></p>
+<DIV id="section2" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When performing mathematical evaluations of elements that are numbers, amounts or dates it is important to reference them in their underlying data format. &nbsp;By default, all data elements are exposed as character strings, so for accurate analysis to be carried out each element must be accessed in it's intrinsic form. &nbsp;This is facilitated using wrapper functions built into each data class.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The wrapper functions are as listed below. &nbsp;Further discussion of each function can be found in the <a href="_devdatamartderivative-methods.html" class="topiclink">Derivative Methods</a> topic.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 26px;"><table class="TblBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<thead>
+<tr style="text-align:left;vertical-align:top;">
+<th style="vertical-align:top; width:87px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px; font-weight: bold;">Function</span></p>
+</th>
+<th style="vertical-align:top; width:747px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px; font-weight: bold;">Description</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">AGE</span></p>
+</td>
+<td style="vertical-align:top; width:747px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">Calculates the number of months between an indicate date and the date the credit report was originally ordered.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-family: Consolas; background-color: #dce6f2;">TradelineSolution monthsOld =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">(trade, options) =&gt;&nbsp;</span><span style="font-family: Consolas; background-color: #dce6f2;">trade.AGE(ComTradelineIds.DateOpen)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">AGE2</span></p>
+</td>
+<td style="vertical-align:top; width:747px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">Calculates the number of days between an indicate date and the date the credit report was originally ordered.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-family: Consolas; background-color: #dce6f2;">TradelineSolution daysOld =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">(trade, options) =&gt;&nbsp;</span><span style="font-family: Consolas; background-color: #dce6f2;">trade.AGE(ComTradelineIds.DateOpen)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">AMT</span></p>
+</td>
+<td style="vertical-align:top; width:747px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">Ensures that an amount data element is presented in numeric form.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">TradelinePredicate isOverLimit = (trade, options) =&gt; trade.AMT(ComTradelineIds.BalanceAmount) &gt;</span></p>
+<p class="p_Normal"><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; trade.AMT(ComTradelineIds.CreditLimitAmount);</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">DATE</span></p>
+</td>
+<td style="vertical-align:top; width:747px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">Returns a numeric representation of a date computed as: &nbsp;((Date.Year - 1900) * 12) + Date.Month</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px;">For example, March 17th, 2008 would be displayed as: 1299.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px;">This simplifies date math when number of the months between to dates is desired.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-family: Consolas; background-color: #dce6f2;">TradelineSolution</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">&nbsp;monthsOpen =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">(trade, options) =&gt;&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">trade.DATE(ComTradelineIds.DateClosed) -</span></p>
+<p class="p_Normal"><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; trade.DATE(ComTradelineIds.DateOpen)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; height:18px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">DATE2</span></p>
+</td>
+<td style="vertical-align:top; width:747px; height:18px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">Returns a numeric representation of a date computed as: Date.Year * 10000) + (Date.Month * 100) + Date.Day</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px;">For example, March 17th, 2008 would be displayed as: 20080317.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px;">This simplifies date math when number of the days between to dates is desired.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-family: Consolas; background-color: #dce6f2;">TradelineSolution</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">&nbsp;daysOpen =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">(trade, options) =&gt;&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">trade.DATE2(ComTradelineIds.DateClosed) -</span></p>
+<p class="p_Normal"><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; trade.DATE2(ComTradelineIds.DateOpen)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; height:18px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">INV</span></p>
+</td>
+<td style="vertical-align:top; width:747px; height:18px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">Reverses the order of character strings. &nbsp;Really only useful for specifying descending sort criteria in format groups.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">string reverseName = trade.INV(ComTradelineIds.AccountName)</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; height:18px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">NBR</span></p>
+</td>
+<td style="vertical-align:top; width:747px; height:18px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-size: 12px;">Ensures that a numeric data element is indeed presented in numeric form.</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-family: Consolas; background-color: #dce6f2;">TradelineSolution</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">&nbsp;timesLate30 =&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">(trade, options) =&gt;&nbsp;</span><span style="font-size: 12px; font-family: Consolas; background-color: #dce6f2;">trade.NBR(ComTradelineIds.TimesLate30)</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

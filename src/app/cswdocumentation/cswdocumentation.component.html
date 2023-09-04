@@ -1,0 +1,177 @@
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <p class="regularText">
+            View object model document, sample application code in C# and VB.Net and other helpful documentation.
+        </p>
+    </div>
+    <div class="col-2"></div>
+</div>  
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <mat-tab-group  class="header-less-tabs" [selectedIndex]="active" (selectedIndexChange)="onTabChange($event)">
+            <mat-tab label="Documentation"></mat-tab>
+            <mat-tab label="Schemas"></mat-tab>
+            <mat-tab label="Scripts"></mat-tab>
+            <mat-tab label="Recipes"></mat-tab>
+            <mat-tab label="Projects"></mat-tab>             
+        </mat-tab-group>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8" *ngIf="active == 0">
+        <app-documents></app-documents>            
+    </div>
+    <div class="col-8" *ngIf="active == 1">
+        <app-schemas></app-schemas>            
+    </div>
+    <div class="col-8" *ngIf="active == 2">
+        <app-scripts></app-scripts>            
+    </div>
+    <div class="col-8" *ngIf="active == 3">
+        <app-recipies></app-recipies>            
+    </div>
+    <div class="col-9" *ngIf="active == 4">
+        <app-projects></app-projects>            
+    </div>
+
+
+
+  <!--   <div class="col-8" *ngIf="active == 1">
+         
+        <div class="card" fxHide.lt-md="true" fxShow.gt-sm="true">
+            <div class="card-header cs-pull-center" style="font-size:40px;">  
+                <span class="creditSharpLogo"></span>&nbsp;Schemas
+                <h5><i>JSON and XML Schemas defining bureau data and analyze data outputs</i></h5>
+            </div>
+
+            <div class="row">
+                <div class="col-12"  style="padding:15px;">  
+                    <h3  (click)="showHide(docView,'CREDITSHARP_JSON')" >CreditSharp JSON C# Class<mat-icon>book</mat-icon></h3>   
+                    <p><i>C# Class defining all JSON members.</i></p> 
+                    <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show"  [docList]="docFilter(webService.cswDocList,'SCHEMAS', 'CREDITSHARP_JSON')"  *ngIf="docView.show && docView.doccategory=='CREDITSHARP_JSON'"></app-docviewer>
+                </div>               
+            </div>
+
+            <div class="row">
+                <div class="col-12"  style="padding:15px;">  
+                    <h3  (click)="showHide(docView,'NORMAILZED_XML')" >Normalized XML Schema<mat-icon>book</mat-icon></h3>   
+                    <p><i>XML Schema defining bureau data normalized to the common data layout.</i></p> 
+                    <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show"  [docList]="docFilter(webService.cswDocList,'SCHEMAS', 'NORMAILZED_XML')"  *ngIf="docView.show && docView.doccategory=='NORMAILZED_XML'"></app-docviewer>
+                </div>               
+            </div>
+
+             <div class="row">
+                <div class="col-12"  style="padding:15px;">  
+                    <h3  (click)="showHide(docView,'FRAMEWORK')" >Framework<mat-icon>book</mat-icon></h3>   
+                    <p><i>Comprehensive CreditSharp Framework Documentation.</i></p> 
+                    <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show"  [docList]="docFilter(webService.cswDocList,'DOCUMENTATION', 'FRAMEWORK')"  *ngIf="docView.show && docView.doccategory=='FRAMEWORK'"></app-docviewer>
+                </div>               
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="padding:15px;">
+                    <h3 (click)="showHide(docView,'EXTENSIONS')" >CreditSharp Extensions <mat-icon>book</mat-icon></h3>
+                    <p><i>CreditSharp Extensions Documentation.</i></p>
+                    <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show" [docList]="docFilter(webService.cswDocList,'DOCUMENTATION', 'EXTENSIONS')"  *ngIf="docView.show && docView.doccategory=='EXTENSIONS'"></app-docviewer>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="padding:15px;">
+                    <h3 (click)="showHide(docView,'REST')" >CreditSharp REST Service <mat-icon>book</mat-icon></h3>
+                    <p><i>CreditSharp WebAPI REST Service Installation and Usage.</i></p>
+                   
+                    <app-docviewer [(docUrl)]="inlineUrl" [(showHide)]="docView.show" [docList]="docFilter(webService.cswDocList,'DOCUMENTATION', 'REST')" *ngIf="docView.show && docView.doccategory=='REST'"></app-docviewer>
+                </div>
+            </div>           
+        </div>-->  
+
+        <!-- SMALL -->
+        <!-- <div class="card" fxHide.lt-md="false" fxShow.gt-sm="false">
+            <div class="card-header cs-pull-center" style="font-size:20px;">  
+                <span class="creditSharpLogo"></span>&nbsp;Documentation
+            </div>
+            <div class="row">
+                <div class="col-12" style="padding:15px;">
+                    <h5 style="padding-top:5px;">Framework <mat-icon>book</mat-icon></h5>
+                    <p><i>Comprehensive CreditSharp Framework Documentation.</i></p>
+                </div>               
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="padding:15px;">
+                    <h5 style="padding-top:5px;">CreditSharp Extensions <mat-icon>book</mat-icon></h5>
+                    <p><i>CreditSharp Extensions Documentation.</i></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="padding:15px;">
+                    <h5 style="padding-top:5px;">CreditSharp REST Service <mat-icon>book</mat-icon></h5>
+                    <p><i>CreditSharp WebAPI REST Service Installation and Usage.</i></p>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="col-8" *ngIf="active == 2">
+        <p>Scripts goes here</p>
+    </div>
+    <div class="col-8" *ngIf="active == 3">
+        <p>Recipes goes here</p>
+    </div>
+    <div class="col-8" *ngIf="active == 4">
+        <p>Projects goes here</p>
+    </div> -->
+    <div class="col-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-2"></div>
+    
+    <div class="col-8"></div>
+    <!-- <div class="col-8">
+        <pre>{{ inlineUrl | json }}</pre>
+        <iframe  
+        [src]="getInlineUrl(inlineUrl.src)"
+        style="width: 100%; height: 50vh; min-height: 500px; border: 0;">
+        </iframe>
+    </div> -->
+
+   <!--  <pre>{{ active | json }}</pre>  -->
+ <!--    <div class="col-8" *ngIf="active == 0">   
+        <iframe  #documentIframe style="width: 100%; height: 50vh; min-height: 500px; border: 0;" 
+         [src]="getInlineUrl(inlineUrl,'DOCUMENTATION')">
+        </iframe>
+    </div>
+    <div class="col-8" *ngIf="active == 1">        
+        <iframe  style="width: 100%; height: 50vh; min-height: 500px; border: 0;" 
+         [src]="getInlineUrl(inlineUrl,'SCHEMAS')">
+        </iframe>
+    </div>
+    <div class="col-8" *ngIf="active == 2">        
+        <iframe  style="width: 100%; height: 50vh; min-height: 500px; border: 0;" 
+         [src]="getInlineUrl(inlineUrl,'SCRIPTS')">
+        </iframe>
+    </div>
+    <div class="col-8" *ngIf="active == 3">        
+        <iframe  style="width: 100%; height: 50vh; min-height: 500px; border: 0;" 
+         [src]="getInlineUrl(inlineUrl,'RECIPIES')">
+        </iframe>
+    </div>
+    <div class="col-8" *ngIf="active == 4">        
+        <iframe  style="width: 100%; height: 50vh; min-height: 500px; border: 0;" 
+         [src]="getInlineUrl(inlineUrl,'PROJECTS')">
+        </iframe>
+    </div>
+ -->
+    <div class="col-2"></div>
+</div>
+
+ 
+<!-- [src]="getInlineUrl(inlineUrl.src)" -->
+<!-- src = "/src/app/Documents/Framework/Html/index.html" -->

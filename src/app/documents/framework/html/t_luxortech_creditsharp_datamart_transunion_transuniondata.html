@@ -1,0 +1,1623 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>TransUnionData Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_datamart_transunion_transuniondata.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_transunion.html">TransUnion</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">TransUnionData Class</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.TransUnion</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_datamart_transunion.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="n_luxortech_creditsharp_datamart_transunion.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="m_luxortech_creditsharp_datamart_transunion_transuniondata_addmodel.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">An instance of the <a href="t_luxortech_creditsharp_datamart_bureaudata.html" class="topiclink">BureauData</a> class containing an TransUnion credit bureau image.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Constructor</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">TransUnionData(<a href="t_luxortech_creditsharp_datamart_bureauoptions.html" class="topiclink">BureauOptions</a> options)</p>
+</td>
+<td style="vertical-align:top; padding:3px;"><p class="p_Normal">Constructor for the <a href="t_luxortech_creditsharp_datamart_transunion_transuniondata.html" class="topiclink">TransUnionData</a> class.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Syntax</font></a></p>
+<DIV id="section1" style="display:none;"><p class="p_Normal"><span style="font-weight: bold;">public </span>TransUnionData(<span style="font-weight: bold;">BureauOptions</span> options)</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 10px 5px;"><span style="font-weight: bold;">Parameters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_Normal"><span style="font-style: italic;">options</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Type: Instance of the </span><a href="t_luxortech_creditsharp_datamart_bureauoptions.html" class="topiclink">BureauOptions</a><span class="f_NormalIdent"> class</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:1097px; padding:0px;"><p class="p_NormalIdent"><span class="f_NormalIdent">Container for applying options available when working with an TransUnion data set.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Example</font></a></p>
+<DIV id="section2" style="display:none;"><p class="p_Normal" style="margin: 0px 0px 5px 18px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Core;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Equifax;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Experian;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.TransUnion;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Datamart.Common;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">using</span><span style="font-family: Consolas;"> LuxorTech.CreditSharp.Format;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas; color: #0000ff;">namespace</span><span style="font-family: Consolas;"> HelpDemos</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">{</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">class</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">DemoCommon</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">public</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #0000ff;">string</span><span style="font-family: Consolas;"> GetXmlOutput(</span><span style="font-family: Consolas; color: #0000ff;">string</span><span style="font-family: Consolas;"> rawCreditInput, </span><span style="font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-family: Consolas;"> bureauId)</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #2b91af;">BureauData</span><span style="font-family: Consolas;"> bureauData = </span><span style="font-family: Consolas; color: #0000ff;">null</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">switch</span><span style="font-family: Consolas;"> (bureauId)</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">case</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-family: Consolas;">.Equifax:</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">EquifaxData</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas;">licenseKey</span><span style="font-family: Consolas;">));</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">break</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">case</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-family: Consolas;">.Experian:</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">ExperianData</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">BureauOptions</span><span style="font-family: Consolas;">(</span><span style="font-size: 12px; font-family: Consolas;">licenseKey</span><span style="font-family: Consolas;">));</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">break</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">case</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">BureauIds</span><span style="font-family: Consolas;">.TransUnion:</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; background-color: #feeada;">bureauData =&nbsp;</span><span style="font-family: Consolas; color: #0000ff; background-color: #feeada;">new</span><span style="font-family: Consolas; background-color: #feeada;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af; background-color: #feeada;">TransUnionData</span><span style="font-family: Consolas; background-color: #feeada;">(</span><span style="font-family: Consolas; color: #0000ff; background-color: #feeada;">new</span><span style="font-family: Consolas; background-color: #feeada;">&nbsp;</span><span style="font-family: Consolas; color: #2b91af; background-color: #feeada;">BureauOptions</span><span style="font-family: Consolas; background-color: #feeada;">(</span><span style="font-size: 12px; font-family: Consolas;">licenseKey</span><span style="font-family: Consolas; background-color: #feeada;">));</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">break</span><span style="font-family: Consolas;">;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; bureauData.Parse(rawCreditInput);</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-family: Consolas;"> commonData = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">CommonData</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">CommonOptions</span><span style="font-family: Consolas;">());</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; commonData.Normalize(bureauData);</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;"> options = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-family: Consolas;">.Xml);</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options.Xml.Partitions = </span><span style="font-family: Consolas; color: #2b91af;">Partitioning</span><span style="font-family: Consolas;">.IdMatch;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-family: Consolas;"> formatData = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatData</span><span style="font-family: Consolas;">(options);</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: Consolas; color: #0000ff;">return</span><span style="font-family: Consolas;"> formatData.Generate(commonData);</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp; &nbsp; }</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;"> &nbsp; &nbsp;}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Consolas;">}</span></p>
+<p style="margin: 0px 0px 0px 18px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+</div><!-- Start of Example table -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section4, section4_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section4_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Exceptions</font></a></p>
+<DIV id="section4" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Exception class</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Status</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterexception.html" class="topiclink">ParameterException</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_parameterstatus.html" class="topiclink">ParameterStatus</a>.RequiredElementMissing</p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Methods</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_datamart_transunion_transuniondata_addmodel.html" class="topiclink">AddModel</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Used to add a definition for a custom scoring model.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_datamart_transunion_transuniondata_createffr_3_213cccdd.html" class="topiclink">CreateFfr</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Creates an Fixed Format Response (machine readable) string using whatever bureau data that was imported to the current object.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_datamart_transunion_transuniondata_parse_1_bb3a7a4f.html" class="topiclink">Parse</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Populates an instance of the <a href="t_luxortech_creditsharp_datamart_transunion_transuniondata.html" class="topiclink">TransUnionData</a> class by extracting individual bureau elements from the input buffer.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:275px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountDelinquencyDetailSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaccountdelinquencydetail.html" class="topiclink">TucAccountDelinquencyDetail</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountHistorySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaccounthistory.html" class="topiclink">TucAccountHistory</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountSummaryDescriptionSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaccountsummarydescription.html" class="topiclink">TucAccountSummaryDescription</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AccountSummaryDetailSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaccountsummarydetail.html" class="topiclink">TucAccountSummaryDetail</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AdditionalPaymentDataSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucadditionalpaymentdata.html" class="topiclink">TucAdditionalPaymentData</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AddOnStatusSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaddonstatus.html" class="topiclink">TucAddOnStatus</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AddressAnalysisSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaddressanalysis.html" class="topiclink">TucAddressAnalysis</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AddressExtendedSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaddressextended.html" class="topiclink">TucAddressExtended</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AddressSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucaddress.html" class="topiclink">TucAddress</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">AutoLoanSummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucautoloansummary.html" class="topiclink">TucAutoLoanSummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BankingSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucbanking.html" class="topiclink">TucBanking</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BankruptcySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucbankruptcy.html" class="topiclink">TucBankruptcy</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Buffer</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the content of the originating credit bureau data.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Buffer2</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the only the machine readable content of the originating credit bureau data (suppresses any eye-readable/printable portions).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BureauId</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="t_luxortech_creditsharp_core_bureauids.html" class="topiclink">BureauIds</a> enumerations.</p>
+<p class="p_Normal">Gets the enumerated value indicating which credit bureau is currently being evaluated.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">BureauLocale</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_bureaulocales.html" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="t_luxortech_creditsharp_core_bureaulocales.html" class="topiclink">BureauLocales</a> enumerations.</p>
+<p class="p_Normal">Get the enumerated value indicating from which country the credit data originates.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CharacteristicSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccharacteristic.html" class="topiclink">TucCharacteristic</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CollectionIndicatorsSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccollectionindicators.html" class="topiclink">TucCollectionIndicators</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CollectionInquirySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccollectioninquiry.html" class="topiclink">TucCollectionInquiry</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CollectionReportSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccollectionreport.html" class="topiclink">TucCollectionReport</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CollectionSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccollection.html" class="topiclink">TucCollection</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ComplianceSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccompliance.html" class="topiclink">TucCompliance</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ConsumerIdentifierSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucconsumeridentifier.html" class="topiclink">TucConsumerIdentifier</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ConsumerNameSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucconsumername.html" class="topiclink">TucConsumerName</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ConsumerStatementSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucconsumerstatement.html" class="topiclink">TucConsumerStatement</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ContactResult2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccontactresult2.html" class="topiclink">TucContactResult2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ContactResultSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccontactresult.html" class="topiclink">TucContactResult</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CoreErrorSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccoreerror.html" class="topiclink">TucCoreError</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CountyInformationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccountyinformation.html" class="topiclink">TucCountyInformation</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditAvailabilitySummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccreditavailabilitysummary.html" class="topiclink">TucCreditAvailabilitySummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditCardSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccreditcard.html" class="topiclink">TucCreditCard</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditorContactSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccreditorcontact.html" class="topiclink">TucCreditorContact</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditSummaryDescriptionSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccreditsummarydescription.html" class="topiclink">TucCreditSummaryDescription</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditSummaryEnhancedSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccreditsummaryenhanced.html" class="topiclink">TucCreditSummaryEnhanced</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditSummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccreditsummary.html" class="topiclink">TucCreditSummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CreditVisionSummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccreditvisionsummary.html" class="topiclink">TucCreditVisionSummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">CustomerDataSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuccustomerdata.html" class="topiclink">TucCustomerData</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DataAnalysisSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdataanalysis.html" class="topiclink">TucDataAnalysis</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DeceasedInformationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdeceasedinformation.html" class="topiclink">TucDeceasedInformation</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DecSysCustomerBranchSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdecsyscustomerbranch.html" class="topiclink">TucDecSysCustomerBranch</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DecSysCustomInformationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdecsyscustominformation.html" class="topiclink">TucDecSysCustomInformation</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DecSysResponseSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdecsysresponse.html" class="topiclink">TucDecSysResponse</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DelinquencySummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdelinquencysummary.html" class="topiclink">TucDelinquencySummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DirectoryServiceSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdirectoryservice.html" class="topiclink">TucDirectoryService</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">DirectoryService2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucdirectoryservice2.html" class="topiclink">TucDirectoryService2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EditSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucedit.html" class="topiclink">TucEdit</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">EmploymentSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucemployment.html" class="topiclink">TucEmployment</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ErrorCodeSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucerrorcode.html" class="topiclink">TucErrorCode</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ErrorHeaderSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucerrorheader.html" class="topiclink">TucErrorHeader</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ErrorTextSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucerrortext.html" class="topiclink">TucErrorText</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ExtendedFieldsSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucextendedfields.html" class="topiclink">TucExtendedFields</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ExtendedPaymentPatternSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucextendedpaymentpattern.html" class="topiclink">TucExtendedPaymentPattern</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">FilteredView</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the property indicating if data elements will be presented in their cleansed or raw formats.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When true, elements will be displayed in consistent, type appropriate formats. &nbsp;Amounts and numbers will be true numeric values with leading and trailing spaces trimmed and any leading zeroes removed. Character based fields will likewise have all leading and trailing spaces removed. &nbsp;Date fields will conform to whatever <a href="t_luxortech_creditsharp_datamart_bureauoptions.html#datemask" class="topiclink">DateMask</a> option was chosen.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When false, all elements will be displayed in whatever raw form was provided by the bureau.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">true</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">GeoCodeSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucgeocode.html" class="topiclink">TucGeoCode</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HistorySummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuchistorysummary.html" class="topiclink">TucHistorySummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IdentificationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucidentification.html" class="topiclink">TucIdentification</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IdMismatchAlertSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucidmismatchalert.html" class="topiclink">TucIdMismatchAlert</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IdMismatchAlert2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucidmismatchalert2.html" class="topiclink">TucIdMismatchAlert2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">IncomeEstimatorScoreSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucincomeestimatorscore.html" class="topiclink">TucIncomeEstimatorScore</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">InquiryHistorySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucinquiryhistory.html" class="topiclink">TucInquiryHistory</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">InquirySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucinquiry.html" class="topiclink">TucInquiry</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Layout</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Char (4)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the value indicating the layout found within the provided credit bureau input buffer.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">&quot;Ffr&quot; = Input credit data is a Fixed Format Response stream</p>
+<p class="p_Normal">&quot;Text&quot; = Input credit data is a TTY (print only) stream</p>
+<p class="p_Normal">&quot;Xml&quot; = Input credit data is an Xml stream</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">LegalItemSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuclegalitem.html" class="topiclink">TucLegalItem</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MessageCodeSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucmessagecode.html" class="topiclink">TucMessageCode</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MessageTextSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucmessagetext.html" class="topiclink">TucMessageText</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Mileage2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucmileage2.html" class="topiclink">TucMileage2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MileageSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucmileage.html" class="topiclink">TucMileage</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MiscellaneousIdentificationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucmiscellaneousidentification.html" class="topiclink">TucMiscellaneousIdentification</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MiscellaneousStatementSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucmiscellaneousstatement.html" class="topiclink">TucMiscellaneousStatement</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">MonitorSatisfactionSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucmonitorsatisfaction.html" class="topiclink">TucMonitorSatisfaction</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">NumberOfSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucnumberof.html" class="topiclink">TucNumberOf</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">OwningBureau2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucowningbureau2.html" class="topiclink">TucOwningBureau2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">OwningBureauSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucowningbureau.html" class="topiclink">TucOwningBureau</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PersonalInformationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucpersonalinformation.html" class="topiclink">TucPersonalInformation</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PhoneNumber2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucphonenumber2.html" class="topiclink">TucPhoneNumber2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PhoneNumberSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucphonenumber.html" class="topiclink">TucPhoneNumber</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PointsSummary2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucpointssummary2.html" class="topiclink">TucPointsSummary2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PointsSummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucpointssummary.html" class="topiclink">TucPointsSummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PostalCodeSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuczipcode.html" class="topiclink">TucPostalCode</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ProductHeader2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader2.html" class="topiclink">TucProductHeader2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ProductHeader3Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader3.html" class="topiclink">TucProductHeader3</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ProductHeader4Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader4.html" class="topiclink">TucProductHeader4</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ProductHeaderSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucproductheader.html" class="topiclink">TucProductHeader</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PropertyDataSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucpropertydata.html" class="topiclink">TucPropertyData</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">PublicRecordSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucpublicrecord.html" class="topiclink">TucPublicRecord</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">RecordReportedHistorySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucrecordreportedhistory.html" class="topiclink">TucRecordReportedHistory</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">RegionAnalysisSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucregionanalysis.html" class="topiclink">TucRegionAnalysis</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">RegistertedItemSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucregistereditem.html" class="topiclink">TucRegisteredItem</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="report" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Report</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the printable, pre-formatted credit bureau report if one was provided in the response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ResidencyInformationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucresidencyinformation.html" class="topiclink">TucResidencyInformation</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ScoreModelSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucscoremodel.html" class="topiclink">TucScoreModel</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="segments" class="hmanchor"></a><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="t_luxortech_creditsharp_core_bureausegment.html" class="topiclink">List</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets a collection of all segments extracted during the <a href="m_luxortech_creditsharp_datamart_transunion_transuniondata_parse_1_bb3a7a4f.html" class="topiclink">Parse()</a> operation.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Each specific segment (TucCollection, TucPhoneNumber, etc) is also gathered into this single reference, with each instance upcasted to its <a href="t_luxortech_creditsharp_core_bureausegment.html" class="topiclink">BureauSegment</a> base class.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectHeader2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader2.html" class="topiclink">TucSubjectHeader2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectHeader3Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader3.html" class="topiclink">TucSubjectHeader3</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectHeader4Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader4.html" class="topiclink">TucSubjectHeader4</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectHeader5Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader5.html" class="topiclink">TucSubjectHeader5</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectHeader6Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader6.html" class="topiclink">TucSubjectHeader6</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectHeaderSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectheader.html" class="topiclink">TucSubjectHeader</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectVerification2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectverification2.html" class="topiclink">TucSubjectVerification2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectVerification3Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectverification3.html" class="topiclink">TucSubjectVerification3</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubjectVerificationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubjectverification.html" class="topiclink">TucSubjectVerification</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">SubscriberAddressSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucsubscriberaddress.html" class="topiclink">TucSubscriberAddress</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TextStatementSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctextstatement.html" class="topiclink">TucTextStatement</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TotalPaymentRatioSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctotalpaymentratio.html" class="topiclink">TucTotalPaymentRatio</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineMonitorSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctradelinemonitor.html" class="topiclink">TucTradelineMonitor</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineReviewSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctradelinereview.html" class="topiclink">TucTradelineReview</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctradeline.html" class="topiclink">TucTradeline</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradeMopTotalsSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctrademoptotals.html" class="topiclink">TucTradeMopTotals</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransactionEndSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctransactionend.html" class="topiclink">TucTransactionEnd</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransactionHeaderSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctransactionheader.html" class="topiclink">TucTransactionHeader</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TransactionTrackingSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tuctransactiontracking.html" class="topiclink">TucTransactionTracking</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VehicleInformationSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucvehicleinformation.html" class="topiclink">TucVehicleInformation</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VerificationServiceSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucverificationserivce.html" class="topiclink">TucVerificationService</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VerificationService2Segments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucverificationservice2.html" class="topiclink">TucVerificationService2</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">VerificationSummarySegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucverificationsummary.html" class="topiclink">TucVerificationSummary</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Version</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text (7)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the value indicating the version of the underlying bureau data.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Values:</span></p>
+<p class="p_Normal">&quot;40&quot; = Version 4.0</p>
+<p class="p_Normal">&quot;41&quot; = Version 4.1</p>
+<p class="p_Normal">&quot;42&quot; = Version 4.0 with CreditVision extensions</p>
+<p class="p_Normal">&quot;43&quot; = Version 4.1 with CreditVision extensions</p>
+<p class="p_Normal">&quot;Unknown&quot; = version could not be determined</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:275px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">YearofIssuanceSegments</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Coll</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets the collection of <a href="t_luxortech_creditsharp_datamart_transunion_tucyearofissuance.html" class="topiclink">TucYearofIssuance</a> segments within the current credit bureau response.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col display-6  mt-3">
+            My Downloads
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col  mt-3">
+            <div class="col-12 table.responsive" style="max-height:70vh; overflow: auto;"> 
+                <table class="table w-100% p-3"> 
+                <thead>
+                    <td>Version</td>
+                    <td>Date</td>
+                    <td>Product</td>
+                    <td>File Name</td>
+                    <td>Size</td> 
+                </thead>
+                <tbody>
+                    <ng-container  *ngFor="let d of csService.myDownloadsLists; let idx = index;"> 
+                        <tr>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = d.version></span></td> 
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "d.date | date: 'medium'"></span></td>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "d.title"></span></td>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "d.fileName"></span></td>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span class="float-end" [innerHTML] = "formatSize(d.fileSize)"></span></td>
+                            <td style="text-align: right;"><button class="btn btn-secondary" (click) = "d.show = !d.show"><span [innerText] = "(d.show) ? 'Hide Details' : 'Show Details'"></span></button></td>
+                        </tr>
+                        <tr *ngIf="d.show === true">
+                            <td colspan="3">
+                                <div style="border: 1px solid #cccccc; border-radius: 10px; margin:15px; padding:10px;">
+                                    <span  [innerText] = d.description></span>
+                                </div>                                
+                            </td> 
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </ng-container>        
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>

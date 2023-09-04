@@ -1,0 +1,577 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>CreditSharp.dll.config file</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_feaoptionalsettings_appconfing.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_feacreditsharpfeatures.html">CreditSharp Features</a> &gt; <a href="_feaoptionalsettings.html">Options and Settings</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">CreditSharp.dll.config file</span></h1>
+<p class="p_Normal">&nbsp;</p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="_feaoptionalsettings.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_feaoptionalsettings.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_feaexclusioncriteria.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The CreditSharp.dll.config utility can be used as a convenient means to apply a number of framework options through a single location instead of through individual programming instructions as well as supplying definitions for any custom score models that a given credit bureau might be delivering.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This configuration file does not need to be present for the CreditSharp framework to function properly. If the file is not located within the same folder as the assembly (CreditSharp.dll) then each option will be initialized to its default value. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Using this configuration file allows you implement new CreditSharp features quickly without the need for modifying code or further customizing database structures (for example) to accommodate newly defined CreditSharp options. &nbsp;A typical use case for the CreditSharp.dll.config might be when a customer always wants to use the same specific set of Format options to generate their reports. Rather than having your code execute the same instructions over and over again, the options can be specified just the one time in the configuration file. It also offers a easy mechanism for exploring how different outputs would appear without having to specifically code for each option being explored. </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Settings that are assigned using the configuration file can always be overridden during runtime execution simply by assigning a different value using the property assignor for a given option. &nbsp;The configuration file, in essence, just redefines / customizes the default values for each CreditSharp framework option.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In order for configuration file entries to take effect, the file needs to be placed in the same folder as the assembly file (CreditSharp.dll) <span style="font-weight: bold;">and</span> the file needs to be enabled by setting the <span style="font-weight: bold;">csUseConfigSettings</span> key to a value of &quot;true&quot;. &nbsp;The <span style="font-weight: bold;">csUseConfigSettings</span> key is near the bottom of the file. The default CreditSharp.dll.config file can be found in the Assets folder for the CreditSharp installation (typically C:\Program Files (x86)\Luxor Technologies, Inc\CreditSharp\Assets). &nbsp;If only model definitions are being specified then the csUseConfigSettings key may be left as &quot;false&quot;.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_ChapterContent" style="background: #95b3d8;"><span class="f_ChapterContent" style="font-size: 13px;">File contents:</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The configuration file is an XML document which uses a series of name/value pairs to specify option values for all the various user controllable CreditSharp framework features. &nbsp;The names and values of option settings mimic those found within the various option classes. &nbsp;Links to enumerate and describe all the available settings can be found in this topic's parent chapter <a href="_feaoptionalsettings.html" class="topiclink">above</a>.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">All entries are case sensitive. &nbsp;Boolean settings should be given values of &quot;true&quot; or &quot;false&quot;. &nbsp;Enumerated values are specified using the literal name and choice for that enum - the possible values can be found within the topic pages corresponding to the options class in question. &nbsp;To select the internal default values for character or numeric based settings specify the value as &quot;empty&quot; otherwise supply a string literal for the desired setting.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Finally, settings that are either sensitive in nature or would be expected to change from one transaction to the next cannot be assigned using the configuration file. &nbsp;As such, bureau credentials cannot be entered here (ie: your subscriber number or password) and consumer identifiers (name, social security number, etc) are not accessible here.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The document first outlines a section for each corresponding option class found within the framework using the same names with a prefix of &quot;cs&quot;, within &lt;<span style="font-weight: bold;">configSection</span>&gt; nodes. &nbsp;For example, the <a href="t_luxortech_creditsharp_format_formatoptionshtml.html" class="topiclink">FormatOptionsHtml</a> class settings can be found and applied within the config file inside the &lt;configSection&gt; with the name &quot;csFormatHtmlOptions&quot;. &nbsp;Following these, a series of &lt;<span style="font-weight: bold;">modelDefinition</span>&gt; segments can be entered.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Sample config -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Sample CreditSharp.dll.config file</font></a></p>
+<DIV id="section1" style="display:none;"><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:0px;"><p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">&lt;configuration&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csEfxBureauRequest&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CustomerCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Locale&quot; value=&quot;BureauLocales.UnitedStates&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PermissiblePurposeCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ProductCode&quot; value=&quot;EfxProductCode.CreditReport&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ResponseVersion&quot; value=&quot;EfxVersionNumber.Version60&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CpuResponse&quot; value=&quot;EfxCpuResponse.FullFileFixed&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TtyResponse&quot; value=&quot;EfxTtyResponse.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;XmlResponse&quot; value=&quot;EfxXmlResponse.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csExpBureauRequest&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CustomerCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PermissiblePurposeCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ProductCode&quot; value=&quot;ExpProductCode.CreditReport&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ResponseVersion&quot; value=&quot;ExpVersionNumber.Version70&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CpuResponse&quot; value=&quot;ExpCpuResponse.Standard&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;JsonResponse&quot; value=&quot;ExpJsonResponse.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TtyResponse&quot; value=&quot;ExpTtyResponse.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;XmlResponse&quot; value=&quot;ExpXmlResponse.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csTucBureauRequest&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CustomerCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Locale&quot; value=&quot;BureauLocales.UnitedStates&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PermissiblePurposeCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ProductCode&quot; value=&quot;TucProductCode.CreditReport&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ResponseVersion&quot; value=&quot;TucVersionNumber.Version41&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CpuResponse&quot; value=&quot;TucCpuResponse.Standard&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TtyResponse&quot; value=&quot;TucTtyResponse.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;XmlResponse&quot; value=&quot;TucXmlResponse.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csEfxInquiryOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;AdvisorRequest&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;AlertContact&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CanadianContent&quot; value=&quot;EfxCanadaContent.PassThru&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ConsumerReferral&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DelinquentMonthCount&quot; value=&quot;EfxMonthCount.AllValues&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;InquiryMonthCount&quot; value=&quot;EfxMonthCount.AllValues&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MilitaryBorrowerCheck&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;OnlineDirectory&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreSupplement&quot; value=&quot;EfxScoreSupplement.AllScores&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DirectoryMemberCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TotalViewEnhancers.Addresses&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TotalViewEnhancers.Collections&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TotalViewEnhancers.Inquiries&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TotalViewEnhancers.PaymentPatterns&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TotalViewEnhancers.PublicRecords&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TotalViewEnhancers.TradelineEnhancers&quot; value=&quot;EfxTradelineEnhancer.AllFields&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csExpInquiryOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;BrokerNbr&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;BullsEyeAcctNbr&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ConsumerCopy&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CustomRRKeyword&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Demographics&quot; value=&quot;ExpDemographics.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DirectCheck&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;EmergingCreditProfile&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ExpandedScoreSegment&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ExtendedViewResponse&quot; value=&quot;ExpExtendedView.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ExtendedViewThreshold&quot; value=&quot;4&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;FraudShield&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MilitaryBorrowerCheck&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;NewConsumerResponse&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;NfdSearch&quot; value=&quot;ExpNfdSearch.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;NfdSubcode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;OfacMessage&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;OfacSearch&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PrescreenMinScore&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PrescreenMaxScore&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PrescreenMinLevel&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PrescreenAdvancedId&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PremierSolutionId&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ProfileSummary&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ServiceRegion&quot; value=&quot;ExpServiceRegion.Test&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreSupplement&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;SelectCheckCode&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;SsnMatchIndicators&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;StaggSelect&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradesExtendedElements&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradesActualPayment&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradesDeferredPayment&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TrendView&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TtyPaging&quot; value=&quot;ExpTtyFormat.Format01&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TtyFormat&quot; value=&quot;ExpTtyPaging.PagingOn&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;VerboseXmlResponse&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Year2000&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csTucInquiryOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ArmAlert&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;AuthorizedUserAlert&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;AutoSummary&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CreditSummary&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CreditSummaryEnhanced&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CreditVisionAddOns&quot; value=&quot;TucCreditVisionAddOns.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CustomerDataType&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CustomerDataId&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DisableDefaultModels&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;EditResponse&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorText&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HawkAlert&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IdentityAlerts&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IdentityManager&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IdentityManager2&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IdMismatchAlert&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IdMismatchAlert2&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;InquiryAnalysis&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;LanguageIndicator&quot; value=&quot;TucLanguageIndicator.English&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;L2cModelOverride&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;LenderScoreDisclosure&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;LookupAddon&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MilitaryBorrowerCheck&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MopTotals&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PhoneAppend&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PointOfSaleCode&quot; value=&quot;TucPointOfSale.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ReferringBureau&quot; value=&quot;TucReferringBureau.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;RequestRegion&quot; value=&quot;TucRequestRegion.TestSystem&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;SsnAnalysis&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csBureauDataOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MaskSsn&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DateMask&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csExtractOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Decorate&quot; value=&quot;\t&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Inherit&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MaskSsn&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowEmptyValues&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csCommonDataOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DateMask&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;EstimateInstallmentPayments&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;EstimateRevolvingPayments&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;EstimateRevolvingPercent&quot; value=&quot;1.5&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;EstimateRevolvingMinimum&quot; value=&quot;20&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Inherit&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MaskSsn&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;NumericIndicators&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ZeroBasedMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csMergeDataOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;AllowJoint&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Inherit&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CompareProfile&quot; value=&quot;System&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;CombineProfile&quot; value=&quot;System&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;RequireAccountNumbers&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ZeroBasedMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csAnalyzeOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;BaseDate&quot; value=&quot;AnalysisDate.Report&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DefaultEmptyCalcs&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;DelinquencyMonths&quot; value=&quot;24&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IgnoreAuthorizedUser&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IgnoreDisputed&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IgnoreLostStolen&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IsolateJoint&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;LimitProxy&quot; value=&quot;AnalysisLimitProxy.Implied&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradeState&quot; value=&quot;AnalysisTradeState.Inferred&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csFormatOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Inherit&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MaskSsn&quot; value=&quot;empty&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;UseAlphaCurrentMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;UseSatisfiedMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csFormatHtmlOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ClosedTradelineRemark&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ExpandedTradelines&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideAuthorizedUser&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideDisputed&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideLostStolen&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Partitions&quot; value=&quot;Partitioning.IdMatch&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ReportStyle&quot; value=&quot;HtmlStyle.Common01&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreRankDisplay&quot; value=&quot;HtmlScoreRankDisplay.Shaded&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreRankLower&quot; value=&quot;40&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreRankUpper&quot; value=&quot;80&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScriptLocation&quot; value=&quot;inline&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowSummary&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;StyleLocation&quot; value=&quot;inline&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradelineDimensions&quot; value=&quot;HtmlTradeDimensions.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradelineShading&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradelineStatusField&quot; value=&quot;HtmlTradeStatusSource.WorstStatus&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradelineStatusMajor&quot; value=&quot;6&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradelineStatusMinor&quot; value=&quot;2&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradelineStatusType&quot; value=&quot;HtmlTradeStatusDisplay.Graphic&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;TradelineStyle&quot; value=&quot;HtmlTradelineStyle.Tradeline01&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Verbose&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ZeroBasedMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;GroupTradeline&quot; value=&quot;OpenClosed&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;SortTradeline&quot; value=&quot;System&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csFormatJsonOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Decorate&quot; value=&quot;\t&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideAuthorizedUser&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideDisputed&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideLostStolen&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;InlineDirectory&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IsolateJoint&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MergeHistory&quot; value=&quot;JsonMergeHistory.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Partitions&quot; value=&quot;Partitioning.IdMatch&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ReportStyle&quot; value=&quot;JsonStyle.Common01&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowAncestry&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowBooleanProperties&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowCustomAttributes&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowNullValues&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowFactoryAttributes&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowHtmlImage&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowItemNumber&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowParsedAddress&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowSources&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowSummaryAttributes&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowTextImage&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowTradeLates&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Verbose&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ZeroBasedMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csFormatTextOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ClosedTradelineRemark&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideAuthorizedUser&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideDisputed&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideLostStolen&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PageEject&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;PageLength&quot; value=&quot;68&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Partitions&quot; value=&quot;Partitioning.IdMatch&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ReportStyle&quot; value=&quot;TextStyle.Common01&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowSummary&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MilitaryColumn&quot; value=&quot;true&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Verbose&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ZeroBasedMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;configSection name=&quot;csFormatXmlOptions&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Decorate&quot; value=&quot;\t&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideAuthorizedUser&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideDisputed&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;HideLostStolen&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;InlineDirectory&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;IsolateJoint&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MergeHistory&quot; value=&quot;XmlMergeHistory.None&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Partitions&quot; value=&quot;Partitioning.IdMatch&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ReportStyle&quot; value=&quot;XmlStyle.Common01&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowAncestry&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowBooleanProperties&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowCustomAttributes&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowEmptyTags&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowFactoryAttributes&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowHtmlImage&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowItemNumber&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowParsedAddress&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowSources&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowSummaryAttributes&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowTextImage&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ShowTradeLates&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;Verbose&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ZeroBasedMop&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/configSection&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;modelDefinition name=&quot;csEfxScoreModel&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelId&quot; value=&quot;09987&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelName&quot; value=&quot;Our Custom Equifax Model&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MaxScore&quot; value=&quot;900&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MinScore&quot; value=&quot;100&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;00010:Text for Factor text ten&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;00021:Text for Factor text twenty one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;00033:Text for Factor text thirty three&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;01:Text for Error type one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;02:Text for Error type two&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/modelDefinition&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;modelDefinition name=&quot;csEfxScoreModel&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelId&quot; value=&quot;09988&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelName&quot; value=&quot;Our Other Custom Equifax Model&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MaxScore&quot; value=&quot;900&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MinScore&quot; value=&quot;100&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;00010:Text for Factor text ten&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;00021:Text for Factor text twenty one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;00033:Text for Factor text thirty three&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;01:Text for Error type one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;02:Text for Error type two&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/modelDefinition&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;modelDefinition name=&quot;csExpScoreModel&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelId&quot; value=&quot;C1&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelName&quot; value=&quot;A Custom Experian Model&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MaxScore&quot; value=&quot;850&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;MinScore&quot; value=&quot;300&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;10:Text for Factor text ten&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;21:Text for Factor text twenty one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;33:Text for Factor text thirty three&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;01:Text for Error type one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;02:Text for Error type two&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/modelDefinition&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;modelDefinition name=&quot;csTucScoreModel&quot;&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelId&quot; value=&quot;00CX1&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ModelName&quot; value=&quot;TransUnion Custom Model&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;010:Text for Factor text ten&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;021:Text for Factor text twenty one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ScoreFactor&quot; value=&quot;033:Text for Factor text thirty three&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;01:Text for Error type one&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;ErrorCode&quot; value=&quot;02:Text for Error type two&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/modelDefinition&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;appSettings&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp; &nbsp;&lt;add key=&quot;csUseConfigSettings&quot; value=&quot;false&quot; /&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;"> &nbsp;&lt;/appSettings&gt;</span></p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;"><span style="font-family: 'Courier New',Courier,monospace;">&lt;/configuration&gt;</span></p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When specifying <span style="font-weight: bold;">custom score models</span>, several key points should be followed and it should be noted that all entries are case-sensitive. When defining an Equifax model, the &lt;modelDefinition&gt; name attribute should be &quot;csEfxScoreModel&quot;. &nbsp;For Experian entries, use &quot;csExpScoreModel&quot; and for TransUnion entries use &quot;csTucScoreModel&quot;.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Entries that will be used to look up model names or factor/error text should be entered to correspond with the form in which they will appear in the response data. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">With Equifax, codes for model id values are typically five characters long, right-justified and zero filled. Score factor codes are the same, typically five characters long, right-justified and zero filled. &nbsp;For example, &quot;09987&quot; for a model id and &quot;00010&quot; for score factor 10, &quot;00032&quot; for score factor 32, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">With Experian, codes for model id values are two characters long and score factors are not decorated in any fashion (ie: not zero filled). &nbsp;For example, you would see &quot;C1&quot; for a model id and &quot;01&quot; for score factor 01, &quot;02&quot; for score factor 02, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 31px;">With TransUnion, codes for model id values are five characters long, right-justified and zero filled. &nbsp;Score factor codes are typically three digits, with one leading zero as necessary. &nbsp;For example, you might see &quot;00CX2&quot; for a model id and &quot;010&quot; for score factor 10, &quot;104&quot; for score factor 104, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Sample entries for each credit bureau are included at the end of the sample configuration file above. &nbsp;Note that not all model definitions include Error codes or Adverse factor codes. &nbsp;In those cases, it is perfectly acceptable to simply input the <span style="font-weight: bold;">ModelId</span> and <span style="font-weight: bold;">ModelName</span> key/values and omit the others.</p>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

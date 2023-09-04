@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Processing Custom Solutions</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devdatamartexpcustomsolutions.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_experian.html">Experian</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">Processing Custom Solutions</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.Experian</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_datamart_experian.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devdatamartexpscoremodels.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="n_luxortech_creditsharp_datamart_transunion.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Experian offers a number of services under the guise of custom solutions which can be used to facilitate decision making or providing inputs to you own custom scoring or data analysis. &nbsp;The CreditSharp framework includes features to assist in parsing and extracting these custom responses and presenting them in a normalized fashion.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Responses from Experian's Instant Prescreen product suite, the Prequalification product suite or any of the data attribute services (Premier Attributes, Model Attribute as well as STAGG, Trend View and Extended View attributes) are each parsed and preprocessed into instances of the normalized <a href="t_luxortech_creditsharp_datamart_common_combureauattribute.html" class="topiclink">ComBureauAttribute</a> class.</p>
+<p class="p_Normal">&nbsp;</p>
+<!-- Attributes -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section2, section2_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section2_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Attribute Responses</font></a></p>
+<DIV id="section2" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Each of the various attribute responses that can be delivered by Experian are automatically pre-processed in two ways by the CreditSharp framework. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">First, each attribute name/value pair is extracted into it's own instance of the <a href="t_luxortech_creditsharp_datamart_experian_expbureauattribute.html" class="topiclink">ExpBureauAttribute</a> class. &nbsp;This step makes it easier to review the various responses rather than have to manually parse the entire attribute result set (which is often contained in a single field and can be difficult to work with.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Once that step is complete, the normalization process can be invoked (using the <a href="t_luxortech_creditsharp_datamart_common_commondata.html" class="topiclink">CommonData</a>.<span style="font-weight: bold;">Normalize</span> method). &nbsp;This transfers each individual native bureau attribute into the commonly defined equivalent. &nbsp;At this point, the data can be reviewed directly through the CommonData object or extracted into an Xml or Json output.</p>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Preapproval -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section1, section1_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section1_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Preapproval Responses (Instant Prescreen or Prequalification) </font></a></p>
+<DIV id="section1" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The decisioning responses returned by the Experian Instant Prescreen and Prequalification services are fully customizable and may be different from one subscriber to the next. &nbsp;In order to preprocess these responses, CreditSharp must be given the necessary knowledge of how the decision details are laid out. &nbsp;This can be is accomplished by providing parsing instructions to the <a href="t_luxortech_creditsharp_datamart_experian_experiandata.html#decisionschema" class="topiclink">ExperianData</a>.<span style="font-weight: bold;">DecisionSchema</span> property using Java Script Object Notation (JSON) prior to invoking the <span style="font-weight: bold;">Parse</span> method. &nbsp;Here is a hypothetical sample of a JSON input for this purpose:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">{&nbsp;&quot;style&quot;:&nbsp;&quot;fixed&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&quot;layout&quot;:&nbsp;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&quot;msgcode&quot;:&nbsp;&quot;65&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&quot;fields&quot;:&nbsp;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;decision&quot;,&nbsp;&quot;position&quot;:&nbsp;1,&nbsp;&quot;size&quot;:&nbsp;3},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;crossSell&quot;,&nbsp;&quot;position&quot;:&nbsp;5,&nbsp;&quot;size&quot;:&nbsp;1},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;crossSellId&quot;,&nbsp;&quot;position&quot;:&nbsp;6,&nbsp;&quot;size&quot;:&nbsp;2},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;notify&quot;,&nbsp;&quot;position&quot;:&nbsp;9,&nbsp;&quot;size&quot;:&nbsp;1},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;message&quot;,&nbsp;&quot;position&quot;:&nbsp;10,&nbsp;&quot;size&quot;:&nbsp;67},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;exclude&quot;,&nbsp;&quot;position&quot;:&nbsp;78,&nbsp;&quot;size&quot;:&nbsp;1},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;excludeCode&quot;,&nbsp;&quot;position&quot;:&nbsp;79,&nbsp;&quot;size&quot;:&nbsp;2},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;offer&quot;,&nbsp;&quot;position&quot;:&nbsp;81,&nbsp;&quot;size&quot;:&nbsp;8}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;]</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;}&nbsp;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The above schema would be used to parse the following hypothetical Experian Instant Prescreen into eight distinct fields, each one extracted into an <a href="t_luxortech_creditsharp_datamart_experian_expbureauattribute.html" class="topiclink">ExpBureauAttribute</a> instance:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">36101006588ODP&nbsp;Y72&nbsp;YTHIS&nbsp;IS&nbsp;WHERE&nbsp;ANY&nbsp;MESSAGE&nbsp;TEXT&nbsp;WOULD&nbsp;APPEAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N00&nbsp;&nbsp;&nbsp;&nbsp;1500@</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The resulting parse operation, given the above schema and the sample 361 segment response, would yield the following individual <span style="font-weight: bold;">ExpBureauAttribute</span> instances:</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 39px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p style="margin: 0px 0px 0px 13px;"><span style="font-weight: bold;">Source</span></p>
+</td>
+<td style="vertical-align:top; width:103px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;"><span style="font-weight: bold;">Indicator</span></p>
+</td>
+<td style="vertical-align:top; width:158px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:364px; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;"><span style="font-weight: bold;">Value</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">decision</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">ODP</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">crossSell</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">Y</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">crossSellId</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">72</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">notify</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">Y</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">message</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">THIS IS WHERE MESSAGE TEXT WOULD APPEAR</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">exclude</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">N</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">excludeCode</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">00</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:87px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">361</p>
+</td>
+<td style="vertical-align:top; width:103px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">65</p>
+</td>
+<td style="vertical-align:top; width:158px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">offer</p>
+</td>
+<td style="vertical-align:top; width:364px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal" style="margin: 0px 0px 5px 13px;">1500</p>
+</td>
+</tr>
+</table>
+</div>
+</div><p class="p_Normal">&nbsp;</p>
+<!-- Schemas -->
+<p style="background-color:#dddddd;">
+<a class="topiclink" href="javascript:void(0)" onclick="doExpand(section3, section3_icon)"
+title="Click to expand or collapse">
+<img src="plus.gif" id="section3_icon" border="0">
+<font style="font-family:Verdana; font-size:10pt;">Currently defined decision schemas</font></a></p>
+<DIV id="section3" style="display:none;"><p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">At this time there is only one defined schema, known as the &quot;fixed&quot; schema. &nbsp;It is appropriate for use with Experian solutions which return a result within the 361 (Message) segment whose contents comprise a fixed set of fields with constant widths.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Note: If this form of schema is not sufficient to define the custom Experian response, feel free to contact Luxor support staff to discuss crafting a definition suitable for your use case.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The &quot;fixed&quot; schema structure is as follows:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">{&nbsp;&quot;style&quot;:&nbsp;&quot;fixed&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&quot;layout&quot;:&nbsp;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;{</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&quot;msgcode&quot;:&nbsp;&quot;nn&quot;,</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&quot;fields&quot;:&nbsp;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;[</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;value1&quot;,&nbsp;&quot;position&quot;:&nbsp;x,&nbsp;&quot;size&quot;:&nbsp;y},</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&quot;name&quot;:&nbsp;&quot;value2&quot;,&nbsp;&quot;position&quot;:&nbsp;x,&nbsp;&quot;size&quot;:&nbsp;y}</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;]</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">&nbsp;&nbsp;}&nbsp;</span></p>
+<p class="p_CodeExample" style="page-break-inside: avoid; background: #efeff7; margin: 0px 0px 0px 39px;"><span class="f_CodeExample" style="font-size: 12px;">}</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Schema members:</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrd" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Element</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#c0c0c0; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">style</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">&quot;fixed&quot;</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Identifies what type of schema is being provided.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">msgcode</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">two digit numeric value</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Provides the key for identifying and locating the appropriate 361 segment. &nbsp;This corresponds to the Message segment's MessageCode field.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">It will always be &quot;65&quot; when working with Instant Prescreen output. &nbsp;Prequalification responses will typical require &quot;57&quot; or &quot;63&quot;.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">fields</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">array</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One or more entries which provide a label and location for obtaining the service results.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">fields: name</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">any text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Provides the name by which your system knows the particular value.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">fields: position</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">a numeric value</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the offset at which the first character of the value can be found. &nbsp;This is a one-based figure (ie: the first character in the response would be in position: 1).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">fields: size</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">a numeric value</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates the length of the value.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+</div> 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

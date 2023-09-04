@@ -1,0 +1,599 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>FormatOptionsHtml Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "t_luxortech_creditsharp_format_formatoptionshtml.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_format.html">Format</a> &gt; <a href="t_luxortech_creditsharp_format_formatoptions.html">FormatOptions Classes</a> &gt;</p>
+                                                        </span>
+						
+						<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-size: 16px; font-weight: bold;">FormatOptionsHtml Class</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Format</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="t_luxortech_creditsharp_format_formatoptions.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_format_formatoptions.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="m_luxortech_creditsharp_format_formatoptionshtml_firstsection_1_bb3a7a4f.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The members found within the FormatOptionsHtml class provide access to settings for controlling the creation of Html based outputs.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Methods</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_format_formatoptionshtml_firstsection_1_bb3a7a4f.html" class="topiclink">FirstSection</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Method optionally establishes the first section to be displayed in the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_format_formatoptionshtml_nextsection_1_bb3a7a4f.html" class="topiclink">NextSection</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Method adds another section to the growing collection of items to be displayed in the output.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="m_luxortech_creditsharp_format_formatoptionshtml_section_1_bb3a7a4f.html" class="topiclink">Section</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Provides access to configure how and what sections are displayed in the output.</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Properties</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBrdBlue" style="background-color:#dddddd; border:none; border-spacing:0px; border-collapse:collapse;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+</td>
+<td style="vertical-align:top; width:200px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</td>
+<td style="vertical-align:top; width:100px; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Content</span></p>
+</td>
+<td style="vertical-align:top; background-color:#95b3d8; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ClosedTradelineRemark</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">When true, if a specific closing reason is known for a given tradeline, remark text will be displayed to indicate the reason.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ExpandedTradelines</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if each tradeline should be shown in its expanded form on initial display.</p>
+<p class="p_Normal">An example of the expanded form can be see in the <a href="_outhtmlstylecommonexpanded.html" class="topiclink">Common01 - Expanded Tradeline</a> topic.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HideAuthorizedUser</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if Tradelines with an ECOA code designating them as &quot;Authorized User&quot; accounts should be excluded from display.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HideDisputed</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if Tradelines or PublicRecords currently being disputed by the consumer should be excluded from display.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">HideLostStolen</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Indicates if credit card accounts that are being reported as Lost or Stolen should be excluded from display.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Partitions</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Enum</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value specifying what Partitioning scheme to use in the display.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">IdMatch </span>for Common01 styles and Report for <span style="font-weight: bold;">Lending01</span> styles]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ReportStyle</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#htmlstyle" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#htmlstyle" class="topiclink">HtmlStyle</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating which report style will be generated.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">Common01</span>]</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Note that changing this property returns all other settings to their default state as appropriate for the chosen style. &nbsp;As such, any desired customizations of layout options must be applied after the ReportStyle is chosen.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ScoreRankDisplay</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#htmlscorerankdisplay" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#htmlscorerankdisplay" class="topiclink">HtmlScoreRankDisplay</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value indicating how the score rank (percentile) will be shown.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">Shaded</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ScoreRankLower</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Int (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value specifying the lower threshold for percentiles to be considered 'average'.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When the ScoreRankDisplay enumeration is Shaded, any score percentiles that are lower than this value will be displayed with the red tinted background, to indicate the value falls into the poorest possible score ranking range.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values between the ScoreRankLower and ScoreRakUpper (inclusive) will be shaded with the yellow background.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ScoreRankUpper</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Int (2)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value specifying the upper threshold for percentiles to be considered 'average'.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When the ScoreRankDisplay enumeration is Shaded, any score percentiles that are higher than this value will be displayed with the green tinted background, to indicate the value falls into the best possible score ranking range.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Values between the ScoreRankLower and ScoreRakUpper (inclusive) will be shaded with the yellow background.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ScriptLocation</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value indicating where the Javascript code for supporting dynamic Html is stored.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to &quot;<span style="font-weight: bold;">inline&quot;</span>]</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When left as 'inline', the necessary scripting entries will be embedded within the generated Html output. &nbsp;Alternately, the property can be assigned as a path and file name which then is inserted as a reference within the Html. &nbsp;Using an external script file can save storage space by not having a full copy of the script in every formatted credit report.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The external script file is included along with the basic CreditSharp installation, in the Assets folder:</p>
+<p class="p_Normal">C:\Program Files (x86)\Luxor Technologies, Inc\Assets</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The file can be placed anywhere within the active file system or referred to from the installation folder, such as:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 13px;"><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;"> options = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-family: Consolas;">.Html);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;">options.Html.ScriptLocation = @&quot;C:\Program Files (x86)\Luxor Technologies, Inc\CreditSharp\Assets\CSHtmlScript.js&quot;;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The file can also be part of a content delivery network, and specified as a URL, such as:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 13px;"><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;"> options = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-family: Consolas;">.Html);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;">options.Html.ScriptLocation = &quot;http://www.example.com/CSHtmlScript.js&quot;;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In both instances, providing a relative path or url is acceptable.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ShowSummary</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value indicating if a summary section(s) should be displayed.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">StyleLocation</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Text</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value indicating is the CSS Stylesheet for rendering an Html output is stored.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to &quot;<span style="font-weight: bold;">inline&quot;</span>]</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When left as 'inline', the necessary stylesheet entries will be embedded within the generated Html output. &nbsp;Alternately, the property can be assigned as a path and file name which then is inserted as a reference within the output. &nbsp;Using an external stylesheet can save storage space by not having a full copy in every formatted credit report.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The external stylesheet is included along with the basic CreditSharp installation. &nbsp;The file can actually be placed anywhere within the active file system, or referred to from it's installed location, such as:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 13px;"><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;"> options = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-family: Consolas;">.Html);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;">options.Html.StyletLocation = @&quot;C:\Program Files (x86)\Luxor Technologies, Inc\CreditSharp\Assets\CSHtmlStyle01.css&quot;;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The file can also be part of a content delivery network, and specified as a URL, such as:</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="margin: 0px 0px 5px 13px;"><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;"> options = </span><span style="font-family: Consolas; color: #0000ff;">new</span><span style="font-family: Consolas;"> </span><span style="font-family: Consolas; color: #2b91af;">FormatOptions</span><span style="font-family: Consolas;">(</span><span style="font-family: Consolas; color: #2b91af;">FormatLayout</span><span style="font-family: Consolas;">.Html);</span></p>
+<p style="margin: 0px 0px 0px 13px;"><span style="font-family: Consolas;">options.Html.StyleLocation = &quot;http://www.example.com/CSHtmlStyle02.css&quot;;</span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">In both instances, provided a relative path or url is acceptable.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Note: There are two style sheets (CSHtmlStyle01.css and CSHtmlStyle02.css). &nbsp;The '01' style is to be used when generating HtmlTradelineStyle.Tradeline01 outputs. &nbsp;The '02' style is for all other HtmlTradelineStyle options. &nbsp;If left as <span style="font-weight: bold;">inline</span>, the software will automatically pick up the correct style sheet.</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a id="tradelinedimensions" class="hmanchor"></a>TradelineDimensions</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#htmltradedimensions" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#htmltradedimensions" class="topiclink">HtmlTradeDimensions</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value controlling whether or not a Historical Activity (Dimensions) section is included with each tradeline that contains the requisite data elements.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Refer to Equifax <a href="t_luxortech_creditsharp_connect_efxinquiryoptions.html#totalviewenhancers" class="topiclink">TotalViewEnhancers</a>, Experian <a href="t_luxortech_creditsharp_connect_expinquiryoptions.html#trendview" class="topiclink">TrendView</a>, or TransUnion <a href="t_luxortech_creditsharp_connect_tucinquiryoptions.html#creditvisionaddons" class="topiclink">CreditVisionAddOns</a> for information about this additional tradeline content.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">None</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineShading</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value indicating if a shading should be included behind the tradeline status column(s).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineStatusField</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#htmltradelinepivot" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#htmltradelinepivot" class="topiclink">HtmlTradeStatusSource</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the values which control the tradeline status is determined.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">WorstStatus</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineStatusMajor</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Int (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value which determines if an account should be considered a minor derogatory item or a major derogatory item.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This setting corresponds to the tradeline Current or Maximum Mop value. &nbsp;Accounts with Mop codes equal to or greater than the indicated value will be considered Major derogatory items.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Note that the runtime evaluation of this value is also dependent upon the <span style="font-weight: bold;">ZeroBasedMop</span> property. &nbsp;When ZeroBasedMop is true, the Status threshold chosen here will also be compared from a zero base (where 0 is current, 1 is 30 days late, 2 is 60 days late, etc).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">6</span>] (assumes the ZeroBasedMop setting is false)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineStatusMinor</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Int (1)</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Gets or sets the value which determines if an account should be considered a minor derogatory item or a major derogatory item.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This setting corresponds to the tradeline Current or Maximum Mop value. &nbsp;Accounts with Mop codes equal to or greater than the indicated value (and less than TradelineStatusMajor) will be considered Minor derogatory items.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Note that the runtime evaluation of this value is also dependent upon the <span style="font-weight: bold;">ZeroBasedMop</span> property. &nbsp;When ZeroBasedMop is true, the Status threshold chosen here will also be compared from a zero base (where 0 is current, 1 is 30 days late, 2 is 60 days late, etc).</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">2</span>]<span style="font-weight: bold;"> </span>(assumes the ZeroBasedMop setting is false, so two here means 30 days late.)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineStatusType</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#htmltradelinestatus" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#htmltradelinestatus" class="topiclink">HtmlTradeStatusDisplay</a> enumerations.</p>
+<p class="p_Normal">Gets or sets the value which controls how the tradeline status column is populated, if at all.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">Graphic</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">TradelineStyle</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><a href="_devformatenumerations.html#htmltradelinestyle" class="topiclink">Enum</a></p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">One of the <a href="_devformatenumerations.html#htmltradelinestyle" class="topiclink">HtmlTradelineStyle</a> enumerations..</p>
+<p class="p_Normal">Gets or sets the value specifying how the Tradeline section of the display will be laid out.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">Tradeline01</span>]</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:50px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:200px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">ZeroBasedMop</p>
+</td>
+<td style="vertical-align:top; width:100px; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Bool</p>
+</td>
+<td style="vertical-align:top; padding:3px; border:solid thin #c0c0c0;"><p class="p_Normal">Get or sets the value which determines if a Tradeline Manner of Payment and Payment History codes will be numbered from zero or one.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">When true, an instance of a current month would be represented as &quot;0&quot; while a 30 day late would be seen as &quot;1&quot;, a 60 day late as &quot;2&quot;, etc. &nbsp;When false, the current month would be styled as &quot;1&quot; with 30 day lates being seen as &quot;2&quot; and 60 day lates being &quot;3&quot;, etc.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Having the codes zero based allows for the explicit representation of a 180 day delinquent occurrence, as &quot;6&quot;. &nbsp;When the codes are based from one, then the value of &quot;6&quot; must stand in for either 150 or 180 days late. &nbsp;This does also affect the <span style="font-weight: bold;">TradelineStatusMajor</span> and <span style="font-weight: bold;">TradelineStatusMinor</span> options, as whatever desired cutoffs are chosen will be compared to either the zero of one based statuses.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Please refer to the <a href="com_codes_mop.html" class="topiclink">Mop Codes</a> appendix topic for a full presentation of this optional feature.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">[Defaults to <span style="font-weight: bold;">false</span>]</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

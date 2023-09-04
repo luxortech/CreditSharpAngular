@@ -1,0 +1,706 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Enumerations</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devdatamartequifaxenumerations.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_datamart.html">Datamart</a> &gt; <a href="n_luxortech_creditsharp_datamart_equifax.html">Equifax</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1" style="margin: 0px 0px 5px 0px;"><span class="f_Heading1">Equifax Enumerations</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Datamart.Equifax</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="n_luxortech_creditsharp_datamart_equifax.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="t_luxortech_creditsharp_datamart_equifax_efxtradelinedimension.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devdatamartefxscoremodels.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The <span style="font-weight: bold;">EfxSegmentId</span> table defines the possible range of values that can be seen in the DtSegmentId property of each of data classes within the Equifax Datamart namespace.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 5px 0px 5px 13px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">EfxSegmentId Member</span></p>
+</td>
+<td style="vertical-align:top; width:198px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Value</span></p>
+</td>
+<td style="vertical-align:top; width:809px; background-color:#95b3d8; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Undefined</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">0</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Address</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">1</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Advisor</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">2</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">AlertContact</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">3</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Bankruptcy</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">4</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">DataAttribute</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">5</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">DeathDate</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">6</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Collection</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">7</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ConsumerNarrative</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">8</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ConsumerReferral</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">9</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">EmailAddress</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">10</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Employment</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">11</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">FileIdentification</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">12</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Inquiry</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">13</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 50 byte Equifax 'FI' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Inquiry2</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">14</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 45 byte Equifax 'IQ' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Inquiry3</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">15</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 25 byte Equifax 'IQ' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">GeoCode</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">16</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Header</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">17</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">IdentityScan</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">18</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">LegalItem</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">19</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">OfacAlert</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">20</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">OnlineDirectory</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">21</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 534 byte Equifax 'OA' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">OnlineDirectory2</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">22</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 162 byte Equifax 'OD' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">OtherIdentification</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">23</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">OtherName</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">24</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">OtherPhone</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">25</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ScoreEdas</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">26</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">SocialSecurity</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">27</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">TaxLien</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">28</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Tradeline</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">29</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 170 byte Equifax 'PT' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Tradeline2</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">30</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 145 byte Equifax 'PT' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Tradeline3</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">31</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 150 byte Equifax 'TC' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Tradeline4</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">32</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 125 byte Equifax 'PT' segment</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Tradeline5</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">33</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">Corresponds to 400 byte Equifax 'PT' segment (Full Version 6.0)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ErrorRecord</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">34</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ScoreError</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">35</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ScoreFico</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">36</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ScoreModel</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">37</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ScoreRange</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">38</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ScoreRank</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">39</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">APFileInfo</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">40</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">APIdentityScan</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">41</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">ErrorMessage</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">42</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">APName</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">43</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">SegmentCounts</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">44</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">AlternateDataCounters</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">45</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">AlternateDataError</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">46</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">MilitaryLendingData</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">47</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">TradelineTotals</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">48</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">InquiryDetails</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">49</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">SecuredLoan</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">50</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">BankingInformation</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">51</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">OtherIncome</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">52</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Garnishment</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">53</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">Foreclosure</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">54</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">SpecialService</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">55</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">NonMemberTrade</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">56</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:235px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><span style="font-weight: bold;">IdCount</span></p>
+</td>
+<td style="vertical-align:top; width:198px; padding:3px;"><p style="margin: 0px 0px 0px 0px;">57</p>
+</td>
+<td style="vertical-align:top; width:809px; padding:3px;"><br />
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>

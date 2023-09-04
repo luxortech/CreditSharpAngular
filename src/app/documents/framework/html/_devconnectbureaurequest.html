@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>BureauRequest Class</title> 
+	<meta name="generator" content="Methuselah"/> 
+	<meta name="keywords" content=""/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=9"/> -->
+	<link type="text/css" href="default.css" rel="stylesheet"/> 
+	<link type="text/css" href="custom.css" rel="stylesheet" />
+
+	<script type="text/javascript"> 
+	<!-- 
+	        // non-scrolling header functions (doResize & nsrInit)
+		function doResize() { 
+			var clheight, headheight; 
+			if (self.innerHeight) 
+				// all except Explorer 
+				{ clheight = self.innerHeight; } 
+			else if (document.documentElement && document.documentElement.clientHeight) 
+				// Explorer 6 Strict Mode 
+				{ clheight = document.documentElement.clientHeight; } 
+			else if (document.body) 
+				// other Explorers 
+				{ clheight = document.body.clientHeight; } 
+
+			headheight = document.getElementById('idheader').clientHeight;
+			if (clheight < headheight ) 
+				{clheight = headheight + 1;}
+
+			document.getElementById('idcontent').style.height = clheight - document.getElementById('idheader').clientHeight +'px'; 
+		} 
+
+		function nsrInit() { 
+			contentbody = document.getElementById('idcontent'); 
+			if (contentbody) { 
+				contentbody.className = 'nonscroll'; 
+				document.getElementsByTagName('body')[0].className = 'nonscroll'; 
+				document.getElementsByTagName('html')[0].className = 'nonscroll'; 
+				window.onresize = doResize; 
+				doResize(); 
+			} 
+		}
+                
+                // script for manually-coded expanding sections
+                function doExpand(paraNum, imageNum) {
+	                if (paraNum.style.display=="none") 
+	                        {paraNum.style.display=""; imageNum.src="minus.gif"}
+                        else {paraNum.style.display="none"; imageNum.src="plus.gif"}
+                } 
+  
+                function openCity(evt, link, cityName) {
+                         var i, tabcontent, tablinks;
+                         tabcontent = getElementsByRegExp(document, "tabcontent");
+                         for (i = 0; i < tabcontent.length; i++) {
+                             tabcontent[i].style.display = "none";
+                         }
+                             
+                         tablinks = getElementsByRegExp(document, "tablinks");
+                         for (i = 0; i < tablinks.length; i++) {
+                             tablinks[i].className = tablinks[i].className.replace(" active", "");
+                         }
+                         document.getElementById(cityName).style.display = "block";
+                         link.className += " active";
+                }
+
+                function getElementsByRegExp(root, classNameString) 
+                {
+                         var arr = [],
+                         rx = new RegExp('(^|[ \n\r\t\f])' + classNameString + '([ \n\r\t\f]|$)'),
+                         elements = root.getElementsByTagName("*");
+
+                         var elem;
+
+                         for (i=0 ; i < elements.length ; i++) {
+                             elem = elements[i];
+                             if (rx.test(elem.className)) {
+                                arr.push(elem);
+                             }
+                         }
+                         return arr;
+                }
+
+	-->
+	</script> 
+        <style type="text/css">
+               a.topiclink { color: blue; text-decoration: none; }
+               a.topiclink:visited { color: blue; text-decoration: none; }
+               a.topiclink:hover { color: red; text-decoration: underline; }
+               a.topiclink:active { color: blue; text-decoration: none; }
+               span#bcrumbs a { color: blue; text-decoration: none; }
+               span#bcrumbs a:visited { color: blue; text-decoration: none; }
+               span#bcrumbs a:hover { color: red; text-decoration: underline; }
+               
+               ul.tab {
+                      list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;
+               }
+
+               /* Float the list items side by side */
+               ul.tab li {float: left;}
+
+               /* Style the links inside the list items */
+               ul.tab li a {
+                  display: inline-block;
+                  color: black;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  transition: 0.3s;
+                  font-size: 17px;
+               }
+
+               /* Change background color of links on hover */
+               ul.tab li a:hover {background-color: #ddd;}
+
+               /* Create an active/current tablink class */
+               ul.tab li a:focus, .active {background-color: #ccc;}
+
+               /* Style the tab content */
+               .tabcontent {
+                   display: none;
+                   padding: 6px 12px;
+                   border: 1px solid #ccc;
+                   border-top: none;
+               }    
+               table.TblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.TblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBot td { border-bottom: 1px solid #c0c0c0; }
+               table.FTblHdrBotBlue td { border-bottom: 1px solid #c0c0c0; }
+               .TblBot { width: 100%; }
+               .TblBrd { width: 100%; }
+               .TblHdr { width: 100%; }
+               .TblHdrBrd { width: 100%; }
+               .TblHdrBrdBlue { width: 100%; }
+               .TblHdrBot { width: 100%; }
+               .TblHdrBotBlue { width: 100%; }
+        </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "_devconnectbureaurequest.html");
+   </script>
+   <script type="text/javascript" src="highlight.js"></script>
+   <script type="text/javascript">
+     $(document).ready(function(){highlight();});
+   </script>
+</head> 
+
+<body> 
+	
+		<div id="idheader">
+			<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#95b3d8">
+				<tr valign="middle">
+					<td align="left">
+						
+                                                        <span id="bcrumbs" style="font-size: 8pt; margin-bottom: 15px">
+							<p>Navigation: <a href="_devdeveloperresource.html">Developer Resource</a> &gt; <a href="_devcreditsharpnamespaces.html">CreditSharp Namespaces</a> &gt; <a href="n_luxortech_creditsharp_connect.html">Connect</a> &gt; <a href="connectclasses.html">Core Classes and Enumerations</a> &gt;</p>
+                                                        </span>
+						
+						<h1 class="p_Heading1"><span class="f_Heading1">&nbsp;</span></h1>
+<h1 class="p_Heading1"><span class="f_Heading1">BureauRequest Class</span></h1>
+<p class="p_Normal">&nbsp;</p>
+<p style="margin: 0px 0px 0px 0px;"><span style="font-family: Arial,Helvetica,sans-serif;">Namespace: LuxorTech.CreditSharp.Connect</span></p>
+
+					</td>
+					<td align="right">
+						<span style="font-size: 9pt">
+							<a href="connectclasses.html"
+                                                                onmouseover="document.images.home.src='button_main_h.gif'" 
+                                                                onmouseout="document.images.home.src='button_main.gif'"
+                                                                onmousedown="document.images.home.src='button_main_d.gif'">
+								<img name="home" src="button_main.gif" border="0" title="Return to chapter overview"/>
+							</a>&nbsp;
+							
+								<a href="_devconnectenumerations.html"
+								        onmouseover="document.images.prev.src='button_prev_h.gif'" 
+                                                                        onmouseout="document.images.prev.src='button_prev.gif'"
+                                                                        onmousedown="document.images.prev.src='button_prev_d.gif'">
+									<img name="prev" src="button_prev.gif" border="0" title="Previous Page"/>
+								</a>&nbsp;
+							
+							
+								<a href="_devconnectbureauservice.html"
+								        onmouseover="document.images.next.src='button_next_h.gif'" 
+                                                                        onmouseout="document.images.next.src='button_next.gif'"
+                                                                        onmousedown="document.images.next.src='button_next_d.gif'">
+									<img name="next" src="button_next.gif" border="0" title="Next page"/>
+								</a>
+							
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	 
+
+	<!-- Placeholder for topic body. -->
+
+	<div id="idcontent">
+		<div id="innerdiv" style="padding: 15px;"> 
+			<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The BureauRequest type is an abstract base class which defines the generic properties and methods for requesting credit bureau data. &nbsp;Each of the three bureau specific types for submitting a inquiry (<a href="t_luxortech_creditsharp_connect_equifaxrequest.html" class="topiclink">EquifaxRequest</a>, <a href="t_luxortech_creditsharp_connect_experianrequest.html" class="topiclink">ExperianRequest</a>, and <a href="t_luxortech_creditsharp_connect_transunionrequest.html" class="topiclink">TransUnionRequest</a>) are derived from this class, which can be convenient when trying to consolidate code by upcasting the bureau specific object to the more generic base type.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">An extensive example of this functionality can be found in the <a href="_examstreamlining-code.html" class="topiclink">Streamlining Code</a> topic.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">The references below outline the members and features that can be accessed through this generic base class. &nbsp;As there is no public constructor for this class, it can only be used as a target for upcasting and streamlining bureau processing, as shown in the linked example.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">This base class includes properties for parameters that can each be found within all bureaus' input profiles. &nbsp;However, this does not mean they share the same range of values. All of these properties employ values unique to each bureau, except for ContractAmount, IsJointRequest, PermissiblePurposeUser and ReferenceNumber.</p>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 5px 5px;"><table class="TblHdrBotBlue" style="background-color:#dddddd; border:none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:184px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Name</p>
+</td>
+<td style="vertical-align:top; width:969px; background-color:#95b3d8; padding:3px;"><p class="p_Normal">Description</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:top; background-color:#c0c0c0; padding:3px;"><p class="p_Normal">Methods</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">GetInquiry</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Return the fully enveloped inquiry string that would be submitted to the active credit bureau.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">GetTextInquiry</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Return just the text portion of the inquiry string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">GetXxmlInquiry</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Return just the xml portion of the inquiry string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p style="margin: 0px 0px 0px 0px;"><img alt="Public method" title="Public method" width="16" height="11" style="margin:0;width:16px;height:11px;border:none" src="pubmethod.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">RequestProduct</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Submit the request to the credit bureau and wait for the response data.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td colspan="3" style="vertical-align:top; background-color:#c0c0c0; padding:3px;"><p class="p_Normal">Properties</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">AccountTerms</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the terms that would apply given a credit approval resulting from this transaction.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">AccountType</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the type of account opening that is being considered for applicant(s).</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">ContractAmount</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Amount of credit contract (ie: loan amount) that would apply given a credit approval resulting from this transaction.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">DecorateInquiry</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets a value to be used for beautifying an Xml or Json inquiry string.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">FrozenFileSpousePIN</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the unique code that can unlock the secondary applicant's frozen file.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">FrozenFileSubjectPIN</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the unique code that can unlock the primary applicant's frozen file.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">IsJointRequest</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the flag indicating whether the current request is individual or joint (involves two applicant's)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">PermissiblePurposeUser</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the value the end user of the credit bureau response.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">ReferenceNumber</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets a value that can be used to match a bureau response to an application.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">SubscriberCode</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the bureau assigned customer number which identifies who is issuing the request.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">SubscriberPassword</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the bureau assigned password associated with a given customer number. </p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">TrimOversizedInputs</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the value indicating if input values that exceed a particular bureau's maximum length should be automatically truncated to fit within the maximum length.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">VendorNumber</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal"> Gets or sets a bureau assigned value indicating which vendor is facilitating the transaction.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">VendorVersion</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the software version of the vendor system initiating the request.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">VendorProduct</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the name of the software package provided by the vendor.</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td style="vertical-align:top; width:89px; padding:3px;"><p class="p_Normal"><img alt="Public property" title="Public property" width="16" height="16" style="margin:0;width:16px;height:16px;border:none" src="pubproperty.gif"/></p>
+</td>
+<td style="vertical-align:top; width:184px; padding:3px;"><p class="p_Normal">VendorName</p>
+</td>
+<td style="vertical-align:top; width:969px; padding:3px;"><p class="p_Normal">Gets or sets the name of the vendor facilitating the transaction.</p>
+</td>
+</tr>
+</table>
+</div>
+ 
+		</div>
+	</div> 
+
+	
+		<script type="text/javascript"> 
+		<!-- 
+			var lastSlashPos = document.URL.lastIndexOf("/") >
+			document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+			if( document.URL.substring( lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+			{
+				nsrInit();
+			}
+		 --> 
+		 </script>
+	 
+
+</body>
+</html>
