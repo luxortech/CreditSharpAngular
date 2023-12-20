@@ -5,9 +5,10 @@
  
  <div fxHide.lt-md="true" fxShow.gt-sm="true">   
     <mat-toolbar   style="background-color:white; padding-left:0;"  color="primary"> 
-        <img src="/assets/images/CreditSharpLogo.png">   
+        <img src="/assets/images/CreditSharpLogo.png">  
+        <div class="pt-3">
             <a mat-button class="menu-text" routerLink="/home"> 
-                <mat-icon>home</mat-icon>
+                <mat-icon>home</mat-icon> 
                 <span style="display:block">Home</span>
             </a>
             <a mat-button class="menu-text" routerLink="/documentation">
@@ -18,11 +19,11 @@
                 <mat-icon>list</mat-icon>
                 <span style="display:block">Releases</span>
             </a>
-            <a mat-button class="menu-text" routerLink="/mydownloads">
+            <a *ngIf="csWebService.currentAuth.isLoggedIn === true" mat-button class="menu-text" routerLink="/mydownloads">
                 <mat-icon>list</mat-icon>
                 <span style="display:block">My Downloads</span>
             </a>
-            <a mat-button class="menu-text" routerLink="/myprofile">
+            <a *ngIf="csWebService.currentAuth.isLoggedIn === true" mat-button class="menu-text" routerLink="/myprofile">
                 <mat-icon>person</mat-icon>
                 <span style="display:block">My Profile</span>
             </a>
@@ -34,25 +35,23 @@
                 <mat-icon>people outline</mat-icon>
                 <span style="display:block">About</span>
             </a>
-            <a *ngIf="csWebService.currentAuth.isLoggedIn==false" mat-button class="menu-text" routerLink="/login">
-                <mat-icon>lock</mat-icon>
-                <span style="display:block">Login</span>
-            </a>
-             
-            <a *ngIf="csWebService.currentAuth.isLoggedIn === true" (click) = "logOff()"  mat-button class="menu-text" routerLink="">
-                <mat-icon>lock_open</mat-icon>
-                <span style="display:block">Logout</span>
-            </a> 
-             
-        
             <a *ngIf="csWebService.currentAuth.isLoggedIn === true" mat-button class="menu-text" routerLink="/administration">
                 <mat-icon>settings</mat-icon>
                 <span style="display:block">Administration</span>
-            </a>  
+            </a> 
+            <a *ngIf="csWebService.currentAuth.isLoggedIn==false" mat-button class="menu-text" routerLink="/login">
+                <mat-icon>lock</mat-icon>
+                <span style="display:block">Login</span>
+            </a>             
+            <a *ngIf="csWebService.currentAuth.isLoggedIn === true" (click) = "logOff()"  mat-button class="menu-text" routerLink="">
+                <mat-icon>lock_open</mat-icon>
+                <span style="display:block">Logout</span>
+            </a>
+        </div> 
     </mat-toolbar>
 </div>
 
-<div fxHide.lt-md="false" fxShow.gt-sm="false">
+<div fxHide.lt-md="false" fxShow.gt-sm="false"> 
     <div >    
         <div class="row justify-content-end">
             <div class="col col-10">

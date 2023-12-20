@@ -48,7 +48,8 @@ export class CswReleasesComponent implements OnInit {
   }
 
   listProducts() : void {
-    this.csWebService.listProducts(this.async, (id: number) => {
+    const isPublic = true;
+    this.csWebService.listProducts(this.async,isPublic, (id: number) => {
     this.productId                = id;
     this.searchDownloadRequest    = new CsDownloadSearch();
     this.searchDownloadRequest.id = this.productId;

@@ -1,0 +1,234 @@
+<div class="row">
+    <div class="col-12">
+        <app-cswadmin-upload
+            [(show)]        = "showUpload" 
+            (callback)      = "uploadCallback($event)"
+            [downloadTitle] = "uploadDownloadTitle"
+            [productTitle]  = "uploadProductTitle"
+            [productId]     = "productId"
+            [downloadId]    = "download.id"
+    
+        ></app-cswadmin-upload> 
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <app-cswadmin-notifty-customers
+            [(show)]        = "showNotifications"
+            [productId]     = "productId"
+            [productTitle]  = "title"
+            [download]      = "download"
+        >
+        </app-cswadmin-notifty-customers>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <app-cwsadmin-products-add 
+            [(show)]            = "showAdd"
+            (productCallBack)   = "productSelected($event)"      
+            >
+        </app-cwsadmin-products-add>
+
+        <app-csconfirm
+            [title]     = "'Confirm Delete'"
+            [message]   = "confirmDeleteMessage"
+            [(show)]    = "showDelete"
+            (callBack)  = "deleteProduct()"
+        >
+        </app-csconfirm>
+
+        <app-csconfirm
+            [title]     = "'Confirm Download Delete'"
+            [message]   = "confirmDownloadDeleteMessage"
+            [(show)]    = "showDownloadDelete"
+            (callBack)  = "deleteDownload()"
+        >
+        </app-csconfirm>
+    </div>
+</div>
+<div class="row mt-1 p-3">
+    <div class="col-12 p-3 border border-1 rounded">
+        <div class="row">
+            <div class="col-4">
+                <div class="input-group mb-2">
+                    <select (ngModelChange)  ="productSelected($event)" class="form-select" [(ngModel)]="productId">
+                        <option *ngFor="let p of csWebService.productList; let idx = index"
+                         [ngValue]="p.id">{{p.title}}</option>
+                      </select>                      
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="input-group">
+                    <button (click) = "saveProduct()" type="button" class="btn btn-primary" [title]="saveProductName">
+                        <div class="inline-block text-truncate" style="max-width:200px;" [innerHTML]="saveProductName"></div>
+                    </button> 
+
+                    <button (click) = "showAddNew()" type="button" class="btn btn-outline-secondary" >
+                        Add New Product
+                    </button>
+                   
+                    <button (click) = "onDeleteClick()" type="button" class="btn btn-outline-secondary" [title]="deleteProductName">
+                        <div class="inline-block text-truncate" style="max-width:200px;" [innerHTML]="deleteProductName"></div>
+                    </button> 
+                </div>
+            </div>  
+        </div> 
+
+        <div class="row">
+            <div class="col-4"><div class="lead pt-2 inline-block">Product Name</div></div><div class="col-8"><input class="form-control" (ngModelChange)="productNameChanged($event)" type="text" [(ngModel)]="title"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><div class="lead pt-2 inline-block">Code</div></div><div class="col-8"><input class="form-control" type="text" [(ngModel)]="code"></div>
+        </div>
+        <div class="row">
+            <div class="col-4 pt-1"><div class="lead inline-block">Include in Public Search</div></div>
+            <div class="col-8">
+                <mat-checkbox color = "primary" class="form-control pt-0 pb-0 ps-0" [(ngModel)] = "includeInPublicSearch"></mat-checkbox>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div class="row mt-1 p-3">
+    <div class="col-12 p-3 border border-1 rounded">
+        <div class="row">
+            <div class="col-2">
+                <div class="display-6 fs-4">Downloads</div>  
+            </div>
+            <div class="col-2 text-end">
+                <button (click) = "onAddDownloadClicked()" class="btn btn-primary">Add Download</button>
+            </div>
+            <div class="col-8 text-end">
+                <button (click) = "onDeleteDownloadClicked()" 
+                    class="btn btn-primary" style="width:150px; margin-right:5px;">Delete
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            <div class="col-4">
+                <div *ngIf="downloads.length == 0" class="alert alert-secondary text-center" role="alert">No downloads available</div>
+                <ul *ngIf="downloads.length > 0" class="list-group" style="height:50vh; overflow-y:auto;">  
+                    <li *ngFor ="let download of downloads" class="list-group-item"  
+                        [ngClass]="getDownloadSelected(download.id)"
+                        (click) = "setDownloadSelected(download)"                        
+                        >
+
+                        <div class="row" *ngIf="download.isEval === true">
+                            <div class="col-12 text-center">
+                                <span class="display-12" [innerHTML]="'EVALUATION DOWNLOAD VERSION'"></span>
+                            </div>
+                        </div>
+
+                        <div class="row  border-bottom border-secondary">
+                            <div class="col-9 secondary">
+                                <span class="display-3 fs-6" [innerHTML]="download.title"></span>
+                            </div>
+                            <div class="col-3 secondary text-end">
+                                <span class="display-3 fs-6" [innerHTML]="download.version"></span>
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="display-3 fs-6" [innerHTML]="'Created/Modified'"></span>
+                            </div>
+                            <div class="col-9 text-end">
+                                <span class="display-3 fs-6" [innerHTML]="download.date | date: 'medium'"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-9">
+                                <span class="display-3 fs-6" [innerHTML]="download.fileName"></span>
+                            </div>
+                            <div class="col-3 text-end">
+                                <span class="display-3 fs-6" [innerHTML]="download.fileSize | number"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div *ngIf="download.id !== 0" class="col-8 p-3 border border-1 rounded">                 
+                <div class="row mt-1">
+                    <div class="col-2">
+                        <span class="lead pt-2">File Name</span>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" class="form-control" [(ngModel)] = "download.fileName">
+                    </div>
+                    <div class="col-3 text-end">
+                        <button (click) = "onSaveDownloadClick()" class="btn btn-primary" style="width:150px;">Save</button>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-2">
+                        <span class="lead pt-2">Is Evalation</span>
+                    </div>
+                    <div class="col-7">
+                        <span class="form-control" [innerHTML]="download.isEval"></span> 
+                    </div> 
+                    <div  class="col-3 text-end">
+                        <button *ngIf = "download.isEval === false" (click) = "setProductEval()" class="btn btn-outline-secondary" style="width:150px;">Set as Eval</button>
+                        <button *ngIf = "download.isEval === true" (click) = "unSetProductEval()" class="btn btn-outline-secondary" style="width:150px;">UnSet as Eval</button>
+                    </div>                  
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-2">
+                        <span class="lead pt-2">Version</span>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" class="form-control" [(ngModel)] = "download.version">
+                    </div>  
+                    <div class="col-3 text-end">
+                        <button (click) = "showUploadModal()" class="btn btn-outline-secondary" [ngClass] = "showUploadActive()" style="width:150px;">Upload File</button>
+                    </div>                  
+                </div>
+
+                
+
+                <div class="row mt-1">
+                    <div class="col-2">
+                        <span class="lead pt-2">Date</span>
+                    </div>
+                    <div class="col-7">
+                        <span class="form-control" [innerHTML]="download.date | date : 'medium'"></span> 
+                    </div>
+                    <div class="col-3 text-end">
+                        <button (click) = "onShowNotifications()"
+                        [title] = "notificationTooltip"
+                         class="btn btn-outline-secondary" [ngClass] = "showNotificationsActive()" style="width:150px;">Notifications</button>
+                    </div>                  
+                </div>   
+
+
+                <div class="row mt-1">
+                    <div class="col-2">
+                        <span class="lead pt-2">File Size</span>
+                    </div>
+                    <div class="col-7">
+                        <span class="form-control" [innerHTML]="download.fileSize | number"></span> 
+                    </div>
+                    <div class="col-3 text-end">
+                        <button (click) = "toggleDownloadDescription()"                        
+                            class="btn btn-outline-secondary"  [ngClass] = "showHideReleaseNotesActive()" style="width:150px;"><span [innerHtml] = "showHideReleaseNotesMessage()"></span>
+                       </button>                        
+                    </div> 
+                </div>
+                <div *ngIf="showDownloadDescription" class="row mt-1"> 
+                    <div class="col-12">
+                        <textarea rows="10" class="form-control bg-light bg-gradient" [(ngModel)] = "download.description"></textarea>
+                    </div> 
+                </div>                
+            </div>
+        </div>             
+    </div>
+</div>

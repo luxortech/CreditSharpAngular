@@ -1,7 +1,10 @@
 <div class="container">
     <div class="row">
-        <div class="col display-6  mt-3">
+        <div class="col-3 display-6  mt-3">
             My Downloads
+        </div>
+        <div class="col-9 mt-3 justify-start">
+            <app-csasync [async] ="async" ></app-csasync>
         </div>
     </div>
 
@@ -9,32 +12,47 @@
         <div class="col  mt-3">
             <div class="col-12 table.responsive" style="max-height:70vh; overflow: auto;"> 
                 <table class="table w-100% p-3"> 
-                <thead>
-                    <td>Version</td>
-                    <td>Date</td>
-                    <td>Product</td>
-                    <td>File Name</td>
-                    <td>Size</td> 
+                <thead class="leftPad">
+                    <th>Version</th>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>File Name</th>
+                    <th>Size</th> 
                 </thead>
                 <tbody>
                     <ng-container  *ngFor="let d of csService.myDownloadsLists; let idx = index;"> 
-                        <tr>
+                        <tr class="noLeftPad">
                             <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = d.version></span></td> 
                             <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "d.date | date: 'medium'"></span></td>
                             <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "d.title"></span></td>
                             <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span [innerHTML] = "d.fileName"></span></td>
                             <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><span class="float-end" [innerHTML] = "formatSize(d.fileSize)"></span></td>
-                            <td style="text-align: right;"><button class="btn btn-secondary" (click) = "d.show = !d.show"><span [innerText] = "(d.show) ? 'Hide Details' : 'Show Details'"></span></button></td>
+                            <td [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><button type="button" class="btn btn-outline-secondary">Download</button></td> 
+                            <td style="text-align: right;" [ngStyle] = "{'background-color': (idx % 2 == 0) ? '#efefef' : '#ffffff'}"><button class="btn btn-secondary" (click) = "d.show = !d.show"><span [innerText] = "(d.show) ? 'Hide Details' : 'Show Details'"></span></button></td>
+                        </tr>
+                        <tr *ngIf="d.show === true && d.licenseKey !== ''">
+                            <td colspan="7">
+                                <div class="row">
+                                    <div class="col">
+                                        <div style="border: 1px solid #cccccc; border-radius: 10px; margin:15px; padding:10px;">
+                                            <span></span>License Key:
+                                            <span [innerHTML]="d.licenseKey"></span>
+                                        </div>                                        
+                                    </div>
+                                    <div class="col">
+                                        <div style="border: 1px solid #cccccc; border-radius: 10px; margin:15px; padding:10px;">
+                                            <span [innerHTML] = "d.licenseKeyExpiration"></span>
+                                        </div>                                        
+                                    </div>
+                                </div> 
+                            </td>
                         </tr>
                         <tr *ngIf="d.show === true">
-                            <td colspan="3">
+                            <td colspan="7">
                                 <div style="border: 1px solid #cccccc; border-radius: 10px; margin:15px; padding:10px;">
                                     <span  [innerText] = d.description></span>
                                 </div>                                
                             </td> 
-                            <td>
-                                &nbsp;
-                            </td>
                         </tr>
                     </ng-container>        
                 </tbody>

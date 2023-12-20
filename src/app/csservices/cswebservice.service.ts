@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http'; 
 import {Router} from "@angular/router"
-import {CsProduct, Cswdocviewitem} from '../csclasses/csdata';
+import {CsCustomer, CsDownloadWithImage, CsProduct, CsProfile, CsSetEvalRequest, Cswdocviewitem} from '../csclasses/csdata';
 import {
     CsDownload,
     CsDownloadSearch
@@ -54,6 +54,9 @@ export class CsWebServiceService {
   public downloadsLists   : Array<CsDownload> = new Array<CsDownload>();
   public productList      : Array<CsProduct>  = new Array<CsProduct>();
   public myDownloadsLists : Array<CsDownload> = new Array<CsDownload>();
+  public customerList     : Array<CsCustomer> = new Array<CsCustomer>();
+  public myProfile        : CsProfile         = new CsProfile();
+  public currentProduct   : CsProduct         = new CsProduct();
 
 
 
@@ -70,7 +73,9 @@ export class CsWebServiceService {
     
   };
   
- 
+  DeepCopy(InArray: object) {
+    return JSON.parse(JSON.stringify(InArray));
+  }
 
   /******************************** */
   /// Documentation Functions
@@ -206,7 +211,10 @@ export class CsWebServiceService {
         async.inProgress = false; 
         async.success = true;
         async.message = "";
-        callbackFunction();
+        if (callbackFunction) {
+          callbackFunction();
+        }
+
       } else {
         async.inProgress = false; 
         async.success = false;
@@ -240,13 +248,56 @@ export class CsWebServiceService {
   }
 
   /******************************** */
+  /// Profile
+  /******************************** */
+
+  loadProfile(async: csAsync, callback :any ) {
+    async.inProgress = true;
+    async.message = "Loading my profile...";    
+    var resp: csResp ;
+    var url = this.creditsharp_api_url + "/my/GetMyProfile";  
+
+    this.http.get(url,  this.httpOptions).subscribe(data => {           
+      var resp: csResp = <csResp> data;
+      var control: csControl = <csControl> resp.control;
+      this.myProfile =  resp.data as CsProfile; 
+      async.inProgress = false; 
+      async.success = true;
+      async.message = "";
+      callback();
+      },
+    );
+  }
+
+  updateProfile(async: csAsync) {
+    async.inProgress = true;
+    async.message = "Saving my profile...";    
+    var resp: csResp ;
+    var url = this.creditsharp_api_url + "/my/SaveMyProfile";  
+
+    this.http.post(url,this.myProfile, this.httpOptions).subscribe(data => {           
+      var resp: csResp = <csResp> data;
+      var control: csControl = <csControl> resp.control; 
+      async.inProgress = false;
+      async.success = control.success;
+
+      if (control.success === true) {
+        async.message = "";
+      } else { 
+        async.message = control.statusMessage;
+      }      
+      },
+    );
+  }
+
+  /******************************** */
   /// Downloads and Products
   /******************************** */
 
   searchDownloads(async: csAsync, searchParms: CsDownloadSearch) : void {
 
     async.inProgress = true;
-    async.message = "Searching downloads...";
+    async.message = "Searching releases...";
     var req = {
       id: searchParms.id,
       searchKey: searchParms.searchKey,
@@ -269,7 +320,6 @@ export class CsWebServiceService {
   }
 
   listMyDownloads(async: csAsync) : void {
-
     async.inProgress = true;
     async.message = "Loading my downloads...";    
     var resp: csResp ;
@@ -286,12 +336,29 @@ export class CsWebServiceService {
     );
   }
 
-  listProducts(async: csAsync, callback: Function) : void { 
+  listDownloadsThisProduct(async: csAsync, productId : number, title: string, callback: Function | null) : void {
+    async.inProgress = true;
+    async.message = `Loading downloads for ${title} ...`;    
+    var resp: csResp ;
+    var url = this.creditsharp_api_url + `/admin/ListDownloadsThisProduct/${productId}`;  
 
+    this.http.get(url,  this.httpOptions).subscribe(data => {           
+      var resp: csResp = <csResp> data;
+      var control: csControl = <csControl> resp.control;      
+      async.inProgress = false; 
+      async.success = true;
+      async.message = "";
+      if (callback != null)
+        callback(resp.data as Array<CsDownload>);
+      },
+    );
+  }
+
+  listProducts(async: csAsync, isPublic: boolean, callback: Function | null) : void {
     async.inProgress = true;
     async.message = "Loading products...";    
     var resp: csResp ;
-    var url = this.creditsharp_api_url + "/site/ListProducts";  
+    var url = this.creditsharp_api_url + `/site/ListProducts/${isPublic}`;  
 
     this.http.get(url,  this.httpOptions).subscribe(data => {           
       var resp: csResp = <csResp> data;
@@ -300,9 +367,292 @@ export class CsWebServiceService {
       async.inProgress = false; 
       async.success = true;
       async.message = "";
-      const id = (this.productList.length > 0) ? this.productList[0]?.id : 0;
-      callback(id);
+      const id  = (this.productList.length > 0) ? this.productList[0]?.id : 0;
+      const idx = (this.productList.length > 0) ? 0 : -1;
+      if (callback != null) {
+        callback(id,idx);
+      }        
       },
     );
   }
+
+  saveProduct(async: csAsync,product :CsProduct, callback :any ) {
+    async.inProgress = true;
+    async.message = `Saving ${product.title} ...`;    
+    var resp: csResp ;
+    var url = this.creditsharp_api_url + "/admin/SaveProduct";  
+
+    this.http.post(url,product,  this.httpOptions).subscribe(data => {           
+      var resp: csResp = <csResp> data;
+      var control: csControl = <csControl> resp.control; 
+      async.inProgress = false; 
+      async.success = true;
+      async.message = "";
+      if (control.success === true) {
+        callback(resp.data as CsProfile);
+      }      
+      },
+    );
+  }
+
+
+  setProductEval(async: csAsync,productId : number, productName: string, evaluationId: number, downloadName: string, callback :any ) {
+    async.inProgress = true;
+    async.message = `Setting  ${downloadName} as evaluation download for ${productName}...`;    
+    var resp: csResp ;
+    var request = new  CsSetEvalRequest();
+    request.productId = productId;
+    request.evaluationId = evaluationId;
+
+    var url = this.creditsharp_api_url + `/admin/SetProductEval`;  
+
+    this.http.post(url, request,  this.httpOptions).subscribe(data => {           
+      var resp: csResp = <csResp> data;
+      var control: csControl = <csControl> resp.control; 
+      async.inProgress = false; 
+      async.success = true;
+      async.message = "";
+      if (control.success === true) {
+        callback();
+      }      
+      },
+    );
+  }
+
+
+
+
+
+  checkDeleteProduct(async: csAsync, productId: number, callback: any) {
+    async.inProgress = true;
+    async.message = "Checking product delete...";    
+    var resp: csResp ;
+    var url = this.creditsharp_api_url + `/admin/CheckDeleteProduct/${productId}`;  
+
+    this.http.get(url,  this.httpOptions).subscribe(data => {           
+      var resp: csResp = <csResp> data;  
+      async.inProgress = false; 
+      async.success = true;
+      async.message = ""; 
+      if (callback != null) {
+        callback(resp.data);
+      }        
+      },
+    );
+  }
+
+  deleteProduct(async: csAsync, productId: number, title: string, callback: any) {
+    async.inProgress = true;
+    async.message = `Deleting ${title} ...`;    
+    var resp: csResp ;
+    var url = this.creditsharp_api_url + `/admin/DeleteProduct/${productId}`;  
+
+    this.http.delete(url,  this.httpOptions).subscribe(data => {           
+      var resp: csResp = <csResp> data;  
+      async.inProgress = false; 
+      async.success = true;
+      async.message = ""; 
+      if (callback != null) {
+        callback(resp.data);
+      }        
+      },
+    );
+  }
+
+uploadDownload(async: csAsync, downloadId : number, title: string, productId: number, fileName: string, image : string, callback: any) {
+  const request = new CsDownloadWithImage();
+  request.id        = downloadId;
+  request.productId = productId;
+  request.fileName  = fileName;
+  request.image     = btoa(image);  
+  async.inProgress = true;
+  async.message = `Saving ${fileName} to database ...`; 
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/UploadDownload`;  
+
+  this.http.post(url, request, this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;  
+    async.inProgress = false; 
+    async.success = true;
+    async.message = ""; 
+    if (callback != null) {
+      callback(resp.data);
+    }        
+    },
+  ); 
+}
+
+saveDownload(async: csAsync, download:  CsDownload , callback: any) {
+  async.inProgress = true;
+  async.message = `Saving ${download.title} ...`;    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/SaveDownload`;  
+
+  this.http.post(url, download, this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;  
+    async.inProgress = false; 
+    async.success = true;
+    async.message = ""; 
+    if (callback != null) {
+      callback(resp.data);
+    }        
+    },
+  );
+}
+
+deleteDownload(async: csAsync, downloadId: number, title: string, callback: any) {
+  async.inProgress = true;
+  async.message = `Deleting ${title} ...`;    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/DeleteDownload/${downloadId}`;  
+
+  this.http.delete(url,  this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;  
+    async.inProgress = false; 
+    async.success = true;
+    async.message = ""; 
+    if (callback != null) {
+      callback(resp.data);
+    }        
+    },
+  );
+}
+
+checkDeleteDownload(async: csAsync, downloadId: number, callback: any) {
+  async.inProgress = true;
+  async.message = "Checking download delete...";    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/CheckDeleteDownload/${downloadId}`;  
+
+  this.http.get(url,  this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;  
+    async.inProgress = false; 
+    async.success = true;
+    async.message = ""; 
+    if (callback != null) {
+      callback(resp.data);
+    }        
+    },
+  );
+}
+
+
+
+listCustomers(async: csAsync, callback: Function | null) : void {
+  async.inProgress = true;
+  async.message = "Loading customers...";    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/ListCustomers`;  
+
+  this.http.get(url,  this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;
+    var control: csControl = <csControl> resp.control;
+    this.customerList = <Array<CsCustomer>> resp.data; 
+    async.inProgress = false; 
+    async.success = true;
+    async.message = "";
+    const id  = (this.customerList.length > 0) ? this.customerList[0]?.id : 0;
+    const idx = (this.customerList.length > 0) ? 0 : -1;
+    if (callback != null) {
+      callback(id,idx);
+    }        
+    },
+  );
+}
+
+saveCustomer(async: csAsync,customer :CsCustomer, callback :any ) {
+  async.inProgress = true;
+  async.message = `Saving ${ customer.name} ...`;    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + "/admin/SaveCustomer";  
+
+  this.http.post(url,customer,  this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;
+    var control: csControl = <csControl> resp.control; 
+    async.inProgress = false; 
+    async.success = true;
+    async.message = "";
+    if (control.success === true) {
+      callback(resp.data as CsCustomer);
+    }      
+    },
+  );
+}
+
+
+
+
+listCustomersToNotify(async: csAsync, productId: number, callback: any) {
+  async.inProgress = true;
+  async.message = "Listing customers for notification...";    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/ListCustomersToNotify/${productId}`;  
+
+  this.http.get(url,  this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;  
+    async.inProgress = false; 
+    async.success = true;
+    async.message = ""; 
+    if (callback != null) {
+      callback(resp.data);
+    }        
+    },
+  );
+}
+
+listUsersThisCustomer(async: csAsync, customerId: number, callback: any) {
+  async.inProgress = true;
+  async.message = "Listing customers for notification...";    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/ListUsersThisCustomer/${customerId}`;  
+
+  this.http.get(url,  this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;  
+    async.inProgress = false; 
+    async.success = true;
+    async.message = ""; 
+    if (callback != null) {
+      callback(resp.data);
+    }        
+    },
+  );
+}
+
+saveUser(async: csAsync,user :CsProfile, customerId : number, callback :any ) {
+  async.inProgress = true;
+  async.message = `Saving ${ user.name} ...`;    
+  var resp: csResp ;
+  var url = this.creditsharp_api_url + `/admin/SaveUser/${customerId}`;  
+
+  this.http.post(url,user,  this.httpOptions).subscribe(data => {           
+    var resp: csResp = <csResp> data;
+    var control: csControl = <csControl> resp.control; 
+    async.inProgress = false; 
+    async.success = true;
+    async.message = "";
+    if (control.success === true) {
+      callback(resp.data as CsCustomer);
+    }      
+    },
+  );
+}
+
+// anyToByteArray(anyData : string) {
+//   // let raw       = anyData;
+//   // let rawLength = raw.length;
+//   let array     = new Uint8Array(anyData.length);
+ 
+
+//   for (let s of anyData) {
+  
+//   }
+//   for(let i = 0; i < anyData.length; i++) {
+//     array.at(i) = anyData.at(i) as Number;
+//   }
+//   return array;
+// }
+
+
+
+  
 }

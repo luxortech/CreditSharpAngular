@@ -1,0 +1,43 @@
+<div *ngIf="show"> 
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div  class="modal" style="display:block; background-color: rgba(0,0,0,0.5);">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 800px;">
+              <div class="modal-content">
+                <div class="modal-header">                     
+                    <h5 class="modal-title text-center">Notifications</h5>                                  
+                    <button (click) = "closeModal()" type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>                                
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                         
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <app-csasync [async] ="async" ></app-csasync>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                         
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">                        
+                        <div class="btn-group me-2" role="group" aria-label="First group">                            
+                            <button (click) = closeModal() type="button" class="btn btn-primary">Cancel</button> 
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>                
+        </div>
+        <div class="col-2"></div>
+    </div>
+    
+</div>
+

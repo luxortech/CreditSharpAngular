@@ -1,0 +1,19 @@
+<div *ngIf="async.inProgress === true || async.success === false" 
+        style="display: inline-block; 
+            vertical-align: middle; 
+            font-family: roboto, arial;
+            font-size:18px; 
+            width:100%; 
+            padding-top: 10px;        
+            "            
+            >
+    <ng-container  *ngIf="(async.inProgress === false && async.success === false)"> 
+        <span [innerHTML]="async.message" style="color: red;"></span>
+        <span><i class="fa fa-x"></i></span>
+    </ng-container>
+
+    <ng-container  *ngIf="async.inProgress === true">
+        <span [innerHTML]="async.message"></span>
+        <i class="fa fa-spinner fa-spin"></i>
+    </ng-container>
+</div>

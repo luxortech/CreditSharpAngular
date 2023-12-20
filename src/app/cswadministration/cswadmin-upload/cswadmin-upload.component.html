@@ -1,0 +1,63 @@
+<div *ngIf="show"> 
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div  class="modal" style="display:block; background-color: rgba(0,0,0,0.5);">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 700px;">
+              <div class="modal-content">
+                <div class="modal-header">                     
+                    <h5 class="modal-title text-center">Upload File</h5>                                  
+                    <button (click) = "closeModal()" type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>                                
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12" *ngIf="fileSelected === true">
+                            <div class="row">
+                                <div class="col-3">File Name:</div>
+                                <div class="col-9"><span [innerHTML]="selectedFile.name"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">File Size:</div>
+                                <div class="col-9"><span [innerHTML]="selectedFile.size"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">Last Modified:</div>
+                                <div class="col-9"><span [innerHTML]="selectedFile.lastModifiedDate"></span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <app-csasync [async] ="async" ></app-csasync>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">                            
+                            <div class="input-group">
+                                <input (change)  ="uploadFileSelected($event)"   class="form-control" id="uploadFile" name="uploadFile" type="file" style="width: 350px;"/>
+                                <button  *ngIf="fileSelected === true" class="btn btn-primary" (click)="uploadMe()">
+                                    <span class="glyphicon   glyphicon-open iconSharpRed"></span>
+                                    Upload File
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">                        
+                        <div class="btn-group me-2" role="group" aria-label="First group">                            
+                            <button (click) = closeModal() type="button" class="btn btn-primary">Cancel</button> 
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>                
+        </div>
+        <div class="col-2"></div>
+    </div>
+    
+</div>

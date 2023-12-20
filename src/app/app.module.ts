@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,7 +22,7 @@ import { CsWebServiceService } from './csservices/cswebservice.service';
 
 
 import { TestComponent } from './test.component'; 
-
+import {MatCheckboxModule} from '@angular/material/checkbox'
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu'; 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,6 +37,7 @@ import { MatDateFormats, MAT_DATE_FORMATS , MAT_DATE_LOCALE, NativeDateAdapter, 
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
 import { MatRippleModule } from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
 
  
 import { CswfeatureComponent } from './cswfeature/cswfeature.component';
@@ -52,7 +52,23 @@ import { ProjectsComponent } from './cswdocumentation/projects/projects.componen
 import { CsfilterComponent } from './cscommon/csfilter/csfilter.component'
 import { CswmydownloadsComponent } from './cswmydownloads/cswmydownloads.component';
 import { CswmyprofileComponent } from './cswmyprofile/cswmyprofile.component';
-import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common'; 
+import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common';
+import { CsasyncComponent } from './cscommon/csasync/csasync.component';
+import { CswadminProductsComponent } from './cswadministration/cswadmin-products/cswadmin-products.component';
+import { CswadminCustomersComponent } from './cswadministration/cswadmin-customers/cswadmin-customers.component';
+import { CswadminAdministratorsComponent } from './cswadministration/cswadmin-administrators/cswadmin-administrators.component';
+import { CswadminDownloadhistoryComponent } from './cswadministration/cswadmin-downloadhistory/cswadmin-downloadhistory.component';
+import { CswadminEvaluatorhistoryComponent } from './cswadministration/cswadmin-evaluatorhistory/cswadmin-evaluatorhistory.component';
+import { CwsadminProductsAddComponent } from './cswadministration/cswadmin-products/cwsadmin-products-add/cwsadmin-products-add.component';
+import { CsconfirmComponent } from './cscommon/csconfirm/csconfirm.component';
+import { CswadminUploadComponent } from './cswadministration/cswadmin-upload/cswadmin-upload.component';
+import { CsadminNotificationsComponent } from './cswadministration/csadmin-notifications/csadmin-notifications.component';
+import { CswadminNotiftyCustomersComponent } from './cswadministration/cswadmin-notifty-customers/cswadmin-notifty-customers.component';
+import { CswadminCustomerAddComponent } from './cswadministration/cswadmin-customers/cswadmin-customer-add/cswadmin-customer-add.component';
+import { CswadminCustomerDetailsComponent } from './cswadministration/cswadmin-customers/cswadmin-customer-details/cswadmin-customer-details.component';
+import { CswadminCustomerUsersComponent } from './cswadministration/cswadmin-customers/cswadmin-customer-users/cswadmin-customer-users.component';
+import { CswadminCustomerProductsComponent } from './cswadministration/cswadmin-customers/cswadmin-customer-products/cswadmin-customer-products.component';
+import { CswadminCustomerUserAddComponent } from './cswadministration/cswadmin-customers/cswadmin-customer-users/cswadmin-customer-user-add/cswadmin-customer-user-add.component'; 
 
 // import {
 //   NgxMatDatetimePickerModule,
@@ -84,8 +100,19 @@ import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common';
     ProjectsComponent,
     CsfilterComponent, 
     CswmydownloadsComponent,
-    CswmyprofileComponent        
-  ],
+    CswmyprofileComponent,      
+    CsasyncComponent,
+   CswadminProductsComponent, 
+   CswadminCustomersComponent, 
+   CswadminAdministratorsComponent, 
+   CswadminDownloadhistoryComponent, 
+   CswadminEvaluatorhistoryComponent, 
+   CwsadminProductsAddComponent, 
+   CsconfirmComponent, 
+   CswadminUploadComponent, 
+   CsadminNotificationsComponent, 
+   CswadminNotiftyCustomersComponent, 
+   CswadminCustomerAddComponent, CswadminCustomerDetailsComponent, CswadminCustomerUsersComponent, CswadminCustomerProductsComponent, CswadminCustomerUserAddComponent],
   imports: [
    // NglModule,
     BrowserModule, 
@@ -93,6 +120,7 @@ import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common';
     AppRoutingModule,
     MatToolbarModule, 
     MatListModule,     
+    MatCheckboxModule,
     MatButtonModule,   
     MatIconModule,
     MatDividerModule,  
@@ -101,6 +129,7 @@ import { DATE_PIPE_DEFAULT_OPTIONS, DatePipe } from '@angular/common';
     MatMenuModule,
     MatFormFieldModule,  
     MatCardModule,
+    MatDialogModule,
     BrowserAnimationsModule,  
     FormsModule,    
     ReactiveFormsModule,

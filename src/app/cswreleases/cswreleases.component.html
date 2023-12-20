@@ -1,4 +1,4 @@
-<div *ngIf="async.inProgress === true || async.success === false" 
+<!-- <div *ngIf="async.inProgress === true || async.success === false" 
         style="display: inline-block;
             text-align: center; 
             vertical-align: middle; 
@@ -16,14 +16,19 @@
         <span [innerHTML]="async.message"></span>
         <i class="fa fa-spinner fa-spin"></i>
     </ng-container>
-</div>
+</div> -->
+
+
 
 
 
 <div class="container">
     <div class="row">
-        <div class="col display-6  mt-3">
+        <div class="col-3 display-6 mt-3">
             Releases
+        </div>
+        <div class="col-9 mt-3 justify-start">
+            <app-csasync [async] ="async" ></app-csasync>
         </div>
     </div>
     <div class="row">
@@ -53,7 +58,7 @@
     <div class="row">
         <div class="col-12 table.responsive" style="max-height:70vh; overflow: auto;">
             <table class="table w-100% p-3">
-                <thead>
+                <thead class="leftPad">
                     <th>Title</th>
                     <th>Version</th>
                     <th>Release Date</th>
@@ -67,14 +72,11 @@
                             <td style="text-align: right;"><button class="btn btn-secondary" (click) = "r.show = !r.show"><span [innerText] = "(r.show) ? 'Hide Details' : 'Show Details'"></span></button></td>
                         </tr>
                         <tr *ngIf="r.show === true">
-                            <td colspan="3">
+                            <td colspan="4">
                                 <div style="border: 1px solid #cccccc; border-radius: 10px; margin:15px; padding:10px;">
                                     <span  [innerText] = r.description></span>
                                 </div>                                
-                            </td> 
-                            <td>
-                                &nbsp;
-                            </td>
+                            </td>  
                         </tr>
                     </ng-container>                    
                 </tbody>

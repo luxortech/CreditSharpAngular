@@ -1,0 +1,81 @@
+<div *ngIf="show"> 
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <div  class="modal" style="display:block; background-color: rgba(0,0,0,0.5);">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 800px;">
+              <div class="modal-content">
+                <div class="modal-header">                     
+                    <h5 class="modal-title text-center">Customer Download Notifications</h5>     
+                    <button (click) = "closeModal()" type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>                                
+                </div>
+                <div class="modal-body  pt-0">
+                    <app-csasync [async] ="async" ></app-csasync>                   
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="h3" [innerHtml]="productTitle"></span> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">Version</div>
+                        <div class="col-9">
+                            <span [innerHTML]="download.version"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">Date</div>
+                        <div class="col-9">
+                            <span [innerHTML]="download.date | date : 'medium'"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">Description</div>                         
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 border-1 rounded p-3"  style="background-color: #EFEFEF;">
+                            <span  [innerHTML]="convertToHTML(download.description)"></span>
+                        </div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="col-12 h5 mt-3">Blind Receipients</div>                         
+                    </div>
+
+
+                    <div class="row">
+                         <div class="col-12" style="overflow-y: scroll; max-height: 50vh;">
+                            <table class="table fs-8">
+                                <thead>
+                                    <th><span>Notify</span></th>
+                                    <th><span>Company</span></th>
+                                    <th><span>Name</span></th>
+                                    <th><span>Email</span></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of notificationUsers">
+                                        <td><input type="checkbox" [ngModel] = "user.notifyMe"></td>
+                                        <td><span [innerHTML]="user.customerName"></span></td>
+                                        <td><span [innerHTML]="user.name"></span></td>
+                                        <td><span [innerHTML]="user.email"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>                             
+                         </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">                        
+                        <div class="btn-group me-2" role="group" aria-label="First group">                            
+                            <button (click) = closeModal() type="button" class="btn btn-primary">Cancel</button> 
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>                
+        </div>
+        <div class="col-2"></div>
+    </div>    
+</div>

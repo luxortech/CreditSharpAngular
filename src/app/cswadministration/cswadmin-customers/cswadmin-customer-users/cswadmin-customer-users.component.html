@@ -1,0 +1,82 @@
+<div>
+    <app-cswadmin-customer-user-add
+            [(show)]            = "showAdd"
+            (userCallBack)      = "userSelected($event)"
+        >
+        </app-cswadmin-customer-user-add>
+         
+
+        <app-csconfirm
+            [title]     = "'Confirm Delete'"
+            [message]   = "confirmDeleteMessage"
+            [(show)]    = "showDelete"
+            (callBack)  = "deleteUser()"
+        >
+        </app-csconfirm>    
+</div>
+
+
+<div class="row">
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <select (ngModelChange)  ="userSelected($event)" class="form-select" [(ngModel)]="currentUser.id">
+                <option *ngFor="let p of users; let idx = index"
+                [ngValue]="p.id">{{p.name}}</option>
+            </select>                      
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-12">
+                <div class="input-group">
+                    <button (click) = "saveUser()" type="button" class="btn btn-primary" [title]="saveUserName">
+                        <div class="inline-block text-truncate" style="max-width:200px;" [innerHTML]="saveUserName"></div>
+                    </button> 
+
+                    <button (click) = "showAddNew()" type="button" class="btn btn-outline-secondary">
+                        Add New User
+                    </button>
+                
+                    <button (click) = "onDeleteClick()" type="button" class="btn btn-outline-secondary" [title]="deleteUserName">
+                        <div class="inline-block text-truncate" style="max-width:200px;" [innerHTML]="deleteUserName"></div>
+                    </button> 
+                </div>
+            </div>  
+        </div>     
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4"><div class="lead pt-2 inline-block">Name</div></div><div class="col-8"><input class="form-control" (ngModelChange)="userNameChanged($event)"    type="text" [(ngModel)]="currentUser.name"></div>
+</div>
+<div class="row">
+    <div class="col-4"><div class="lead pt-2 inline-block">User Id</div></div><div class="col-8"><input class="form-control"  type="text" [(ngModel)]="currentUser.userId"></div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <div class="lead pt-2 inline-block" (click) = "currentUser.showPassword = !currentUser.showPassword">Password</div>
+    </div>
+    <div class="col-8"> 
+        <input class="form-control"  type="password"    *ngIf="currentUser.showPassword === false" [(ngModel)]="currentUser.password">
+        <input class="form-control"  type="text"        *ngIf="currentUser.showPassword === true"  [(ngModel)]="currentUser.password">    
+    </div>
+</div>
+<div class="row">
+    <div class="col-4"><div class="lead pt-2 inline-block">Notify On Updates</div></div><div class="col-8">
+        <mat-checkbox color = "primary" class="form-control pt-0 pb-0 ps-0" [(ngModel)] = "currentUser.notifyOnUpdate"></mat-checkbox> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-4"><div class="lead pt-2 inline-block">Phone</div></div><div class="col-8"><input class="form-control" type="text" [(ngModel)]="currentUser.phone"></div>
+</div>
+<div class="row">
+    <div class="col-4"><div class="lead pt-2 inline-block">Phone Extension</div></div><div class="col-8"><input class="form-control"     type="text" [(ngModel)]="currentUser.phoneExtension"></div>
+</div>
+<div class="row">
+    <div class="col-4"><div class="lead pt-2 inline-block">Fax</div></div><div class="col-8"><input class="form-control"     type="text" [(ngModel)]="currentUser.fax"></div>
+</div>
+<div class="row">
+    <div class="col-4"><div class="lead pt-2 inline-block">Email</div></div><div class="col-8"><input class="form-control"     type="text" [(ngModel)]="currentUser.email"></div>
+</div>
+
+ 

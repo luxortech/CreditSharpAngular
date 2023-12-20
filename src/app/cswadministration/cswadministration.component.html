@@ -1,4 +1,32 @@
+<div class="container">        
+    <div class="row">
+        <div class="col-3 display-6  mt-3">
+            Administration
+        </div>
+        <div class="col-9 mt-3 justify-start">
+            <app-csasync [async] ="async" ></app-csasync>
+        </div>
+    </div> 
+    
+    <div class="row">
+        <div class="col-12"> 
+            <mat-tab-group  class="header-less-tabs" [selectedIndex]="active" (selectedIndexChange)="onTabChange($event)">
+                <mat-tab label="Products and Downloads"></mat-tab>
+                <mat-tab label="Customers and Users"></mat-tab>
+                <mat-tab label="Administrators"></mat-tab>
+                <mat-tab label="Download History"></mat-tab>
+                <mat-tab label="Evaluator History"></mat-tab>             
+            </mat-tab-group>
+        </div>
+    </div>
 
-<div class="container">
-    <p>csw.administration works!</p>
+    <div class="row">
+        <div class="col-12">
+            <app-cswadmin-products          *ngIf="active === 0" [async] = "async"></app-cswadmin-products>
+            <app-cswadmin-customers         *ngIf="active === 1"></app-cswadmin-customers>
+            <app-cswadmin-administrators    *ngIf="active === 2"></app-cswadmin-administrators>
+            <app-cswadmin-downloadhistory   *ngIf="active === 3"></app-cswadmin-downloadhistory>
+            <app-cswadmin-evaluatorhistory  *ngIf="active === 4"></app-cswadmin-evaluatorhistory>
+        </div>
+    </div>
 </div>

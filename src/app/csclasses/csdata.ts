@@ -2,6 +2,7 @@ import { Title } from "@angular/platform-browser";
 
 export class CsDownload {
     id: number = 0;
+    productId: number = 0;
     version: string = "";
     date: Date = new Date();
     title: string = "";
@@ -13,7 +14,9 @@ export class CsDownload {
     expired: boolean = false;
     licenseKey: string = "";
     extensionLicenseKey : string = "";
+    licenseKeyExpiration: string = "";
     show = false;
+    isEval = false;
 }
 export class CsDownloadSearch {
     id: number = 0;
@@ -37,12 +40,57 @@ export class CsMyDownload {
     extensionLicenseKey = "";
 }
 
+export class CsDownloadWithImage extends CsMyDownload
+{
+    image : any = [];
+}
+
 export class CsProduct {    
     id = 0;
     title  = "";
     code = "";
     evaluationId = 0;
     includeInPublicSearch = false;
+}
+
+export class CsCustomer {
+    id = 0;
+    name = "";
+    address = "";
+    city = "";
+    state = "";
+    zip = "";
+    contactName = "";
+    contactEmail = "";
+    contactPhone = "";
+    contactFax = "";
+    updateNotificationEmail = "";
+    updateNotifications = false;
+    users = new Array<CsProfile>();
+    products = new Array<CsProduct>();
+}
+
+export class CsProfile {
+    id              = 0;
+    userId          = "";
+    password        = "";
+    showPassword    = false;
+    name            = "";
+    phone           = "";
+    phoneExtension  = "";
+    fax             = "";
+    email           = "";
+    notifyOnUpdate  = false;
+}
+
+export class CsNotificationProfile extends CsProfile {
+    customerName    = "";
+    notifyMe        = false;
+}
+
+export class CsSetEvalRequest {
+    productId       = 0; 
+    evaluationId    = 0; 
 }
 
 export enum docviewtype {inline, newwindow,download};
